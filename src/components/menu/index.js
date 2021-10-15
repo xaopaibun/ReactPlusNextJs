@@ -1,4 +1,4 @@
-
+import Link from "next/link";
 const Menu = () => {
   return (
     <>
@@ -11,19 +11,23 @@ const Menu = () => {
             <div className="col-xl-9">
               <ul className="menu">
                 <li className="menu__item">
-                  <a href="index.html">Trang chủ</a>
+                  <Link href="/">
+                    <a>Trang chủ</a>
+                  </Link>
                 </li>
                 <li className="menu__item">
-                  <a href="gioithieu.html">
-                    Giới thiệu
-                    <img
-                      src="./assets/icon/drop-down-icont.png"
-                      width="6px"
-                      height="4.98px"
-                      style={{ marginLeft: "3px" }}
-                      alt=""
-                    />
-                  </a>
+                  <Link href="/gioi-thieu">
+                    <a>
+                      Giới thiệu
+                      <img
+                        src="./assets/icon/drop-down-icont.png"
+                        width="6px"
+                        height="4.98px"
+                        style={{ marginLeft: "3px" }}
+                        alt=""
+                      />
+                    </a>
+                  </Link>
                 </li>
                 <li className="menu__item">
                   <a href="#">Văn hóa </a>
