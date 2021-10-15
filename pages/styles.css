@@ -1,0 +1,12 @@
+@font-face {
+  font-family: SVN-Poppins;
+  src: url(/public/assets/fonts/TTF/SVN-Poppins-Medium.ttf);
+}
+html,
+body {
+  font-family: SVN-Poppins !important;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
