@@ -33,7 +33,7 @@ const Menu = () => {
                   <a href="#">Văn hóa </a>
                 </li>
                 <li className="menu__item">
-                  <a href="#">Tuyển dụng</a>
+                <Link href="/tuyen-dung"><a>Tuyển dụng</a></Link>
                 </li>
                 <li className="menu__item">
                   <a href="#">
@@ -95,6 +95,7 @@ const Menu = () => {
           color: #0bbee7;
           text-decoration: none;
         }
+        
       `}</style>
     </>
   );

@@ -279,7 +279,7 @@ export default function Home() {
         </div>
         <div className="box-inputemail">
           <div className="container">
-            <div className="inputemail">
+          <div className="inputemail">
               <div className="input__content">
                 <p className="input__content__title">
                   Nhận ngay các thông tin mới nhất về Reactjs &amp; React Native
@@ -524,6 +524,7 @@ export default function Home() {
         .btnmore:hover span {
           color: #03a3c8;
         }
+       
         /* end css box-community */
 
         /*  start box education */

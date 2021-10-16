@@ -108,3 +108,39 @@ export const ListItem = [
   },
   
 ];
+
+
+export const ListAppliedPosition = [
+  {
+    _id: "1",
+    title: "Chuyên viên chăm sóc khách hàng",
+    loai: "full-time"
+  },
+  {
+    _id: "2",
+    title: "Lập trình viên React",
+    loai: "part-time"
+  },
+  {
+    _id: "3",
+    title: "Thực tập sinh lập trình React Native",
+    loai: "part-time"
+  },
+  {
+    _id: "4",
+    title: "Chuyên viên chăm sóc khách hàng",
+    loai: "full-time"
+  },
+  {
+    _id: "5",
+    title: "Lập trình viên React",
+    loai: "part-time"
+  },
+  {
+    _id: "6",
+    title: "Thực tập sinh lập trình React Native",
+    loai: "part-time"
+  },
+ 
+  
+];
