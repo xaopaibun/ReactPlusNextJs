@@ -1,7 +1,8 @@
-import Footer from "../../src/components/footer";
+import Footer from "../../../src/components/footer";
 import Head from "next/head";
-import Menu from "../../src/components/menu";
-import { ListExperts, ListItem } from "../../src/config";
+import Menu from "../../../src/components/menu";
+import { ListExperts, ListItem } from "../../../src/config/index";
+
 const GioiThieu = () => {
   return (
     <>
@@ -31,7 +32,7 @@ const GioiThieu = () => {
               </p>
             </div>
             <div className="introduce__right">
-              <img src="./assets/images/GioiThieu.png" alt="" />
+              <img src="../assets/images/GioiThieu.png" alt="" />
             </div>
           </div>
           <div className="box__company__scale">
@@ -40,7 +41,7 @@ const GioiThieu = () => {
                 <img
                   height="40px"
                   width="40px"
-                  src="./assets/images/member.png"
+                  src="../assets/images/member.png"
                   alt=""
                 />
               </div>
@@ -54,7 +55,7 @@ const GioiThieu = () => {
                 <img
                   height="40px"
                   width="40px"
-                  src="./assets/images/Japan.png"
+                  src="../assets/images/Japan.png"
                   alt=""
                 />
               </div>
@@ -69,7 +70,7 @@ const GioiThieu = () => {
                 <img
                   height="40px"
                   width="40px"
-                  src="./assets/images/edit-curves.png"
+                  src="../assets/images/edit-curves.png"
                   alt=""
                 />
               </div>
@@ -91,7 +92,7 @@ const GioiThieu = () => {
                       <img
                         width="100%"
                         height="100%"
-                        src={"./assets/images/" + val.image}
+                        src={"../assets/images/" + val.image}
                         alt=""
                       />
                     </div>
@@ -119,7 +120,7 @@ const GioiThieu = () => {
                       width="110px"
                       height="110px"
                       style={{ borderRadius: "50%" }}
-                      src={"./assets/images/" + val.avatar}
+                      src={"../assets/images/" + val.avatar}
                       alt={val.fullname}
                     />
                   </div>
@@ -142,7 +143,7 @@ const GioiThieu = () => {
                   <img
                     width="24px"
                     height="24px"
-                    src="./assets/images/icont-map.png"
+                    src="../assets/images/icont-map.png"
                   />
                   <p className="find-us-address">
                     Tầng 7, Golden Field Building, <br />

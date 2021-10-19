@@ -1,8 +1,13 @@
 import Menu from "../../src/components/menu";
 import Head from "next/head";
 import { ListAppliedPosition } from "../../src/config";
+import { useRouter } from "next/router";
 import Footer from "../../src/components/footer";
+import JoinNow from "../../src/components/common/thamgiangay";
 const Career = () => {
+  const router = useRouter();
+  const handleDetail = () => router.push("/tuyen-dung/chi-tiet-tuyen-dung");
+  const handleSubmit = () => router.push("/tuyen-dung/thong-tin-chi-tiet-form");
   return (
     <>
       <Head>
@@ -41,7 +46,9 @@ const Career = () => {
               </div>
             </div>
           </div>
-          <button className="btnRegister">Đăng ký ứng viên tiềm năng</button>
+          <button className="btnRegister" onClick={handleSubmit}>
+            Đăng ký ứng viên tiềm năng
+          </button>
         </div>
       </div>
       <div className="box-nominee">
@@ -71,7 +78,7 @@ const Career = () => {
                     {val.title}
                   </div>
                   <div className="applied-position-item-bottom">
-                    <button className="btnmore">
+                    <button className="btnmore" onClick={handleDetail}>
                       <span>Xem chi tiết </span>
                       <img
                         className="btnmore__icon"
@@ -125,21 +132,7 @@ const Career = () => {
           </div>
         </div>
       </div>
-      <div className="container">
-        <div className="inputemail">
-          <div className="input__content">
-            <p className="input__content__title">
-              Tham gia với chúng tôi, <br />
-              đội ngũ React Plus
-            </p>
-            <div className="box-loadmore">
-              <button className="btnmorefull">
-                <span>Tham gia ngay</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <JoinNow />
       <Footer />
       <style jsx>{`
         .header {

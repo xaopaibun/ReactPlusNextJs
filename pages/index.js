@@ -299,7 +299,6 @@ export default function Home() {
       <style jsx>{`
         /* start slider */
         .banner {
-          margin: 20px 0;
           height: 430px;
           width: 100%;
           position: relative;

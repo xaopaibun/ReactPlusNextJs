@@ -5,7 +5,7 @@ const Footer = () => {
         <div className="footer">
           <div className="footer_itemlogo">
             <img
-              src="./assets/images/LogoReactPlus.png"
+              src="../assets/images/LogoReactPlus.png"
               width="89px"
               height="46px"
               alt="Logo"
@@ -29,9 +29,9 @@ const Footer = () => {
           </div>
           <div className="footer_item">
             <p className="item__title">Liên hệ</p>
-            <a hre={"0349177306"}>
+            <a tel={"0349177306"}>
               <img
-                src="./assets/icon/phone.png"
+                src="../assets/icon/phone.png"
                 style={{ marginRight: "5px" }}
                 width="13.33px"
                 height="13.33px"
@@ -41,7 +41,7 @@ const Footer = () => {
             </a>
             <a href="#">
               <img
-                src="./assets/icon/mail.png"
+                src="../assets/icon/mail.png"
                 style={{ marginRight: "5px" }}
                 width="16px"
                 height="13.33px"
@@ -53,9 +53,9 @@ const Footer = () => {
           <div className="footer_item">
             <p className="item__title">Kết nối với chúng tôi</p>
             <div className="connect">
-              <a href="#">
+              <a href="https://www.facebook.com/reactplus.jsc">
                 <img
-                  src="./assets/icon/facebook.png"
+                  src="../assets/icon/facebook.png"
                   style={{ marginRight: "5px" }}
                   width="32.24px"
                   height="32.24px"
@@ -64,7 +64,7 @@ const Footer = () => {
               </a>
               <a href="#">
                 <img
-                  src="./assets/icon/Instagram.png"
+                  src="../assets/icon/Instagram.png"
                   style={{ marginRight: "5px" }}
                   width="32.24px"
                   height="32.24px"
@@ -73,7 +73,7 @@ const Footer = () => {
               </a>
               <a href="#">
                 <img
-                  src="./assets/icon/youtube.png"
+                  src="../assets/icon/youtube.png"
                   style={{ marginRight: "5px" }}
                   width="32.24px"
                   height="32.24px"

@@ -37,7 +37,7 @@ export const TrainingEvents = [
   {
     _id: "2",
     image: "ReactPlusKhoaHoc2.png",
-    title: "Khoá đào tạo mầm non React",
+    title: "Talkshow: Ứng dụng React trong ABC giúp cho BCD ",
     date: "01/10/2021 - 28/11/2021",
     content:
       "Khoá đào tạo hoàn toàn miễn phí giúp các bạn sinh viên IT bước đầu làm quen với React - React Native và có cơ hội làm việc tại React Plus trong các dự án quốc tế.",
@@ -96,51 +96,167 @@ export const ListItem = [
   },
   {
     _id: "2",
-    image: "TamNhin.png",
-    title: "Tầm nhìn",
-    content: "Cung cấp chuyên gia về React & React Native Làm hài lòng khách hàng với chất lượng cao Tạo ra cộng đồng về React lớn mạnh nhất tại Việt Nam",
+    image: "SuMenh.png",
+    title: "Sứ mệnh",
+    content:
+      "Cung cấp chuyên gia về React & React Native Làm hài lòng khách hàng với chất lượng cao Tạo ra cộng đồng về React lớn mạnh nhất tại Việt Nam",
   },
   {
     _id: "3",
-    image: "SuMenh.png",
-    title: "Sứ mệnh",
-    content: "Chuyên về React & React Native Sẵn sàng 24/7 Đẳng cấp thế giới Khả năng tăng trưởng, mở rộng nhanh Phản hồi ngay lập tức",
+    image: "GiaTriCotLoi.png",
+    title: "Giá trị cốt lõi",
+    content:
+      "Chuyên về React & React Native Sẵn sàng 24/7 Đẳng cấp thế giới Khả năng tăng trưởng, mở rộng nhanh Phản hồi ngay lập tức",
   },
-  
 ];
-
 
 export const ListAppliedPosition = [
   {
     _id: "1",
     title: "Chuyên viên chăm sóc khách hàng",
-    loai: "full-time"
+    loai: "full-time",
   },
   {
     _id: "2",
     title: "Lập trình viên React",
-    loai: "part-time"
+    loai: "part-time",
   },
   {
     _id: "3",
     title: "Thực tập sinh lập trình React Native",
-    loai: "part-time"
+    loai: "part-time",
   },
   {
     _id: "4",
     title: "Chuyên viên chăm sóc khách hàng",
-    loai: "full-time"
+    loai: "full-time",
   },
   {
     _id: "5",
     title: "Lập trình viên React",
-    loai: "part-time"
+    loai: "part-time",
   },
   {
     _id: "6",
     title: "Thực tập sinh lập trình React Native",
-    loai: "part-time"
+    loai: "part-time",
   },
- 
-  
+];
+
+export const ListCourse = [
+  {
+    _id: "1",
+    img: "avatar1.png",
+    text: "Kiến thức về công nghệ React - xu hướng phát triển trong tương lai với cơ hội việc làm và mức lương hấp dẫn. Cập nhật những nội dung mới nhất từ cộng đồng React thế giới.",
+  },
+  {
+    _id: "2",
+    img: "avatar1.png",
+    text: "Kiến thức về công nghệ React - xu hướng phát triển trong tương lai với cơ hội việc làm và mức lương hấp dẫn. Cập nhật những nội dung mới nhất từ cộng đồng React thế giới.",
+  },
+  {
+    _id: "3",
+    img: "avatar1.png",
+    text: "Kiến thức về công nghệ React - xu hướng phát triển trong tương lai với cơ hội việc làm và mức lương hấp dẫn. Cập nhật những nội dung mới nhất từ cộng đồng React thế giới.",
+  },
+  {
+    _id: "4",
+    img: "avatar1.png",
+    text: "Kiến thức về công nghệ React - xu hướng phát triển trong tương lai với cơ hội việc làm và mức lương hấp dẫn. Cập nhật những nội dung mới nhất từ cộng đồng React thế giới.",
+  },
+  {
+    _id: "5",
+    img: "avatar1.png",
+    text: "Kiến thức về công nghệ React - xu hướng phát triển trong tương lai với cơ hội việc làm và mức lương hấp dẫn. Cập nhật những nội dung mới nhất từ cộng đồng React thế giới.",
+  },
+  {
+    _id: "6",
+    img: "avatar1.png",
+    text: "Kiến thức về công nghệ React - xu hướng phát triển trong tương lai với cơ hội việc làm và mức lương hấp dẫn. Cập nhật những nội dung mới nhất từ cộng đồng React thế giới.",
+  },
+];
+
+export const ListCourseFeatures = [
+  {
+    _id: "1",
+    img: "avatar1.png",
+    title: "Thời gian",
+    text: "Kiến thức về công nghệ React - xu hướng phát triển trong tương lai với cơ hội việc làm và mức lương hấp dẫn. Cập nhật những nội dung mới nhất từ cộng đồng React thế giới.",
+  },
+  {
+    _id: "2",
+    img: "avatar1.png",
+    title: "Học phí",
+    text: "Kiến thức về công nghệ React - xu hướng phát triển trong tương lai với cơ hội việc làm và mức lương hấp dẫn. Cập nhật những nội dung mới nhất từ cộng đồng React thế giới.",
+  },
+  {
+    _id: "3",
+    img: "avatar1.png",
+    title: "Địa điểm",
+    text: "Kiến thức về công nghệ React - xu hướng phát triển trong tương lai với cơ hội việc làm và mức lương hấp dẫn. Cập nhật những nội dung mới nhất từ cộng đồng React thế giới.",
+  },
+  {
+    _id: "4",
+    img: "avatar1.png",
+    title: "Hình thức",
+    text: "Kiến thức về công nghệ React - xu hướng phát triển trong tương lai với cơ hội việc làm và mức lương hấp dẫn. Cập nhật những nội dung mới nhất từ cộng đồng React thế giới.",
+  },
+];
+
+export const ListImage = [
+  "img10.png",
+  "img11.png",
+  "img12.png",
+  "img13.png",
+  "img14.png",
+  "img15.png",
+  "img16.png",
+];
+
+export const ImageOffice = [
+  "img20.png",
+  "img21.png",
+  "img22.png",
+  "img23.png",
+  "img24.png",
+];
+
+
+export const Btn_HealthIsGold = [
+  {
+    _id : "1",
+    text : "CLB Thể thao điện tử",
+  },
+  {
+    _id : "2",
+    text : "CLB Trà sữa",
+  },
+  {
+    _id : "3",
+    text : "CLB Bóng đá",
+  },
+  {
+    _id : "4",
+    text : "CLB Yoga Điền Kinh",
+  }
+];
+
+
+export const SummerFestival = [
+  {
+    _id : "1",
+    text : "Hội xuân hàng năm",
+  },
+  {
+    _id : "2",
+    text : "Thi hoa hậu nam",
+  },
+  {
+    _id : "3",
+    text : "Thi trạng nguyên",
+  },
+  {
+    _id : "4",
+    text : "Du lịch năm nào cũng có",
+  }
 ];
