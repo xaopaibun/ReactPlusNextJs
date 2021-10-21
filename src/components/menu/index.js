@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/router";
 const Menu = () => {
+  const router = useRouter();
   const [DropDownGioiThieu, setDropDownGioiThieu] = useState(false);
   const [DropDownEvent, setDropDownEvent] = useState(false);
   const handleClickDropDownEvent = () => {
@@ -27,12 +29,23 @@ const Menu = () => {
               <ul className="menu">
                 <li className="menu__item">
                   <Link href="/">
-                    <a>Trang chủ</a>
+                    <a className={router.pathname == "/" ? "active" : ""}>
+                      {" "}
+                      Trang chủ
+                    </a>
                   </Link>
                 </li>
                 <li className="menu__item">
                   {/* <Link href="/gioi-thieu"> */}
-                  <a onClick={handleClickDropDownGioiThieu}>
+                  <a
+                    className={
+                      router.pathname == "/gioi-thieu/gioi-thieu-cong-ty" ||
+                      router.pathname == "/gioi-thieu/gioi-thieu-react"
+                        ? "active"
+                        : ""
+                    }
+                    onClick={handleClickDropDownGioiThieu}
+                  >
                     Giới thiệu
                     <img
                       src="../assets/icon/drop-down-icont.png"
@@ -46,20 +59,37 @@ const Menu = () => {
                 </li>
                 <li className="menu__item">
                   <Link href="/van-hoa">
-                    <a>Văn hóa </a>
+                    <a
+                      className={router.pathname == "/van-hoa" ? "active" : ""}
+                    >
+                      Văn hóa{" "}
+                    </a>
                   </Link>
                 </li>
                 <li className="menu__item">
                   <Link href="/tuyen-dung">
-                    <a>Tuyển dụng</a>
+                    <a
+                      className={
+                        router.pathname == "/tuyen-dung" ? "active" : ""
+                      }
+                    >
+                      Tuyển dụng
+                    </a>
                   </Link>
                 </li>
                 <li className="menu__item">
                   {/* <Link href="/daotao-sukien"> */}
-                  <a onClick={handleClickDropDownEvent}>
+                  <a
+                    onClick={handleClickDropDownEvent}
+                    className={
+                      router.pathname == "/cac-khoa-dao-tao/su-kien-thuong-ky"
+                        ? "active"
+                        : ""
+                    }
+                  >
                     Đào tạo &amp; Sự kiện
                     <img
-                      src="./assets/icon/drop-down-icont.png"
+                      src="../assets/icon/drop-down-icont.png"
                       width="6px"
                       height="4.98px"
                       style={{ marginLeft: "3px" }}
@@ -69,11 +99,28 @@ const Menu = () => {
                   {/* </Link> */}
                 </li>
                 <li className="menu__item">
-                  <a href="#">Vì cộng đồng</a>
+                  <Link href="/vi-cong-dong">
+                    <a
+                      className={
+                        router.pathname == "/vi-cong-dong" ? "active" : ""
+                      }
+                    >
+                      Vì cộng đồng
+                    </a>
+                  </Link>
                 </li>
                 <li className="menu__item">
                   <Link href="/tin-tuc">
-                    <a>Tin tức &amp; Blog</a>
+                    <a
+                      className={
+                        router.pathname == "/tin-tuc" ||
+                        router.pathname == "/tin-tuc/bai-viet-chi-tiet"
+                          ? "active"
+                          : ""
+                      }
+                    >
+                      Tin tức &amp; Blog
+                    </a>
                   </Link>
                 </li>
               </ul>
@@ -85,7 +132,7 @@ const Menu = () => {
       {(DropDownGioiThieu === true && (
         <div className="drop-down">
           <div className="box-center">
-            <Link href="/gioi-thieu">
+            <Link href="/gioi-thieu/gioi-thieu-react">
               <a>Về React & React Native </a>
             </Link>
             <Link href="/gioi-thieu/gioi-thieu-cong-ty">
@@ -101,7 +148,7 @@ const Menu = () => {
               <Link href="/cac-khoa-dao-tao">
                 <a>Các khoá đào tạo </a>
               </Link>
-              <Link href="/van-hoa">
+              <Link href="/cac-khoa-dao-tao/su-kien-thuong-ky">
                 <a> Sự kiện thường kỳ </a>
               </Link>
               <div className="triangle" />
@@ -111,7 +158,13 @@ const Menu = () => {
 
       <style jsx>{`
         .box-menu {
-          margin: 10px 0;
+          padding: 10px 0;
+          position: sticky;
+          background: white;
+          top: 0;
+          left: 0;
+          z-index: 999;
+          box-shadow: 0px 4px 4px rgb(0 0 0 / 7%);
         }
         .menu {
           height: 100%;
@@ -149,10 +202,7 @@ const Menu = () => {
           top: -2px;
           left: 50px;
         }
-        .menu__item:nth-child(1) {
-          border-bottom: 3px solid #00daff;
-        }
-        li.menu__item:hover {
+        .active {
           border-bottom: 3px solid #00daff;
         }
         .menu__item a {

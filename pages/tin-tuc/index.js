@@ -1,8 +1,11 @@
 import Footer from "../../src/components/footer";
 import Head from "next/head";
 import Menu from "../../src/components/menu";
+import { useRouter } from "next/router";
 
 const News = () => {
+  const router = useRouter();
+  const handleDetail = () => router.push("/tuyen-dung/thong-tin-chi-tiet-form");
   return (
     <>
       <Head>
@@ -41,19 +44,19 @@ const News = () => {
           </div>
         </div>
         <div className="list-posts">
-          <div className="post-item">
+          <div className="">
             <img
               src="./assets/images/img27.png"
               height={"193px"}
               width={"340px"}
             />
             <h5 className="content-review-date">01/10/2021 - 28/11/2021</h5>
-            <a href="" className="post-title">
+            <a href="" className="post-title" onClick={handleDetail}>
               Khoá đào tạo mầm non React{" "}
             </a>
           </div>
 
-          <div className="post-item">
+          <div className="">
             <img
               src="./assets/images/img28.png"
               height={"193px"}
@@ -65,7 +68,7 @@ const News = () => {
             </a>
           </div>
 
-          <div className="post-item">
+          <div className="">
             <img
               src="./assets/images/img29.png"
               height={"193px"}
@@ -93,7 +96,7 @@ const News = () => {
           </div>
         </div>
         <div className="list-posts">
-          <div className="post-item">
+          <div className="">
             <img
               src="./assets/images/img30.png"
               height={"193px"}
@@ -105,7 +108,7 @@ const News = () => {
             </a>
           </div>
 
-          <div className="post-item">
+          <div className="">
             <img
               src="./assets/images/img31.png"
               height={"193px"}
@@ -117,7 +120,7 @@ const News = () => {
             </a>
           </div>
 
-          <div className="post-item">
+          <div className="">
             <img
               src="./assets/images/img32.png"
               height={"193px"}

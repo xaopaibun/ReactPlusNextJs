@@ -144,12 +144,8 @@ export default function Home() {
                     </div>
                     <div className="community__item__content">
                       <p className="community__date">{val.date}</p>
-                      <h4 className="item__title">
-                        {val.title}
-                      </h4>
-                      <p className="item__content">
-                        {val.content}
-                      </p>
+                      <h4 className="item__title">{val.title}</h4>
+                      <p className="item__content">{val.content}</p>
                       <button className="btnmore">
                         <span>Tìm hiểu thêm</span>
                         <img
@@ -160,8 +156,6 @@ export default function Home() {
                     </div>
                   </div>
                 ))}
-             
-              
             </div>
           </div>
         </div>
@@ -173,20 +167,42 @@ export default function Home() {
               src="./assets/icon/muitentrai.png"
               alt=""
             />
+
             <div className="education">
               <div className="education__item">
                 <p className="education__item__time">
                   01.10.2021 - 28.11.2021{" "}
                 </p>
+                <div className="position-relative">
+                  <img
+                    src="../assets/icon/BorderSolid.png"
+                    width="100%"
+                    height="1px"
+                  />
+                  <div className="box-circle">
+                    <div className="circle"></div>
+                  </div>
+                </div>
                 <h3 className="education__item__title">Talkshow</h3>
                 <p className="education__item__content">
                   Tương lai của React trên thị trường Việt Nam và quốc tế
                 </p>
               </div>
+
               <div className="education__item">
-                <p className="education__item__time">
+                <p className="education__item__time text-active">
                   01.10.2021 - 28.11.2021{" "}
                 </p>
+                <div className="position-relative">
+                  <img
+                    src="../assets/icon/BorderSolid.png"
+                    width="100%"
+                    height="1px"
+                  />
+                  <div className="box-circle">
+                    <div className="circle circle-active"></div>
+                  </div>
+                </div>
                 <h3 className="education__item__title">
                   Khoá đào tạo Mầm non React
                 </h3>
@@ -199,6 +215,16 @@ export default function Home() {
                 <p className="education__item__time">
                   01.10.2021 - 28.11.2021{" "}
                 </p>
+                <div className="position-relative">
+                  <img
+                    src="../assets/icon/BorderSolid.png"
+                    width="100%"
+                    height="1px"
+                  />
+                  <div className="box-circle">
+                    <div className="circle"></div>
+                  </div>
+                </div>
                 <h3 className="education__item__title">Talkshow</h3>
                 <p className="education__item__content">
                   Tương lai của React trên thị trường Việt Nam và quốc tế
@@ -279,7 +305,7 @@ export default function Home() {
         </div>
         <div className="box-inputemail">
           <div className="container">
-          <div className="inputemail">
+            <div className="inputemail">
               <div className="input__content">
                 <p className="input__content__title">
                   Nhận ngay các thông tin mới nhất về Reactjs &amp; React Native
@@ -387,7 +413,7 @@ export default function Home() {
         /* start css box-community */
         .box-community {
           width: 100%;
-          height: 802px;
+          margin: 20px 0;
           background: linear-gradient(
             180deg,
             #f4f6fa 0%,
@@ -523,7 +549,7 @@ export default function Home() {
         .btnmore:hover span {
           color: #03a3c8;
         }
-       
+
         /* end css box-community */
 
         /*  start box education */
@@ -538,7 +564,7 @@ export default function Home() {
           justify-content: space-between;
         }
         .education__item {
-          width: 220px;
+          width: 33%;
         }
         .education__item__title,
         .education__item__time,
@@ -552,6 +578,32 @@ export default function Home() {
           text-align: center;
           letter-spacing: -0.02em;
           color: #a0a4a8;
+          margin-top: 0;
+        }
+        .box-circle {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 999;
+        }
+        .circle {
+          margin-top: 2px;
+          width: 20px;
+          height: 20px;
+          background: #d2d1d1;
+          border: 2px solid #ffffff;
+          box-sizing: border-box;
+          border-radius: 50%;
+          margin: 3px auto;
+        }
+        .circle-active {
+          background: #0bbee7;
+        }
+        .text-active {
+          color: #0bbee7 !important;
+          font-weight: 600;
         }
         .education__item__title {
           font-weight: 600;
@@ -563,6 +615,8 @@ export default function Home() {
         }
         .education__item__content {
           font-weight: 500;
+          width: 250px;
+          margin: 0 auto;
           font-size: 13px;
           line-height: 18px;
           text-align: center;

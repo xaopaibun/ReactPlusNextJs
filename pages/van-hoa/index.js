@@ -48,6 +48,7 @@ const VanHoa = () => {
               <img src={`./assets/images/${value}`} />
             </div>
           ))}
+          <div className="background-icon"></div>
         </div>
         <div className="distance"></div>
         <div className="container">
@@ -241,6 +242,17 @@ const VanHoa = () => {
         }
         .list-images {
           display: flex;
+          position: relative;
+        }
+        .background-icon {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 99;
+          background-image: url("/assets/icon/BG2.png");
+         
         }
         .box-image {
           width: 165px;

@@ -45,7 +45,7 @@ const JoinNow = () => {
           width: 100%;
           margin: 30px 0;
           height: 211px;
-          background-image: url("/assets/images/BGinput.png");
+          background-image: url("/assets/images/Frame45527.png");
         }
         .input__content__title {
           padding: 25px 0;

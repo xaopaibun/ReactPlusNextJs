@@ -221,42 +221,79 @@ export const ImageOffice = [
   "img24.png",
 ];
 
-
 export const Btn_HealthIsGold = [
   {
-    _id : "1",
-    text : "CLB Thể thao điện tử",
+    _id: "1",
+    text: "CLB Thể thao điện tử",
   },
   {
-    _id : "2",
-    text : "CLB Trà sữa",
+    _id: "2",
+    text: "CLB Trà sữa",
   },
   {
-    _id : "3",
-    text : "CLB Bóng đá",
+    _id: "3",
+    text: "CLB Bóng đá",
   },
   {
-    _id : "4",
-    text : "CLB Yoga Điền Kinh",
-  }
+    _id: "4",
+    text: "CLB Yoga Điền Kinh",
+  },
 ];
-
 
 export const SummerFestival = [
   {
-    _id : "1",
-    text : "Hội xuân hàng năm",
+    _id: "1",
+    text: "Hội xuân hàng năm",
   },
   {
-    _id : "2",
-    text : "Thi hoa hậu nam",
+    _id: "2",
+    text: "Thi hoa hậu nam",
   },
   {
-    _id : "3",
-    text : "Thi trạng nguyên",
+    _id: "3",
+    text: "Thi trạng nguyên",
   },
   {
-    _id : "4",
-    text : "Du lịch năm nào cũng có",
-  }
+    _id: "4",
+    text: "Du lịch năm nào cũng có",
+  },
+];
+
+export const VolunteerStory = [
+  {
+    _id: "1",
+    text: "Khoá đào tạo mầm non React ",
+    date: "01/10/2021 - 28/11/2021",
+    image: "img33.png",
+  },
+  {
+    _id: "2",
+    text: "Talkshow: Ứng dụng React trong ABC giúp cho BCD  ",
+    date: "01/10/2021 - 28/11/2021",
+    image: "img34.png",
+  },
+  {
+    _id: "3",
+    text: "Talkshow: Ứng dụng React trong ABC giúp cho BCD  ",
+    date: "01/10/2021 - 28/11/2021",
+    image: "img35.png",
+  },
+  {
+    _id: "4",
+    text: "Khoá đào tạo mầm non React ",
+    date: "01/10/2021 - 28/11/2021",
+    image: "img36.png",
+  },
+  {
+    _id: "5",
+    text: "Talkshow: Ứng dụng React trong ABC giúp cho BCD ",
+    date: "01/10/2021 - 28/11/2021",
+    image: "img37.png",
+  },
+  {
+    _id: "6",
+    text: "Talkshow: Ứng dụng React trong ABC giúp cho BCD  ",
+    date: "01/10/2021 - 28/11/2021",
+    image: "img38.png",
+  },
 ];
