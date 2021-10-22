@@ -3,72 +3,55 @@ import Menu from "../src/components/menu";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "../src/components/footer";
 import { ListNews, TrainingEvents } from "../src/config";
+import { Carousel } from "react-bootstrap";
+
 export default function Home() {
   return (
-    <div>
+    <>
       <Head>
-        <title>Home React Plus</title>
+        <title>Home page React Plus</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Menu />
 
-      <div>
+      <div className="box-box">
         <div className="banner">
-          <div
-            id="carouselExampleIndicators"
-            className="carousel slide"
-            data-ride="carousel"
+          <Carousel
+            prevIcon={
+              <div className="btnSlider left">
+                <img src="./assets/images/back_left.png" alt="" />
+              </div>
+            }
+            nextIcon={
+              <div className="btnSlider right">
+                <img src="./assets/images/back_right.png" alt="" />
+              </div>
+            }
           >
-            <ol className="carousel-indicators">
-              <li
-                data-target="#carouselExampleIndicators"
-                data-slide-to={0}
-                className="active"
+            <Carousel.Item interval={1000}>
+              <img
+                className="d-block w-100"
+                src="./assets/images/banner.png"
+                alt="First slide"
               />
-              <li data-target="#carouselExampleIndicators" data-slide-to={1} />
-              <li data-target="#carouselExampleIndicators" data-slide-to={2} />
-            </ol>
-            <div className="carousel-inner">
-              <div className="carousel-item active">
-                <img
-                  className="d-block w-100"
-                  src="./assets/images/banner.png"
-                  alt="First slide"
-                />
-              </div>
-              <div className="carousel-item">
-                <img
-                  className="d-block w-100"
-                  src="./assets/images/banner.png"
-                  alt="Second slide"
-                />
-              </div>
-              <div className="carousel-item">
-                <img
-                  className="d-block w-100"
-                  src="./assets/images/banner.png"
-                  alt="Third slide"
-                />
-              </div>
-            </div>
-            <div
-              className="btnSlider left"
-              href="#carouselExampleIndicators"
-              role="button"
-              data-slide="prev"
-            >
-              <img src="./assets/images/back_left.png" alt="" />
-            </div>
-            <div
-              className="btnSlider right"
-              href="#carouselExampleIndicators"
-              role="button"
-              data-slide="next"
-            >
-              <img src="./assets/images/back_right.png" alt="" />
-            </div>
-          </div>
+            </Carousel.Item>
+            <Carousel.Item interval={500}>
+              <img
+                className="d-block w-100"
+                src="./assets/images/banner.png"
+                alt="Second slide"
+              />
+            </Carousel.Item>
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src="./assets/images/banner.png"
+                alt="Third slide"
+              />
+            </Carousel.Item>
+          </Carousel>
         </div>
+
         <div className="box-content">
           <div className="container">
             <h2 className="content__review">
@@ -347,13 +330,13 @@ export default function Home() {
         }
         .btnSlider.left {
           position: absolute;
-          top: calc(430px / 2);
+          top: calc(430px / 2 - 32px);
           left: 164px;
           z-index: 99;
         }
         .btnSlider.right {
           position: absolute;
-          top: calc(430px / 2);
+          top: calc(430px / 2 - 32px);
           right: 164px;
           z-index: 99;
         }
@@ -664,6 +647,7 @@ export default function Home() {
           width: 382px;
           font-size: 24px;
           line-height: 36px;
+          text-align: center;
           letter-spacing: -0.02em;
           color: #25282b;
         }
@@ -849,7 +833,89 @@ export default function Home() {
           margin: 15px 0;
           color: #000000;
         }
+
+        @media screen and (max-width: 768px) {
+          .box-box {
+            width: 100%;
+
+            overflow: hidden;
+          }
+          .box-content {
+            padding: 0 16px;
+            height: auto;
+          }
+          .content__review {
+            font-weight: 600;
+            width: 267px;
+            line-height: 30px;
+            height: auto;
+            margin: 0 auto;
+            font-size: 20px;
+          }
+          .content__text {
+            width: 100%;
+          }
+          .box-item {
+            display: block;
+            width: 100%;
+            height: auto;
+          }
+          .box-item .item {
+            width: 100%;
+            height: 100%;
+          }
+          .item__content {
+            width: 100% !important;
+          }
+          .community__content {
+            width: auto;
+          }
+          .community-bottom {
+            display: block;
+          }
+          .box_document {
+            width: 100%;
+            height: 900px;
+          }
+          .document__text{
+            width:  100%;
+          }
+          .btnmorefull {
+ 
+            display: block;
+            margin: auto;
+          }
+          .news__item{
+            margin:0 10px;
+          }
+          .text_blue{
+            display:  none;
+          }
+          .community__item {
+            width: 100%;
+            margin: 10px 0;
+          }
+          .banner{
+            height: auto;
+            margin: 10px 0 ;
+          }
+          .btnSlider{display: none}
+          .community__item__image {
+            width: 100%;
+            height: auto;
+          }
+          .flex {
+            display: block;
+          }
+          .document__img {
+    width: 100%;
+    height: auto;
+
+        }
+        .document__title {
+font-size: 20px
+        }
       `}</style>
-    </div>
+    </>
   );
 }
