@@ -297,3 +297,26 @@ export const VolunteerStory = [
     image: "img38.png",
   },
 ];
+
+export const ListQuestion = [
+  {
+    _id: 1,
+    title_question:
+      "Để thành thạo React cần học theo lộ trình, giáo trình nào?",
+    asked:
+      "Lorem ipsum dolor sit amet consectetur adipiscing elit turpis viverra amet elit est proin tgestas neque quis aliq vel viverra gravida orci vitae at aliquam sit accum.",
+  },
+  {
+    _id: 2,
+    title_question:
+      "Có khoá học nào miễn phí về React bằng tiếng Việt không?",
+    asked:
+      "Lorem ipsum dolor sit amet consectetur adipiscing elit turpis viverra amet elit est proin tgestas neque quis aliq vel viverra gravida orci vitae at aliquam sit accum.",
+  },{
+    _id: 3,
+    title_question:
+      "Có khoá học nào miễn phí về React bằng tiếng Việt không?",
+    asked:
+      "Lorem ipsum dolor sit amet consectetur adipiscing elit turpis viverra amet elit est proin tgestas neque quis aliq vel viverra gravida orci vitae at aliquam sit accum.",
+  },
+];

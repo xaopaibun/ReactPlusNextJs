@@ -139,7 +139,7 @@ const GioiThieu = () => {
             <div className="box-find-us">
               <div className="find-us-left">
                 <h1 className="find-us-title">Tìm chúng tôi</h1>
-                <div style={{ display: "flex" }}>
+                <div class="box-address">
                   <img
                     width="24px"
                     height="24px"
@@ -178,12 +178,7 @@ const GioiThieu = () => {
           margin: 60px 0;
           justify-content: space-between;
         }
-        .menu__item:nth-child(1) {
-          border-bottom: none;
-        }
-        .menu__item:nth-child(2) {
-          border-bottom: 3px solid #00daff;
-        }
+
         .introduce__left {
           width: 837px;
         }
@@ -336,6 +331,9 @@ const GioiThieu = () => {
           justify-content: space-between;
           align-items: center;
         }
+        .box-address {
+          display: flex;
+        }
         .find-us-left {
           width: 280px;
         }
@@ -361,6 +359,83 @@ const GioiThieu = () => {
         footer {
           background: #f4f6fa;
           padding: 30px 0;
+        }
+        @media screen and (max-width: 768px) {
+          .box_introduce {
+            display: block;
+          }
+          .introduce__left {
+            width: 100%;
+          }
+          .introduce__left p {
+            width: 100%;
+          }
+          .introduce__right {
+            margin: auto;
+          }
+          .flex {
+            display: block;
+          }
+          .box__company__scale {
+            flex-direction: column;
+            align-items: center;
+          }
+          .company__scale__item {
+            margin: 10px 0;
+          }
+          .asked-questions-right {
+            width: auto;
+            margin: 20px 0;
+          }
+          .btnmorefull {
+            margin: auto;
+            display: block;
+          }
+          .question-title {
+            padding: 15px 0;
+            line-height: 25px;
+          }
+          .introduce-item {
+            height: auto;
+            display: block;
+          }
+          .item-image {
+            height: auto;
+            width: 100%;
+          }
+          .item-content {
+            width: 100%;
+          }
+          .row_introduce {
+            display: block;
+          }
+          .row_introduce .item {
+            width: 100%;
+            margin: 12px 0;
+          }
+          .item-experts {
+            width: 47%;
+          }
+          .box-find-us {
+            display: block;
+          }
+          .find-us-right {
+            width: 100%;
+            height: auto;
+          }
+          .find-us-left {
+            width: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+          .box-address {
+            flex-direction: column;
+            align-items: center;
+          }
+          .find-us-address {
+            text-align: center;
+          }
         }
       `}</style>
     </>

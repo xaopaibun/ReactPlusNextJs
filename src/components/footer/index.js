@@ -145,6 +145,9 @@ const Footer = () => {
           margin: 15px 0;
           color: #000000;
         }
+        @media screen and (max-width: 768px) {
+         
+        }
       `}</style>
     </>
   );

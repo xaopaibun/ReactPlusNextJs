@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/router";
-const Menu = () => {
+import { useScroll } from "../../hooks/useScroll";
+const Menu = ({ isColor }) => {
   const router = useRouter();
   const [DropDownGioiThieu, setDropDownGioiThieu] = useState(false);
   const [DropDownEvent, setDropDownEvent] = useState(false);
@@ -17,15 +18,23 @@ const Menu = () => {
     }
     setDropDownGioiThieu(!DropDownGioiThieu);
   };
+  const { data } = useScroll();
+  // style={{boxShadow:  data > 0 ? '0px 4px 4px rgb(0 0 0 / 7%)': 'none'}}
   return (
     <>
       <div className="box-menu">
         <div className="container">
           <div className="row">
-            <div className="col-xl-3">
+            <div className="col-xl-3 col-sm-3 col-3">
               <img src="../assets/images/LogoReactPlus.png" alt="Logo" />
             </div>
-            <div className="col-xl-9">
+            <div className="col-xl-9 col-sm-9 col-9">
+              <div className="menu-reponsive">
+                <div className="btn-menu">
+                  <img src="../assets/icon/menu-3.1.png" alt="Logo" />
+                </div>
+              </div>
+
               <ul className="menu">
                 <li className="menu__item">
                   <Link href="/">
@@ -157,14 +166,29 @@ const Menu = () => {
         ))}
 
       <style jsx>{`
+        .btn-menu {
+          border: 1px solid #c4c4c4;
+          box-sizing: border-box;
+          border-radius: 8px;
+          width: 40px;
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .menu-reponsive {
+          display: none;
+        }
         .box-menu {
           padding: 10px 0;
           position: sticky;
-          background: white;
+          background-color: ${isColor && data === 0
+            ? "transparent"
+            : "#ffffff"};
           top: 0;
           left: 0;
           z-index: 999;
-          box-shadow: 0px 4px 4px rgb(0 0 0 / 7%);
+          box-shadow: ${data > 10 ? "0px 4px 4px rgb(0 0 0 / 7%)" : "none"};
         }
         .menu {
           height: 100%;
@@ -206,7 +230,7 @@ const Menu = () => {
           border-bottom: 3px solid #00daff;
         }
         .menu__item a {
-          color: #25282b;
+          color: ${isColor && data === 0 ? "#ffffff" : "#25282b"};
           font-weight: 500;
           letter-spacing: -0.02em;
           font-size: 13px;
@@ -233,6 +257,21 @@ const Menu = () => {
         }
         .triangle-relative {
           position: relative;
+        }
+        @media screen and (max-width: 768px) {
+          .box-menu {
+            width: 100%;
+            background-color: #ffffff;
+          }
+          
+          .menu {
+            display: none;
+          }
+          .menu-reponsive {
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+          }
         }
       `}</style>
     </>

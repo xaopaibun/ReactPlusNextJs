@@ -19,177 +19,181 @@ const VanHoa = () => {
         <title>Văn Hóa</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="header">
-        <Menu />
-        <div className="header-text">
-          <p className="introduce-text">Giới thiệu</p>
-        </div>
-      </div>
-      <div className="backgroudReact">
-        <div className="box-village-react">
-          <div className="village-react-top">
-            <h3 className="village-title">Làng React</h3>
-            <p className="village-react-text">
-              React Plus là một cái làng, nơi mà anh em tắt lửa tối đèn có nhau.
-              Chúng tôi dành nhau những bát mỳ nóng hổi cuối buổi OT, bật dậy
-              thả tim cho tin nhắn giữa đêm báo khách ok rồi, bồi hồi nhớ lại
-              những buổi đi chơi, tưng bừng mua bán từ đôi giày đến cái máy chơi
-              game, và đặc biệt, xúc động nghẹ ngào mỗi lần chia thưởng dự án
-              cuối năm...
-            </p>
+      <div className="main-page">
+        <div className="header">
+          <Menu isColor={true} />
+          <div className="header-text">
+            <p className="introduce-text">Giới thiệu</p>
           </div>
         </div>
-        <div className="list-images">
-          {ListImage.map((value, index) => (
-            <div
-              className={index % 2 === 0 ? "box-image" : "box-image-marginTop"}
-              key={index}
-            >
-              <img src={`./assets/images/${value}`} />
+        <div className="backgroudReact">
+          <div className="box-village-react">
+            <div className="village-react-top">
+              <h3 className="village-title">Làng React</h3>
+              <p className="village-react-text">
+                React Plus là một cái làng, nơi mà anh em tắt lửa tối đèn có
+                nhau. Chúng tôi dành nhau những bát mỳ nóng hổi cuối buổi OT,
+                bật dậy thả tim cho tin nhắn giữa đêm báo khách ok rồi, bồi hồi
+                nhớ lại những buổi đi chơi, tưng bừng mua bán từ đôi giày đến
+                cái máy chơi game, và đặc biệt, xúc động nghẹ ngào mỗi lần chia
+                thưởng dự án cuối năm...
+              </p>
             </div>
-          ))}
-          <div className="background-icon"></div>
+          </div>
+          <div className="list-images">
+            {ListImage.map((value, index) => (
+              <div
+                className={
+                  index % 2 === 0 ? "box-image" : "box-image-marginTop"
+                }
+                key={index}
+              >
+                <img src={`./assets/images/${value}`} />
+              </div>
+            ))}
+            <div className="background-icon"></div>
+          </div>
+          <div className="distance"></div>
+          <div className="container">
+            <p className="Office-Title">VĂN PHÒNG LÀM VIỆC</p>
+            <h3 className="Office-TitleContent">
+              Không gian làm việc & Trang thiết bị
+            </h3>
+            <div className="Office-Images">
+              <div className="Office-Images-Left">
+                <div className="Office-Images-Left-Top">
+                  <div className="Office-Images-Left-Top-IMG1">
+                    <img
+                      src="./assets/images/img20.png"
+                      height={"100%"}
+                      width={"100%"}
+                    />
+                  </div>
+                  <div className="Office-Images-Left-Top-IMG2">
+                    <img
+                      src="./assets/images/img21.png"
+                      height={"100%"}
+                      width={"100%"}
+                    />
+                  </div>
+                </div>
+                <div className="Office-Images-Left-Bottom">
+                  <div className="Office-Images-Left-Bottom-IMG3">
+                    <img
+                      src="./assets/images/img22.png"
+                      height={"100%"}
+                      width={"100%"}
+                    />
+                  </div>
+                  <div className="Office-Images-Left-Bottom-IMG4">
+                    <img
+                      src="./assets/images/img23.png"
+                      height={"100%"}
+                      width={"100%"}
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="Office-Images-Right">
+                <img
+                  src="./assets/images/img24.png"
+                  height={"100%"}
+                  width={"100%"}
+                />
+              </div>
+            </div>
+          </div>
         </div>
         <div className="distance"></div>
-        <div className="container">
-          <p className="Office-Title">VĂN PHÒNG LÀM VIỆC</p>
-          <h3 className="Office-TitleContent">
-            Không gian làm việc & Trang thiết bị
-          </h3>
-          <div className="Office-Images">
-            <div className="Office-Images-Left">
-              <div className="Office-Images-Left-Top">
-                <div className="Office-Images-Left-Top-IMG1">
-                  <img
-                    src="./assets/images/img20.png"
-                    height={"100%"}
-                    width={"100%"}
-                  />
-                </div>
-                <div className="Office-Images-Left-Top-IMG2">
-                  <img
-                    src="./assets/images/img21.png"
-                    height={"100%"}
-                    width={"100%"}
-                  />
-                </div>
+        <div className="Office-Content">
+          <div className="container">
+            <div className="content">
+              <div className="content-left">
+                <img
+                  src="./assets/images/img25.png"
+                  width={"100%"}
+                  height={"100%"}
+                />
               </div>
-              <div className="Office-Images-Left-Bottom">
-                <div className="Office-Images-Left-Bottom-IMG3">
-                  <img
-                    src="./assets/images/img22.png"
-                    height={"100%"}
-                    width={"100%"}
-                  />
-                </div>
-                <div className="Office-Images-Left-Bottom-IMG4">
-                  <img
-                    src="./assets/images/img23.png"
-                    height={"100%"}
-                    width={"100%"}
-                  />
+              <div className="content-right">
+                <h1 className="title">Sức khoẻ là vàng</h1>
+                <p className="content-text">
+                  React Plus quan tâm sâu sắc tới sức khoẻ của từng thành viên,
+                  do đó, chúng tôi mạnh dạn tổ chức đợt khám sức khoẻ tổng thể
+                  hàng năm cho tất cả các thành viên. <br /> <br /> Ngoài ra,
+                  chúng tôi liên tục tổ chức các ngày hội thể thao, thành lập
+                  các câu lạc bộ và tổ chức các buổi tea-break time hàng ngày
+                  giúp cân bằng các bó cơ lưng bụng, chống thoái hoá cột sống,
+                  tăng dẻo dai cho cơ mặt....
+                </p>
+                <div className="list-btn">
+                  {Btn_HealthIsGold.map((val) => {
+                    return (
+                      <div className="box-loadmore" key={val._id}>
+                        <button
+                          onClick={() => setActive(val._id)}
+                          className={
+                            isActive === val._id
+                              ? "btnmore btnmore-active"
+                              : "btnmore"
+                          }
+                        >
+                          <span>{val.text}</span>
+                        </button>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             </div>
-            <div className="Office-Images-Right">
-              <img
-                src="./assets/images/img24.png"
-                height={"100%"}
-                width={"100%"}
-              />
+            <div className="content">
+              <div className="content-right">
+                <h1 className="title">Hội hè - Tập quán</h1>
+                <p className="content-text">
+                  React Plus không chỉ là nơi để đến làm việc, đây là nơi để mọi
+                  người cùng sống và chia sẻ. Mà cuộc sống, thì không thể nào
+                  thiếu những chuyến đi: đi du lịch, du xuân, đi thi, đi hội, đi
+                  ăn, đi chơi, đi ngủ, đi nghỉ, đi khắp nơi cùng nhau... Quan
+                  trọng nhất là đi đâu thì đi, cứ phải vui cái đã.
+                  <br />
+                  <br />
+                  Sau những đợt chạy dự án dài hơi không thế nào thiếu được
+                  những bữa liên hoan vui nổ trời. Đặc biệt, làng React quanh
+                  năm luôn tưng bừng với các thể loại hội hè lễ Tết, giúp các
+                  anh chị em đầu thôn cuối xóm gắn kết, thật mật cùng nhau.
+                </p>
+                <div className="list-btn">
+                  {SummerFestival.map((val) => {
+                    return (
+                      <div className="box-loadmore" key={val._id}>
+                        <button
+                          onClick={() => setActiveSummer(val._id)}
+                          className={
+                            isActiveSumber === val._id
+                              ? "btnmore btnmore-active"
+                              : "btnmore"
+                          }
+                        >
+                          <span>{val.text}</span>
+                        </button>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+              <div className="content-left">
+                <img
+                  src="./assets/images/img26.png"
+                  width={"100%"}
+                  height={"100%"}
+                />
+              </div>
             </div>
           </div>
         </div>
+        <JoinNow />
+        <Footer />
       </div>
-      <div className="distance"></div>
-      <div className="Office-Content">
-        <div className="container">
-          <div className="content">
-            <div className="content-left">
-              <img
-                src="./assets/images/img25.png"
-                width={"100%"}
-                height={"100%"}
-              />
-            </div>
-            <div className="content-right">
-              <h1 className="title">Sức khoẻ là vàng</h1>
-              <p className="content-text">
-                React Plus quan tâm sâu sắc tới sức khoẻ của từng thành viên, do
-                đó, chúng tôi mạnh dạn tổ chức đợt khám sức khoẻ tổng thể hàng
-                năm cho tất cả các thành viên. <br /> <br /> Ngoài ra, chúng tôi
-                liên tục tổ chức các ngày hội thể thao, thành lập các câu lạc bộ
-                và tổ chức các buổi tea-break time hàng ngày giúp cân bằng các
-                bó cơ lưng bụng, chống thoái hoá cột sống, tăng dẻo dai cho cơ
-                mặt....
-              </p>
-              <div className="list-btn">
-                {Btn_HealthIsGold.map((val) => {
-                  return (
-                    <div className="box-loadmore" key={val._id}>
-                      <button
-                        onClick={() => setActive(val._id)}
-                        className={
-                          isActive === val._id
-                            ? "btnmore btnmore-active"
-                            : "btnmore"
-                        }
-                      >
-                        <span>{val.text}</span>
-                      </button>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-          <div className="content">
-            <div className="content-right">
-              <h1 className="title">Hội hè - Tập quán</h1>
-              <p className="content-text">
-                React Plus không chỉ là nơi để đến làm việc, đây là nơi để mọi
-                người cùng sống và chia sẻ. Mà cuộc sống, thì không thể nào
-                thiếu những chuyến đi: đi du lịch, du xuân, đi thi, đi hội, đi
-                ăn, đi chơi, đi ngủ, đi nghỉ, đi khắp nơi cùng nhau... Quan
-                trọng nhất là đi đâu thì đi, cứ phải vui cái đã.
-                <br />
-                <br />
-                Sau những đợt chạy dự án dài hơi không thế nào thiếu được những
-                bữa liên hoan vui nổ trời. Đặc biệt, làng React quanh năm luôn
-                tưng bừng với các thể loại hội hè lễ Tết, giúp các anh chị em
-                đầu thôn cuối xóm gắn kết, thật mật cùng nhau.
-              </p>
-              <div className="list-btn">
-                {SummerFestival.map((val) => {
-                  return (
-                    <div className="box-loadmore" key={val._id}>
-                      <button
-                        onClick={() => setActiveSummer(val._id)}
-                        className={
-                          isActiveSumber === val._id
-                            ? "btnmore btnmore-active"
-                            : "btnmore"
-                        }
-                      >
-                        <span>{val.text}</span>
-                      </button>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-            <div className="content-left">
-              <img
-                src="./assets/images/img26.png"
-                width={"100%"}
-                height={"100%"}
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-      <JoinNow />
-      <Footer />
       <style jsx>{`
         .header {
           height: 410px;
@@ -252,7 +256,6 @@ const VanHoa = () => {
           left: 0;
           z-index: 99;
           background-image: url("/assets/icon/BG2.png");
-         
         }
         .box-image {
           width: 165px;
@@ -392,6 +395,18 @@ const VanHoa = () => {
         }
         .btnmore-active span {
           color: #ffffff;
+        }
+        @media screen and (max-width: 768px) {
+          .content {
+            display: block;
+          }
+          .content-left {
+            width: 100%;
+            height: auto;
+          }
+          .content-right {
+            width: 100%;
+          }
         }
       `}</style>
     </>
