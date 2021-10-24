@@ -301,7 +301,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <img className="reactlogo" src="./assets/images/React.png" alt="" />
+         
         </div>
         <Footer />
       </div>
@@ -471,10 +471,11 @@ export default function Home() {
         .community__item__content .item__content {
           font-size: 13px;
           width: 381px;
-          height: 60px;
+          height: auto;
           line-height: 19px;
           letter-spacing: -0.02em;
           color: #25282b;
+          margin: 10px 0;
         }
         .btnmore {
           width: 152px;
@@ -674,9 +675,11 @@ export default function Home() {
           line-height: 36px;
           letter-spacing: -0.02em;
           color: #25282b;
+          margin: 20px 0;
         }
         .list_news {
           display: flex;
+          overflow-x: auto;
           justify-content: space-between;
         }
 
@@ -715,7 +718,8 @@ export default function Home() {
         .inputemail {
           width: 100%;
           height: 100%;
-          background-image: url("/assets/images/BGinput.png");
+          background-image: url("/assets/images/Frame45527.png");
+          background-size: cover;
         }
         .box-inputemail .reactlogo {
           position: absolute;
@@ -840,6 +844,9 @@ export default function Home() {
 
             overflow: hidden;
           }
+          .document__title{
+            width: auto;
+          }
           .box-content {
             padding: 0 16px;
             height: auto;
@@ -865,6 +872,9 @@ export default function Home() {
             height: 100%;
           }
           .item__content {
+            width: 238px;
+          }
+          .community__item__content .item__content{
             width: 100% !important;
           }
           .community__content {
@@ -875,7 +885,7 @@ export default function Home() {
           }
           .box_document {
             width: 100%;
-            height: 900px;
+            height: 950px;
           }
           .document__text{
             width:  100%;
@@ -893,7 +903,9 @@ export default function Home() {
           }
           .community__item {
             width: 100%;
-            margin: 10px 0;
+            height: auto;
+    margin: 15px 0;
+           
           }
           .banner{
             height: auto;
@@ -914,6 +926,28 @@ export default function Home() {
         }
         .document__title {
 font-size: 20px
+        }
+        .box-inputemail .container{
+          padding : 0;
+        }
+        .inputemail{
+          background-image: url(/assets/images/BG1783.png);
+        }
+        .box-inputemail .reactlogo{
+          display: none;
+        }
+        .input__content{
+          width:auto;
+          padding: 30px 20px;
+        }
+        .input__content__title{
+          padding : 0 40px;
+        }
+        .inputemail input{
+          width: calc(100% - 60px);
+        }
+        .btnsubmit{
+          margin-right: 20px;
         }
       `}</style>
     </>

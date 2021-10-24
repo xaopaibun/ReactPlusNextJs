@@ -1,6 +1,6 @@
 @font-face {
   font-family: SVN-Poppins;
-  src: url(/public/assets/fonts/TTF/SVN-Poppins-Medium.ttf);
+  src: url(/assets/fonts/SVN-Poppins-Regular.ttf);
 }
 html,
 body {
@@ -13,6 +13,9 @@ body {
 @media screen and (max-width: 768px) {
   body {
     width: 100%;
+    /* transform: translateX(-80%);
+    transition: 0.5s;
+    transition-delay: 3s; */
   }
   .main-page{
     width: 100%;

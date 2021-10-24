@@ -11,75 +11,77 @@ const Footer = () => {
               alt="Logo"
             />
             <p>
-              Tầng 7, Golden Field Building, 24 Nguyễn Cơ Thạch, Nam Từ Liêm, Hà
+              Tầng 7, Golden Field Building,<br /> 24 Nguyễn Cơ Thạch, Nam Từ Liêm, Hà
               Nội
             </p>
           </div>
-          <div className="footer_item">
-            <p className="item__title">Cộng đồng</p>
-            <a href="#">Đào tạo &amp; Sự kiện</a>
-            <a href="#">Vì cộng đồng</a>
-            <a href="#">Tin tức &amp; Blog</a>
-          </div>
-          <div className="footer_item">
-            <p className="item__title">Công ty</p>
-            <a href="#">Giới thiệu</a>
-            <a href="#">Văn hoá</a>
-            <a href="#">Tuyển dụng</a>
-          </div>
-          <div className="footer_item">
-            <p className="item__title">Liên hệ</p>
-            <a tel={"0349177306"}>
-              <img
-                src="../assets/icon/phone.png"
-                style={{ marginRight: "5px" }}
-                width="13.33px"
-                height="13.33px"
-                alt="phone"
-              />
-              0349177306
-            </a>
-            <a href="#">
-              <img
-                src="../assets/icon/mail.png"
-                style={{ marginRight: "5px" }}
-                width="16px"
-                height="13.33px"
-                alt="mail"
-              />
-              contact@reactplus.jp
-            </a>
-          </div>
-          <div className="footer_item">
-            <p className="item__title">Kết nối với chúng tôi</p>
-            <div className="connect">
-              <a href="https://www.facebook.com/reactplus.jsc">
+          <div className="footer-right">
+            <div className="footer_item">
+              <p className="item__title">Cộng đồng</p>
+              <a href="#">Đào tạo &amp; Sự kiện</a>
+              <a href="#">Vì cộng đồng</a>
+              <a href="#">Tin tức &amp; Blog</a>
+            </div>
+            <div className="footer_item">
+              <p className="item__title">Công ty</p>
+              <a href="#">Giới thiệu</a>
+              <a href="#">Văn hoá</a>
+              <a href="#">Tuyển dụng</a>
+            </div>
+            <div className="footer_item">
+              <p className="item__title">Liên hệ</p>
+              <a tel={"0349177306"}>
                 <img
-                  src="../assets/icon/facebook.png"
+                  src="../assets/icon/phone.png"
                   style={{ marginRight: "5px" }}
-                  width="32.24px"
-                  height="32.24px"
-                  alt="facebook"
+                  width="13.33px"
+                  height="13.33px"
+                  alt="phone"
                 />
+                0349177306
               </a>
               <a href="#">
                 <img
-                  src="../assets/icon/Instagram.png"
+                  src="../assets/icon/mail.png"
                   style={{ marginRight: "5px" }}
-                  width="32.24px"
-                  height="32.24px"
-                  alt="Instagram"
+                  width="16px"
+                  height="13.33px"
+                  alt="mail"
                 />
+                contact@reactplus.jp
               </a>
-              <a href="#">
-                <img
-                  src="../assets/icon/youtube.png"
-                  style={{ marginRight: "5px" }}
-                  width="32.24px"
-                  height="32.24px"
-                  alt="youtube"
-                />
-              </a>
+            </div>
+            <div className="footer_item">
+              <p className="item__title">Kết nối với chúng tôi</p>
+              <div className="connect">
+                <a href="https://www.facebook.com/reactplus.jsc">
+                  <img
+                    src="../assets/icon/facebook.png"
+                    style={{ marginRight: "5px" }}
+                    width="32.24px"
+                    height="32.24px"
+                    alt="facebook"
+                  />
+                </a>
+                <a href="#">
+                  <img
+                    src="../assets/icon/Instagram.png"
+                    style={{ marginRight: "5px" }}
+                    width="32.24px"
+                    height="32.24px"
+                    alt="Instagram"
+                  />
+                </a>
+                <a href="#">
+                  <img
+                    src="../assets/icon/youtube.png"
+                    style={{ marginRight: "5px" }}
+                    width="32.24px"
+                    height="32.24px"
+                    alt="youtube"
+                  />
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -97,8 +99,13 @@ const Footer = () => {
         .footer_itemlogo {
           width: 24%;
         }
+        .footer-right {
+          width: 100%;
+          display: flex;
+          justify-content: space-around;
+        }
         .footer_item {
-          width: 16%;
+          width: 22%;
         }
         .footer_item .item__title {
           font-weight: 600;
@@ -135,6 +142,9 @@ const Footer = () => {
 
           color: #000000;
         }
+        .footer_itemlogo p br{
+          display: none;
+        }
         .footer_item .connect {
           display: flex;
         }
@@ -146,7 +156,28 @@ const Footer = () => {
           color: #000000;
         }
         @media screen and (max-width: 768px) {
-         
+          .footer {
+            display: block;
+            height: auto;
+            margin: 16px 0;
+          }
+          .footer_itemlogo {
+            width: 100%;
+          }
+          .footer_itemlogo p{
+            margin: 10px 0;
+          }
+          .footer_itemlogo p br{
+            display: block;
+          }
+          .footer-right {
+            flex-wrap: wrap;
+          }
+
+          .footer_item {
+            width: 50%;
+            margin: 10px 0;
+          }
         }
       `}</style>
     </>

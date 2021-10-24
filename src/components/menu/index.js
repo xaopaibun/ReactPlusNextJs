@@ -1,4 +1,5 @@
 import Link from "next/link";
+
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { useScroll } from "../../hooks/useScroll";
@@ -6,6 +7,7 @@ const Menu = ({ isColor }) => {
   const router = useRouter();
   const [DropDownGioiThieu, setDropDownGioiThieu] = useState(false);
   const [DropDownEvent, setDropDownEvent] = useState(false);
+  const [isClose, setIsClose] = useState(false);
   const handleClickDropDownEvent = () => {
     if (DropDownGioiThieu === true) {
       setDropDownGioiThieu(false);
@@ -30,8 +32,17 @@ const Menu = ({ isColor }) => {
             </div>
             <div className="col-xl-9 col-sm-9 col-9">
               <div className="menu-reponsive">
-                <div className="btn-menu">
-                  <img src="../assets/icon/menu-3.1.png" alt="Logo" />
+                <div className="btn-menu" onClick={() => setIsClose(!isClose)}>
+                  {!isClose ? (
+                    <img src="../assets/icon/menu-3.1.png" alt="Open" />
+                  ) : (
+                    <img
+                      src="../assets/icon/X.png"
+                      width="24px"
+                      height="24px"
+                      alt="Close"
+                    />
+                  )}
                 </div>
               </div>
 
@@ -164,7 +175,15 @@ const Menu = ({ isColor }) => {
             </div>
           </div>
         ))}
-
+      <div className="box-menu-reponsive">
+        <h2 className="menu-reponsive-item">Trang chủ</h2>
+        <h2 className="menu-reponsive-item">Giới thiệu</h2>
+        <h2 className="menu-reponsive-item">Văn hóa </h2>
+        <h2 className="menu-reponsive-item">Tuyển dụng</h2>
+        <h2 className="menu-reponsive-item">Đào tạo & Sự kiện </h2>
+        <h2 className="menu-reponsive-item">Vì cộng đồng</h2>
+        <h2 className="menu-reponsive-item">Tin tức & Blog</h2>
+      </div>
       <style jsx>{`
         .btn-menu {
           border: 1px solid #c4c4c4;
@@ -176,6 +195,7 @@ const Menu = ({ isColor }) => {
           align-items: center;
           justify-content: center;
         }
+
         .menu-reponsive {
           display: none;
         }
@@ -250,6 +270,9 @@ const Menu = ({ isColor }) => {
           text-decoration: none;
           margin: 20px;
         }
+        .box-menu-reponsive {
+          display: none;
+        }
 
         .menu__item a:hover {
           color: #0bbee7;
@@ -258,12 +281,15 @@ const Menu = ({ isColor }) => {
         .triangle-relative {
           position: relative;
         }
+        .menu-reponsive {
+          display: none;
+        }
         @media screen and (max-width: 768px) {
           .box-menu {
             width: 100%;
             background-color: #ffffff;
           }
-          
+
           .menu {
             display: none;
           }
@@ -271,6 +297,42 @@ const Menu = ({ isColor }) => {
             display: flex;
             justify-content: flex-end;
             align-items: flex-end;
+          }
+          .box-menu-reponsive {
+            display: block;
+            width: 80%;
+            height: 900px;
+            background-color: #f4f6fa;
+            padding: 53px 38px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 999;
+            overflow-y: hidden;
+            transform: translateX(125%);
+          }
+          .menu-reponsive-item {
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 27px;
+            letter-spacing: -0.02em;
+            color: #25282b;
+            margin: 28px 0;
+          }
+        }
+      `}</style>
+
+      <style jsx global>{`
+        body {
+          transform: ${!isClose ? `none` : `translateX(-80%)`};
+        }
+        @keyframes OpenMenu {
+          from {
+            transform: none;
+          }
+
+          to {
+            transform: translateX(-80%);
           }
         }
       `}</style>

@@ -55,6 +55,9 @@ const JoinNow = () => {
           text-align: center;
           color: #ffffff;
         }
+        @media screen and (max-width: 768px) {
+          
+        }
       `}</style>
     </div>
   );
