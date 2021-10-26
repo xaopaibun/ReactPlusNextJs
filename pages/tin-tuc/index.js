@@ -44,7 +44,7 @@ const News = () => {
           </div>
         </div>
         <div className="list-posts">
-          <div className="">
+          <div className="list-posts-item">
             <img
               src="./assets/images/img27.png"
               height={"193px"}
@@ -56,7 +56,7 @@ const News = () => {
             </a>
           </div>
 
-          <div className="">
+          <div className="list-posts-item">
             <img
               src="./assets/images/img28.png"
               height={"193px"}
@@ -68,7 +68,7 @@ const News = () => {
             </a>
           </div>
 
-          <div className="">
+          <div className="list-posts-item">
             <img
               src="./assets/images/img29.png"
               height={"193px"}
@@ -96,7 +96,7 @@ const News = () => {
           </div>
         </div>
         <div className="list-posts">
-          <div className="">
+          <div className="list-posts-item">
             <img
               src="./assets/images/img30.png"
               height={"193px"}
@@ -108,7 +108,7 @@ const News = () => {
             </a>
           </div>
 
-          <div className="">
+          <div className="list-posts-item">
             <img
               src="./assets/images/img31.png"
               height={"193px"}
@@ -120,7 +120,7 @@ const News = () => {
             </a>
           </div>
 
-          <div className="">
+          <div className="list-posts-item">
             <img
               src="./assets/images/img32.png"
               height={"193px"}
@@ -171,6 +171,7 @@ const News = () => {
         .content-review-date {
           font-size: 13px;
           line-height: 19px;
+          margin-top: 12px;
           letter-spacing: -0.02em;
           color: #a0a4a8;
         }
@@ -223,6 +224,41 @@ const News = () => {
         }
         .margin {
           height: 80px;
+        }
+
+        @media screen and (max-width: 768px) {
+          .banner img {
+            height: 110px !important;
+          }
+          .list-posts {
+            overflow-x: scroll;
+          }
+          .list-posts-item {
+            margin-right: 20px;
+          }
+          .center {
+            width: auto;
+          }
+          .banner img {
+            height: auto !important;
+          }
+          .banner {
+            height: auto;
+          }
+          .content-review {
+            position: unset;
+            padding: 19px;
+            background: linear-gradient(
+              360deg,
+              #f4f6fa 0%,
+              rgba(244, 246, 250, 0) 83.85%
+            );
+          }
+          .content-review-title {
+            font-size: 20px;
+            line-height: 28px;
+            color: #25282b;
+          }
         }
       `}</style>
     </>

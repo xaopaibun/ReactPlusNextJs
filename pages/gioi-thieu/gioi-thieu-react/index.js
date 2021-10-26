@@ -60,7 +60,7 @@ const IntroduceReact = () => {
               </div>
             </div>
 
-            <div className="introduce-item">
+            <div className="introduce-item-reverse">
               <div className="item-content">
                 <h2 className="item-content-title">
                   Tương lai của ứng dụng di động
@@ -83,6 +83,32 @@ const IntroduceReact = () => {
                   height="100%"
                   alt=""
                 />
+              </div>
+            </div>
+
+            <div className="introduce-item-reverse-reponsive">
+              <div className="item-image">
+                <img
+                  src="../assets/images/img44.png"
+                  width="100%"
+                  height="100%"
+                  alt=""
+                />
+              </div>
+              <div className="item-content">
+                <h2 className="item-content-title">
+                  Tương lai của ứng dụng di động
+                </h2>
+                <p className="item-content-text">
+                  Với hơn 98.000 sao trên Github và số lượng contributors cao
+                  thứ 2 trên toàn thế giới (2018), React Native chính là xu
+                  hướng hàng đầu của các nhà phát triển trong tương lai.
+                  <br />
+                  Sức mạnh vượt trội và khả năng ứng dụng không giới hạn của nó
+                  đã thu hút những khách hàng lớn trong mọi lĩnh vực và khiến họ
+                  ưu tiên lựa chọn các công ty chuyên về React để thực hiện dự
+                  án.
+                </p>
               </div>
             </div>
 
@@ -211,17 +237,22 @@ const IntroduceReact = () => {
         .box-introduce-react-content {
           width: 100%;
           height: auto;
-          padding: 70px 0;
+          padding-top: 70px;
           background-repeat: no-repeat;
           background-image: url(/assets/images/BG-career.png);
         }
-        .introduce-item {
+        .introduce-item,
+        .introduce-item-reverse,
+        .introduce-item-reverse-reponsive {
           height: 335px;
           width: 100%;
           margin-bottom: 50px;
           display: flex;
           justify-content: space-between;
           align-items: center;
+        }
+        .introduce-item-reverse-reponsive {
+          display: none;
         }
         .item-image {
           height: 335px;
@@ -245,12 +276,13 @@ const IntroduceReact = () => {
           color: #52575c;
         }
         .box-frequently-asked-questions {
-          padding: 92px 0;
+          padding-top: 92px;
           box-sizing: border-box;
           width: 100%;
           min-height: 591px;
           height: auto;
-          background: #f4f6fa;
+          background-repeat: no-repeat;
+          background-image: url(/assets/images/BG-career.png);
           margin-bottom: 70px;
         }
 
@@ -292,6 +324,7 @@ const IntroduceReact = () => {
           color: #ffffff;
           margin-right: 5px;
         }
+
         .asked-questions-right {
           width: 580px;
           padding: 32px 42px;
@@ -347,7 +380,7 @@ const IntroduceReact = () => {
             margin: 20px 0;
           }
           .btnmorefull {
-            margin: auto;
+            margin: 10px auto;
             display: block;
           }
           .question-title {
@@ -365,8 +398,23 @@ const IntroduceReact = () => {
           .item-content {
             width: 100%;
           }
-          .asked-questions-left > img{
+
+          .item-content-title {
+            font-size: 20px;
+            margin-top: 20px;
+          }
+          .asked-questions-left > img {
             margin: 0 auto;
+            display: block;
+          }
+          .asked-questions-left {
+            width: auto;
+          }
+          .introduce-item-reverse {
+            display: none;
+          }
+          .introduce-item-reverse-reponsive {
+            height: auto;
             display: block;
           }
         }

@@ -178,9 +178,15 @@ const Menu = ({ isColor }) => {
       <div className="box-menu-reponsive">
         <h2 className="menu-reponsive-item">Trang chủ</h2>
         <h2 className="menu-reponsive-item">Giới thiệu</h2>
+        <h4 className="menu-reponsive-item-category">
+          Về React & React Native
+        </h4>
+        <h4 className="menu-reponsive-item-category">Công ty React Plus</h4>
         <h2 className="menu-reponsive-item">Văn hóa </h2>
         <h2 className="menu-reponsive-item">Tuyển dụng</h2>
         <h2 className="menu-reponsive-item">Đào tạo & Sự kiện </h2>
+        <h4 className="menu-reponsive-item-category">Các khoá đào tạo</h4>
+        <h4 className="menu-reponsive-item-category">Sự kiện thường kỳ</h4>
         <h2 className="menu-reponsive-item">Vì cộng đồng</h2>
         <h2 className="menu-reponsive-item">Tin tức & Blog</h2>
       </div>
@@ -318,6 +324,14 @@ const Menu = ({ isColor }) => {
             letter-spacing: -0.02em;
             color: #25282b;
             margin: 28px 0;
+          }
+          .menu-reponsive-item-category {
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 21px;
+            letter-spacing: -0.02em;
+            margin: 6px 20px;
+            color: #52575c;
           }
         }
       `}</style>

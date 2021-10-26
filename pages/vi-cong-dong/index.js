@@ -17,7 +17,7 @@ const ViCongDong = () => {
         </div>
       </div>
 
-      <div className="container">
+      <div className="container positionpage">
         <div className="parameter">
           <div className="parameter-item">
             <h5 className="text-number">
@@ -26,6 +26,7 @@ const ViCongDong = () => {
             <p className="text-content">Đã được chia sẻ tới cộng đồng</p>
           </div>
           <div className="border" />
+          <div className="border-reponsive" />
           <div className="parameter-item">
             <h5 className="text-number">
               27<span className="text-unit"> Người</span>
@@ -49,36 +50,37 @@ const ViCongDong = () => {
           gia đóng góp cho hoạt động này mỗi ngày, bằng việc làm tốt công việc
           của mình.
         </p>
-        <h2 className="text-title">
-          Câu chuyện thiện nguyện{" "}
-          <img
-            src="./assets/icon/trai-tim.png"
-            height={"20px"}
-            width={"27px"}
-            style={{ marginTop: "-25px" }}
-          />
-        </h2>
+      </div>
+      <div className="box-bg">
+        <div className="container">
+          <h2 className="text-title">
+            Câu chuyện thiện nguyện{" "}
+            <img
+              src="./assets/icon/trai-tim.png"
+              height={"20px"}
+              width={"27px"}
+              style={{ marginTop: "-25px" }}
+            />
+          </h2>
 
-        <div className="list-posts">
-          {VolunteerStory &&
-            VolunteerStory.map((value) => {
-              return (
-                <div className="post-item">
-                  <img
-                    src={`./assets/images/${value.image}`}
-                    height={"193px"}
-                    width={"340px"}
-                  />
-                  <h5 className="content-review-date">
-                   {value.date}
-                   </h5>
-                  <a href="" className="post-title">
-                   {value.text}
-                  </a>
-                </div>
-              );
-            })}
-          
+          <div className="list-posts">
+            {VolunteerStory &&
+              VolunteerStory.map((value) => {
+                return (
+                  <div className="post-item">
+                    <img
+                      src={`./assets/images/${value.image}`}
+                      height={"193px"}
+                      width={"340px"}
+                    />
+                    <h5 className="content-review-date">{value.date}</h5>
+                    <a href="" className="post-title">
+                      {value.text}
+                    </a>
+                  </div>
+                );
+              })}
+          </div>
         </div>
       </div>
       <Footer />
@@ -157,14 +159,17 @@ const ViCongDong = () => {
           background: #eaeaea;
           transform: matrix(-1, 0, 0, 1, 0, 0);
         }
+        .border-reponsive {
+          display: none;
+        }
         .list-posts {
           display: flex;
           flex-wrap: wrap;
           justify-content: space-between;
-          margin: 50px 0;
+          margin-bottom: 50px;
         }
         .content-review-date {
-            margin-top: 10px;
+          margin-top: 10px;
           font-size: 13px;
           line-height: 19px;
           letter-spacing: -0.02em;
@@ -188,8 +193,70 @@ const ViCongDong = () => {
         .post-title:hover {
           color: #0bbee7;
         }
-        .post-item{
-            margin: 20px 0;
+        .post-item {
+          width: 30%;
+          margin: 20px 0;
+        }
+        @media screen and (max-width: 768px) {
+          .frame-page {
+            padding-top: 30px;
+            height: 217px;
+            width: 100%;
+            position: relative;
+            background: linear-gradient(
+              0deg,
+              #f4f6fa 0%,
+              rgba(244, 246, 250, 0) 83.85%
+            );
+          }
+          .container-top {
+            width: 100%;
+            background-size: contain;
+            background-repeat: no-repeat;
+          }
+          .text-title {
+            font-size: 20px;
+            line-height: 28px;
+            margin-top: 0px;
+          }
+          .parameter {
+            flex-direction: column;
+            width: 100%;
+            height: auto;
+            margin: 0;
+          }
+          .border {
+            display: none;
+          }
+          .parameter-item {
+            padding-top: 10px;
+            width: 100%;
+          }
+          .list-posts {
+            flex-wrap: nowrap;
+            overflow-x: scroll;
+          }
+          .post-item {
+            margin-right: 12px;
+            width: auto;
+          }
+          .border-reponsive {
+            display: block;
+            width: 96px;
+            height: 1px;
+            background-color: #eaeaea;
+            padding: 0 27px;
+          }
+          .position {
+            position: absolute;
+          }
+          .text-content{
+            font-size: 13px;
+          }
+          .box-bg {
+            padding-top: 20px;
+            background-color: #f4f6fa;
+          }
         }
       `}</style>
     </div>

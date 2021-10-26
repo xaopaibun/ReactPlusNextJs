@@ -1,4 +1,3 @@
-
 import Head from "next/head";
 import Menu from "../../../src/components/menu";
 import Footer from "../../../src/components/footer";
@@ -17,7 +16,7 @@ const CareerDetal = () => {
       </Head>
 
       <div className="header">
-        <Menu isColor={true}/>
+        <Menu isColor={true} />
         <div className="header-center">
           <h3 className="title-career">React Plus Career</h3>
           <div className="contact">
@@ -48,7 +47,9 @@ const CareerDetal = () => {
               </div>
             </div>
           </div>
-          <button className="btnRegister" onClick={handleSubmit}>Đăng ký ứng viên tiềm năng</button>
+          <button className="btnRegister" onClick={handleSubmit}>
+            Đăng ký ứng viên tiềm năng
+          </button>
         </div>
       </div>
 
@@ -66,6 +67,14 @@ const CareerDetal = () => {
 
         <div className="content-detail">
           <div className="content-detail-left">
+            <div className="applied-position-item-top">
+              <span className="tinh">
+                <img src="../assets/icon/dinhvi.png" width={11} height={15} />{" "}
+                Hà Nội
+              </span>
+              <div className="full-time">Full-time</div>
+            </div>
+
             <h1 className="title-detail">Chuyên viên chăm sóc khách hàng</h1>
             <h3 className="list-title">Nội dung công việc</h3>
             <ul>
@@ -273,6 +282,10 @@ const CareerDetal = () => {
           text-align: center;
           color: #ffffff;
         }
+        .btnRegister:hover {
+          transition: 0.3s;
+          background: rgba(255, 255, 255, 0.1);
+        }
         .box-back {
           display: flex;
         }
@@ -374,6 +387,66 @@ const CareerDetal = () => {
           font-size: 13px;
           line-height: 19px;
           color: #8c97ac;
+        }
+        .applied-position-item-top {
+          width: 300px;
+          margin-bottom: 15px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+        .applied-position-item-center {
+          font-weight: 600;
+          font-size: 20px;
+          line-height: 28px;
+          color: #25282b;
+        }
+        .tinh {
+          font-size: 14px;
+          line-height: 21px;
+          color: #8c97ac;
+        }
+
+        .full-time {
+          background: rgba(15, 188, 73, 0.1);
+          border-radius: 5px;
+          width: 76px;
+          height: 30px;
+          font-size: 13px;
+          line-height: 16px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: #0fbc49;
+        }
+        @media screen and (max-width: 768px) {
+          .header-center {
+            width: 100%;
+          }
+          .applied-position-item-top {
+            width: 100%;
+          }
+          .title-detail {
+            font-size: 20px;
+            line-height: 28px;
+          }
+          .content-detail {
+            display: block;
+          }
+          .content-detail-left,
+          .content-detail-right {
+            width: 100%;
+          }
+          .content-detail-right {
+            margin-left: 0;
+          }
+          .btnJoin {
+            display: block;
+            margin: 0 auto;
+          }
+          .content-detail-right .btnJoin {
+            display: none;
+          }
         }
       `}</style>
     </>

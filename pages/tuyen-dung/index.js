@@ -1,6 +1,6 @@
 import Menu from "../../src/components/menu";
 import Head from "next/head";
-import { ListAppliedPosition } from "../../src/config";
+import { ListAppliedPosition, _7Step } from "../../src/config";
 import { useRouter } from "next/router";
 import Footer from "../../src/components/footer";
 import JoinNow from "../../src/components/common/thamgiangay";
@@ -15,7 +15,7 @@ const Career = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="header">
-        <Menu isColor={true}/>
+        <Menu isColor={true} />
         <div className="header-center">
           <h3 className="title-career">React Plus Career</h3>
           <div className="contact">
@@ -98,14 +98,31 @@ const Career = () => {
       </div>
       <div className="box-nominee2">
         <div className="container">
-          {/* <h5 className="title">CAREER</h5>
-          <h2 className="title2">7 bước thành chuyên gia</h2> */}
-          <img
+          <h5 className="title">CAREER</h5>
+          <h2 className="title2">7 bước thành chuyên gia</h2>
+          <div className="list-level">
+            {_7Step &&
+              _7Step.map((val) => (
+                <div className="level-item" key={val._id}>
+                  <div className="level-item-left">
+                    <div className="time-line"></div>
+                    <div className="border-time-line"></div>
+                  </div>
+                  <div className="level-item-right">
+                    <h4 className="level-time">{val.time}</h4>
+                    <h4 className="level-text">{val.level}</h4>
+                    <p className="level-content">{val.text}</p>
+                  </div>
+                </div>
+              ))}
+          </div>
+
+          {/* <img
             src="./assets/images/Group2111.png"
             alt=""
             width={"100%"}
             style={{ marginTop: "30px" }}
-          />
+          /> */}
           <div className="marginTopBottom">
             <h5 className="title">CAREER</h5>
             <h2 className="title2">3 bước vào đội ngũ</h2>
@@ -205,6 +222,7 @@ const Career = () => {
         }
         .box-nominee {
           background-image: url("/assets/images/BG-career.png");
+          background-repeat: no-repeat;
           height: auto;
           width: 100%;
           margin-bottom: 75px;
@@ -344,6 +362,7 @@ const Career = () => {
           margin: 60px 0;
           width: 100%;
           background-image: url("/assets/images/BG-career.png");
+          background-repeat: no-repeat;
         }
         .join-the-team {
           display: flex;
@@ -381,6 +400,73 @@ const Career = () => {
           line-height: 28px;
           text-align: center;
           color: #ffffff;
+        }
+        @media screen and (max-width: 768px) {
+          .applied-position-item {
+            width: 100%;
+          }
+          .box-nominee2 > img {
+            display: none;
+          }
+          .header-center {
+            width: auto;
+          }
+          .level-item {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 10px;
+          }
+          .title2 {
+            font-size: 22px;
+            line-height: 33px;
+          }
+          .level-item-left {
+            width: 5%;
+          }
+          .level-item-right {
+            width: 80%;
+          }
+          .level-time {
+            font-weight: 600;
+            font-size: 12px;
+            line-height: 18px;
+            letter-spacing: -0.02em;
+            color: #0bbee7;
+          }
+          .level-text {
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 27px;
+            display: flex;
+            align-items: center;
+            letter-spacing: -0.02em;
+            color: #25282b;
+          }
+          .level-content {
+            font-size: 14px;
+            line-height: 21px;
+            letter-spacing: -0.02em;
+            color: #25282b;
+          }
+          .join-the-team {
+            display: block;
+          }
+          .join-the-team-item {
+            width: 100%;
+          }
+          .time-line {
+            margin-top: 5px;
+            width: 12px;
+            height: 12px;
+            background: #a0a4a8;
+            border-radius: 50%;
+          }
+          .border-time-line {
+            width: 1px;
+            border-left: 1px dashed #e2e2e2;
+            height: 100%;
+            margin-left: 5px;
+          }
         }
       `}</style>
     </>

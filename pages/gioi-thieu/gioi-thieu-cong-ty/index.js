@@ -15,6 +15,11 @@ const GioiThieu = () => {
         <div className="container">
           <div className="box_introduce">
             <div className="introduce__left">
+              <img
+                src="../assets/icon/Group2101.png"
+                className="img-icon-header"
+                alt=""
+              />
               <h1>
                 React Plus <br />
                 Công ty chuyên về React lớn nhất tại Việt nam
@@ -111,56 +116,59 @@ const GioiThieu = () => {
           </h2>
           <div className="box-organizational-structure"></div>
           <h2 className="organizational-structure-title">Đội ngũ chuyên gia</h2>
-          <div className="box-team-of-experts">
-            {ListExperts &&
-              ListExperts.map((val) => (
-                <div className="item-experts" key={val._id}>
-                  <div className="item__img">
-                    <img
-                      width="110px"
-                      height="110px"
-                      style={{ borderRadius: "50%" }}
-                      src={"../assets/images/" + val.avatar}
-                      alt={val.fullname}
-                    />
+          <div className="container2">
+            <div className="box-team-of-experts">
+              {ListExperts &&
+                ListExperts.map((val) => (
+                  <div className="item-experts" key={val._id}>
+                    <div className="item__img">
+                      <img
+                        width="110px"
+                        height="110px"
+                        style={{ borderRadius: "50%" }}
+                        src={"../assets/images/" + val.avatar}
+                        alt={val.fullname}
+                      />
+                    </div>
+                    <div className="item__content">
+                      <h3 className="name-experts">{val.fullname}</h3>
+                      <p className="content-experts">
+                        Chuyên về React &amp; React Native <br />
+                        Sẵn sàng 24/7 <br />
+                        Đẳng cấp thế giới <br />
+                        Khả năng tăng trưởng, mở rộng nhanh <br />
+                        Phản hồi ngay lập tức <br />
+                      </p>
+                    </div>
                   </div>
-                  <div className="item__content">
-                    <h3 className="name-experts">{val.fullname}</h3>
-                    <p className="content-experts">
-                      Chuyên về React &amp; React Native <br />
-                      Sẵn sàng 24/7 <br />
-                      Đẳng cấp thế giới <br />
-                      Khả năng tăng trưởng, mở rộng nhanh <br />
-                      Phản hồi ngay lập tức <br />
-                    </p>
-                  </div>
-                </div>
-              ))}
-            <div className="box-find-us">
-              <div className="find-us-left">
-                <h1 className="find-us-title">Tìm chúng tôi</h1>
-                <div class="box-address">
-                  <img
-                    width="24px"
-                    height="24px"
-                    src="../assets/images/icont-map.png"
-                  />
-                  <p className="find-us-address">
-                    Tầng 7, Golden Field Building, <br />
-                    24 Nguyễn Cơ Thạch, Nam Từ Liêm, Hà Nội
-                  </p>
-                </div>
-              </div>
-              <div className="find-us-right">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1861.9714712447185!2d105.76455745792299!3d21.03496889649878!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1svi!2s!4v1634295837745!5m2!1svi!2s"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
+                ))}
+            </div>
+          </div>
+
+          <div className="box-find-us">
+            <div className="find-us-left">
+              <h1 className="find-us-title">Tìm chúng tôi</h1>
+              <div className="box-address">
+                <img
+                  width="24px"
+                  height="24px"
+                  src="../assets/images/icont-map.png"
                 />
+                <p className="find-us-address">
+                  Tầng 7, Golden Field Building, <br />
+                  24 Nguyễn Cơ Thạch, Nam Từ Liêm, Hà Nội
+                </p>
               </div>
+            </div>
+            <div className="find-us-right">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1861.9714712447185!2d105.76455745792299!3d21.03496889649878!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1svi!2s!4v1634295837745!5m2!1svi!2s"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+              />
             </div>
           </div>
         </div>
@@ -170,6 +178,9 @@ const GioiThieu = () => {
         <Footer />
       </footer>
       <style jsx>{`
+        .img-icon-header {
+          display: none;
+        }
         .box_introduce {
           margin: 15px 0;
           height: auto;
@@ -324,7 +335,7 @@ const GioiThieu = () => {
           letter-spacing: -0.02em;
         }
         .box-find-us {
-          height: 340px;
+          height: auto;
           width: 100%;
           margin: 60px 0;
           display: flex;
@@ -361,8 +372,26 @@ const GioiThieu = () => {
           padding: 30px 0;
         }
         @media screen and (max-width: 768px) {
+          .img-icon-header {
+            display: block;
+          }
+          .introduce__left h1 {
+            font-size: 22px;
+            line-height: 33px;
+          }
           .box_introduce {
             display: block;
+          }
+          .box-team-of-experts .box-find-us .row_introduce .item {
+            width: 100%;
+            height: auto;
+          }
+          .box-team-of-experts {
+            width: 1080px;
+            margin: 0;
+          }
+          .item__content {
+            height: auto;
           }
           .introduce__left {
             width: 100%;
@@ -414,14 +443,19 @@ const GioiThieu = () => {
             margin: 12px 0;
           }
           .item-experts {
-            width: 47%;
+            width: 25%;
+            display: block;
+            margin: 0;
+          }
+          .name-experts {
+            font-size: 14px;
           }
           .box-find-us {
             display: block;
           }
           .find-us-right {
             width: 100%;
-            height: auto;
+            height: 300px;
           }
           .find-us-left {
             width: auto;
@@ -430,11 +464,44 @@ const GioiThieu = () => {
             align-items: center;
           }
           .box-address {
+            display: flex;
             flex-direction: column;
             align-items: center;
           }
+          .box-address img {
+            display: block;
+            margin: 0 auto;
+          }
           .find-us-address {
             text-align: center;
+          }
+          .organizational-structure-title {
+            font-size: 20px;
+            line-height: 30px;
+          }
+          .container2 {
+            width: 100%;
+            overflow-x: scroll;
+          }
+          .content-experts {
+            font-size: 12px;
+            line-height: 18px;
+          }
+          .name-experts,
+          .content-experts {
+            text-align: left;
+          }
+          .box-team-of-experts .item-experts .item__img {
+            width: 129px;
+            height: 129px;
+            background-size: cover;
+            background-repeat: no-repeat;
+          }
+          .box-team-of-experts .item-experts .item__img img {
+            width: 65px !important;
+            height: 65px !important;
+          }
+          .item-experts {
           }
         }
       `}</style>
@@ -443,3 +510,7 @@ const GioiThieu = () => {
 };
 
 export default GioiThieu;
+import React, { useState } from "react";
+import { Text, TextInput, View } from "react-native";
+
+

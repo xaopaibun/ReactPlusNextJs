@@ -79,7 +79,7 @@ const EventTraining = () => {
                     <div className="course-item-image">
                       <img
                         src="./assets/images/avatar1.png"
-                        class="course-img"
+                        className="course-img"
                         width={80}
                         height={80}
                       />
@@ -263,6 +263,24 @@ const EventTraining = () => {
           line-height: 19px;
           text-align: center;
           letter-spacing: -0.02em;
+        }
+        @media screen and (max-width: 768px) {
+          .image-page {
+            height: auto;
+            width: 100%;
+          }
+          .box__company__scale {
+            flex-direction: column;
+          }
+          .content-course {
+            position: unset;
+          }
+          .company__scale__item {
+            margin: 0 auto;
+          }
+          .list-course-features-item {
+            margin: 0 auto;
+          }
         }
       `}</style>
     </>

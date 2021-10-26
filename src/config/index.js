@@ -210,7 +210,6 @@ export const ListImage = [
   "img13.png",
   "img14.png",
   "img15.png",
-  "img16.png",
 ];
 
 export const ImageOffice = [
@@ -308,15 +307,53 @@ export const ListQuestion = [
   },
   {
     _id: 2,
-    title_question:
-      "Có khoá học nào miễn phí về React bằng tiếng Việt không?",
+    title_question: "Có khoá học nào miễn phí về React bằng tiếng Việt không?",
     asked:
       "Lorem ipsum dolor sit amet consectetur adipiscing elit turpis viverra amet elit est proin tgestas neque quis aliq vel viverra gravida orci vitae at aliquam sit accum.",
-  },{
+  },
+  {
     _id: 3,
-    title_question:
-      "Có khoá học nào miễn phí về React bằng tiếng Việt không?",
+    title_question: "Có khoá học nào miễn phí về React bằng tiếng Việt không?",
     asked:
       "Lorem ipsum dolor sit amet consectetur adipiscing elit turpis viverra amet elit est proin tgestas neque quis aliq vel viverra gravida orci vitae at aliquam sit accum.",
+  },
+];
+
+export const _7Step = [
+  {
+    _id: 1,
+    time: "2-3 tháng",
+    level: "Intern",
+    text: "Được đào tạo và trải nghiệm làm các dự án với các mentor",
+  },
+  {
+    _id: 2,
+    time: "3-6 tháng",
+    level: "Fresher",
+    text: "Vững kiến thức nền tảng, xử lý tác vụ cơ bản, ký hợp đồng chính thức",
+  },
+  {
+    _id: 3,
+    time: "2-3 tháng",
+    level: "Middle",
+    text: "Xử lý hiệu quả các yêu cầu từ khách hàng",
+  },
+  {
+    _id: 4,
+    time: "2 - 4 năm",
+    level: "Senior",
+    text: "Có khả năng đào tạo cho Fresher và xử lý những bài toán đặc biệt",
+  },
+  {
+    _id: 5,
+    time: "4 - 6 năm",
+    level: "Team Leader",
+    text: "Có khả năng điều phối dự án và chịu trách nhiệm cho kết quả làm việc của nhóm",
+  },
+  {
+    _id: 6,
+    time: "6 - 10 năm",
+    level: "Project Manager",
+    text: "Có khả năng quản lý đội nhóm, xây dựng văn hoá tập thể và vận hành các dự án lớn",
   },
 ];

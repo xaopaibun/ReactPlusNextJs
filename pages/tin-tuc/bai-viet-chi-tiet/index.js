@@ -35,13 +35,11 @@ const NewsBlogDetail = () => {
             </p>
           </div>
         </div>
-
-        <div className="image-page">
-          <img src="../assets/images/banner.png" width="100%" height="100%" />
-        </div>
       </div>
-
-      <div className="container-content">
+      <div className="image-page">
+        <img src="../assets/images/banner.png" width="100%" height="100%" />
+      </div>
+      <div className="container container-content">
         <p className="content-1">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -153,7 +151,7 @@ const NewsBlogDetail = () => {
           display: flex;
           justify-content: center;
           align-items: center;
-          margin: 4px 0;
+          margin: 6px 0;
           cursor: pointer;
         }
         .title-news-detail {
@@ -256,6 +254,51 @@ const NewsBlogDetail = () => {
         }
         .post-title:hover {
           color: #0bbee7;
+        }
+        @media screen and (max-width: 768px) {
+          .list-posts {
+            overflow-x: scroll;
+          }
+          .post-item {
+            margin-right: 10px;
+          }
+          .header-detail {
+            width: 100%;
+            margin: 30px auto;
+          }
+          .box-icont {
+            position: fixed;
+            bottom: 10px;
+            right: -106px;
+            z-index: 100;
+          }
+          .box-icont .icont {
+            background: #ffffff;
+            border: 1px solid #ebebeb;
+            box-sizing: border-box;
+            box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.12);
+          }
+          .image-page {
+            width: 100%;
+            height: auto;
+          }
+          .title-news-detail {
+            font-size: 20px;
+            line-height: 28px;
+            text-align: center;
+            margin: 10px 0;
+          }
+
+          .container-content {
+            width: 100%;
+          }
+          .event-is-happening .container {
+            margin: 0;
+          }
+          .event-is-happening {
+            height: auto;
+            padding: 20px 0 20px 0;
+          }
         }
       `}</style>
     </>
