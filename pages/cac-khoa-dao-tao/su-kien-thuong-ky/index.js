@@ -2,8 +2,11 @@ import Footer from "../../../src/components/footer";
 import Head from "next/head";
 import Menu from "../../../src/components/menu";
 import { ListExperts } from "../../../src/config";
+import { useRouter } from "next/router";
 
 const RegularEvent = () => {
+  const router = useRouter();
+  const handleRegistration = () => router.push("/cac-khoa-dao-tao/form-mam-non-react");
   return (
     <>
       <Head>
@@ -161,7 +164,7 @@ const RegularEvent = () => {
               ))}
           </div>
 
-          <button className="btnJoin">
+          <button className="btnJoin" onClick={handleRegistration}>
             <span>Đăng ký tham gia</span>
           </button>
         </div>

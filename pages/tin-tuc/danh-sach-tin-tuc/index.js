@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 const DanhSachTinTuc = () => {
   const router = useRouter();
   const handleDetail = () => router.push("/tuyen-dung/thong-tin-chi-tiet-form");
+  const handleBackListNews = () => router.push("/tin-tuc");
   return (
     <>
       <Head>
@@ -18,7 +19,7 @@ const DanhSachTinTuc = () => {
         <div className="header">
           <h3 className="header-title">Tin tức</h3>
           <div className="box-back">
-            <div className="btn-back">
+            <div className="btn-back" onClick={handleBackListNews}>
               <img
                 src="../assets/icon/arrow-sm-right4.png"
                 width={24}

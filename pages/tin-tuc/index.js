@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 const News = () => {
   const router = useRouter();
   const handleDetail = () => router.push("/tuyen-dung/thong-tin-chi-tiet-form");
+  const handleViewAllNews = () => router.push("/tin-tuc/danh-sach-tin-tuc");
   return (
     <>
       <Head>
@@ -34,7 +35,7 @@ const News = () => {
             <div className="borderblue"></div>
             <h2 className="header-title">Tin tức</h2>
           </div>
-          <div className="header-right">
+          <div className="header-right" onClick={handleViewAllNews}>
             <span className="text-xemthem">Xem thêm</span>
             <img
               src="./assets/icon/arrow-sm-right-blue.png"
@@ -204,6 +205,9 @@ const News = () => {
         .header-right {
           display: flex;
           align-items: center;
+        }
+        .header-right{
+          cursor: pointer;
         }
         .header-title {
           font-weight: 600;

@@ -176,19 +176,92 @@ const Menu = ({ isColor }) => {
           </div>
         ))}
       <div className="box-menu-reponsive">
-        <h2 className="menu-reponsive-item">Trang chủ</h2>
-        <h2 className="menu-reponsive-item">Giới thiệu</h2>
-        <h4 className="menu-reponsive-item-category">
-          Về React & React Native
-        </h4>
-        <h4 className="menu-reponsive-item-category">Công ty React Plus</h4>
-        <h2 className="menu-reponsive-item">Văn hóa </h2>
-        <h2 className="menu-reponsive-item">Tuyển dụng</h2>
-        <h2 className="menu-reponsive-item">Đào tạo & Sự kiện </h2>
-        <h4 className="menu-reponsive-item-category">Các khoá đào tạo</h4>
-        <h4 className="menu-reponsive-item-category">Sự kiện thường kỳ</h4>
-        <h2 className="menu-reponsive-item">Vì cộng đồng</h2>
-        <h2 className="menu-reponsive-item">Tin tức & Blog</h2>
+        <Link href="/">
+          <a
+            className={
+              router.pathname == "/"
+                ? "menu-reponsive-item menu-reponsive-item-active"
+                : "menu-reponsive-item"
+            }
+          >
+            Trang chủ
+          </a>
+        </Link>
+        <a className="menu-reponsive-item">Giới thiệu</a>
+        <Link href="/gioi-thieu/gioi-thieu-react">
+          <a
+            className={
+              router.pathname == "/gioi-thieu/gioi-thieu-react"
+                ? "menu-reponsive-item-category menu-reponsive-item-active"
+                : "menu-reponsive-item-category"
+            }
+          >
+            Về React & React Native
+          </a>
+        </Link>
+        <Link href="/gioi-thieu/gioi-thieu-cong-ty">
+          <a className="menu-reponsive-item-category">Công ty React Plus</a>
+        </Link>
+        <Link href="/van-hoa">
+          <a
+            className={
+              router.pathname == "/van-hoa"
+                ? "menu-reponsive-item menu-reponsive-item-active"
+                : "menu-reponsive-item"
+            }
+          >
+            Văn hóa{" "}
+          </a>
+        </Link>
+        <Link href="/tuyen-dung">
+          <a
+            className={
+              router.pathname == "/tuyen-dung"
+                ? "menu-reponsive-item menu-reponsive-item-active"
+                : "menu-reponsive-item"
+            }
+          >
+            Tuyển dụng
+          </a>
+        </Link>
+        <a
+          className={
+            router.pathname == "/cac-khoa-dao-tao/su-kien-thuong-ky" ||
+            router.pathname == "/cac-khoa-dao-tao"
+              ? "menu-reponsive-item menu-reponsive-item-active"
+              : "menu-reponsive-item"
+          }
+        >
+          Đào tạo & Sự kiện
+        </a>
+        <Link href="/cac-khoa-dao-tao">
+          <a className="menu-reponsive-item-category">Các khoá đào tạo</a>
+        </Link>
+        <Link href="/cac-khoa-dao-tao/su-kien-thuong-ky">
+          <a className="menu-reponsive-item-category">Sự kiện thường kỳ</a>
+        </Link>
+        <Link href="/vi-cong-dong">
+          <a
+            className={
+              router.pathname == "/vi-cong-dong"
+                ? "menu-reponsive-item menu-reponsive-item-active"
+                : "menu-reponsive-item"
+            }
+          >
+            Vì cộng đồng
+          </a>
+        </Link>
+        <Link href="/tin-tuc">
+          <a
+            className={
+              router.pathname == "/tin-tuc"
+                ? "menu-reponsive-item menu-reponsive-item-active"
+                : "menu-reponsive-item"
+            }
+          >
+            Tin tức & Blog
+          </a>
+        </Link>
       </div>
       <style jsx>{`
         .btn-menu {
@@ -319,14 +392,24 @@ const Menu = ({ isColor }) => {
           }
           .menu-reponsive-item {
             font-weight: 600;
+            display: block;
             font-size: 18px;
+            text-decoration: none;
             line-height: 27px;
             letter-spacing: -0.02em;
             color: #25282b;
             margin: 28px 0;
           }
+          .menu-reponsive-item:hover {
+            color: #0bbee7;
+          }
+          .menu-reponsive-item-active {
+            color: #0bbee7;
+          }
           .menu-reponsive-item-category {
+            display: block;
             font-weight: 500;
+            text-decoration: none;
             font-size: 14px;
             line-height: 21px;
             letter-spacing: -0.02em;

@@ -9,11 +9,18 @@
   },
   "dependencies": {
     "@craco/craco": "^6.3.0",
+    "@emotion/react": "^11.5.0",
+    "@emotion/styled": "^11.3.0",
+    "@mui/icons-material": "^5.0.5",
+    "@mui/material": "^5.0.6",
+    "@mui/styles": "^5.0.2",
     "@zeit/next-css": "^1.0.1",
     "bootstrap": "^5.1.1",
+    "formik": "^2.2.9",
     "next": "^11.0.0",
     "react": "17.0.2",
     "react-bootstrap": "^2.0.0-rc.0",
+    "react-datepicker": "^4.3.0",
     "react-dom": "17.0.2",
     "react-google-recaptcha": "^2.1.0",
     "tailwindcss": "^2.2.17"

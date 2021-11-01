@@ -7,7 +7,8 @@ import JoinNow from "../../src/components/common/thamgiangay";
 const Career = () => {
   const router = useRouter();
   const handleDetail = () => router.push("/tuyen-dung/chi-tiet-tuyen-dung");
-  const handleSubmit = () => router.push("/tuyen-dung/thong-tin-chi-tiet-form");
+  const handleSubmit = () =>
+    router.push("/cac-khoa-dao-tao/form-mam-non-react");
   return (
     <>
       <Head>
