@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "../src/components/footer";
 import { ListNews, TrainingEvents } from "../src/config";
 import { Carousel } from "react-bootstrap";
+import SlideItem from "../src/components/common/slideitem/SlideItem";
 
 export default function Home() {
   return (
@@ -143,7 +144,7 @@ export default function Home() {
           </div>
         </div>
         <div className="container">
-          <div className="box_education">
+          {/* <div className="box_education">
             <img
               width="32px"
               height="32px"
@@ -151,76 +152,15 @@ export default function Home() {
               alt=""
             />
 
-            <div className="education">
-              <div className="education__item">
-                <p className="education__item__time">
-                  01.10.2021 - 28.11.2021{" "}
-                </p>
-                <div className="position-relative">
-                  <img
-                    src="../assets/icon/BorderSolid.png"
-                    width="100%"
-                    height="1px"
-                  />
-                  <div className="box-circle">
-                    <div className="circle"></div>
-                  </div>
-                </div>
-                <h3 className="education__item__title">Talkshow</h3>
-                <p className="education__item__content">
-                  Tương lai của React trên thị trường Việt Nam và quốc tế
-                </p>
-              </div>
-
-              <div className="education__item">
-                <p className="education__item__time text-active">
-                  01.10.2021 - 28.11.2021{" "}
-                </p>
-                <div className="position-relative">
-                  <img
-                    src="../assets/icon/BorderSolid.png"
-                    width="100%"
-                    height="1px"
-                  />
-                  <div className="box-circle">
-                    <div className="circle circle-active"></div>
-                  </div>
-                </div>
-                <h3 className="education__item__title">
-                  Khoá đào tạo Mầm non React
-                </h3>
-                <p className="education__item__content">
-                  Khoá đào tạo hoàn toàn miễn phí giúp các bạn sinh viên IT bước
-                  đầu làm quen với React - React Native
-                </p>
-              </div>
-              <div className="education__item">
-                <p className="education__item__time">
-                  01.10.2021 - 28.11.2021{" "}
-                </p>
-                <div className="position-relative">
-                  <img
-                    src="../assets/icon/BorderSolid.png"
-                    width="100%"
-                    height="1px"
-                  />
-                  <div className="box-circle">
-                    <div className="circle"></div>
-                  </div>
-                </div>
-                <h3 className="education__item__title">Talkshow</h3>
-                <p className="education__item__content">
-                  Tương lai của React trên thị trường Việt Nam và quốc tế
-                </p>
-              </div>
-            </div>
+            
             <img
               width="32px"
               height="32px"
               src="./assets/icon/muitenphai.png"
               alt=""
             />
-          </div>
+          </div> */}
+          <SlideItem />
         </div>
         <div className="box_document">
           <div className="BG" />
@@ -301,8 +241,8 @@ export default function Home() {
               </div>
             </div>
           </div>
-         
         </div>
+       
         <Footer />
       </div>
       <style jsx>{`
