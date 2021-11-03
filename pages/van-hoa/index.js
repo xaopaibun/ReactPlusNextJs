@@ -513,8 +513,9 @@ const VanHoa = () => {
             height: 85px;
             margin-right: 8px;
           }
-          .container {
+          .container:nth-child(1) {
             margin: 0;
+            padding: 0;
           }
           .Office-Images {
             width: 100%;

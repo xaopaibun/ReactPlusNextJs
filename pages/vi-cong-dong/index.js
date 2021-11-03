@@ -15,25 +15,31 @@ const ViCongDong = () => {
         <div className="container-top">
           <h2 className="text-title">Chung tay vì cộng đồng</h2>
         </div>
-      </div>
 
-      <div className="container positionpage">
-        <div className="parameter">
-          <div className="parameter-item">
-            <h5 className="text-number">
-              83.000.000<span className="text-unit"> VND</span>
-            </h5>
-            <p className="text-content">Đã được chia sẻ tới cộng đồng</p>
-          </div>
-          <div className="border" />
-          <div className="border-reponsive" />
-          <div className="parameter-item">
-            <h5 className="text-number">
-              27<span className="text-unit"> Người</span>
-            </h5>
-            <p className="text-content">Đã được hỗ trợ</p>
+        <div className="position">
+          <div className="container">
+            <div className="parameter">
+              <div className="parameter-item">
+                <h5 className="text-number">
+                  83.000.000<span className="text-unit"> VND</span>
+                </h5>
+                <p className="text-content">Đã được chia sẻ tới cộng đồng</p>
+              </div>
+              <div className="border" />
+              <div className="border-reponsive" />
+              <div className="parameter-item">
+                <h5 className="text-number">
+                  27<span className="text-unit"> Người</span>
+                </h5>
+                <p className="text-content">Đã được hỗ trợ</p>
+              </div>
+            </div>
           </div>
         </div>
+      </div>
+
+      <div className="mr-138" />
+      <div className="container">
         <p className="text-content-page">
           Chúng tôi cho rằng, không nên đợi đến lúc giàu thì mới làm thiện
           nguyện. Bất cứ lúc nào, chúng ta cũng có thể giúp đỡ được ai đó, theo
@@ -113,12 +119,18 @@ const ViCongDong = () => {
           color: #25282b;
           text-align: center;
         }
+        .position {
+          width: 100%;
+          position: absolute;
+        }
         .parameter {
           background: #ffffff;
           box-shadow: 0px 2px 21px 3px rgba(0, 0, 0, 0.03);
           width: 883px;
+
           height: 138px;
           margin: 0 auto;
+          margin-top: -50px;
           display: flex;
           align-items: center;
         }
@@ -193,6 +205,9 @@ const ViCongDong = () => {
         .post-title:hover {
           color: #0bbee7;
         }
+        .mr-138 {
+          margin-top: 138px;
+        }
         .post-item {
           width: 30%;
           margin: 20px 0;
@@ -200,9 +215,12 @@ const ViCongDong = () => {
         @media screen and (max-width: 768px) {
           .frame-page {
             padding-top: 30px;
-            height: 217px;
+            height: 190px;
             width: 100%;
             position: relative;
+
+            overflow: unset;
+
             background: linear-gradient(
               0deg,
               #f4f6fa 0%,
@@ -223,7 +241,6 @@ const ViCongDong = () => {
             flex-direction: column;
             width: 100%;
             height: auto;
-            margin: 0;
           }
           .border {
             display: none;
@@ -250,8 +267,11 @@ const ViCongDong = () => {
           .position {
             position: absolute;
           }
-          .text-content{
+          .text-content {
             font-size: 13px;
+          }
+          .mr-138 {
+            margin-top: 200px;
           }
           .box-bg {
             padding-top: 20px;

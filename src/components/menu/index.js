@@ -286,7 +286,7 @@ const Menu = ({ isColor }) => {
             : "#ffffff"};
           top: 0;
           left: 0;
-          z-index: 999;
+          z-index: 1020;
           box-shadow: ${data > 10 ? "0px 4px 4px rgb(0 0 0 / 7%)" : "none"};
         }
         .menu {

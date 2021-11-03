@@ -5,8 +5,27 @@ import Footer from "../src/components/footer";
 import { ListNews, TrainingEvents } from "../src/config";
 import { Carousel } from "react-bootstrap";
 import SlideItem from "../src/components/common/slideitem/SlideItem";
-
+import Popup from "../src/components/common/popuphome";
+import { useState } from "react";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import PopupDownloadDocuments from "../src/components/common/popupdownloaddocuments";
 export default function Home() {
+  const [isShow, setShow] = useState(false);
+  const [isShow2, setShow2] = useState(false);
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+    },
+    validationSchema: Yup.object().shape({
+      email: Yup.string().email("Sai định dạng Email").required("Required"),
+    }),
+    onSubmit: async (values) => {
+      // await send_email_notifications(values.email);
+      setShow(true);
+    },
+  });
+  const handleDownLoadDocuments = () => setShow2(true);
   return (
     <>
       <Head>
@@ -14,7 +33,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Menu />
-
+       {
+         isShow2 && <PopupDownloadDocuments   show={isShow2} onHide={() => setShow2(false)}  />
+       }
       <div className="box-box">
         <div className="banner">
           <Carousel
@@ -198,7 +219,7 @@ export default function Home() {
                       nghiệm một lĩnh vực mới để thay đổi công việc
                     </li>
                   </ul>
-                  <button className="btnmorefull">
+                  <button className="btnmorefull" onClick={handleDownLoadDocuments}>
                     <span>Tải về miễn phí</span>
                     <img
                       className="btnmore__icon"
@@ -226,23 +247,42 @@ export default function Home() {
               ))}
           </div>
         </div>
+        {isShow && <Popup show={isShow} onHide={() => setShow(false)} />}
         <div className="box-inputemail">
           <div className="container">
-            <div className="inputemail">
-              <div className="input__content">
-                <p className="input__content__title">
-                  Nhận ngay các thông tin mới nhất về Reactjs &amp; React Native
-                  nhé.
-                </p>
-                <input type="email" placeholder="Nhập địa chỉ email của bạn" />
-                <button className="btnsubmit" type="submit">
-                  Nhận
-                </button>
+            <form onSubmit={formik.handleSubmit}>
+              <div className="inputemail">
+                <div className="input__content">
+                  <p className="input__content__title">
+                    Nhận ngay các thông tin mới nhất về Reactjs &amp; React
+                    Native nhé.
+                  </p>
+                  <input
+                    type="email"
+                    placeholder="Nhập địa chỉ email của bạn"
+                    name="email"
+                    onChange={formik.handleChange}
+                    value={formik.values.email}
+                  />
+                  <button className="btnsubmit" type="submit">
+                    Nhận
+                  </button>
+                </div>
+                {formik.errors.email && formik.touched.email && (
+                  <div className="box-error">
+                    <img
+                      src="./assets/icon/icont-error.png"
+                      width="16px"
+                      height="16px"
+                    />
+                    <span className="text-error">{formik.errors.email}</span>
+                  </div>
+                )}
               </div>
-            </div>
+            </form>
           </div>
         </div>
-       
+
         <Footer />
       </div>
       <style jsx>{`

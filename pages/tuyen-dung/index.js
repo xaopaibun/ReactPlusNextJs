@@ -118,12 +118,13 @@ const Career = () => {
               ))}
           </div>
 
-          {/* <img
-            src="./assets/images/Group2111.png"
+          <img
+            src="./assets/images/7_Step.png"
+            className="img-7step"
             alt=""
             width={"100%"}
             style={{ marginTop: "30px" }}
-          /> */}
+          />
           <div className="marginTopBottom">
             <h5 className="title">CAREER</h5>
             <h2 className="title2">3 bước vào đội ngũ</h2>
@@ -156,7 +157,9 @@ const Career = () => {
         .header {
           height: 410px;
           width: 100%;
-          background-image: url("/assets/images/ReactPlusCareer.png");
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-image: url("/assets/images/CtyReactPlus.png");
         }
         .contact {
           color: #ffffff;
@@ -201,6 +204,9 @@ const Career = () => {
           font-size: 14px;
           line-height: 21px;
           letter-spacing: -0.02em;
+        }
+        .list-level {
+          display: none;
         }
         .phone-number {
           font-weight: 600;
@@ -402,7 +408,12 @@ const Career = () => {
           text-align: center;
           color: #ffffff;
         }
+        
+       
         @media screen and (max-width: 768px) {
+          .header {
+            height: 375px;
+          }
           .applied-position-item {
             width: 100%;
           }
@@ -426,6 +437,12 @@ const Career = () => {
           }
           .level-item-right {
             width: 80%;
+          }
+          .list-level {
+            display: block;
+          }
+          .img-7step{
+            display: none;
           }
           .level-time {
             font-weight: 600;

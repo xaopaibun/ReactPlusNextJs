@@ -265,7 +265,7 @@ const CareerDetal = () => {
         }
         .phone-number {
           font-weight: 600;
-          font-size: 16px;
+          font-size: 14px;
           line-height: 24px;
           text-align: center;
           letter-spacing: -0.02em;
@@ -420,6 +420,7 @@ const CareerDetal = () => {
           color: #0fbc49;
         }
         @media screen and (max-width: 768px) {
+         
           .header-center {
             width: 100%;
           }
