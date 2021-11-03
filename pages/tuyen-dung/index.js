@@ -7,8 +7,7 @@ import JoinNow from "../../src/components/common/thamgiangay";
 const Career = () => {
   const router = useRouter();
   const handleDetail = () => router.push("/tuyen-dung/chi-tiet-tuyen-dung");
-  const handleSubmit = () =>
-    router.push("/cac-khoa-dao-tao/form-mam-non-react");
+  const handleSubmit = () => router.push("/tuyen-dung/form-tuyen-dung");
   return (
     <>
       <Head>
@@ -408,8 +407,7 @@ const Career = () => {
           text-align: center;
           color: #ffffff;
         }
-        
-       
+
         @media screen and (max-width: 768px) {
           .header {
             height: 375px;
@@ -421,7 +419,7 @@ const Career = () => {
             display: none;
           }
           .header-center {
-            width: auto;
+            width: 100%;
           }
           .level-item {
             display: flex;
@@ -441,7 +439,7 @@ const Career = () => {
           .list-level {
             display: block;
           }
-          .img-7step{
+          .img-7step {
             display: none;
           }
           .level-time {

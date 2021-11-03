@@ -11,8 +11,8 @@ const Footer = () => {
               alt="Logo"
             />
             <p>
-              Tầng 7, Golden Field Building,<br /> 24 Nguyễn Cơ Thạch, Nam Từ Liêm, Hà
-              Nội
+              Tầng 7, Golden Field Building,
+              <br /> 24 Nguyễn Cơ Thạch, Nam Từ Liêm, Hà Nội
             </p>
           </div>
           <div className="footer-right">
@@ -97,7 +97,7 @@ const Footer = () => {
           border-bottom: 1px solid #f0f0f0;
         }
         .footer_itemlogo {
-          width: 24%;
+          width: 35%;
         }
         .footer-right {
           width: 100%;
@@ -139,12 +139,10 @@ const Footer = () => {
           font-size: 13px;
           line-height: 19px;
           letter-spacing: -0.02em;
-
+          margin-bottom: 35px;
           color: #000000;
         }
-        .footer_itemlogo p br{
-          display: none;
-        }
+
         .footer_item .connect {
           display: flex;
         }
@@ -164,10 +162,10 @@ const Footer = () => {
           .footer_itemlogo {
             width: 100%;
           }
-          .footer_itemlogo p{
+          .footer_itemlogo p {
             margin: 10px 0;
           }
-          .footer_itemlogo p br{
+          .footer_itemlogo p br {
             display: block;
           }
           .footer-right {

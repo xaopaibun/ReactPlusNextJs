@@ -1,4 +1,8 @@
+import { useRouter } from "next/router";
+
 const JoinNow = () => {
+  const router = useRouter();
+  const handleDetail = () => router.push("/tuyen-dung/form-tuyen-dung");
   return (
     <div className="container">
       <div className="inputemail">
@@ -8,14 +12,14 @@ const JoinNow = () => {
             đội ngũ React Plus
           </p>
           <div className="box-loadmore">
-            <button className="btnmorefull">
+            <button className="btnmorefull" onClick={handleDetail}>
               <span>Tham gia ngay</span>
             </button>
           </div>
         </div>
       </div>
       <style jsx>{`
-      .box-loadmore {
+        .box-loadmore {
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -40,13 +44,13 @@ const JoinNow = () => {
           letter-spacing: -0.02em;
           color: #ffffff;
         }
-       
+
         .inputemail {
           width: 100%;
           margin: 30px 0;
           height: 211px;
           background-image: url("/assets/images/Frame45527.png");
-          background-repeat:no-repeat;
+          background-repeat: no-repeat;
           background-size: cover;
         }
         .input__content__title {
@@ -58,7 +62,6 @@ const JoinNow = () => {
           color: #ffffff;
         }
         @media screen and (max-width: 768px) {
-          
         }
       `}</style>
     </div>
