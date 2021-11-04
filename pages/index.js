@@ -10,7 +10,16 @@ import { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import PopupDownloadDocuments from "../src/components/common/popupdownloaddocuments";
-export default function Home() {
+import {
+  get_banners,
+  get_posts,
+  get_timeline_event,
+  get_training_event,
+  send_mail,
+  URL,
+} from "../src/services/api";
+export default function Home({ data }) {
+  console.log(data);
   const [isShow, setShow] = useState(false);
   const [isShow2, setShow2] = useState(false);
   const formik = useFormik({
@@ -21,8 +30,9 @@ export default function Home() {
       email: Yup.string().email("Sai định dạng Email").required("Required"),
     }),
     onSubmit: async (values) => {
-      // await send_email_notifications(values.email);
-      setShow(true);
+      await send_mail(values.email).then((res) => {
+        setShow(true);
+      });
     },
   });
   const handleDownLoadDocuments = () => setShow2(true);
@@ -33,9 +43,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Menu />
-       {
-         isShow2 && <PopupDownloadDocuments   show={isShow2} onHide={() => setShow2(false)}  />
-       }
+      {isShow2 && (
+        <PopupDownloadDocuments show={isShow2} onHide={() => setShow2(false)} />
+      )}
       <div className="box-box">
         <div className="banner">
           <Carousel
@@ -50,27 +60,17 @@ export default function Home() {
               </div>
             }
           >
-            <Carousel.Item interval={1000}>
-              <img
-                className="d-block w-100"
-                src="./assets/images/banner.png"
-                alt="First slide"
-              />
-            </Carousel.Item>
-            <Carousel.Item interval={500}>
-              <img
-                className="d-block w-100"
-                src="./assets/images/banner.png"
-                alt="Second slide"
-              />
-            </Carousel.Item>
-            <Carousel.Item>
-              <img
-                className="d-block w-100"
-                src="./assets/images/banner.png"
-                alt="Third slide"
-              />
-            </Carousel.Item>
+            {data[0].map((val) => (
+              <Carousel.Item interval={1000} key={val.id}>
+                <img
+                  className="d-block w-100"
+                  height={"430px"}
+                  width={"100%"}
+                  src={`${URL}${val.image.url}`}
+                  alt="First slide"
+                />
+              </Carousel.Item>
+            ))}
           </Carousel>
         </div>
 
@@ -141,47 +141,60 @@ export default function Home() {
               </div>
             </div>
             <div className="community-bottom">
-              {TrainingEvents &&
-                TrainingEvents.map((val) => (
-                  <div className="community__item" key={val._id}>
-                    <div className="community__item__image">
-                      <img src={"./assets/images/" + val.image} alt="" />
-                    </div>
-                    <div className="community__item__content">
-                      <p className="community__date">{val.date}</p>
-                      <h4 className="item__title">{val.title}</h4>
-                      <p className="item__content">{val.content}</p>
-                      <button className="btnmore">
-                        <span>Tìm hiểu thêm</span>
-                        <img
-                          className="btnmore__icon"
-                          src="./assets/icon/muiten.png"
-                        />
-                      </button>
-                    </div>
-                  </div>
-                ))}
+              <div className="community__item">
+                <div className="community__item__image">
+                  <img src={URL + data[1].training.image} alt="" />
+                </div>
+                <div className="community__item__content">
+                  <p className="community__date">
+                    {data[1].training.start_date} {data[1].training.to_date}
+                  </p>
+                  <h4 className="item__title">{data[1].training.title}</h4>
+                  <div
+                    className="item__content"
+                    dangerouslySetInnerHTML={{
+                      __html: data[1].training.content,
+                    }}
+                  />
+                  <button className="btnmore">
+                    <span>Tìm hiểu thêm</span>
+                    <img
+                      className="btnmore__icon"
+                      src="./assets/icon/muiten.png"
+                    />
+                  </button>
+                </div>
+              </div>
+
+              <div className="community__item">
+                <div className="community__item__image">
+                  <img src={URL + data[1].event.image} alt="" />
+                </div>
+                <div className="community__item__content">
+                  <p className="community__date">
+                    {data[1].event.start_date} {data[1].event.to_date}
+                  </p>
+                  <h4 className="item__title">{data[1].event.title}</h4>
+                  <div
+                    className="item__content"
+                    dangerouslySetInnerHTML={{ __html: data[1].event.content }}
+                  />
+                  <button className="btnmore">
+                    <span>Tìm hiểu thêm</span>
+                    <img
+                      className="btnmore__icon"
+                      src="./assets/icon/muiten.png"
+                    />
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
         <div className="container">
-          {/* <div className="box_education">
-            <img
-              width="32px"
-              height="32px"
-              src="./assets/icon/muitentrai.png"
-              alt=""
-            />
-
-            
-            <img
-              width="32px"
-              height="32px"
-              src="./assets/icon/muitenphai.png"
-              alt=""
-            />
-          </div> */}
-          <SlideItem />
+          <div className="mr-30" />
+          <SlideItem TimeLineEvent={data[2]} />
+          <div className="mr-30" />
         </div>
         <div className="box_document">
           <div className="BG" />
@@ -219,7 +232,10 @@ export default function Home() {
                       nghiệm một lĩnh vực mới để thay đổi công việc
                     </li>
                   </ul>
-                  <button className="btnmorefull" onClick={handleDownLoadDocuments}>
+                  <button
+                    className="btnmorefull"
+                    onClick={handleDownLoadDocuments}
+                  >
                     <span>Tải về miễn phí</span>
                     <img
                       className="btnmore__icon"
@@ -234,17 +250,18 @@ export default function Home() {
         <p className="title__news">Tin tức &amp; Blog</p>
         <div className="container">
           <div className="list_news">
-            {ListNews &&
-              ListNews.map((val) => (
-                <div className="news__item" key={val._id}>
-                  <img
-                    src={`./assets/images/${val.image}`}
-                    className="news__item__img"
-                  />
-                  <a href="#">{val.title}</a>
-                  <p className="community__date">{val.date}</p>
-                </div>
-              ))}
+            {data[3].map((val) => (
+              <div className="news__item" key={val.id}>
+                <img
+                  src={`${URL}${val.cover_image}`}
+                  className="news__item__img"
+                />
+                <a href="#">{val.title}</a>
+                <p className="community__date">
+                  {val.start_date} - {val.to_date}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
         {isShow && <Popup show={isShow} onHide={() => setShow(false)} />}
@@ -287,6 +304,9 @@ export default function Home() {
       </div>
       <style jsx>{`
         /* start slider */
+        .mr-30{
+          margin-top: 50px;
+        }
         .banner {
           height: 430px;
           width: 100%;
@@ -365,6 +385,7 @@ export default function Home() {
         }
         .box-item .item .item__content {
           margin-top: 10px;
+        
           font-size: 14px;
           line-height: 21px;
           text-align: center;
@@ -451,7 +472,7 @@ export default function Home() {
         .community__item__content .item__content {
           font-size: 13px;
           width: 381px;
-          height: auto;
+          height: 70px;
           line-height: 19px;
           letter-spacing: -0.02em;
           color: #25282b;
@@ -932,4 +953,26 @@ font-size: 20px
       `}</style>
     </>
   );
+}
+
+export async function getServerSideProps() {
+  const [_get_banners, _get_training_event, _get_timeline_event, _get_posts] =
+    await Promise.all([
+      get_banners(),
+      get_training_event(),
+      get_timeline_event(),
+      get_posts(),
+    ]);
+  const data = await Promise.all([
+    _get_banners.data,
+    _get_training_event.data,
+    _get_timeline_event.data,
+    _get_posts.data,
+  ]);
+
+  return {
+    props: {
+      data: data,
+    },
+  };
 }

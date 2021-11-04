@@ -3,8 +3,9 @@ import Head from "next/head";
 import Menu from "../../../src/components/menu";
 import { ListQuestion } from "../../../src/config";
 import { useState } from "react";
+import { get_questions } from "../../../src/services/api";
 
-const IntroduceReact = () => {
+const IntroduceReact = ({ data }) => {
   return (
     <>
       <Head>
@@ -157,40 +158,38 @@ const IntroduceReact = () => {
               />
             </div>
             <div className="asked-questions-right">
-              {ListQuestion &&
-                ListQuestion.map((value) => {
-                  const [isActive, setActive] = useState(false);
-                  const handleDropDown = () => setActive(!isActive);
-                  return (
-                    <div className="asked-question-item" key={value._id}>
-                      <div
-                        className={
+              {data.map((value) => {
+                const [isActive, setActive] = useState(false);
+                const handleDropDown = () => setActive(!isActive);
+                return (
+                  <div className="asked-question-item" key={value.id}>
+                    <div
+                      className={
+                        isActive
+                          ? "question-title question-title-active"
+                          : "question-title"
+                      }
+                      onClick={handleDropDown}
+                    >
+                      <span>{value.title}</span>
+                      <img
+                        src={
                           isActive
-                            ? "question-title question-title-active"
-                            : "question-title"
+                            ? "../assets/icon/drop-down2-active.png"
+                            : "../assets/icon/drop-down2.png"
                         }
-                        onClick={handleDropDown}
-                      >
-                        <span>{value.title_question}</span>
-                        <img
-                          src={
-                            isActive
-                              ? "../assets/icon/drop-down2-active.png"
-                              : "../assets/icon/drop-down2.png"
-                          }
-                          width="8px"
-                          height="4px"
-                          alt=""
-                        />
-                      </div>
-                      <p
-                        className={isActive ? "asked-text" : "asked-text-none"}
-                      >
-                        {value.asked}
-                      </p>
+                        width="8px"
+                        height="4px"
+                        alt=""
+                      />
                     </div>
-                  );
-                })}
+                    <div
+                      dangerouslySetInnerHTML={{ __html: value.content }}
+                      className={isActive ? "asked-text" : "asked-text-none"}
+                    />
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -327,8 +326,9 @@ const IntroduceReact = () => {
 
         .asked-questions-right {
           width: 580px;
+          overflow-y: scroll;
           padding: 32px 42px;
-          height: auto;
+          height: 400px;
           background: #ffffff;
           box-shadow: 0px 4px 4px 1px rgba(0, 0, 0, 0.05);
         }
@@ -422,5 +422,13 @@ const IntroduceReact = () => {
     </>
   );
 };
-
+export async function getServerSideProps() {
+  const res = await get_questions();
+  const data = res.data;
+  return {
+    props: {
+      data: data,
+    },
+  };
+}
 export default IntroduceReact;

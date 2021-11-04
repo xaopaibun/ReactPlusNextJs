@@ -1,6 +1,6 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-const SlideItem = () => {
+const SlideItem = ({ TimeLineEvent }) => {
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -29,98 +29,25 @@ const SlideItem = () => {
   return (
     <>
       <Carousel responsive={responsive}>
-        <div className="education__item">
-          <p className="education__item__time">01.10.2021 - 28.11.2021 </p>
-          <div className="position-relative">
-            <img
-              src="../assets/icon/BorderSolid.png"
-              width="100%"
-              height="1px"
-            />
-            <div className="box-circle">
-              <div className="circle"></div>
+        {TimeLineEvent.map((val) => (
+          <div className="education__item" key={val.id}>
+            <p className="education__item__time">{val.start_date} - {val.to_date}</p>
+            <div className="position-relative">
+              <img
+                src="../assets/icon/BorderSolid.png"
+                width="100%"
+                height="1px"
+              />
+              <div className="box-circle">
+                <div className="circle"></div>
+              </div>
             </div>
+            <h3 className="education__item__title">{val.title}</h3>
+            <div className="education__item__content"  dangerouslySetInnerHTML={{ __html: val.introduction}}/>
           </div>
-          <h3 className="education__item__title">Talkshow</h3>
-          <p className="education__item__content">
-            Tương lai của React trên thị trường Việt Nam và quốc tế
-          </p>
-        </div>
-
-        <div className="education__item">
-          <p className="education__item__time">01.10.2021 - 28.11.2021 </p>
-          <div className="position-relative">
-            <img
-              src="../assets/icon/BorderSolid.png"
-              width="100%"
-              height="1px"
-            />
-            <div className="box-circle">
-              <div className="circle"></div>
-            </div>
-          </div>
-          <h3 className="education__item__title">Talkshow</h3>
-          <p className="education__item__content">
-            Tương lai của React trên thị trường Việt Nam và quốc tế
-          </p>
-        </div>
-
-        <div className="education__item">
-          <p className="education__item__time">01.10.2021 - 28.11.2021 </p>
-          <div className="position-relative">
-            <img
-              src="../assets/icon/BorderSolid.png"
-              width="100%"
-              height="1px"
-            />
-            <div className="box-circle">
-              <div className="circle"></div>
-            </div>
-          </div>
-          <h3 className="education__item__title">Talkshow</h3>
-          <p className="education__item__content">
-            Tương lai của React trên thị trường Việt Nam và quốc tế
-          </p>
-        </div>
-
-        <div className="education__item">
-          <p className="education__item__time text-active">
-            01.10.2021 - 28.11.2021{" "}
-          </p>
-          <div className="position-relative">
-            <img
-              src="../assets/icon/BorderSolid.png"
-              width="100%"
-              height="1px"
-            />
-            <div className="box-circle">
-              <div className="circle circle-active"></div>
-            </div>
-          </div>
-          <h3 className="education__item__title">Khoá đào tạo Mầm non React</h3>
-          <p className="education__item__content">
-            Khoá đào tạo hoàn toàn miễn phí giúp các bạn sinh viên IT bước đầu
-            làm quen với React - React Native
-          </p>
-        </div>
-        <div className="education__item">
-          <p className="education__item__time">01.10.2021 - 28.11.2021 </p>
-          <div className="position-relative">
-            <img
-              src="../../assets/icon/BorderSolid.png"
-              width="100%"
-              height="1px"
-            />
-            <div className="box-circle">
-              <div className="circle"></div>
-            </div>
-          </div>
-          <h3 className="education__item__title">Talkshow</h3>
-          <p className="education__item__content">
-            Tương lai của React trên thị trường Việt Nam và quốc tế
-          </p>
-        </div>
+        ))}
       </Carousel>
+
       <style jsx>
         {`
           .education__item {
