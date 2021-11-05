@@ -19,7 +19,6 @@ import {
   URL,
 } from "../src/services/api";
 export default function Home({ data }) {
-  console.log(data);
   const [isShow, setShow] = useState(false);
   const [isShow2, setShow2] = useState(false);
   const formik = useFormik({
@@ -143,7 +142,7 @@ export default function Home({ data }) {
             <div className="community-bottom">
               <div className="community__item">
                 <div className="community__item__image">
-                  <img src={URL + data[1].training.image} alt="" />
+                  <img src={URL + data[1].training.image.url} alt="" />
                 </div>
                 <div className="community__item__content">
                   <p className="community__date">
@@ -168,7 +167,7 @@ export default function Home({ data }) {
 
               <div className="community__item">
                 <div className="community__item__image">
-                  <img src={URL + data[1].event.image} alt="" />
+                  <img src={URL + data[1].event.cover_image.url} alt="" />
                 </div>
                 <div className="community__item__content">
                   <p className="community__date">
@@ -207,29 +206,25 @@ export default function Home({ data }) {
                 <div className="document__text">
                   <p className="text_blue text-left">MIỄN PHÍ</p>
                   <p className="document__title">
-                    Tài liệu về khoá đào tạo React miễn phí
+                    Tài liệu về khoá đào tạo React Plus Developer
                   </p>
                   <div className="document__text">
-                    Trong suốt 5 năm làm việc chuyên sâu về React, đào tạo cho
-                    hàng trăm nhân sự cho các dự án quốc tế, đội ngũ chuyên gia
-                    của chúng tôi đã biên soạn bộ tài liệu đầy đủ và đơn giản
-                    nhất giúp bạn làm quen với React - React Native và có thể
-                    ứng dụng ngay trong các dự án của mình.
+                    Trong nhiều năm làm việc chuyên sâu về ReactJs, đào tạo các
+                    nhân sự cho các dự án quy mô quốc tế, React Plus đã xây dựng
+                    một khoá học hoàn chỉnh giúp các developer trẻ hoặc sinh
+                    viên mới ra trường có cơ hội tiếp cận và có thể bước đầu làm
+                    việc với ReactJs & React Native. Đây là tài liệu giới thiệu
+                    tổng quan về khoá học.
                   </div>
                   <div className="document__text">
-                    Đây là một phần nội dung trong “Khoá đào tạo mầm non React"
-                    của chúng tôi. Tài liệu phù hợp với:
+                    Khoá học này phù hợp với:
                   </div>
                   <ul className="document__list">
-                    <li>Các bạn sinh viên lần đầu tiên làm quen với React</li>
+                    <li>Các bạn sinh viên lần đầu làm quen với ReactJS</li>
+                    <li>Người mới đi làm có mong muốn làm việc với ReactJS</li>
                     <li>
-                      {" "}
-                      Fresher - Người mới đi làm và mong muốn làm việc về React
-                    </li>
-                    <li>
-                      {" "}
-                      Middle - Lập trình viên đã có kinh nghiệm, muốn trải
-                      nghiệm một lĩnh vực mới để thay đổi công việc
+                      Lập trình viên đã có kinh nghiệm, muốn trải nghiệm một
+                      lĩnh vực mới để thay đổi công việc
                     </li>
                   </ul>
                   <button
@@ -253,7 +248,7 @@ export default function Home({ data }) {
             {data[3].map((val) => (
               <div className="news__item" key={val.id}>
                 <img
-                  src={`${URL}${val.cover_image}`}
+                  src={`${URL}${val.cover_image.url}`}
                   className="news__item__img"
                 />
                 <a href="#">{val.title}</a>

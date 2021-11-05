@@ -1,18 +1,18 @@
 import Footer from "../../src/components/footer";
 import Head from "next/head";
 import Menu from "../../src/components/menu";
-import {
-  Btn_HealthIsGold,
-  ListExperts,
-  ListImage,
-  ListItem,
-  SummerFestival,
-} from "../../src/config";
+import { Award } from "../../src/config";
 import JoinNow from "../../src/components/common/thamgiangay";
 import { useState } from "react";
-const VanHoa = () => {
-  const [isActive, setActive] = useState("1");
-  const [isActiveSumber, setActiveSummer] = useState("1");
+import {
+  get_health_festivals,
+  get_images_villages,
+  URL,
+} from "../../src/services/api";
+
+const VanHoa = ({ data }) => {
+  const [isActive, setActive] = useState(0);
+  const [isActiveSummer, setActiveSummer] = useState(0);
   return (
     <>
       <Head>
@@ -42,22 +42,21 @@ const VanHoa = () => {
             </div>
           </div>
           <div className="list-images">
-            {ListImage &&
-              ListImage.map((value, index) => (
-                <div
-                  className={
-                    index % 2 === 0 ? "box-image" : "box-image-marginTop"
-                  }
-                  key={index}
-                >
-                  <img
-                    src={`./assets/images/${value}`}
-                    height={"100%"}
-                    width={"100%"}
-                    alt="img"
-                  />
-                </div>
-              ))}
+            {data[0].map((val, index) => (
+              <div
+                className={
+                  index % 2 === 0 ? "box-image" : "box-image-marginTop"
+                }
+                key={index}
+              >
+                <img
+                  src={`${URL}${val.image.url}`}
+                  height={"100%"}
+                  width={"100%"}
+                  alt="img"
+                />
+              </div>
+            ))}
             <div className="background-icon"></div>
           </div>
           <div className="distance"></div>
@@ -117,7 +116,7 @@ const VanHoa = () => {
           <div className="content">
             <div className="content-left">
               <img
-                src="./assets/images/img25.png"
+                src={`${URL}${data[1].health[isActive].image.url}`}
                 width={"100%"}
                 height={"100%"}
               />
@@ -134,18 +133,18 @@ const VanHoa = () => {
                 mặt....
               </p>
               <div className="list-btn">
-                {Btn_HealthIsGold.map((val) => {
+                {data[1].health.map((val, index) => {
                   return (
-                    <div className="box-loadmore" key={val._id}>
+                    <div className="box-loadmore" key={val.id}>
                       <button
-                        onClick={() => setActive(val._id)}
+                        onClick={() => setActive(index)}
                         className={
-                          isActive === val._id
+                          isActive === index
                             ? "btnmore btnmore-active"
                             : "btnmore"
                         }
                       >
-                        <span>{val.text}</span>
+                        <span>{val.title}</span>
                       </button>
                     </div>
                   );
@@ -170,18 +169,18 @@ const VanHoa = () => {
                 đầu thôn cuối xóm gắn kết, thật mật cùng nhau.
               </p>
               <div className="list-btn">
-                {SummerFestival.map((val) => {
+                {data[1].festival.map((val, index) => {
                   return (
-                    <div className="box-loadmore" key={val._id}>
+                    <div className="box-loadmore" key={val.id}>
                       <button
-                        onClick={() => setActiveSummer(val._id)}
+                        onClick={() => setActiveSummer(index)}
                         className={
-                          isActiveSumber === val._id
+                          isActiveSummer === index
                             ? "btnmore btnmore-active"
                             : "btnmore"
                         }
                       >
-                        <span>{val.text}</span>
+                        <span>{val.title}</span>
                       </button>
                     </div>
                   );
@@ -190,7 +189,7 @@ const VanHoa = () => {
             </div>
             <div className="content-left">
               <img
-                src="./assets/images/img26.png"
+                src={`${URL}${data[1].festival[isActiveSummer].image.url}`}
                 width={"100%"}
                 height={"100%"}
               />
@@ -204,29 +203,23 @@ const VanHoa = () => {
           <div className="header-left">
             <h2 className="header-title">Giải thưởng nội bộ</h2>
           </div>
-          <div className="header-right">
-            <span className="text-xemthem">Xem thêm</span>
-            <img
-              src="./assets/icon/arrow-sm-right-blue.png"
-              height={"24px"}
-              width={"24px"}
-            />
-          </div>
         </div>
         <div className="award-list">
-          <div className="award-item">
-            <div className="award-item-img">
-              <img src="./assets/images/img47" height={"auto"} width={"auto"} />
+          {Award.map((value) => (
+            <div className="award-item" key={value._id}>
+              <div className="award-item-img">
+                <img
+                  src={"/assets/images/" + value.image}
+                  height={"auto"}
+                  width={"auto"}
+                />
+              </div>
+              <div className="award-item-content">
+                <h2 className="award-item-content-big">{value.title}</h2>
+                <h4 className="award-item-content-smail">{value.content}</h4>
+              </div>
             </div>
-            <div className="award-item-content">
-              <h2 className="award-item-content-big">
-                Giải thưởng anh hùng lao động nhiều hạng
-              </h2>
-              <h4 className="award-item-content-smail">
-                Cập nhật mới cho phép nhà phát triển làm gì đó đại loại vậy...
-              </h4>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
       <JoinNow />
@@ -475,13 +468,49 @@ const VanHoa = () => {
         }
         .award-list {
           display: flex;
+          height: auto;
+          padding: 20px;
+          width: 100%;
+          overflow-x: scroll;
         }
         .award-item {
           background: #ffffff;
           box-shadow: 0px 2px 21px 3px rgba(0, 0, 0, 0.04);
-          width: 290px;
+          min-width: 290px;
           height: 336px;
           margin-right: 20px;
+        }
+        .award-item-img {
+          height: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .award-item-content {
+          padding: 16px;
+          height: 50%;
+        }
+        .award-item-content-big {
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 24px;
+          text-align: center;
+          letter-spacing: -0.02em;
+          color: #25282b;
+        }
+        .award-item-content-smail {
+          font-size: 13px;
+          line-height: 19px;
+          text-align: center;
+          letter-spacing: -0.02em;
+          color: #000000;
+          width: 100%;
+          white-space: pre-wrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          -webkit-line-clamp: 5;
+          -webkit-box-orient: vertical;
+          display: -webkit-box;
         }
         @media screen and (max-width: 768px) {
           .header {
@@ -538,10 +567,36 @@ const VanHoa = () => {
           .content-right {
             width: 100%;
           }
+           {
+            /* .award-list {
+            flex-direction: column;
+          }
+          .award-item {
+            width: 100%;
+            margin: 20px 0;
+          } */
+          }
         }
       `}</style>
     </>
   );
 };
+
+export async function getServerSideProps() {
+  const [_get_images_villages, _get_health_festivals] = await Promise.all([
+    get_images_villages(),
+    get_health_festivals(),
+  ]);
+  const data = await Promise.all([
+    _get_images_villages.data,
+    _get_health_festivals.data,
+  ]);
+
+  return {
+    props: {
+      data: data,
+    },
+  };
+}
 
 export default VanHoa;

@@ -4,8 +4,11 @@ import { ListAppliedPosition, _7Step } from "../../src/config";
 import { useRouter } from "next/router";
 import Footer from "../../src/components/footer";
 import JoinNow from "../../src/components/common/thamgiangay";
-const Career = () => {
+import { get_recruitments } from "../../src/services/api";
+import { useState } from "react";
+const Career = ({ data }) => {
   const router = useRouter();
+  const [isLoadMore, setLoadMore] = useState(false);
   const handleDetail = () => router.push("/tuyen-dung/chi-tiet-tuyen-dung");
   const handleSubmit = () => router.push("/tuyen-dung/form-tuyen-dung");
   return (
@@ -56,44 +59,83 @@ const Career = () => {
           <h5 className="title">CAREER</h5>
           <h2 className="title2">Các vị trí đang tuyển</h2>
           <div className="list-applied-position">
-            {ListAppliedPosition &&
-              ListAppliedPosition.map((val) => (
-                <div className="applied-position-item" key={val._id}>
-                  <div className="applied-position-item-top">
-                    <span className="tinh">
-                      <img
-                        src="./assets/icon/dinhvi.png"
-                        width={11}
-                        height={15}
-                      />
-                      Hà Nội
-                    </span>
-                    {val.loai === "full-time" ? (
-                      <div className="full-time">Full-time</div>
-                    ) : (
-                      <div className="part-time">Part-time</div>
-                    )}
+            {data.map((val, index) => {
+              if (index < 6 && !isLoadMore) {
+                return (
+                  <div className="applied-position-item" key={val.id}>
+                    <div className="applied-position-item-top">
+                      <span className="tinh">
+                        <img
+                          src="./assets/icon/dinhvi.png"
+                          width={11}
+                          height={15}
+                        />{" "}
+                        {val.address}
+                      </span>
+                      {val.type_recruitment === "full_time" ? (
+                        <div className="full-time">Full-time</div>
+                      ) : (
+                        <div className="part-time">Part-time</div>
+                      )}
+                    </div>
+                    <div className="applied-position-item-center">
+                      {val.title}
+                    </div>
+                    <div className="applied-position-item-bottom">
+                      <button className="btnmore" onClick={handleDetail}>
+                        <span>Xem chi tiết </span>
+                        <img
+                          className="btnmore__icon"
+                          src="./assets/icon/muiten.png"
+                        />
+                      </button>
+                    </div>
                   </div>
-                  <div className="applied-position-item-center">
-                    {val.title}
+                );
+              }
+
+              if (isLoadMore) {
+                return (
+                  <div className="applied-position-item" key={val.id}>
+                    <div className="applied-position-item-top">
+                      <span className="tinh">
+                        <img
+                          src="./assets/icon/dinhvi.png"
+                          width={11}
+                          height={15}
+                        />{" "}
+                        {val.address}
+                      </span>
+                      {val.type_recruitment === "full_time" ? (
+                        <div className="full-time">Full-time</div>
+                      ) : (
+                        <div className="part-time">Part-time</div>
+                      )}
+                    </div>
+                    <div className="applied-position-item-center">
+                      {val.title}
+                    </div>
+                    <div className="applied-position-item-bottom">
+                      <button className="btnmore" onClick={handleDetail}>
+                        <span>Xem chi tiết </span>
+                        <img
+                          className="btnmore__icon"
+                          src="./assets/icon/muiten.png"
+                        />
+                      </button>
+                    </div>
                   </div>
-                  <div className="applied-position-item-bottom">
-                    <button className="btnmore" onClick={handleDetail}>
-                      <span>Xem chi tiết </span>
-                      <img
-                        className="btnmore__icon"
-                        src="./assets/icon/muiten.png"
-                      />
-                    </button>
-                  </div>
-                </div>
-              ))}
+                );
+              }
+            })}
           </div>
-          <div className="box-loadmore">
-            <button className="btnmorefull">
-              <span>Tải thêm ...</span>
-            </button>
-          </div>
+          {!isLoadMore && (
+            <div className="box-loadmore">
+              <button className="btnmorefull" onClick={() => setLoadMore(true)}>
+                <span>Tải thêm ...</span>
+              </button>
+            </div>
+          )}
         </div>
       </div>
       <div className="box-nominee2">
@@ -488,5 +530,15 @@ const Career = () => {
     </>
   );
 };
+
+export async function getServerSideProps() {
+  const res = await get_recruitments();
+  const data = res.data;
+  return {
+    props: {
+      data: data,
+    },
+  };
+}
 
 export default Career;

@@ -67,9 +67,9 @@ const PopupDownloadDocuments = (props) => {
                 name="current_job"
               />
               <div className="mr-20" />
-              <button className="btn btn-submit" type="submit">
+              <a href="https://drive.google.com/drive/folders/1BKiBKER7vLgz-CfgX_VEpNCsINp_nB5R?usp=sharing" className="btn btn-submit" type="submit">
                 <span className="btn-text">Xác nhận</span>
-              </button>
+              </a>
             </div>
           </div>
         </div>

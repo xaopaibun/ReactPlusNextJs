@@ -1,9 +1,10 @@
 import Footer from "../../../src/components/footer";
 import Head from "next/head";
 import Menu from "../../../src/components/menu";
-import { ListExperts, ListItem } from "../../../src/config/index";
+import { ListItem } from "../../../src/config/index";
+import { get_members, URL } from "../../../src/services/api";
 
-const GioiThieu = () => {
+const GioiThieu = ({ data }) => {
   return (
     <>
       <Head>
@@ -25,15 +26,11 @@ const GioiThieu = () => {
                 Công ty chuyên về React lớn nhất tại Việt nam
               </h1>
               <p>
-                React (React.js) là thư viện Javascript để xây dựng UI vượt
-                trội, được phát triển bởi Facebook. React Native là framework
-                xây dựng ứng dụng di động native. Với React Native, chỉ cần 1
-                ngôn ngữ Javascript duy nhất để xây dựng ứng dụng iOS và
-                Android. <br />
-                Hiện nay, React &amp; React Native đang được Facebook đầu tư
-                phát triển mạnh với những cập nhật liên tục, nó còn được hỗ trợ
-                bởi sự đóng góp từ các cá nhân và công ty trên khắp thế giới như
-                Callstack, Expo, Infinite Red, Microsoft và Software Mansion.
+                Thành lập năm 2018, React Plus là công ty đầu tiên tại Việt Nam
+                xây dựng đội ngũ chuyên gia tập trung duy nhất vào ReactJs &
+                React Native. Phát triển theo chiều sâu và hướng tới thị trường
+                quốc tế là định hướng của chúng tôi. Đến nay, React plus đã đạt
+                được một số thành tựu: <br />
               </p>
             </div>
             <div className="introduce__right">
@@ -52,7 +49,6 @@ const GioiThieu = () => {
               </div>
               <p className="content">
                 Quy mô 130 nhân sự. <br />
-                Năm tới sẽ gấp đôi.
               </p>
             </div>
             <div className="company__scale__item">
@@ -67,7 +63,6 @@ const GioiThieu = () => {
               <p className="content">
                 Nhiều khách hàng lớn tại Nhật Bản.
                 <br />
-                Dự án làm không xuể.
               </p>
             </div>
             <div className="company__scale__item">
@@ -80,9 +75,8 @@ const GioiThieu = () => {
                 />
               </div>
               <p className="content">
-                Tốc độ phát triển 120%.
+                Tăng trưởng 500% sau 2 năm
                 <br />
-                Đang chuẩn bị lên sàn.
               </p>
             </div>
           </div>
@@ -103,7 +97,10 @@ const GioiThieu = () => {
                     </div>
                     <div className="item__content">
                       <h2 className="item__content__title">{val.title}</h2>
-                      <p className="item__content__content">{val.content}</p>
+                      <div
+                        className="item__content__content"
+                        dangerouslySetInnerHTML={{ __html: val.content }}
+                      />
                     </div>
                   </div>
                 ))}
@@ -114,34 +111,33 @@ const GioiThieu = () => {
           <h2 className="organizational-structure-title">
             Cơ cấu tổ chức &amp; các công ty thành viên
           </h2>
-          <div className="box-organizational-structure"></div>
+          <div className="box-organizational-structure">
+            <img
+              src="/assets/images/Stargate_Sơ đồ công ty thành viên-01.png"
+              width="100%"
+              height="100%"
+            />
+          </div>
           <h2 className="organizational-structure-title">Đội ngũ chuyên gia</h2>
           <div className="container2">
             <div className="box-team-of-experts">
-              {ListExperts &&
-                ListExperts.map((val) => (
-                  <div className="item-experts" key={val._id}>
-                    <div className="item__img">
-                      <img
-                        width="110px"
-                        height="110px"
-                        style={{ borderRadius: "50%" }}
-                        src={"../assets/images/" + val.avatar}
-                        alt={val.fullname}
-                      />
-                    </div>
-                    <div className="item__content">
-                      <h3 className="name-experts">{val.fullname}</h3>
-                      <p className="content-experts">
-                        Chuyên về React &amp; React Native <br />
-                        Sẵn sàng 24/7 <br />
-                        Đẳng cấp thế giới <br />
-                        Khả năng tăng trưởng, mở rộng nhanh <br />
-                        Phản hồi ngay lập tức <br />
-                      </p>
-                    </div>
+              {data.map((val) => (
+                <div className="item-experts" key={val.id}>
+                  <div className="item__img">
+                    <img
+                      width="110px"
+                      height="110px"
+                      style={{ borderRadius: "50%" }}
+                      src={`${URL}${val.image.url}`}
+                      alt={val.name}
+                    />
                   </div>
-                ))}
+                  <div className="item__content">
+                    <h3 className="name-experts">{val.name}</h3>
+                    <div className="content-experts">{val.note}</div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -334,6 +330,9 @@ const GioiThieu = () => {
           text-align: center;
           letter-spacing: -0.02em;
         }
+        .content-experts p {
+          text-align: center;
+        }
         .box-find-us {
           height: auto;
           width: 100%;
@@ -508,5 +507,15 @@ const GioiThieu = () => {
     </>
   );
 };
+
+export async function getServerSideProps() {
+  const res = await get_members();
+  const data = res.data;
+  return {
+    props: {
+      data: data,
+    },
+  };
+}
 
 export default GioiThieu;

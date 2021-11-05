@@ -62,6 +62,13 @@ const JoinNow = () => {
           color: #ffffff;
         }
         @media screen and (max-width: 768px) {
+          .container {
+            margin: 0;
+            padding: 0;
+          }
+          .inputemail {
+            background-image: url(/assets/images/BG1783.png);
+          }
         }
       `}</style>
     </div>

@@ -1,14 +1,86 @@
 export const Day = [
-  "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19",
-  "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31",
+  "01",
+  "02",
+  "03",
+  "04",
+  "05",
+  "06",
+  "07",
+  "08",
+  "09",
+  "10",
+  "11",
+  "12",
+  "13",
+  "14",
+  "15",
+  "16",
+  "17",
+  "18",
+  "19",
+  "20",
+  "21",
+  "22",
+  "23",
+  "24",
+  "25",
+  "26",
+  "27",
+  "28",
+  "29",
+  "30",
+  "31",
 ];
 
-export const Month = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12",];
+export const Month = [
+  "01",
+  "02",
+  "03",
+  "04",
+  "05",
+  "06",
+  "07",
+  "08",
+  "09",
+  "10",
+  "11",
+  "12",
+];
 
 export const Year = [
   1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002,
 ];
 
+export const Award = [
+  {
+    _id: "1",
+    title: "Giải thưởng anh hùng lao động nhiều hạng",
+    content:
+      "Cập nhật mới cho phép nhà phát triển làm gì đó đại loại vậy nhà phát triển làm gì đó đại loại vậy",
+    image: "img47.png",
+  },
+  {
+    _id: "2",
+    title: "Giải thưởng nông dân tiêu biểu của tháng",
+    content:
+      "Cập nhật mới cho phép nhà phát triển làm gì đó đại loại vậy nhà phát triển làm gì đó đại loại vậy",
+    image: "img48.png",
+  },
+  {
+    _id: "3",
+    title: "Giải thưởng tập thể văn hoá ",
+    content:
+      "Cập nhật mới cho phép nhà phát triển làm gì đó đại loại vậy nhà phát triển làm gì đó đại loại vậy",
+    image: "img49.png",
+  },
+  {
+    _id: "4",
+    title: "Giải thưởng anh hùng lao động nhiều hạng",
+    content:
+      "Cập nhật mới cho phép nhà phát triển làm gì đó đại loại vậy nhà phát triển làm gì đó đại loại vậy",
+    image: "img47.png",
+  },
+];
 export const ListNews = [
   {
     _id: "1",
@@ -110,14 +182,14 @@ export const ListItem = [
     image: "SuMenh.png",
     title: "Sứ mệnh",
     content:
-      "Cung cấp chuyên gia về React & React Native Làm hài lòng khách hàng với chất lượng cao Tạo ra cộng đồng về React lớn mạnh nhất tại Việt Nam",
+      "<p>Cung cấp chuyên gia về React & React Native <br/> Làm hài lòng khách hàng với chất lượng cao <br/> Tạo ra cộng đồng về React lớn mạnh nhất tại Việt Nam</p>",
   },
   {
     _id: "3",
     image: "GiaTriCotLoi.png",
     title: "Giá trị cốt lõi",
     content:
-      "Chuyên về React & React Native Sẵn sàng 24/7 Đẳng cấp thế giới Khả năng tăng trưởng, mở rộng nhanh Phản hồi ngay lập tức",
+      "<p>Chuyên về React & React Native <br/> Sẵn sàng 24/7 <br/>Đẳng cấp thế giới<br/> Khả năng tăng trưởng, mở rộng nhanh<br/> Phản hồi ngay lập tức</p>",
   },
 ];
 

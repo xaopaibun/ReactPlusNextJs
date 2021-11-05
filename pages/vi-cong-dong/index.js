@@ -2,8 +2,9 @@ import Head from "next/head";
 import Menu from "../../src/components/menu";
 import Footer from "../../src/components/footer";
 import { VolunteerStory } from "../../src/config";
+import { get_volunteer } from "../../src/services/api";
 
-const ViCongDong = () => {
+const ViCongDong = ({data}) => {
   return (
     <div>
       <Head>
@@ -21,7 +22,7 @@ const ViCongDong = () => {
             <div className="parameter">
               <div className="parameter-item">
                 <h5 className="text-number">
-                  83.000.000<span className="text-unit"> VND</span>
+                {Intl.NumberFormat().format(parseInt(data.money))}<span className="text-unit"> VND</span>
                 </h5>
                 <p className="text-content">Đã được chia sẻ tới cộng đồng</p>
               </div>
@@ -29,7 +30,7 @@ const ViCongDong = () => {
               <div className="border-reponsive" />
               <div className="parameter-item">
                 <h5 className="text-number">
-                  27<span className="text-unit"> Người</span>
+                  {data.number_members}<span className="text-unit"> Người</span>
                 </h5>
                 <p className="text-content">Đã được hỗ trợ</p>
               </div>
@@ -282,5 +283,15 @@ const ViCongDong = () => {
     </div>
   );
 };
+
+export async function getServerSideProps() {
+  const res = await get_volunteer();
+  const data = res.data;
+  return {
+    props: {
+      data: data,
+    },
+  };
+}
 
 export default ViCongDong;

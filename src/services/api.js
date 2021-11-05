@@ -34,3 +34,10 @@ export const get_questions = () => instance.get("/questions");
 export const get_images_villages = () => instance.get("/images/villages");
 
 export const get_health_festivals = () => instance.get("/health_festivals");
+
+//vi-cong-dong
+export const get_volunteer = () => instance.get("/static_pages/volunteer");
+
+//tuyen-dung
+export const get_recruitments = () => instance.get("/recruitments");
+
