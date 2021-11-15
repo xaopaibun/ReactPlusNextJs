@@ -65,7 +65,6 @@ export default function Home({ data }) {
               <Carousel.Item interval={1000} key={val.id}>
                 <img
                   className="d-block w-100"
-                  height={"430px"}
                   width={"100%"}
                   src={`${URL}${val.image.url}`}
                   alt="First slide"
@@ -873,7 +872,7 @@ export default function Home({ data }) {
            
           }
           .banner{
-            height: auto;
+            height: 113px;
             margin: 10px 0 ;
           }
           .btnSlider{display: none}
@@ -885,12 +884,12 @@ export default function Home({ data }) {
             display: block;
           }
           .document__img {
-    width: 100%;
-    height: auto;
+      width: 100%;
+      height: auto;
 
         }
         .document__title {
-font-size: 20px
+font-size: 20px;
         }
         .box-inputemail .container{
           padding : 0;

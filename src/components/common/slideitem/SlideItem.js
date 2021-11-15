@@ -31,8 +31,10 @@ const SlideItem = ({ TimeLineEvent }) => {
       <Carousel responsive={responsive}>
         {TimeLineEvent.map((val) => (
           <div className="education__item" key={val.id}>
-         
-            <p className="education__item__time"> {val?.start_date} - {val?.to_date}</p>
+            <p className="education__item__time">
+              {" "}
+              {val?.start_date} - {val?.to_date}
+            </p>
             <div className="position-relative">
               <img
                 src="../assets/icon/BorderSolid.png"
@@ -44,7 +46,10 @@ const SlideItem = ({ TimeLineEvent }) => {
               </div>
             </div>
             <h3 className="education__item__title">{val.title}</h3>
-            <div className="education__item__content"  dangerouslySetInnerHTML={{ __html: val.introduction}}/>
+            <div
+              className="education__item__content"
+              dangerouslySetInnerHTML={{ __html: val.introduction }}
+            />
           </div>
         ))}
       </Carousel>
@@ -90,6 +95,8 @@ const SlideItem = ({ TimeLineEvent }) => {
             font-weight: 600;
             font-size: 13px;
             line-height: 19px;
+            width: 250px;
+            margin: 5px auto;
             text-align: center;
             letter-spacing: -0.02em;
             color: #25282b;
@@ -103,6 +110,14 @@ const SlideItem = ({ TimeLineEvent }) => {
             text-align: center;
             letter-spacing: -0.02em;
             color: #52575c;
+            letter-spacing: -0.02em;
+
+            white-space: pre-wrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            display: -webkit-box;
           }
         `}
       </style>
