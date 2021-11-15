@@ -5,48 +5,77 @@ import Footer from "../../../src/components/footer";
 import { TextField } from "@mui/material";
 import { Day, Month, Year } from "../../../src/config";
 import { useFormik } from "formik";
-
-const CareerForm = () => {
+import * as Yup from "yup";
+import { useState } from "react";
+import PopupThanks from "../../../src/components/common/popupthanks";
+import { post_register_candidates } from "../../../src/services/api";
+const FormTuyenDung = () => {
   function onChange(value) {
     console.log("Captcha value:", value);
   }
+  const [isShow, setShow] = useState(false);
   const formik = useFormik({
     initialValues: {
-      fullname: "",
+      name: "",
       email: "",
-      day: "",
+      birthday: "",
       month: "",
       year: "",
-      email: "",
+      day: "",
       phone: "",
-      CV: "",
-      portfolio: "",
-      massenger: "",
+      file: "",
+      content: "",
+      link: "",
     },
-    onSubmit: (values) => {
-      console.log(values);
+    validationSchema: Yup.object().shape({
+      email: Yup.string()
+        .email("Sai định dạng Email")
+        .required("Không được bỏ trống"),
+      name: Yup.string().required("Không được bỏ trống"),
+      phone: Yup.string().required("Không được bỏ trống"),
+
+      file: Yup.mixed().required("Không được bỏ trống"),
+    }),
+    onSubmit: async (values) => {
+      values.birthday = await (values.day +
+        "/" +
+        values.month +
+        "/" +
+        values.year);
+      await post_register_candidates(values)
+        .then((res) => setShow(true))
+        .catch((err) => console.log(err));
     },
   });
+  const { setFieldValue } = formik;
   return (
     <>
       <Head>
         <title>Điền form</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
+      {isShow && (
+        <PopupThanks
+          show={isShow}
+          onHide={() => setShow(false)}
+          content1="React Plus sẽ liên hệ với bạn khi có vị trí phù hợp"
+        />
+      )}
       <Menu />
       <form onSubmit={formik.handleSubmit}>
         <div className="box-form">
-          <h2 className="text-center title-page">
-            Chuyên viên chăm sóc khách hàng
-          </h2>
+          <h2 className="text-center title-page">Chăm sóc khách hàng</h2>
           <TextField
             label="Tên đầy đủ"
             type="text"
             variant="standard"
             fullWidth
+            name="name"
+            id="standard-error-helper-text"
+            error={formik.errors.email && formik.touched.email ? true : false}
             onChange={formik.handleChange}
-            value={formik.values.fullname}
+            value={formik.values.name}
+            helperText={formik.errors.name}
           />
           <div className="birtday">
             <div className="item">
@@ -56,12 +85,15 @@ const CareerForm = () => {
               <select
                 class="form-select form-select-custom"
                 defaultValue="Ngày"
+                name="day"
                 onChange={formik.handleChange}
                 value={formik.values.day}
               >
                 <option selected>Ngày</option>
                 {Day.map((value) => (
-                  <option value={value}>{value}</option>
+                  <option value={value} key={value}>
+                    {value}
+                  </option>
                 ))}
               </select>
             </div>
@@ -72,10 +104,13 @@ const CareerForm = () => {
                 defaultValue="Tháng"
                 onChange={formik.handleChange}
                 value={formik.values.month}
+                name="month"
               >
                 <option selected>Tháng</option>
                 {Month.map((value) => (
-                  <option value={value}>{value}</option>
+                  <option value={value} key={value}>
+                    {value}
+                  </option>
                 ))}
               </select>
             </div>
@@ -83,12 +118,15 @@ const CareerForm = () => {
               <select
                 class="form-select form-select-custom"
                 defaultValue="Năm"
+                name="year"
                 onChange={formik.handleChange}
                 value={formik.values.year}
               >
                 <option selected>Năm</option>
                 {Year.map((value) => (
-                  <option value={value}>{value}</option>
+                  <option value={value} key={value}>
+                    {value}
+                  </option>
                 ))}
               </select>
             </div>
@@ -98,21 +136,34 @@ const CareerForm = () => {
               <TextField
                 label="Email"
                 type="email"
+                name="email"
                 variant="standard"
+                id="standard-error-helper-text"
+                error={
+                  formik.errors.email && formik.touched.email ? true : false
+                }
                 onChange={formik.handleChange}
                 value={formik.values.email}
                 fullWidth
+                helperText={formik.errors.email}
               />
             </div>
+            <div className="mr-20"></div>
             <div className="mr-20"></div>
             <div className="from-email">
               <TextField
                 label="Số điện thoại"
+                id="standard-error-helper-text"
                 type="text"
+                name="phone"
                 variant="standard"
+                error={
+                  formik.errors.phone && formik.touched.phone ? true : false
+                }
                 onChange={formik.handleChange}
                 value={formik.values.phone}
                 fullWidth
+                helperText={formik.errors.phone}
               />
             </div>
           </div>
@@ -121,8 +172,22 @@ const CareerForm = () => {
           <div className="mr-20" />
           <div className="box-PostCV">
             <div className="PostCV-Left">
-              <h6 className="CV-text">CV</h6>
-              <h6 className="CV-text-comment">
+              <h6
+                className={
+                  formik.errors.file && formik.touched.file
+                    ? "CV-text text-error"
+                    : "CV-test"
+                }
+              >
+                CV
+              </h6>
+              <h6
+                className={
+                  formik.errors.file && formik.touched.file
+                    ? "CV-text-comment text-error"
+                    : "CV-text-comment"
+                }
+              >
                 Format được hỗ trợ: PNG, JPG, PDF
               </h6>
             </div>
@@ -131,9 +196,12 @@ const CareerForm = () => {
                 <span className="btn-text">Tải lên</span>
                 <input
                   type="file"
+                  name="file"
                   className="input_file"
-                  onChange={formik.handleChange}
-                  value={formik.values.CV}
+                  id="file"
+                  onChange={(event) => {
+                    setFieldValue("file", event.currentTarget.files[0]);
+                  }}
                 />
               </button>
             </div>
@@ -142,19 +210,22 @@ const CareerForm = () => {
           <TextField
             label="Online Portfolio links"
             type="text"
+            name="link"
             variant="standard"
             fullWidth
             onChange={formik.handleChange}
-            value={formik.values.portfolio}
+            value={formik.values.link}
           />
 
+          <div className="mr-20" />
           <textarea
             placeholder="Một vài lời nhắn dành cho chúng tôi (Không bắt buộc)"
             className="txtform"
             rows="4"
             cols="50"
+            name="content"
             onChange={formik.handleChange}
-            value={formik.values.massenger}
+            value={formik.values.content}
           ></textarea>
           <div className="birtday">
             <div className="birtday-left">
@@ -325,6 +396,9 @@ const CareerForm = () => {
           height: 38px;
           border-radius: 38px;
         }
+        .text-error {
+          color: #d32f2f;
+        }
         option {
           background: #f4f6fa;
 
@@ -334,8 +408,8 @@ const CareerForm = () => {
         @media screen and (max-width: 768px) {
           .title-page {
             font-size: 20px;
-            width: 252px;
-            margin: 0 auto;
+            width: 100%;
+            margin: 10px auto;
           }
           .box-PostCV {
             width: 100%;
@@ -355,21 +429,28 @@ const CareerForm = () => {
           }
           .birtday {
             flex-wrap: wrap;
+            margin-top: 10px;
           }
           .from-email {
             width: 100%;
+            margin: 10px 0;
           }
           .mr-20 {
-            margin-top: 10px;
+            margin-top: 25px;
           }
           .item {
             width: 50%;
             height: 100%;
+            margin: 10px 0;
           }
+          .btn-submit {
+            margin-left: 0;
+          }
+        }
         }
       `}</style>
     </>
   );
 };
 
-export default CareerForm;
+export default FormTuyenDung;

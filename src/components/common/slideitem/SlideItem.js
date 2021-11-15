@@ -31,7 +31,8 @@ const SlideItem = ({ TimeLineEvent }) => {
       <Carousel responsive={responsive}>
         {TimeLineEvent.map((val) => (
           <div className="education__item" key={val.id}>
-            <p className="education__item__time">{val.start_date} - {val.to_date}</p>
+         
+            <p className="education__item__time"> {val?.start_date} - {val?.to_date}</p>
             <div className="position-relative">
               <img
                 src="../assets/icon/BorderSolid.png"

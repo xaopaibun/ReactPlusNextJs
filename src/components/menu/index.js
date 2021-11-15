@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { useScroll } from "../../hooks/useScroll";
+import ActiveLink from "../common/activelink";
 const Menu = ({ isColor }) => {
   const router = useRouter();
   const [DropDownGioiThieu, setDropDownGioiThieu] = useState(false);
@@ -28,7 +29,11 @@ const Menu = ({ isColor }) => {
         <div className="container">
           <div className="row">
             <div className="col-xl-3 col-sm-3 col-3">
-              <img src="../assets/images/LogoReactPlus.png" alt="Logo" />
+              <Link href="/">
+                <a>
+                  <img src="../assets/images/LogoReactPlus.png" alt="Logo" />
+                </a>
+              </Link>
             </div>
             <div className="col-xl-9 col-sm-9 col-9">
               <div className="menu-reponsive">
@@ -102,7 +107,10 @@ const Menu = ({ isColor }) => {
                   <a
                     onClick={handleClickDropDownEvent}
                     className={
-                      router.pathname == "/cac-khoa-dao-tao/su-kien-thuong-ky"
+                      router.pathname ==
+                        "/cac-khoa-dao-tao/su-kien-thuong-ky" ||
+                      router.pathname ==
+                        "/cac-khoa-dao-tao/dang-ky-tham-gia-khoa-hoc"
                         ? "active"
                         : ""
                     }
@@ -131,16 +139,7 @@ const Menu = ({ isColor }) => {
                 </li>
                 <li className="menu__item">
                   <Link href="/tin-tuc">
-                    <a
-                      className={
-                        router.pathname == "/tin-tuc" ||
-                        router.pathname == "/tin-tuc/bai-viet-chi-tiet"
-                          ? "active"
-                          : ""
-                      }
-                    >
-                      Tin tức &amp; Blog
-                    </a>
+                    <ActiveLink href="/tin-tuc">Tin tức &amp; Blog</ActiveLink>
                   </Link>
                 </li>
               </ul>

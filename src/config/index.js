@@ -108,6 +108,45 @@ export const ListNews = [
   },
 ];
 
+export const DataTimeLine = [
+  {
+    id: "1",
+    title: "Khoá học",
+    date: "04/10/2021 - 04/01/2021",
+    introduction: "<p>React Plus Developer K1</p>",
+  },
+  {
+    id: "2",
+    title: "Talkshow",
+    date: "08/11/2021",
+    introduction: "<p>Tương lai của ReactJS và cơ hội cho developer</p>",
+  },
+  {
+    id: "3",
+    title: "Khoá học",
+    date: "06/12/2021 - 06/03/2021",
+    introduction: "<p>React Plus Developer K2</p>",
+  },
+  {
+    id: "4",
+    title: "Khoá học",
+    date: "04/10/2021 - 04/01/2021",
+    introduction: "<p>React Plus Developer K1</p>",
+  },
+  {
+    id: "5",
+    title: "Talkshow",
+    date: "08/11/2021",
+    introduction: "<p>Tương lai của ReactJS và cơ hội cho developer</p>",
+  },
+  {
+    id: "6",
+    title: "Khoá học",
+    date: "06/12/2021 - 06/03/2021",
+    introduction: "<p>React Plus Developer K2</p>",
+  },
+];
+
 export const TrainingEvents = [
   {
     _id: "1",
@@ -130,43 +169,31 @@ export const TrainingEvents = [
 export const ListExperts = [
   {
     _id: "1",
-    avatar: "avatar1.png",
-    fullname: "Lương Xuân Hải",
+    avatar: "TNN_7924.jpg",
+    fullname: "Lê Mạnh Hùng",
+    content:
+      "8 năm kinh nghiệm<br/>Manager - PM<br/>Tech Stack: React, React Native, Nodejs, Vuejs, Socket.io",
   },
   {
     _id: "2",
-    avatar: "avatar2.png",
-    fullname: "Lương Xuân Hải",
+    avatar: "TNN_7941.jpg",
+    fullname: "Nguyễn Tiến Lộc",
+    content:
+      "10 năm kinh nghiệm<br/>Manager - PM<br/>Tech Stack: Java, Javascript: NodeJs, ReactJs, AngularJS, Web3JS. Database: Mysql, postgre, mongodb, redis",
   },
   {
     _id: "3",
-    avatar: "avatar3.png",
-    fullname: "Lương Xuân Hải",
+    avatar: "TNN_7898.jpg",
+    fullname: "Ngô Thái Sơn",
+    content:
+      "8 năm kinh nghiệm<br/>Manager - PM<br/>Tech Stack: React, ReactNative, AngularJS, NodeJS, MongoDB, MySQL, Postgre, AWS",
   },
   {
     _id: "4",
-    avatar: "avatar4.png",
-    fullname: "Lương Xuân Hải",
-  },
-  {
-    _id: "5",
-    avatar: "avatar5.png",
-    fullname: "Lương Xuân Hải",
-  },
-  {
-    _id: "6",
-    avatar: "avatar6.png",
-    fullname: "Lương Xuân Hải",
-  },
-  {
-    _id: "7",
-    avatar: "avatar7.png",
-    fullname: "Lương Xuân Hải",
-  },
-  {
-    _id: "8",
-    avatar: "avatar8.png",
-    fullname: "Lương Xuân Hải",
+    avatar: "TNN_7888.jpg",
+    fullname: "Nguyễn Thị Đức",
+    content:
+      "14 năm kinh nghiệm<br/>PMO - COO<br/>Kinh nghiệm phát triển các hệ thống website, app mobile, PC, các hệ thống phức hợp cho các thị trường tiếng Anh, tiếng Nhật, tiếng Hàn và Việt Nam",
   },
 ];
 

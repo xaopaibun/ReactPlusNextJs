@@ -7,7 +7,7 @@ const CareerDetal = () => {
     console.log("Captcha value:", value);
   }
   const router = useRouter();
-  const handleSubmit = () => router.push("/tuyen-dung/thong-tin-chi-tiet-form");
+  const handleSubmit = () => router.push("/tuyen-dung/form-tuyen-dung");
   return (
     <>
       <Head>

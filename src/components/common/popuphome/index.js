@@ -1,6 +1,7 @@
-import { ButtonGroup, Modal } from "react-bootstrap";
-
+import { Modal } from "react-bootstrap";
+import { useRouter } from "next/router";
 const Popup = (props) => {
+  const router = useRouter();
   return (
     <>
       <Modal
@@ -46,13 +47,19 @@ const Popup = (props) => {
               </p>
             </div>
             <div className="pop-popup-btn">
-              <button className="btnmore btnmorelong">
+              <button
+                className="btnmore btnmorelong"
+                onClick={() => router.push("/tuyen-dung")}
+              >
                 <span>
                   Các vị trí đang tuyển dụng về ReactJs & React Native
                 </span>
               </button>
               <div className="mr-20" />
-              <button className="btnmore btnmorelong">
+              <button
+                className="btnmore btnmorelong"
+                onClick={() => router.push("/tin-tuc")}
+              >
                 <span>Đọc thêm các bài viết về ReactJs & React Native</span>
               </button>
             </div>
@@ -154,8 +161,8 @@ const Popup = (props) => {
         .btnmore:hover span {
           color: #03a3c8;
         }
-        .modal-content{
-          border-radius: 8px ;
+        .modal-content {
+          border-radius: 8px;
         }
         @media screen and (max-width: 768px) {
           .pop-popup {

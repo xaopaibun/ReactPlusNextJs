@@ -9,10 +9,12 @@ import {
   get_images_villages,
   URL,
 } from "../../src/services/api";
-
+import { useScroll } from "../../src/hooks/useScroll";
 const VanHoa = ({ data }) => {
   const [isActive, setActive] = useState(0);
   const [isActiveSummer, setActiveSummer] = useState(0);
+  const _dataScroll = useScroll();
+  console.log(_dataScroll.data);
   return (
     <>
       <Head>
@@ -20,12 +22,13 @@ const VanHoa = ({ data }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="header">
+      <div className={"header"}>
         <Menu isColor={true} />
-        <div className="header-text">
+        <div className={"header-text"}>
           <p className="introduce-text">Giới thiệu</p>
         </div>
       </div>
+
       <div className="container">
         <div className="backgroudReact">
           <div className="box-village-react">
@@ -226,10 +229,20 @@ const VanHoa = ({ data }) => {
       <Footer />
 
       <style jsx>{`
+        .none {
+          display: none;
+        }
         .header {
           height: 410px;
           width: 100%;
           background-image: url("/assets/images/ReactPlusAnhBia.png");
+        }
+        .header-positon {
+          background-image: unset;
+          position: sticky;
+          top: 0;
+          left: 0;
+          z-index: 100000000;
         }
         .introduce-text {
           font-weight: 600;
@@ -521,7 +534,7 @@ const VanHoa = ({ data }) => {
             background-size: cover;
           }
           .content {
-            display: block;
+            flex-direction: column;
           }
           .content-left {
             width: 100%;
@@ -542,7 +555,7 @@ const VanHoa = ({ data }) => {
             height: 85px;
             margin-right: 8px;
           }
-          .container:nth-child(1) {
+          .container:nth-child(2) {
             margin: 0;
             padding: 0;
           }
@@ -553,7 +566,7 @@ const VanHoa = ({ data }) => {
           .Office-Images-Left {
             width: 100%;
             height: 100%;
-
+            margin-right: 0;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -565,6 +578,12 @@ const VanHoa = ({ data }) => {
             display: none;
           }
           .content-right {
+            order: 2;
+            width: 100%;
+            margin: 25px 0;
+          }
+          .content-left {
+            order: 1;
             width: 100%;
           }
            {

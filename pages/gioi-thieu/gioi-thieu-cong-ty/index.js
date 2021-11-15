@@ -134,7 +134,12 @@ const GioiThieu = ({ data }) => {
                   </div>
                   <div className="item__content">
                     <h3 className="name-experts">{val.name}</h3>
-                    <div className="content-experts">{val.note}</div>
+                    <div
+                      className="content-experts"
+                      dangerouslySetInnerHTML={{
+                        __html: val.note,
+                      }}
+                    />
                   </div>
                 </div>
               ))}

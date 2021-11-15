@@ -1,10 +1,14 @@
 import Head from "next/head";
 import Menu from "../../src/components/menu";
 import Footer from "../../src/components/footer";
-import { VolunteerStory } from "../../src/config";
-import { get_volunteer } from "../../src/services/api";
+import Link from "next/link";
+import {
+  get_charity_stories,
+  get_volunteer,
+  URL,
+} from "../../src/services/api";
 
-const ViCongDong = ({data}) => {
+const ViCongDong = ({ data }) => {
   return (
     <div>
       <Head>
@@ -22,7 +26,8 @@ const ViCongDong = ({data}) => {
             <div className="parameter">
               <div className="parameter-item">
                 <h5 className="text-number">
-                {Intl.NumberFormat().format(parseInt(data.money))}<span className="text-unit"> VND</span>
+                  {Intl.NumberFormat().format(parseInt(data.money))}
+                  <span className="text-unit"> VND</span>
                 </h5>
                 <p className="text-content">Đã được chia sẻ tới cộng đồng</p>
               </div>
@@ -30,7 +35,8 @@ const ViCongDong = ({data}) => {
               <div className="border-reponsive" />
               <div className="parameter-item">
                 <h5 className="text-number">
-                  {data.number_members}<span className="text-unit"> Người</span>
+                  {data.data_volunteer.number_members}
+                  <span className="text-unit"> Người</span>
                 </h5>
                 <p className="text-content">Đã được hỗ trợ</p>
               </div>
@@ -71,22 +77,23 @@ const ViCongDong = ({data}) => {
           </h2>
 
           <div className="list-posts">
-            {VolunteerStory &&
-              VolunteerStory.map((value) => {
-                return (
-                  <div className="post-item">
-                    <img
-                      src={`./assets/images/${value.image}`}
-                      height={"193px"}
-                      width={"340px"}
-                    />
-                    <h5 className="content-review-date">{value.date}</h5>
-                    <a href="" className="post-title">
-                      {value.text}
-                    </a>
-                  </div>
-                );
-              })}
+            {data.data_charity_stories.map((value) => {
+              return (
+                <div className="post-item" key={value.id}>
+                  <img
+                    src={`${URL}${value.cover_image.url}`}
+                    height={"193px"}
+                    width={"340px"}
+                  />
+                  <h5 className="content-review-date">
+                    {value.start_date} {value.to_date}
+                  </h5>
+                  <Link href="">
+                    <a className="post-title">{value.title}</a>
+                  </Link>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -286,10 +293,13 @@ const ViCongDong = ({data}) => {
 
 export async function getServerSideProps() {
   const res = await get_volunteer();
-  const data = res.data;
+  const res1 = await get_charity_stories();
+  const data_volunteer = res.data;
+  const data_charity_stories = res1.data;
+
   return {
     props: {
-      data: data,
+      data: { data_volunteer, data_charity_stories },
     },
   };
 }

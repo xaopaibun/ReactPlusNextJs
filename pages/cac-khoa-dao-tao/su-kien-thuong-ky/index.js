@@ -3,10 +3,12 @@ import Head from "next/head";
 import Menu from "../../../src/components/menu";
 import { ListExperts } from "../../../src/config";
 import { useRouter } from "next/router";
+import { get_timeline_event } from "../../../src/services/api";
 
-const RegularEvent = () => {
+const RegularEvent = ({ data }) => {
   const router = useRouter();
-  const handleRegistration = () => router.push("/cac-khoa-dao-tao/form-mam-non-react");
+  const handleRegistration = () =>
+    router.push("/cac-khoa-dao-tao/form-mam-non-react");
   return (
     <>
       <Head>
@@ -24,67 +26,32 @@ const RegularEvent = () => {
 
       <div className="container">
         <div className="list-events">
-          <div className="event-item">
-            <h5 className="content-review-date text-center">
-              01/10/2021 - 28/11/2021
-            </h5>
-            <div className="position-relative">
-              <img
-                src="../assets/icon/BorderSolid.png"
-                width="100%"
-                height="1px"
-              />
-              <div className="box-circle">
-                <div className="circle"></div>
+          {data.data_timeline_event.map((val) => {
+            return (
+              <div className="event-item" key={val.id}>
+                <h5 className="content-review-date text-center">
+                  {val.start_date} - {val.to_date}
+                </h5>
+                <div className="position-relative">
+                  <img
+                    src="../assets/icon/BorderSolid.png"
+                    width="100%"
+                    height="1px"
+                  />
+                  <div className="box-circle">
+                    <div className="circle"></div>
+                  </div>
+                </div>
+                <h2 className="event-item-title">{val.title}</h2>
+                <div
+                  className="event-item-content"
+                  dangerouslySetInnerHTML={{
+                    __html: val.introduction,
+                  }}
+                />
               </div>
-            </div>
-            <h2 className="event-item-title">Talkshow</h2>
-            <p className="event-item-content">
-              Tương lai của React trên thị trường Việt Nam và quốc tế
-            </p>
-          </div>
-
-          <div className="event-item">
-            <h5 className="content-review-date text-center text-active">
-              01/10/2021 - 28/11/2021
-            </h5>
-            <div className="position-relative">
-              <img
-                src="../assets/icon/BorderSolid.png"
-                width="100%"
-                height="1px"
-              />
-              <div className="box-circle">
-                <div className="circle circle-active"></div>
-              </div>
-            </div>
-            <h2 className="event-item-title">Talkshow</h2>
-            <p className="event-item-content">
-              Tương lai của React trên thị trường Việt Nam và quốc tế
-            </p>
-          </div>
-
-          <div className="event-item">
-            <h5 className="content-review-date text-center">
-              01/10/2021 - 28/11/2021
-            </h5>
-            <div className="position-relative">
-              <img
-                src="../assets/icon/BorderSolid.png"
-                width="100%"
-                height="1px"
-              />
-              <div className="box-circle">
-                <div className="circle"></div>
-              </div>
-            </div>
-            <h2 className="event-item-title">Talkshow</h2>
-            <p className="event-item-content">
-              Tương lai của React trên thị trường Việt Nam và quốc tế
-            </p>
-          </div>
-
-
+            );
+          })}
         </div>
       </div>
 
@@ -220,6 +187,10 @@ const RegularEvent = () => {
           height: 430px;
           width: 100%;
         }
+        .event-item {
+          height: 100%;
+          width: 33%;
+        }
         .box-circle {
           width: 100%;
           height: 100%;
@@ -239,14 +210,14 @@ const RegularEvent = () => {
           margin: 3px auto;
         }
         .circle-active {
-          background: #0BBEE7;
-          
+          background: #0bbee7;
         }
-        .text-active{
-            color: #0BBEE7 !important;
-            font-weight: 600;
+        .text-active {
+          color: #0bbee7 !important;
+          font-weight: 600;
         }
         .list-events {
+          overflow-x: scroll;
           margin-top: -50px;
           padding-top: 70px;
           width: 100%;
@@ -273,9 +244,12 @@ const RegularEvent = () => {
           margin: auto;
           letter-spacing: -0.02em;
           color: #52575c;
-        }
-        .event-item {
-          height: 100%;
+          white-space: pre-wrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          display: -webkit-box;
         }
         .center-content {
           display: flex;
@@ -286,6 +260,7 @@ const RegularEvent = () => {
         }
         .box-content {
           width: 741px;
+          margin: 0 auto;
         }
         .title-page {
           font-weight: 600;
@@ -448,5 +423,15 @@ const RegularEvent = () => {
     </>
   );
 };
+
+export async function getServerSideProps() {
+  const res = await get_timeline_event();
+  const data_timeline_event = res.data;
+  return {
+    props: {
+      data: { data_timeline_event },
+    },
+  };
+}
 
 export default RegularEvent;

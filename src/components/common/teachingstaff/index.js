@@ -20,13 +20,12 @@ export const TeachingStaff = () => {
                 </div>
                 <div className="item__content">
                   <h3 className="name-experts">{val.fullname}</h3>
-                  <p className="content-experts">
-                    Chuyên về React &amp; React Native <br />
-                    Sẵn sàng 24/7 <br />
-                    Đẳng cấp thế giới <br />
-                    Khả năng tăng trưởng, mở rộng nhanh <br />
-                    Phản hồi ngay lập tức <br />
-                  </p>
+                  <div className="content-experts"
+                   dangerouslySetInnerHTML={{
+                      __html:val.content }}
+                  >
+                   
+                  </div>
                 </div>
               </div>
             ))}
@@ -56,6 +55,7 @@ export const TeachingStaff = () => {
         .box-team-of-experts .item-experts .item__img {
           width: 184px;
           height: 184px;
+         
           background-image: url(/assets/images/Frame.png);
           display: flex;
           flex-direction: column;
@@ -76,6 +76,9 @@ export const TeachingStaff = () => {
           line-height: 19px;
           text-align: center;
           letter-spacing: -0.02em;
+        }
+        .content-experts p{
+          margin: 0 !important;
         }
       `}</style>
     </>

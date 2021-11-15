@@ -10,7 +10,7 @@ const Career = ({ data }) => {
   const router = useRouter();
   const [isLoadMore, setLoadMore] = useState(false);
   const handleDetail = () => router.push("/tuyen-dung/chi-tiet-tuyen-dung");
-  const handleSubmit = () => router.push("/tuyen-dung/form-tuyen-dung");
+  const handleSubmit = () => router.push("/cac-khoa-dao-tao/dang-ky-ung-vien-tiem-nang");
   return (
     <>
       <Head>

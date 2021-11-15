@@ -1,9 +1,11 @@
 import Footer from "../../src/components/footer";
 import Head from "next/head";
+import Link from "next/link";
 import Menu from "../../src/components/menu";
 import { useRouter } from "next/router";
+import { get_news_blog, URL } from "../../src/services/api";
 
-const News = () => {
+const News = ({ data_news_blog }) => {
   const router = useRouter();
   const handleDetail = () => router.push("/tuyen-dung/thong-tin-chi-tiet-form");
   const handleViewAllNews = () => router.push("/tin-tuc/danh-sach-tin-tuc");
@@ -45,41 +47,23 @@ const News = () => {
           </div>
         </div>
         <div className="list-posts">
-          <div className="list-posts-item">
-            <img
-              src="./assets/images/img27.png"
-              height={"193px"}
-              width={"340px"}
-            />
-            <h5 className="content-review-date">01/10/2021 - 28/11/2021</h5>
-            <a href="" className="post-title" onClick={handleDetail}>
-              Khoá đào tạo mầm non React{" "}
-            </a>
-          </div>
-
-          <div className="list-posts-item">
-            <img
-              src="./assets/images/img28.png"
-              height={"193px"}
-              width={"340px"}
-            />
-            <h5 className="content-review-date">01/10/2021 - 28/11/2021</h5>
-            <a href="" className="post-title">
-              Talkshow: Ứng dụng React trong ABC giúp cho BCD{" "}
-            </a>
-          </div>
-
-          <div className="list-posts-item">
-            <img
-              src="./assets/images/img29.png"
-              height={"193px"}
-              width={"340px"}
-            />
-            <h5 className="content-review-date">01/10/2021 - 28/11/2021</h5>
-            <a href="" className="post-title">
-              Khoá đào tạo mầm non React{" "}
-            </a>
-          </div>
+          {data_news_blog.news?.map((val) => {
+            return (
+              <div className="list-posts-item">
+                <img
+                  src={`${URL}${val.cover_image.url}`}
+                  height={"193px"}
+                  width={"340px"}
+                />
+                <h5 className="content-review-date">
+                  {val.start_date} - {val.to_date}
+                </h5>
+                <Link href={`/tin-tuc/${val.url_seo}`}>
+                  <a className="post-title">{val.title}</a>
+                </Link>
+              </div>
+            );
+          })}
         </div>
         <div className="margin" />
         <div className="header">
@@ -97,41 +81,23 @@ const News = () => {
           </div>
         </div>
         <div className="list-posts">
-          <div className="list-posts-item">
-            <img
-              src="./assets/images/img30.png"
-              height={"193px"}
-              width={"340px"}
-            />
-            <h5 className="content-review-date">01/10/2021 - 28/11/2021</h5>
-            <a href="" className="post-title">
-              Khoá đào tạo mầm non React{" "}
-            </a>
-          </div>
-
-          <div className="list-posts-item">
-            <img
-              src="./assets/images/img31.png"
-              height={"193px"}
-              width={"340px"}
-            />
-            <h5 className="content-review-date">01/10/2021 - 28/11/2021</h5>
-            <a href="" className="post-title">
-              Talkshow: Ứng dụng React trong ABC giúp cho BCD{" "}
-            </a>
-          </div>
-
-          <div className="list-posts-item">
-            <img
-              src="./assets/images/img32.png"
-              height={"193px"}
-              width={"340px"}
-            />
-            <h5 className="content-review-date">01/10/2021 - 28/11/2021</h5>
-            <a href="" className="post-title">
-              Khoá đào tạo mầm non React{" "}
-            </a>
-          </div>
+          {data_news_blog.blogs?.map((val) => {
+            return (
+              <div className="list-posts-item">
+                <img
+                  src={`${URL}${val.cover_image.url}`}
+                  height={"193px"}
+                  width={"340px"}
+                />
+                <h5 className="content-review-date">
+                  {val.start_date} - {val.to_date}
+                </h5>
+                <Link href={`/tin-tuc/${val.url_seo}`}>
+                  <a className="post-title">{val.title}</a>
+                </Link>
+              </div>
+            );
+          })}
         </div>
       </div>
       <div className="margin" />
@@ -206,7 +172,7 @@ const News = () => {
           display: flex;
           align-items: center;
         }
-        .header-right{
+        .header-right {
           cursor: pointer;
         }
         .header-title {
@@ -268,5 +234,16 @@ const News = () => {
     </>
   );
 };
+
+export async function getServerSideProps() {
+  const res = await get_news_blog();
+  const data_news_blog = res.data;
+
+  return {
+    props: {
+      data_news_blog: data_news_blog,
+    },
+  };
+}
 
 export default News;

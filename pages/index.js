@@ -1,8 +1,9 @@
 import Head from "next/head";
+import Link from "next/link";
 import Menu from "../src/components/menu";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "../src/components/footer";
-import { ListNews, TrainingEvents } from "../src/config";
+import { DataTimeLine, ListNews, TrainingEvents } from "../src/config";
 import { Carousel } from "react-bootstrap";
 import SlideItem from "../src/components/common/slideitem/SlideItem";
 import Popup from "../src/components/common/popuphome";
@@ -21,6 +22,7 @@ import {
 export default function Home({ data }) {
   const [isShow, setShow] = useState(false);
   const [isShow2, setShow2] = useState(false);
+
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -176,7 +178,9 @@ export default function Home({ data }) {
                   <h4 className="item__title">{data[1].event.title}</h4>
                   <div
                     className="item__content"
-                    dangerouslySetInnerHTML={{ __html: data[1].event.content }}
+                    dangerouslySetInnerHTML={{
+                      __html: data[1].event.content,
+                    }}
                   />
                   <button className="btnmore">
                     <span>Tìm hiểu thêm</span>
@@ -251,7 +255,9 @@ export default function Home({ data }) {
                   src={`${URL}${val.cover_image.url}`}
                   className="news__item__img"
                 />
-                <a href="#">{val.title}</a>
+                <Link href={`/tin-tuc/${val.url_seo}`}>
+                  <a className="post-title">{val.title}</a>
+                </Link>
                 <p className="community__date">
                   {val.start_date} - {val.to_date}
                 </p>
@@ -460,13 +466,13 @@ export default function Home({ data }) {
         .item__title {
           font-weight: 600;
           font-size: 18px;
+          height: 42px;
           line-height: 27px;
           letter-spacing: -0.02em;
           color: #25282b;
         }
         .community__item__content .item__content {
           font-size: 13px;
-          width: 381px;
           height: 70px;
           line-height: 19px;
           letter-spacing: -0.02em;
@@ -706,7 +712,7 @@ export default function Home({ data }) {
         /* end css news */
 
         .box-inputemail {
-          margin-top: 50px;
+          margin: 50px 0 30px 0;
           position: relative;
           height: 211px;
           width: 100%;
@@ -714,6 +720,7 @@ export default function Home({ data }) {
         .inputemail {
           width: 100%;
           height: 100%;
+          padding-bottom: 20px;
           background-image: url("/assets/images/Frame45527.png");
           background-size: cover;
         }
@@ -774,64 +781,26 @@ export default function Home({ data }) {
           transition: 0.5s;
           background-color: #03a3c8;
         }
-        .footer {
-          height: 150px;
+        .box-error{
+          background: #25282B;
+          margin-top: -20px;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          box-sizing: border-box;
+          border-radius: 33px;
+          width: 187px;
+          margin: 0 auto;
+          height: 28px;
           display: flex;
-          justify-content: space-between;
-          border-bottom: 1px solid #f0f0f0;
+          align-items: center;
+          justify-content: center;
         }
-        .footer_itemlogo {
-          width: 24%;
-        }
-        .footer_item {
-          width: 16%;
-        }
-        .footer_item .item__title {
-          font-weight: 600;
-          font-size: 13px;
-          line-height: 19px;
-
-          letter-spacing: -0.02em;
-
-          color: #25282b;
-        }
-        .footer_item a {
-          text-decoration: none;
-          display: block;
-          height: 30px;
-          font-size: 13px;
-          line-height: 20px;
-          letter-spacing: -0.02em;
-          color: #000000;
-        }
-
-        .footer_item a:hover {
-          color: #0bbee7;
-          text-decoration: none;
-        }
-        .footer_itemlogo {
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-        }
-        .footer_itemlogo p {
+        .text-error{
+          margin-left: 5px;
+          font-weight: 500;
           font-size: 13px;
           line-height: 19px;
           letter-spacing: -0.02em;
-
-          color: #000000;
-        }
-        .footer_item .connect {
-          display: flex;
-        }
-        .copy-right {
-          font-size: 11px;
-          line-height: 16px;
-          /* identical to box height */
-
-          letter-spacing: -0.02em;
-          margin: 15px 0;
-          color: #000000;
+          color: #FFFFFF;
         }
 
         @media screen and (max-width: 768px) {

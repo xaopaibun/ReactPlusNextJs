@@ -2,7 +2,8 @@ import { useRouter } from "next/router";
 
 const JoinNow = () => {
   const router = useRouter();
-  const handleDetail = () => router.push("/tuyen-dung/form-tuyen-dung");
+  const handleDetail = () =>
+    router.push("/cac-khoa-dao-tao/dang-ky-tham-gia-khoa-hoc");
   return (
     <div className="container">
       <div className="inputemail">
