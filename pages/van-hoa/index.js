@@ -13,8 +13,8 @@ import { useScroll } from "../../src/hooks/useScroll";
 const VanHoa = ({ data }) => {
   const [isActive, setActive] = useState(0);
   const [isActiveSummer, setActiveSummer] = useState(0);
-  const _dataScroll = useScroll();
-  console.log(_dataScroll.data);
+  // const _dataScroll = useScroll();
+
   return (
     <>
       <Head>
@@ -535,6 +535,7 @@ const VanHoa = ({ data }) => {
           }
           .content {
             flex-direction: column;
+            margin-top: 0px;
           }
           .content-left {
             width: 100%;
@@ -555,9 +556,17 @@ const VanHoa = ({ data }) => {
             height: 85px;
             margin-right: 8px;
           }
+          .introduce-text {
+            font-size: 22px;
+          }
           .container:nth-child(2) {
             margin: 0;
             padding: 0;
+          }
+          .Office-TitleContent {
+            font-size: 22px;
+            line-height: 22px;
+            margin-bottom: 20px;
           }
           .Office-Images {
             width: 100%;
@@ -578,13 +587,23 @@ const VanHoa = ({ data }) => {
             display: none;
           }
           .content-right {
-            order: 2;
-            width: 100%;
-            margin: 25px 0;
-          }
-          .content-left {
             order: 1;
             width: 100%;
+            margin: 10px 0;
+          }
+          .content-left {
+            order: 2;
+            width: 100%;
+            margin: 30px 0;
+          }
+          .village-react-text {
+            font-size: 14px;
+          }
+
+          .title,
+          .header-title,
+          .village-title {
+            font-size: 22px;
           }
            {
             /* .award-list {

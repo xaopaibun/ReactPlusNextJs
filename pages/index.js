@@ -62,7 +62,7 @@ export default function Home({ data }) {
             }
           >
             {data[0].map((val) => (
-              <Carousel.Item interval={1000} key={val.id}>
+              <Carousel.Item interval={3500} key={val.id}>
                 <img
                   className="d-block w-100"
                   width={"100%"}
@@ -88,38 +88,29 @@ export default function Home({ data }) {
             </p>
             <div className="box-item">
               <div className="item">
-                <img
-                  src="./assets/images/img0.png"
-                  alt=""
-                  className="item__img"
-                />
+                <div className="item__img">
+                  <img src="./assets/images/img0.png" alt="" />
+                </div>
                 <p className="item__content">
                   Nơi làm việc của đông đảo chuyên gia và kỹ sư yêu thích React
                 </p>
-                <p></p>
               </div>
               <div className="item">
-                <img
-                  src="./assets/images/img01.png"
-                  alt=""
-                  className="item__img"
-                />
+                <div className="item__img">
+                  <img src="./assets/images/img01.png" alt="" />
+                </div>
                 <p className="item__content">
                   Quy mô 130 nhân sự và 100% dự án làm về React
                 </p>
-                <p></p>
               </div>
               <div className="item">
-                <img
-                  src="./assets/images/img00.png"
-                  alt=""
-                  className="item__img"
-                />
+                <div className="item__img">
+                  <img src="./assets/images/img00.png" alt="" />
+                </div>
                 <p className="item__content">
                   Nơi tổ chức miễn phí các khoá đào tạo, sự kiện về React với
                   chuyên gia trong nước và quốc tế
                 </p>
-                <p></p>
               </div>
             </div>
           </div>
@@ -143,17 +134,17 @@ export default function Home({ data }) {
             <div className="community-bottom">
               <div className="community__item">
                 <div className="community__item__image">
-                  <img src={URL + data[1].training.image.url} alt="" />
+                  <img src={URL + data[1].training?.image.url} alt="" />
                 </div>
                 <div className="community__item__content">
                   <p className="community__date">
-                    {data[1].training.start_date} {data[1].training.to_date}
+                    {data[1].training?.start_date} {data[1].training?.to_date}
                   </p>
-                  <h4 className="item__title">{data[1].training.title}</h4>
+                  <h4 className="item__title">{data[1].training?.title}</h4>
                   <div
                     className="item__content"
                     dangerouslySetInnerHTML={{
-                      __html: data[1].training.content,
+                      __html: data[1].training?.content,
                     }}
                   />
                   <button className="btnmore">
@@ -371,27 +362,38 @@ export default function Home({ data }) {
 
         .box-item {
           display: flex;
-          height: 238px;
+          height: auto;
           width: 100%;
           justify-content: space-between;
         }
         .box-item .item {
-          height: 238px;
+          height: auto;
           width: 238px;
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
         }
+        .box-item .item .item__img{
+            width:100%;
+            height: 160px;
+            
+            display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
         .box-item .item .item__content {
           margin-top: 10px;
-        
           font-size: 14px;
           line-height: 21px;
+          
           text-align: center;
           letter-spacing: -0.02em;
           color: #25282b;
         }
+
+
         /* end css box content */
 
         /* start css box-community */

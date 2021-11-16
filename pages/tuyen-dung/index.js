@@ -10,7 +10,8 @@ const Career = ({ data }) => {
   const router = useRouter();
   const [isLoadMore, setLoadMore] = useState(false);
   const handleDetail = () => router.push("/tuyen-dung/chi-tiet-tuyen-dung");
-  const handleSubmit = () => router.push("/cac-khoa-dao-tao/dang-ky-ung-vien-tiem-nang");
+  const handleSubmit = () =>
+    router.push("/cac-khoa-dao-tao/dang-ky-ung-vien-tiem-nang");
   return (
     <>
       <Head>
@@ -511,6 +512,7 @@ const Career = ({ data }) => {
           }
           .join-the-team-item {
             width: 100%;
+            margin-bottom: 30px;
           }
           .time-line {
             margin-top: 5px;
@@ -524,6 +526,12 @@ const Career = ({ data }) => {
             border-left: 1px dashed #e2e2e2;
             height: 100%;
             margin-left: 5px;
+          }
+          .title-career {
+            font-size: 22px;
+          }
+          .phone-number {
+            font-size: 14px;
           }
         }
       `}</style>

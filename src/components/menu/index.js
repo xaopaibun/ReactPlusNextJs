@@ -139,7 +139,11 @@ const Menu = ({ isColor }) => {
                 </li>
                 <li className="menu__item">
                   <Link href="/tin-tuc">
-                    <ActiveLink href="/tin-tuc">Tin tức &amp; Blog</ActiveLink>
+                    <a
+                      className={router.pathname == "/tin-tuc" ? "active" : ""}
+                    >
+                      Tin tức &amp; Blog
+                    </a>
                   </Link>
                 </li>
               </ul>
