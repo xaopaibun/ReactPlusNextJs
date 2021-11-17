@@ -64,9 +64,7 @@ export default function Home({ data }) {
             {data[0].map((val) => (
               <Carousel.Item interval={3500} key={val.id}>
                 <img
-                  className="d-block w-100"
-                  width={"100%"}
-                  height={"430px"} 
+                  className="d-block w-100 img-slide"
                   src={`${URL}${val.image.url}`}
                   alt="First slide"
                 />
@@ -332,6 +330,10 @@ export default function Home({ data }) {
           right: 164px;
           z-index: 99;
         }
+        .img-slide{
+          width: 100%;
+          height: 430px;
+        }
         /* end slider */
 
         /* start css box content */
@@ -388,7 +390,12 @@ export default function Home({ data }) {
           margin-top: 10px;
           font-size: 14px;
           line-height: 21px;
-          
+          white-space: pre-wrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            display: -webkit-box;
           text-align: center;
           letter-spacing: -0.02em;
           color: #25282b;
@@ -808,16 +815,24 @@ export default function Home({ data }) {
         @media screen and (max-width: 768px) {
           .box-box {
             width: 100%;
-
+           margin-bottom: 30px;
             overflow: hidden;
           }
           .document__title{
             width: auto;
           }
+          .community__title {
+   
+            font-size: 22px;
+          }
           .box-content {
-            padding: 0 16px;
+            padding: 0;
             height: auto;
           }
+          .img-slide{
+          width: 100%;
+          height: 113px;
+        }
           .content__review {
             font-weight: 600;
             width: 267px;

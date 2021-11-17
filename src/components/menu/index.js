@@ -95,7 +95,10 @@ const Menu = ({ isColor }) => {
                   <Link href="/tuyen-dung">
                     <a
                       className={
-                        router.pathname == "/tuyen-dung" ? "active" : ""
+                        router.pathname == "/tuyen-dung" ||
+                        router.pathname == "/tuyen-dung/chi-tiet-tuyen-dung"
+                          ? "active"
+                          : ""
                       }
                     >
                       Tuyển dụng
@@ -109,8 +112,11 @@ const Menu = ({ isColor }) => {
                     className={
                       router.pathname ==
                         "/cac-khoa-dao-tao/su-kien-thuong-ky" ||
-                        router.pathname == "/cac-khoa-dao-tao" ||
-                        router.pathname == "/cac-khoa-dao-tao/dang-ky-tham-gia-khoa-hoc"
+                      router.pathname == "/cac-khoa-dao-tao" ||
+                      router.pathname ==
+                        "/cac-khoa-dao-tao/dang-ky-tham-gia-khoa-hoc" ||
+                      router.pathname ==
+                        "/cac-khoa-dao-tao/dang-ky-ung-vien-tiem-nang"
                         ? "active"
                         : ""
                     }

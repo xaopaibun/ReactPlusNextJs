@@ -9,6 +9,7 @@ import PopupThanks from "../../../src/components/common/popupthanks";
 import { useState } from "react";
 import * as Yup from "yup";
 import { post_register_event } from "../../../src/services/api";
+import { Year } from "../../../src/config";
 const useStyles = makeStyles({
   input: {
     color: "#25282B",
@@ -106,14 +107,36 @@ const Form = () => {
             <div className="mr-30"></div>
             <div className="birtday">
               <label className="label-text">Năm sinh</label>
-              <input
+              {/* <input
                 type="text"
                 className="form-control txtform fromdate"
                 placeholder="Năm"
                 name="year"
                 onChange={formik.handleChange}
                 value={formik.values.year}
-              />
+              /> */}
+              <div className="item">
+                <select
+                  class="form-select form-select-custom"
+                  defaultValue="Năm"
+                  name="year"
+                  onChange={formik.handleChange}
+                  value={formik.values.year}
+                >
+                  <option selected>Năm</option>
+                  {Year.map((value) => (
+                    <option value={value} key={value}>
+                      {value}
+                    </option>
+                  ))}
+                </select>
+                <img
+                  className="icont_select"
+                  width={"8px"}
+                  height={"6.65px"}
+                  src="/assets/icon/select.png"
+                />
+              </div>
               {formik.errors.year && formik.touched.year ? (
                 <p>{formik.errors.year}</p>
               ) : null}
@@ -212,6 +235,7 @@ const Form = () => {
         .label-text {
           font-size: 14px;
           line-height: 24px;
+          margin-right: 20px;
           display: flex;
           align-items: center;
           color: #25282b;
@@ -221,6 +245,9 @@ const Form = () => {
           font-size: 32px;
           line-height: 42px;
           color: #25282b;
+        }
+        .item {
+          position: relative;
         }
         .txtform {
           border: none;
@@ -247,6 +274,7 @@ const Form = () => {
         .birtday {
           display: flex;
           align-items: center;
+          margin: 8px 0;
         }
         .from-email,
         .from-phone {
@@ -333,6 +361,12 @@ const Form = () => {
         @media screen and (max-width: 768px) {
           .flex {
             flex-direction: column;
+          }
+
+          .item {
+            width: 50%;
+            height: 100%;
+            margin: 10px 0;
           }
           .title-page {
             font-size: 20px;

@@ -217,6 +217,9 @@ const CareerDetal = () => {
         .header {
           height: 410px;
           width: 100%;
+          position: sticky;
+          top: -350px;
+          z-index: 19999;
           background-image: url("/assets/images/ReactPlusCareer.png");
         }
         .contact {
@@ -423,6 +426,13 @@ const CareerDetal = () => {
          
           .header-center {
             width: 100%;
+
+          }
+          .title-career {
+            font-size: 22px;
+          }
+          .phone-number {
+            font-size: 14px;
           }
           .applied-position-item-top {
             width: 100%;

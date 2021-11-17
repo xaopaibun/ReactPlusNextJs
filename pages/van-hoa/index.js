@@ -3,7 +3,7 @@ import Head from "next/head";
 import Menu from "../../src/components/menu";
 import { Award } from "../../src/config";
 import JoinNow from "../../src/components/common/thamgiangay";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   get_health_festivals,
   get_images_villages,
@@ -12,8 +12,9 @@ import {
 import { useScroll } from "../../src/hooks/useScroll";
 const VanHoa = ({ data }) => {
   const [isActive, setActive] = useState(0);
+  const [isPosition, setPosition] = useState(false);
   const [isActiveSummer, setActiveSummer] = useState(0);
-  // const _dataScroll = useScroll();
+  const _dataScroll = useScroll();
 
   return (
     <>
@@ -235,6 +236,9 @@ const VanHoa = ({ data }) => {
         .header {
           height: 410px;
           width: 100%;
+          position: sticky;
+          top: -350px;
+          z-index: 19999;
           background-image: url("/assets/images/ReactPlusAnhBia.png");
         }
         .header-positon {
@@ -529,7 +533,7 @@ const VanHoa = ({ data }) => {
           .header {
             height: 233px;
             width: 100%;
-
+            top: -173px;
             background-repeat: no-repeat;
             background-size: cover;
           }

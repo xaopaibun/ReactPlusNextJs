@@ -10,7 +10,30 @@ body {
   margin: 0;
   padding: 0;
 }
+select {
+  word-wrap: normal !important;
+  /* background-color: aquamarine; */
+  width: 162px  !important;
+  height: 38px  !important;
+  box-sizing: border-box  !important;
+  padding: 0 16px  !important;
+  border: none  !important;
+  background: #F4F6FA  !important;
+  border-radius: 38px  !important;
+  -webkit-appearance: none  !important;
+}
 
+option {
+  background: #F4F6FA !important;
+}
+
+.icont_select{
+  position: absolute !important;
+  top: 16px !important;
+  right: 16px !important;
+  z-index: 20 !important;
+  
+}
 /* Optional: show position indicator in red */
 
 @media screen and (max-width: 768px) {
@@ -23,6 +46,20 @@ body {
   .main-page{
     width: 100%;
     overflow: hidden;
+  }
+ 
+  .icont_select{
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 20;
+  }
+  .icont_select{
+   
+    top: 16px !important;
+    right: 40px !important;
+   
+    
   }
  
 }

@@ -199,6 +199,9 @@ const Career = ({ data }) => {
         .header {
           height: 410px;
           width: 100%;
+          position: sticky;
+          top: -350px;
+          z-index: 19999;
           background-size: cover;
           background-repeat: no-repeat;
           background-image: url("/assets/images/CtyReactPlus.png");
@@ -454,6 +457,7 @@ const Career = ({ data }) => {
         @media screen and (max-width: 768px) {
           .header {
             height: 375px;
+            top: -315px;
           }
           .applied-position-item {
             width: 100%;

@@ -51,7 +51,7 @@ const UngVienTiemNang = () => {
   return (
     <>
       <Head>
-        <title>Điền form</title>
+        <title>Điền form ứng viên đăng ký tiềm năng</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {isShow && (
@@ -96,6 +96,12 @@ const UngVienTiemNang = () => {
                   </option>
                 ))}
               </select>
+              <img
+                className="icont_select"
+                width={"8px"}
+                height={"6.65px"}
+                src="/assets/icon/select.png"
+              />
             </div>
 
             <div className="item">
@@ -113,6 +119,12 @@ const UngVienTiemNang = () => {
                   </option>
                 ))}
               </select>
+              <img
+                className="icont_select"
+                width={"8px"}
+                height={"6.65px"}
+                src="/assets/icon/select.png"
+              />
             </div>
             <div className="item">
               <select
@@ -129,6 +141,12 @@ const UngVienTiemNang = () => {
                   </option>
                 ))}
               </select>
+              <img
+                className="icont_select"
+                width={"8px"}
+                height={"6.65px"}
+                src="/assets/icon/select.png"
+              />
             </div>
           </div>
           <div className="birtday">
@@ -287,6 +305,9 @@ const UngVienTiemNang = () => {
         }
         .txtform:focus {
           border: none;
+        }
+        .item {
+          position: relative;
         }
         .input_file {
           position: absolute;
