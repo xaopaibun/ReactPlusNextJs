@@ -62,6 +62,9 @@ export const post_register_course = (students) =>
 export const post_register_event = (user) =>
   instance.post("/participants", user);
 
- // dang ky tuyen dung job
+// dang ky tuyen dung job
 export const post_register_candidates = (user) =>
-instance.post("/candidates", user);
+  instance.post("/candidates", user);
+
+export const get_training_page = () =>
+  instance.get("/static_pages/training_detail");

@@ -4,8 +4,10 @@ import Menu from "../../src/components/menu";
 import { ListCourse, ListCourseFeatures } from "../../src/config";
 import { TeachingStaff } from "../../src/components/common";
 import JoinNow from "../../src/components/common/thamgiangay";
+import { get_training_page, URL } from "../../src/services/api";
 
-const EventTraining = () => {
+const EventTraining = ({ data_training_page }) => {
+  console.log(data_training_page);
   return (
     <>
       <Head>
@@ -73,52 +75,46 @@ const EventTraining = () => {
           <div className="container">
             <h2 className="title_page">Nội dung chính khóa học</h2>
             <div className="list-course">
-              {ListCourse &&
-                ListCourse.map((value) => (
-                  <div className="course-item" key={value._id}>
-                    <div className="course-item-image">
-                      <img
-                        src="./assets/images/avatar1.png"
-                        className="course-img"
-                        width={80}
-                        height={80}
-                      />
-                    </div>
-                    <div className="course-item-text">
-                      <p className="course-text">
-                        Kiến thức về công nghệ React - xu hướng phát triển trong
-                        tương lai với cơ hội việc làm và mức lương hấp dẫn. Cập
-                        nhật những nội dung mới nhất từ cộng đồng React thế
-                        giới.
-                      </p>
-                    </div>
+              {data_training_page?.feature?.map((value, index) => (
+                <div className="course-item" key={value.id}>
+                  <div className="course-item-image">
+                    <h1>{index + 1}</h1>
                   </div>
-                ))}
+                  <div className="course-item-text">
+                    <div
+                      className="course-text"
+                      dangerouslySetInnerHTML={{
+                        __html: value.content,
+                      }}
+                    ></div>
+                  </div>
+                </div>
+              ))}
             </div>
             <h2 className="title_page">Đặc điểm khóa học</h2>
             <div className="list-course-features">
-              {ListCourseFeatures &&
-                ListCourseFeatures.map((value) => (
-                  <div className="list-course-features-item" key={value._id}>
-                    <img
-                      src="./assets/images/avatar1.png"
-                      class="course-img"
-                      width={80}
-                      height={80}
-                    />
-                    <p className="course-title">{value.title}</p>
-                    <p className="course-features-text">
-                      Kiến thức về công nghệ React - xu hướng phát triển trong
-                      tương lai với cơ hội việc làm và mức lương hấp dẫn. Cập
-                      nhật những nội dung mới nhất từ cộng đồng React thế giới.
-                    </p>
-                  </div>
-                ))}
+              {data_training_page?.feature?.map((value) => (
+                <div className="list-course-features-item" key={value.id}>
+                  <img
+                    src={`${URL}${value.image.url}`}
+                    class="course-img"
+                    width={80}
+                    height={80}
+                  />
+                  <p className="course-title">{value.title}</p>
+                  <div
+                    className="course-features-text"
+                    dangerouslySetInnerHTML={{
+                      __html: value.content,
+                    }}
+                  ></div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </div>
-      <TeachingStaff />
+      <TeachingStaff data={data_training_page?.trainner} />
       <JoinNow />
       <Footer />
       <style jsx>{`
@@ -167,6 +163,7 @@ const EventTraining = () => {
         .title_teaching_staff {
           font-weight: 600;
           font-size: 28px;
+          margin: 40px 0;
           line-height: 42px;
           letter-spacing: -0.02em;
           text-align: center;
@@ -281,10 +278,28 @@ const EventTraining = () => {
           .list-course-features-item {
             margin: 0 auto;
           }
+          .list-course-feature {
+            flex-direction: column;
+          }
+          .title_page {
+            font-size: 20px;
+          }
+          .title_teaching_staff {
+            margin-top: 1200px;
+          }
         }
       `}</style>
     </>
   );
 };
+export async function getServerSideProps() {
+  const res = await get_training_page();
+  const data_training_page = res.data;
+  return {
+    props: {
+      data_training_page,
+    },
+  };
+}
 
 export default EventTraining;

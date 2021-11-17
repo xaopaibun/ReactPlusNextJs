@@ -1,41 +1,41 @@
 import { ListExperts } from "../../../config";
+import { URL } from "../../../services/api";
 
-export const TeachingStaff = () => {
+export const TeachingStaff = ({ data }) => {
   return (
     <>
       <div className="container">
         <h2 className="title_teaching_staff">Đội ngũ giảng viên</h2>
         <div className="box-team-of-experts">
-          {ListExperts &&
-            ListExperts.map((val) => (
-              <div className="item-experts" key={val._id}>
-                <div className="item__img">
-                  <img
-                    width="110px"
-                    height="110px"
-                    style={{ borderRadius: "50%" }}
-                    src={"./assets/images/" + val.avatar}
-                    alt={val.fullname}
-                  />
-                </div>
-                <div className="item__content">
-                  <h3 className="name-experts">{val.fullname}</h3>
-                  <div className="content-experts"
-                   dangerouslySetInnerHTML={{
-                      __html:val.content }}
-                  >
-                   
-                  </div>
-                </div>
+          {data.map((val) => (
+            <div className="item-experts" key={val.id}>
+              <div className="item__img">
+                <img
+                  width="110px"
+                  height="110px"
+                  style={{ borderRadius: "50%" }}
+                  src={`${URL}${val.image.url}`}
+                  alt={val.name}
+                />
               </div>
-            ))}
+              <div className="item__content">
+                <h3 className="name-experts">{val.name}</h3>
+                <div
+                  className="content-experts"
+                  dangerouslySetInnerHTML={{
+                    __html: val.note,
+                  }}
+                ></div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
       <style jsx>{`
         .box-team-of-experts {
           display: flex;
           flex-wrap: wrap;
-          margin: 30px 0;
+          margin: 20px 0;
         }
         .title_teaching_staff {
           font-weight: 600;
@@ -55,7 +55,7 @@ export const TeachingStaff = () => {
         .box-team-of-experts .item-experts .item__img {
           width: 184px;
           height: 184px;
-         
+
           background-image: url(/assets/images/Frame.png);
           display: flex;
           flex-direction: column;
@@ -77,8 +77,22 @@ export const TeachingStaff = () => {
           text-align: center;
           letter-spacing: -0.02em;
         }
-        .content-experts p{
+        .content-experts p {
           margin: 0 !important;
+        }
+        @media screen and (max-width: 768px) {
+          .box-team-of-experts {
+            overflow-x: scroll;
+            flex-wrap: unset;
+          }
+          .item-experts {
+            width: 50%;
+          }
+          .title_teaching_staff {
+            
+            font-size: 20px;
+            margin-top: 1200px;
+          }
         }
       `}</style>
     </>

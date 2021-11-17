@@ -66,6 +66,7 @@ export default function Home({ data }) {
                 <img
                   className="d-block w-100"
                   width={"100%"}
+                  height={"430px"} 
                   src={`${URL}${val.image.url}`}
                   alt="First slide"
                 />

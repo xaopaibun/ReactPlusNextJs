@@ -599,7 +599,9 @@ const VanHoa = ({ data }) => {
           .village-react-text {
             font-size: 14px;
           }
-
+          .list-images {
+            justify-content: space-between;
+          }
           .title,
           .header-title,
           .village-title {

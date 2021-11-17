@@ -109,8 +109,8 @@ const Menu = ({ isColor }) => {
                     className={
                       router.pathname ==
                         "/cac-khoa-dao-tao/su-kien-thuong-ky" ||
-                      router.pathname ==
-                        "/cac-khoa-dao-tao/dang-ky-tham-gia-khoa-hoc"
+                        router.pathname == "/cac-khoa-dao-tao" ||
+                        router.pathname == "/cac-khoa-dao-tao/dang-ky-tham-gia-khoa-hoc"
                         ? "active"
                         : ""
                     }

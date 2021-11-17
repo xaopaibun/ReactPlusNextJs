@@ -4,6 +4,7 @@ import Menu from "../../../src/components/menu";
 import { ListExperts } from "../../../src/config";
 import { useRouter } from "next/router";
 import { get_timeline_event } from "../../../src/services/api";
+import SlideItem from "../../../src/components/common/slideitem/SlideItem";
 
 const RegularEvent = ({ data }) => {
   const router = useRouter();
@@ -25,33 +26,8 @@ const RegularEvent = ({ data }) => {
       </div>
 
       <div className="container">
-        <div className="list-events">
-          {data.data_timeline_event.map((val) => {
-            return (
-              <div className="event-item" key={val.id}>
-                <h5 className="content-review-date text-center">
-                  {val.start_date} - {val.to_date}
-                </h5>
-                <div className="position-relative">
-                  <img
-                    src="../assets/icon/BorderSolid.png"
-                    width="100%"
-                    height="1px"
-                  />
-                  <div className="box-circle">
-                    <div className="circle"></div>
-                  </div>
-                </div>
-                <h2 className="event-item-title">{val.title}</h2>
-                <div
-                  className="event-item-content"
-                  dangerouslySetInnerHTML={{
-                    __html: val.introduction,
-                  }}
-                />
-              </div>
-            );
-          })}
+        <div className="mr-30">
+          <SlideItem TimeLineEvent={data.data_timeline_event} />
         </div>
       </div>
 
@@ -80,9 +56,9 @@ const RegularEvent = ({ data }) => {
           </div>
           <h2 className="title-page">Khoá đào tạo Mầm non React</h2>
           <img
+            class="img_content"
+            width="100%"
             src="../assets/images/Khoa-Dao-Tao-React-Plus.png"
-            width={"100%"}
-            height={"294px"}
           />
           <h3 className="title">Nội dung sự kiện</h3>
           <div className="text">
@@ -418,6 +394,52 @@ const RegularEvent = ({ data }) => {
         }
         .post-title:hover {
           color: #0bbee7;
+        }
+        .img_content {
+          width: 100%;
+          height: 294px;
+        }
+        .mr-30 {
+          padding: 30px 0;
+          background: #ffffff;
+          box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.05);
+        }
+        @media screen and (max-width: 768px) {
+          .box-team-of-experts {
+            overflow-x: scroll;
+          }
+          .list-posts {
+            overflow-x: scroll;
+          }
+          .list-posts-item {
+            margin-right: 20px;
+          }
+          .title-page {
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 28px;
+          }
+          .address-text {
+            color: #25282b;
+            display: block;
+            margin: 10px 0;
+            width: 100%;
+          }
+          .image-page {
+            width: 100%;
+            width: 100%;
+            height: auto;
+          }
+          .box-content .img_content {
+            width: 100%;
+            height: 136px !important;
+          }
+          .box-icont {
+            display: none;
+          }
+          .item-experts {
+            width: 50%;
+          }
         }
       `}</style>
     </>
