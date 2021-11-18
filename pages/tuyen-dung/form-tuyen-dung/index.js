@@ -96,6 +96,12 @@ const FormTuyenDung = () => {
                   </option>
                 ))}
               </select>
+              <img
+                className="icont_select"
+                width={"8px"}
+                height={"6.65px"}
+                src="/assets/icon/select.png"
+              />
             </div>
 
             <div className="item">
@@ -113,6 +119,12 @@ const FormTuyenDung = () => {
                   </option>
                 ))}
               </select>
+              <img
+                className="icont_select"
+                width={"8px"}
+                height={"6.65px"}
+                src="/assets/icon/select.png"
+              />
             </div>
             <div className="item">
               <select
@@ -129,6 +141,12 @@ const FormTuyenDung = () => {
                   </option>
                 ))}
               </select>
+              <img
+                className="icont_select"
+                width={"8px"}
+                height={"6.65px"}
+                src="/assets/icon/select.png"
+              />
             </div>
           </div>
           <div className="birtday">
@@ -183,12 +201,16 @@ const FormTuyenDung = () => {
               </h6>
               <h6
                 className={
-                  formik.errors.file && formik.touched.file
+                  formik.errors.file 
                     ? "CV-text-comment text-error"
                     : "CV-text-comment"
                 }
               >
-                Format được hỗ trợ: PNG, JPG, PDF
+                {formik.values.file?.name
+                  ? formik.values.file?.name
+                  : formik.errors.file
+                  ? formik.errors.file
+                  : "Format được hỗ trợ: PNG, JPG, PDF"}
               </h6>
             </div>
             <div className="PostCV-Right">
@@ -378,6 +400,9 @@ const FormTuyenDung = () => {
           display: flex;
           align-items: center;
           color: #0bbee7;
+        }
+        .item{
+          position: relative;
         }
         .btn-submit .btn-text {
           font-size: 14px;

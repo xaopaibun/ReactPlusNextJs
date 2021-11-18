@@ -449,6 +449,7 @@ const RegularEvent = ({ data }) => {
 export async function getServerSideProps() {
   const res = await get_timeline_event();
   const data_timeline_event = res.data;
+  
   return {
     props: {
       data: { data_timeline_event },

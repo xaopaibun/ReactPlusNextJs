@@ -96,7 +96,8 @@ const Menu = ({ isColor }) => {
                     <a
                       className={
                         router.pathname == "/tuyen-dung" ||
-                        router.pathname == "/tuyen-dung/chi-tiet-tuyen-dung"
+                        router.pathname == "/tuyen-dung/chi-tiet-tuyen-dung" ||
+                        router.pathname == "/tuyen-dung/form-tuyen-dung"
                           ? "active"
                           : ""
                       }
@@ -225,7 +226,8 @@ const Menu = ({ isColor }) => {
         <Link href="/tuyen-dung">
           <a
             className={
-              router.pathname == "/tuyen-dung"
+              router.pathname == "/tuyen-dung" ||
+              router.pathname == "/tuyen-dung/form-tuyen-dung"
                 ? "menu-reponsive-item menu-reponsive-item-active"
                 : "menu-reponsive-item"
             }
@@ -316,7 +318,10 @@ const Menu = ({ isColor }) => {
           display: flex;
           justify-content: center;
           align-items: center;
-          position: relative;
+          position: sticky;
+          top: 60px;
+          left: 0;
+          z-index: 999;
         }
         .box-center {
           display: flex;
@@ -389,15 +394,13 @@ const Menu = ({ isColor }) => {
           .box-menu-reponsive {
             display: block;
             width: 80%;
-            height: 900px;
+            position: fixed;
+            top: 0px;
+            right: -80%;
+            z-index: 999;
+            height: 100vh;
             background-color: #f4f6fa;
             padding: 53px 38px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 999;
-            overflow-y: hidden;
-            transform: translateX(125%);
           }
           .menu-reponsive-item {
             font-weight: 600;
@@ -432,14 +435,8 @@ const Menu = ({ isColor }) => {
         body {
           transform: ${!isClose ? `none` : `translateX(-80%)`};
         }
-        @keyframes OpenMenu {
-          from {
-            transform: none;
-          }
-
-          to {
-            transform: translateX(-80%);
-          }
+        
+       
         }
       `}</style>
     </>

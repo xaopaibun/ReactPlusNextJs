@@ -8,7 +8,7 @@ import { Carousel } from "react-bootstrap";
 import SlideItem from "../src/components/common/slideitem/SlideItem";
 import Popup from "../src/components/common/popuphome";
 import { useState } from "react";
-import { useFormik } from "formik";
+import { useFormik, useFormikContext } from "formik";
 import * as Yup from "yup";
 import PopupDownloadDocuments from "../src/components/common/popupdownloaddocuments";
 import {
@@ -19,20 +19,28 @@ import {
   send_mail,
   URL,
 } from "../src/services/api";
+import { useRouter } from "next/router";
 export default function Home({ data }) {
+  const router = useRouter();
   const [isShow, setShow] = useState(false);
   const [isShow2, setShow2] = useState(false);
+  const NaviDetail = (slug) => router.push(`/tin-tuc/${slug}`);
 
   const formik = useFormik({
     initialValues: {
       email: "",
     },
     validationSchema: Yup.object().shape({
-      email: Yup.string().email("Sai định dạng Email").required("Required"),
+      email: Yup.string()
+        .email("Sai định dạng Email")
+        .required("Không được để rỗng"),
     }),
     onSubmit: async (values) => {
       await send_mail(values.email).then((res) => {
+        // setFieldValue(values.email, "");
         setShow(true);
+        values.email = "";
+        console.log(values.email);
       });
     },
   });
@@ -146,7 +154,10 @@ export default function Home({ data }) {
                       __html: data[1].training?.content,
                     }}
                   />
-                  <button className="btnmore">
+                  <button
+                    className="btnmore"
+                    onClick={() => NaviDetail(data[1].training.url_seo)}
+                  >
                     <span>Tìm hiểu thêm</span>
                     <img
                       className="btnmore__icon"
@@ -158,20 +169,23 @@ export default function Home({ data }) {
 
               <div className="community__item">
                 <div className="community__item__image">
-                  <img src={URL + data[1].event.cover_image.url} alt="" />
+                  <img src={URL + data[1].event?.cover_image.url} alt="" />
                 </div>
                 <div className="community__item__content">
                   <p className="community__date">
-                    {data[1].event.start_date} {data[1].event.to_date}
+                    {data[1].event?.start_date} {data[1].event?.to_date}
                   </p>
-                  <h4 className="item__title">{data[1].event.title}</h4>
+                  <h4 className="item__title">{data[1].event?.title}</h4>
                   <div
                     className="item__content"
                     dangerouslySetInnerHTML={{
-                      __html: data[1].event.content,
+                      __html: data[1].event?.content,
                     }}
                   />
-                  <button className="btnmore">
+                  <button
+                    className="btnmore"
+                    onClick={() => NaviDetail(data[1].event.url_seo)}
+                  >
                     <span>Tìm hiểu thêm</span>
                     <img
                       className="btnmore__icon"
@@ -476,7 +490,7 @@ export default function Home({ data }) {
           font-weight: 600;
           font-size: 18px;
           height: 42px;
-          line-height: 27px;
+          line-height: 24px;
           letter-spacing: -0.02em;
           color: #25282b;
         }
@@ -930,6 +944,9 @@ font-size: 20px;
         }
         .btnsubmit{
           margin-right: 20px;
+        }
+        .item__title{
+          font-size: 14px;
         }
       `}</style>
     </>

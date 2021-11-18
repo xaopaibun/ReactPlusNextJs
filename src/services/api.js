@@ -68,3 +68,6 @@ export const post_register_candidates = (user) =>
 
 export const get_training_page = () =>
   instance.get("/static_pages/training_detail");
+
+// su-kien-thuong-ky
+export const get_detal_page_tranning = (id) => instance.get(`/posts/${id}`);

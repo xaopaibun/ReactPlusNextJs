@@ -72,7 +72,7 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
         "/" +
         values.year);
       values.program_language = values.program_language.toString();
-
+      console.log(values);
       await post_register_course(values)
         .then((res) => {
           setShow(true);
@@ -99,7 +99,7 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
       <FormikProvider value={formik}>
         <form
           onSubmit={formik.handleSubmit}
-          setFieldValue={formik.handleSubmit}
+         
         >
           <div className="container">
             <div className="box-form">
@@ -310,7 +310,7 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
                     </div>
                   );
                 })}
-                <div class="NN_right">
+                {/* <div class="NN_right">
                   {language.map((val, index) => {
                     return (
                       <div className="flex" key={index}>
@@ -327,7 +327,7 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
                       </div>
                     );
                   })}
-                </div>
+                </div> */}
               </div>
               <div className="mr-30"></div>
               <TextField
@@ -383,7 +383,9 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
                         : "CV-text-comment"
                     }
                   >
-                    Format được hỗ trợ: PNG, JPG, PDF
+                    {formik.values.file?.name
+                      ? formik.values.file?.name
+                      : "Format được hỗ trợ: PNG, JPG, PDF"}
                   </h6>
                 </div>
                 <div className="PostCV-Right">
@@ -685,6 +687,7 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
         .NN_right {
           display: none;
         }
+
         @media screen and (max-width: 768px) {
           .box-form {
             width: 100%;
@@ -731,7 +734,7 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
             display: block;
             width: 50%;
           }
-          .NN_right  .flex{
+          .NN_right .flex {
             width: 100%;
             flex-direction: row;
           }

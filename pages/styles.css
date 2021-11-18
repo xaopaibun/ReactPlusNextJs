@@ -39,6 +39,7 @@ option {
 @media screen and (max-width: 768px) {
   body {
     width: 100%;
+    overflow-x: hidden;
     /* transform: translateX(-80%);
     transition: 0.5s;
     transition-delay: 3s; */

@@ -1,3 +1,4 @@
+import Link from "next/link";
 const Footer = () => {
   return (
     <>
@@ -18,15 +19,27 @@ const Footer = () => {
           <div className="footer-right">
             <div className="footer_item">
               <p className="item__title">Cộng đồng</p>
-              <a href="#">Đào tạo &amp; Sự kiện</a>
-              <a href="#">Vì cộng đồng</a>
-              <a href="#">Tin tức &amp; Blog</a>
+              <Link href="/cac-khoa-dao-tao">
+                <a>Đào tạo &amp; Sự kiện</a>
+              </Link>
+              <Link href="/vi-cong-dong">
+                <a>Vì cộng đồng</a>
+              </Link>
+              <Link href="/tin-tuc">
+                <a>Tin tức &amp; Blog</a>
+              </Link>
             </div>
             <div className="footer_item">
               <p className="item__title">Công ty</p>
-              <a href="#">Giới thiệu</a>
-              <a href="#">Văn hoá</a>
-              <a href="#">Tuyển dụng</a>
+              <Link href="/gioi-thieu/gioi-thieu-react">
+                <a>Giới thiệu</a>
+              </Link>
+              <Link href="/van-hoa">
+                <a>Văn hoá</a>
+              </Link>
+              <Link href="/tuyen-dung">
+                <a>Tuyển dụng</a>
+              </Link>
             </div>
             <div className="footer_item">
               <p className="item__title">Liên hệ</p>

@@ -8,6 +8,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useState } from "react";
 import PopupThanks from "../../../src/components/common/popupthanks";
+import { post_register_candidates } from "../../../src/services/api";
 const UngVienTiemNang = () => {
   function onChange(value) {
     console.log("Captcha value:", value);
@@ -206,7 +207,9 @@ const UngVienTiemNang = () => {
                     : "CV-text-comment"
                 }
               >
-                Format được hỗ trợ: PNG, JPG, PDF
+                {formik.values.file?.name
+                  ? formik.values.file?.name
+                  : "Format được hỗ trợ: PNG, JPG, PDF"}
               </h6>
             </div>
             <div className="PostCV-Right">

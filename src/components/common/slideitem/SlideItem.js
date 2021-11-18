@@ -18,17 +18,19 @@ const SlideItem = ({ TimeLineEvent }) => {
     } = rest;
     // onMove means if dragging or swiping in progress.
     return (
-      <img
-        width="32px"
-        height="32px"
-        src="../../assets/icon/muitenphai.png"
-        alt=""
-      />
+      <button className="btnSlider right">
+        <img src="./assets/images/back_right.png" alt="a" />
+      </button>
     );
   };
+
   return (
     <>
-      <Carousel responsive={responsive}>
+      <Carousel
+        responsive={responsive}
+        arrows={false}
+        customRightArrow={<CustomRightArrow />}
+      >
         {TimeLineEvent.map((val) => (
           <div className="education__item" key={val.id}>
             <p className="education__item__time">
@@ -118,6 +120,29 @@ const SlideItem = ({ TimeLineEvent }) => {
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
             display: -webkit-box;
+          }
+          .btnSlider {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            background-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0px 1px 6px rgba(49, 53, 59, 0.3);
+          }
+          .btnSlider.left {
+            position: absolute;
+            top: calc(430px / 2 - 32px);
+            left: 164px;
+            z-index: 99;
+          }
+          .btnSlider.right {
+            position: absolute;
+            top: calc(430px / 2 - 32px);
+            right: 164px;
+            z-index: 99;
           }
         `}
       </style>

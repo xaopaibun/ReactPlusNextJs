@@ -338,7 +338,8 @@ const IntroduceReact = ({ data }) => {
         .question-title {
           font-weight: 600;
           font-size: 16px;
-          line-height: 56px;
+          padding: 20px 0;
+          line-height: 26px;
           letter-spacing: -0.02em;
           color: #25282b;
           cursor: pointer;
