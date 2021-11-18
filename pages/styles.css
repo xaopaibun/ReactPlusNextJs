@@ -55,6 +55,11 @@ option {
     right: 0;
     z-index: 20;
   }
+  select{
+   
+    max-width: 162px  !important;
+    width: 100%  !important;
+  }
   .icont_select{
    
     top: 16px !important;

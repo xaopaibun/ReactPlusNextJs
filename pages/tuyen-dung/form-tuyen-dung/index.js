@@ -268,6 +268,7 @@ const FormTuyenDung = () => {
         <Footer />
       </footer>
       <style jsx>{`
+      
         .box-form {
           width: 794px;
           height: auto;
@@ -435,6 +436,30 @@ const FormTuyenDung = () => {
             font-size: 20px;
             width: 100%;
             margin: 10px auto;
+          }
+          .box-PostCV {
+            width: 100%;
+            padding: 12px 16px;
+            height: 93px;
+          }
+          .birtday-right {
+            display: flex;
+            width: 100%;
+            margin-top: 30px;
+          }
+          .btn-outline {
+            margin-top: 18px;
+            min-width: 105px;
+          }
+          .btn {
+            width: 50%;
+            display: flex;
+            padding: 10px 0;
+            flex-direction: column;
+            align-items: center;
+          }
+          .btn-cancel,  .btn-submit{
+            padding: 0;
           }
           .box-PostCV {
             width: 100%;

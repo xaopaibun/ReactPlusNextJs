@@ -230,6 +230,9 @@ const VanHoa = ({ data }) => {
       <Footer />
 
       <style jsx>{`
+        .drop-down {
+          top: 108px;
+        }
         .none {
           display: none;
         }

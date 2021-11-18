@@ -133,8 +133,8 @@ const Popup = (props) => {
         .btnmore,
         .btnmorelong {
           width: auto;
-          padding: auto 20px;
-          height: 36px;
+          padding: 5px 20px;
+          min-height: 36px;
           border: 1px solid #0bbee7;
           box-sizing: border-box;
           border-radius: 44px;
@@ -168,7 +168,7 @@ const Popup = (props) => {
           .pop-popup {
             width: 100%;
             padding: 16px;
-            height: 355px;
+            height: 400px;
           }
           .btn-close-modal {
             bottom: -50px;

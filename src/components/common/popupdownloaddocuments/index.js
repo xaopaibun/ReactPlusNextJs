@@ -116,9 +116,17 @@ const PopupDownloadDocuments = (props) => {
                   helperText={formik.errors.phone}
                 />
                 <div className="mr-10" />
-                <button className="btn btn-submit" type="submit">
-                  <span className="btn-text">Xác nhận</span>
-                </button>
+                {formik.values.phone === "" ||
+                formik.values.email === "" ||
+                formik.values.name === "" ? (
+                  <button className={"btn btn-disabled"} type="button">
+                    <span className="btn-text">Xác nhận</span>
+                  </button>
+                ) : (
+                  <button className={"btn btn-submit"} type="submit">
+                    <span className="btn-text">Xác nhận</span>
+                  </button>
+                )}
               </div>
             </div>
           </div>
@@ -135,6 +143,7 @@ const PopupDownloadDocuments = (props) => {
         }
         .btn-disabled {
           background: #a0a4a8;
+          cursor: text;
         }
         .btn-submit {
           background: #0bbee7;

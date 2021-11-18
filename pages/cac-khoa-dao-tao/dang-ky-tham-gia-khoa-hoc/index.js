@@ -97,10 +97,7 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
       )}
       <Menu />
       <FormikProvider value={formik}>
-        <form
-          onSubmit={formik.handleSubmit}
-         
-        >
+        <form onSubmit={formik.handleSubmit}>
           <div className="container">
             <div className="box-form">
               <h2 className="text-center title-page">
@@ -689,6 +686,30 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
         }
 
         @media screen and (max-width: 768px) {
+          .box-PostCV {
+            width: 100%;
+            padding: 12px 16px;
+            height: 93px;
+          }
+          .birtday-right {
+            display: flex;
+            width: 100%;
+            margin-top: 30px;
+          }
+          .btn-outline {
+            margin-top: 18px;
+            min-width: 105px;
+          }
+          .btn {
+            width: 50%;
+            display: flex;
+           
+            flex-direction: column;
+            align-items: center;
+          }
+          .btn-cancel,  .btn-submit{
+            padding: 10px 0;
+          }
           .box-form {
             width: 100%;
           }

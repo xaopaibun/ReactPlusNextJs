@@ -263,10 +263,10 @@ const UngVienTiemNang = () => {
               <ReCAPTCHA sitekey="Your client site key" onChange={onChange} />
             </div>
             <div className="birtday-right">
-              <button className="btn-cancel" type="reset">
+              <button className="btn btn-cancel" type="reset">
                 <span className="btn-text">Hủy</span>
               </button>
-              <button className="btn-submit" type="submit">
+              <button className="btn btn-submit" type="submit">
                 <span className="btn-text">Gửi</span>
               </button>
             </div>
@@ -393,6 +393,9 @@ const UngVienTiemNang = () => {
           border-radius: 38px;
           background: white;
         }
+        .btn-cancel:focus {
+          border: 1px solid #0bbee7;
+        }
         .btn-cancel,
         .btn-submit {
           padding: 7px 83px;
@@ -451,11 +454,32 @@ const UngVienTiemNang = () => {
           .box-PostCV {
             width: 100%;
             padding: 12px 16px;
+            height: 93px;
           }
           .birtday-right {
             display: flex;
+            width: 100%;
             margin-top: 30px;
+            justify-content: space-between;
           }
+          .btn-outline {
+            margin-top: 18px;
+            min-width: 105px;
+          }
+          .btn + .btn {
+            margin-right: 10px;
+          }
+          .btn {
+            width: 45%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+          .btn-cancel,
+          .btn-submit {
+            padding: 10px 0;
+          }
+
           footer {
             background: "#ffffff";
           }
