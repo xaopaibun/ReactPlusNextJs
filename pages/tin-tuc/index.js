@@ -52,8 +52,7 @@ const News = ({ data_news_blog }) => {
               <div className="list-posts-item">
                 <img
                   src={`${URL}${val.cover_image.url}`}
-                  height={"193px"}
-                  width={"340px"}
+                  className="img_post"
                 />
                 <h5 className="content-review-date">
                   {val.start_date} - {val.to_date}
@@ -86,8 +85,7 @@ const News = ({ data_news_blog }) => {
               <div className="list-posts-item">
                 <img
                   src={`${URL}${val.cover_image.url}`}
-                  height={"193px"}
-                  width={"340px"}
+                  className="img_post"
                 />
                 <h5 className="content-review-date">
                   {val.start_date} - {val.to_date}
@@ -195,13 +193,22 @@ const News = ({ data_news_blog }) => {
         .margin {
           height: 80px;
         }
-
+        .img_post {
+          height: 193px;
+          width: 340px;
+        }
         @media screen and (max-width: 768px) {
           .banner img {
             height: 110px !important;
           }
           .list-posts {
             overflow-x: scroll;
+          }
+          .list-posts::-webkit-scrollbar {
+            display: none;
+          }
+          .header-title {
+            font-size: 18px;
           }
           .list-posts-item {
             margin-right: 20px;
@@ -228,6 +235,10 @@ const News = ({ data_news_blog }) => {
             font-size: 20px;
             line-height: 28px;
             color: #25282b;
+          }
+          .img_post {
+            width: 253px;
+            height: 144px;
           }
         }
       `}</style>

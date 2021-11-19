@@ -221,6 +221,7 @@ const FormTuyenDung = () => {
                   name="file"
                   className="input_file"
                   id="file"
+                  accept="application/pdf, image/*"
                   onChange={(event) => {
                     setFieldValue("file", event.currentTarget.files[0]);
                   }}

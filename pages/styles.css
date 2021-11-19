@@ -62,10 +62,19 @@ option {
   }
   .icont_select{
    
-    top: 16px !important;
-    right: 40px !important;
+    top: 16px;
+    right: 40px;
    
     
   }
- 
+  .btn-cancel, .btn-submit {
+    padding: 5px 0;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  .btn-cancel + .btn-submit{
+    margin-left: 10px;
+  }
 }

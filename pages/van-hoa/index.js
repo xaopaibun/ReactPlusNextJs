@@ -553,15 +553,19 @@ const VanHoa = ({ data }) => {
             width: 100%;
           }
           .box-image {
-            width: 56px;
+            width: calc(100% / 6);
             height: 85px;
             margin-right: 8px;
           }
+
           .box-image-marginTop {
             margin-top: 16px;
             width: 56px;
             height: 85px;
             margin-right: 8px;
+          }
+          .box-image-marginTop:nth-child(3) {
+            margin-right: 0;
           }
           .introduce-text {
             font-size: 22px;
@@ -572,8 +576,12 @@ const VanHoa = ({ data }) => {
           }
           .Office-TitleContent {
             font-size: 22px;
-            line-height: 22px;
+
+            font-size: 22px;
+            line-height: 33px;
             margin-bottom: 20px;
+            width: 70%;
+            margin: 8px auto 16px auto;
           }
           .Office-Images {
             width: 100%;
@@ -596,12 +604,13 @@ const VanHoa = ({ data }) => {
           .content-right {
             order: 1;
             width: 100%;
+            height: 100%;
             margin: 10px 0;
           }
           .content-left {
             order: 2;
             width: 100%;
-            margin: 30px 0;
+            margin: 15px 0;
           }
           .village-react-text {
             font-size: 14px;
@@ -613,6 +622,10 @@ const VanHoa = ({ data }) => {
           .header-title,
           .village-title {
             font-size: 22px;
+          }
+          .btnmore {
+            width: auto;
+            padding: 0 14px;
           }
            {
             /* .award-list {

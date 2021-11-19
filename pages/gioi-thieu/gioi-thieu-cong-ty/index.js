@@ -23,7 +23,7 @@ const GioiThieu = ({ data }) => {
               />
               <h1>
                 React Plus <br />
-                Công ty chuyên về React lớn nhất tại Việt nam
+                Công ty chuyên về  React lớn nhất tại Việt nam
               </h1>
               <p>
                 Thành lập năm 2018, React Plus là công ty đầu tiên tại Việt Nam

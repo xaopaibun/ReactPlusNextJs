@@ -113,6 +113,8 @@ const Menu = ({ isColor }) => {
                     className={
                       router.pathname ==
                         "/cac-khoa-dao-tao/su-kien-thuong-ky" ||
+                      router.pathname ==
+                        "/cac-khoa-dao-tao/form-mam-non-react" ||
                       router.pathname == "/cac-khoa-dao-tao" ||
                       router.pathname ==
                         "/cac-khoa-dao-tao/dang-ky-tham-gia-khoa-hoc" ||
@@ -265,7 +267,8 @@ const Menu = ({ isColor }) => {
         <Link href="/tin-tuc">
           <a
             className={
-              router.pathname == "/tin-tuc"
+              router.pathname == "/tin-tuc" ||
+              router.pathname == "/tin-tuc/danh-sach-tin-tuc"
                 ? "menu-reponsive-item menu-reponsive-item-active"
                 : "menu-reponsive-item"
             }

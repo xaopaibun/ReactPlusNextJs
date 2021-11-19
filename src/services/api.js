@@ -71,3 +71,6 @@ export const get_training_page = () =>
 
 // su-kien-thuong-ky
 export const get_detal_page_tranning = (id) => instance.get(`/posts/${id}`);
+
+// danh sach tin tuc
+export const get_list_news = (page) => instance.get(`/posts/news?page=${page}`);

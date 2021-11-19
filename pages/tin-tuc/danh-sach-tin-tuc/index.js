@@ -2,11 +2,30 @@ import Footer from "../../../src/components/footer";
 import Head from "next/head";
 import Menu from "../../../src/components/menu";
 import { useRouter } from "next/router";
-
+import { useEffect, useState } from "react";
+import { get_list_news, URL } from "../../../src/services/api";
+import Link from "next/link";
 const DanhSachTinTuc = () => {
   const router = useRouter();
+  const [isList, setList] = useState([]);
+  const [ispage, setpage] = useState(1);
   const handleDetail = () => router.push("/tuyen-dung/thong-tin-chi-tiet-form");
   const handleBackListNews = () => router.push("/tin-tuc");
+  useEffect(async () => {
+    await get_list_news(ispage).then((res) => {
+      setList(res.data.news);
+    });
+    // await get_page_news().then((res) => {
+    //   setLengthPage(res.data);
+    // });
+  }, []);
+
+  const handleLoadMore = async () => {
+    setpage(ispage + 1);
+    await get_list_news(ispage + 1).then((res) => {
+      setList([...isList, res.data.news]);
+    });
+  };
   return (
     <>
       <Head>
@@ -31,43 +50,25 @@ const DanhSachTinTuc = () => {
         </div>
 
         <div className="list-posts">
-          <div className="list-posts-item">
-            <img
-              src="../assets/images/img27.png"
-              height={"193px"}
-              width={"340px"}
-            />
-            <h5 className="content-review-date">01/10/2021 - 28/11/2021</h5>
-            <a href="" className="post-title">
-              Khoá đào tạo mầm non React{" "}
-            </a>
-          </div>
+          {isList?.map((val) => {
+            return (
+              <div className="list-posts-item">
+                <img
+                  src={`${URL}${val.cover_image?.url}`}
+                  className="img_post"
+                />
+                <h5 className="content-review-date">
+                  {val?.start_date} {val?.to_date}
+                </h5>
 
-          <div className="list-posts-item">
-            <img
-              src="../assets/images/img28.png"
-              height={"193px"}
-              width={"340px"}
-            />
-            <h5 className="content-review-date">01/10/2021 - 28/11/2021</h5>
-            <a href="" className="post-title">
-              Talkshow: Ứng dụng React trong ABC giúp cho BCD{" "}
-            </a>
-          </div>
-
-          <div className="list-posts-item">
-            <img
-              src="../assets/images/img29.png"
-              height={"193px"}
-              width={"340px"}
-            />
-            <h5 className="content-review-date">01/10/2021 - 28/11/2021</h5>
-            <a href="" className="post-title">
-              Khoá đào tạo mầm non React{" "}
-            </a>
-          </div>
+                <Link href={`/tin-tuc/${val?.url_seo}`}>
+                  <a className="post-title">{val?.title}</a>
+                </Link>
+              </div>
+            );
+          })}
         </div>
-        <button className="btnmorefull">
+        <button className="btnmorefull" onClick={handleLoadMore}>
           <span>Tải thêm ...</span>
         </button>
       </div>
@@ -79,7 +80,7 @@ const DanhSachTinTuc = () => {
         .header {
           height: auto;
           border-bottom: 1px solid #ebebeb;
-          margin-bottom: 20px;
+          margin: 20px 0;
         }
 
         .header-title {
@@ -112,7 +113,7 @@ const DanhSachTinTuc = () => {
           width: 239px;
           height: 43px;
           display: block;
-          margin: 20px auto 0  auto;
+          margin: 20px auto 0 auto;
           box-sizing: border-box;
           border-radius: 44px;
           background: #0bbee7;
@@ -145,6 +146,7 @@ const DanhSachTinTuc = () => {
         }
         .list-posts-item {
           width: 340px;
+          margin: 15px 0;
         }
         .list-posts {
           display: flex;
@@ -166,16 +168,22 @@ const DanhSachTinTuc = () => {
         .margin {
           height: 80px;
         }
-
+        .img_post {
+          width: 340px;
+          height: 193px;
+        }
         @media screen and (max-width: 768px) {
           .banner img {
             height: 110px !important;
+          }
+          .header-title {
+            font-size: 28px;
           }
           .list-posts {
             overflow-x: scroll;
           }
           .list-posts-item {
-            margin-right: 20px;
+            margin-right: 0;
           }
           .center {
             width: auto;
@@ -199,6 +207,10 @@ const DanhSachTinTuc = () => {
             font-size: 20px;
             line-height: 28px;
             color: #25282b;
+          }
+          .img_post {
+            width: 100%;
+            height: 144px;
           }
         }
       `}</style>

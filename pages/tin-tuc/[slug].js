@@ -2,7 +2,11 @@ import Head from "next/head";
 import Menu from "../../src/components/menu";
 import Footer from "../../src/components/footer";
 import { useRouter } from "next/router";
-import { get_news_detail, get_post_concernings } from "../../src/services/api";
+import {
+  get_news_detail,
+  get_post_concernings,
+  URL,
+} from "../../src/services/api";
 import { useEffect, useState } from "react";
 const NewsBlogDetail = () => {
   const router = useRouter();
@@ -16,7 +20,7 @@ const NewsBlogDetail = () => {
     }
   }, [slug]);
 
-  useEffect( async () => {
+  useEffect(async () => {
     const res_ = await get_post_concernings();
     setPostConcernings(res_.data);
   }, []);
@@ -31,15 +35,15 @@ const NewsBlogDetail = () => {
       <div className="container">
         <div className="header-detail">
           <div className="box-icont">
-            <div className="icont">
+            <button className="icont">
               <img src="../assets/icon/fb-black.png" />
-            </div>
-            <div className="icont">
+            </button>
+            <button className="icont">
               <img src="../assets/icon/in-black.png" />
-            </div>
-            <div className="icont">
+            </button>
+            <button className="icont">
               <img src="../assets/icon/dinh-kem.png" />
-            </div>
+            </button>
           </div>
           <div className="box-content">
             <h1 className="title-news-detail">{news_detail?.title}</h1>
@@ -57,7 +61,12 @@ const NewsBlogDetail = () => {
       </div>
 
       <div className="image-page">
-        <img src="../assets/images/banner.png" width="100%" height="100%" />
+        <img
+          src={`${URL}${news_detail?.first_image.url}`}
+          width="100%"
+          height="100%"
+          alt="Error Image"
+        />
       </div>
       <div className="container container-content">
         <div

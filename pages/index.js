@@ -937,7 +937,7 @@ font-size: 20px;
           padding: 30px 20px;
         }
         .input__content__title{
-          padding : 0 40px;
+          padding : 0;
         }
         .inputemail input{
           width: calc(100% - 60px);

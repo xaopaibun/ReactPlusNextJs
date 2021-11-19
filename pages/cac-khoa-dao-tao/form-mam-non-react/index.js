@@ -40,6 +40,8 @@ const Form = () => {
       job: Yup.string().required("Không được bỏ trống"),
       name: Yup.string().required("Không được bỏ trống"),
     }),
+    validateOnChange: false,
+    validateOnBlur: false,
     onSubmit: async (values) => {
       await post_register_event(values)
         .then((res) => setShow(true))
@@ -123,7 +125,7 @@ const Form = () => {
                   onChange={formik.handleChange}
                   value={formik.values.year}
                 >
-                  <option selected>Năm</option>
+                  <option selected>Năm </option>
                   {Year.map((value) => (
                     <option value={value} key={value}>
                       {value}
@@ -138,7 +140,9 @@ const Form = () => {
                 />
               </div>
               {formik.errors.year && formik.touched.year ? (
-                <p>{formik.errors.year}</p>
+                <p style={{ color: "#d32f2f", fontSize: "12px" }}>
+                  {formik.errors.year}
+                </p>
               ) : null}
             </div>
             <TextField
@@ -243,7 +247,7 @@ const Form = () => {
         .title-page {
           font-weight: 600;
           font-size: 32px;
-          line-height: 42px;
+          line-height: 28px;
           color: #25282b;
         }
         .item {
@@ -377,7 +381,7 @@ const Form = () => {
             margin-top: 18px;
             min-width: 105px;
           }
-        
+
           .btn {
             width: 45%;
             display: flex;
@@ -395,6 +399,7 @@ const Form = () => {
           }
           .title-page {
             font-size: 20px;
+            line-height: 28px;
             width: 100%;
             margin: 5px auto;
           }

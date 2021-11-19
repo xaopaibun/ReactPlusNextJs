@@ -65,6 +65,8 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
       where_learn: Yup.string().required("Không được bỏ trống"),
       file: Yup.mixed().required("Không được bỏ trống"),
     }),
+    validateOnChange: false,
+    validateOnBlur: false,
     onSubmit: async (values) => {
       values.birthday = await (values.day +
         "/" +
@@ -72,6 +74,7 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
         "/" +
         values.year);
       values.program_language = values.program_language.toString();
+      values.language = values.language.toString();
       console.log(values);
       await post_register_course(values)
         .then((res) => {
@@ -295,12 +298,12 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
                   return (
                     <div className="flex" key={index}>
                       <Field
-                        type="radio"
+                        type="checkbox"
                         name="language"
                         value={val}
                         style={{ width: "24px", height: "24px" }}
                       />
-                       {" "}
+
                       <label htmlFor="html" className="label">
                         {val}
                       </label>
@@ -393,6 +396,7 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
                       name="file"
                       className="input_file"
                       id="file"
+                      accept="application/pdf, image/*"
                       onChange={(event) => {
                         setFieldValue("file", event.currentTarget.files[0]);
                       }}
@@ -703,11 +707,12 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
           .btn {
             width: 50%;
             display: flex;
-           
+
             flex-direction: column;
             align-items: center;
           }
-          .btn-cancel,  .btn-submit{
+          .btn-cancel,
+          .btn-submit {
             padding: 10px 0;
           }
           .box-form {

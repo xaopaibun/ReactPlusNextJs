@@ -33,6 +33,7 @@ const Career = ({ data }) => {
               </div>
             </div>
             <div
+              className="none"
               style={{
                 width: "1px",
                 height: "100%",
@@ -433,6 +434,7 @@ const Career = ({ data }) => {
           font-weight: 600;
           font-size: 16px;
           line-height: 24px;
+          text-align: center;
           letter-spacing: -0.02em;
           color: #25282b;
         }
@@ -459,8 +461,20 @@ const Career = ({ data }) => {
             height: 375px;
             top: -315px;
           }
+          .contact-phone-icon {
+            width: 17px;
+            margin-top: -15px;
+          }
+          .hotline {
+            margin: 0;
+          }
+          .none {
+            display: none;
+          }
           .applied-position-item {
+            height: 185px;
             width: 100%;
+            padding: 21px;
           }
           .box-nominee2 > img {
             display: none;
@@ -518,6 +532,9 @@ const Career = ({ data }) => {
             width: 100%;
             margin-bottom: 30px;
           }
+          .join-the-team-content {
+            text-align: center;
+          }
           .time-line {
             margin-top: 5px;
             width: 12px;
@@ -536,6 +553,9 @@ const Career = ({ data }) => {
           }
           .phone-number {
             font-size: 14px;
+          }
+          .applied-position-item-center {
+            font-size: 16px;
           }
         }
       `}</style>

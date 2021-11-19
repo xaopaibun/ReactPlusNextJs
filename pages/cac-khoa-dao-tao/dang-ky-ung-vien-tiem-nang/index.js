@@ -37,6 +37,8 @@ const UngVienTiemNang = () => {
 
       file: Yup.mixed().required("Không được bỏ trống"),
     }),
+    validateOnChange: false,
+    validateOnBlur: false,
     onSubmit: async (values) => {
       values.birthday = await (values.day +
         "/" +
@@ -220,6 +222,7 @@ const UngVienTiemNang = () => {
                   name="file"
                   className="input_file"
                   id="file"
+                  accept=".pdf, image/png, image/jpg"
                   onChange={(event) => {
                     setFieldValue("file", event.currentTarget.files[0]);
                   }}

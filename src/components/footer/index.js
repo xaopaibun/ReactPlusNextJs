@@ -181,6 +181,9 @@ const Footer = () => {
           .footer_itemlogo p br {
             display: block;
           }
+          .footer_item a{
+            font-size: 12.23px;
+          }
           .footer-right {
             flex-wrap: wrap;
           }
