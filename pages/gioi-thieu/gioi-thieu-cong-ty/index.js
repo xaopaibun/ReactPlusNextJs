@@ -145,7 +145,7 @@ const GioiThieu = ({ data }) => {
               ))}
             </div>
           </div>
-          <div style={{ height: "50px" }} />
+          <div style={{ height: "50px" }} className="none" />
           <div className="box-find-us">
             <div className="find-us-left">
               <h1 className="find-us-title">Tìm chúng tôi</h1>
@@ -434,9 +434,15 @@ const GioiThieu = ({ data }) => {
             width: auto;
             margin: 20px 0;
           }
+          .box-organizational-structure {
+            height: 325px;
+          }
           .btnmorefull {
             margin: auto;
             display: block;
+          }
+          .none {
+            display: none;
           }
           .question-title {
             padding: 15px 0;
@@ -470,7 +476,9 @@ const GioiThieu = ({ data }) => {
           }
           .box-find-us {
             display: block;
+            margin: 0;
           }
+
           .find-us-right {
             width: 100%;
             height: 300px;

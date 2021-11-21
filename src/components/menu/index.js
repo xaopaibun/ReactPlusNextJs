@@ -78,10 +78,27 @@ const Menu = ({ isColor }) => {
                   <div className="drop-down">
                     <div className="box-center">
                       <Link href="/gioi-thieu/gioi-thieu-react">
-                        <a>Về React & React Native </a>
+                        <a
+                          className={
+                            router.pathname == "/gioi-thieu/gioi-thieu-react"
+                              ? "active_while"
+                              : ""
+                          }
+                        >
+                          Về React & React Native{" "}
+                        </a>
                       </Link>
                       <Link href="/gioi-thieu/gioi-thieu-cong-ty">
-                        <a> Công ty React Plus </a>
+                        <a
+                          className={
+                            router.pathname == "/gioi-thieu/gioi-thieu-cong-ty"
+                              ? "active_while"
+                              : ""
+                          }
+                        >
+                          {" "}
+                          Công ty React Plus{" "}
+                        </a>
                       </Link>
                       <div className="triangle" />
                     </div>
@@ -140,11 +157,30 @@ const Menu = ({ isColor }) => {
                   <div className="drop-down">
                     <div className="box-center">
                       <Link href="/cac-khoa-dao-tao">
-                        <a>Các khoá đào tạo </a>
+                        <a
+                          className={
+                            router.pathname == "/cac-khoa-dao-tao"
+                              ? "active_while"
+                              : ""
+                          }
+                        >
+                          Các khoá đào tạo{" "}
+                        </a>
                       </Link>
+
                       <Link href="/cac-khoa-dao-tao/su-kien-thuong-ky">
-                        <a> Sự kiện thường kỳ </a>
+                        <a
+                          className={
+                            router.pathname ==
+                            "/cac-khoa-dao-tao/su-kien-thuong-ky"
+                              ? "active_while"
+                              : ""
+                          }
+                        >
+                          Sự kiện thường kỳ
+                        </a>
                       </Link>
+
                       <div className="triangle" />
                     </div>
                   </div>
@@ -340,6 +376,16 @@ const Menu = ({ isColor }) => {
           width: 64px;
           background-image: url("/assets/icon/menu-active.png");
         }
+        .active_while {
+          border-bottom: 1.5px solid #ffffff;
+        }
+        .box-active-while {
+          height: 3px;
+          margin: 10px auto 0 auto;
+          width: 64px;
+          background-color: "#FFFFFF";
+          border-radius: 5px 5px 0 0;
+        }
         .menu__item a {
           color: ${isColor && data === 0 ? "#ffffff" : "#25282b"};
           font-weight: 500;
@@ -362,9 +408,7 @@ const Menu = ({ isColor }) => {
           text-decoration: none;
           margin: 20px;
         }
-        .drop-down a:hover {
-          color: #ffffff;
-        }
+
         .box-menu-reponsive {
           display: none;
         }
@@ -372,6 +416,9 @@ const Menu = ({ isColor }) => {
         .menu__item a:hover {
           color: #0bbee7;
           text-decoration: none;
+        }
+        .drop-down a:hover {
+          color: #ffffff;
         }
         .triangle-relative {
           position: relative;

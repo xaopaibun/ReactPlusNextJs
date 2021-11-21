@@ -505,8 +505,13 @@ export default function Home({ data }) {
           line-height: 19px;
           letter-spacing: -0.02em;
           color: #25282b;
-          
-    margin-top: 12px;
+          white-space: pre-wrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            display: -webkit-box;
+          margin-top: 12px;
         }
         .btnmore {
           width: 152px;
@@ -719,6 +724,10 @@ export default function Home({ data }) {
           overflow-x: auto;
           justify-content: space-between;
         }
+        .list_news::-webkit-scrollbar { 
+ 
+  display: none; 
+}
 
         .news__item {
           height: auto;
@@ -860,8 +869,13 @@ export default function Home({ data }) {
             overflow: hidden;
           }
           .document__title{
-            width: auto;
+           
+            font-size: 20px;
+            width: 267px !important;
+            margin: 20px auto 13px auto !important;
+            text-align: center !important;
           }
+        
           .community__title {
    
             font-size: 22px;
@@ -899,6 +913,7 @@ export default function Home({ data }) {
           }
           .community__item__content .item__content{
             width: 100% !important;
+            height: 90px;
           }
           .community__content {
             width: auto;

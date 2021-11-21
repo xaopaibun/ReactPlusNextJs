@@ -99,8 +99,8 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
         />
       )}
       <Menu />
+      <FormikProvider value={formik}>
       <form onSubmit={formik.handleSubmit}>
-        <FormikProvider value={formik}>
           <div className="container">
             <div className="box-form">
               <h2 className="text-center title-page">
@@ -371,8 +371,10 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
                         : "CV-text-comment"
                     }
                   >
-                    {formik.values.file?.name
-                      ? formik.values.file?.name
+                    {formik.values.file.name
+                      ? formik.values.file.name
+                      : formik.errors.file
+                      ? formik.errors.file
                       : "Format được hỗ trợ: PNG, JPG, PDF"}
                   </h6>
                 </div>
@@ -411,8 +413,8 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
               </div>
             </div>
           </div>
-        </FormikProvider>
       </form>
+      </FormikProvider>
       <footer>
         <Footer />
       </footer>
@@ -676,7 +678,9 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
         .NN_right {
           display: none;
         }
-
+        .text-error {
+          color: #d32f2f;
+        }
         @media screen and (max-width: 768px) {
           .box-PostCV {
             width: 100%;

@@ -3,7 +3,11 @@ import Head from "next/head";
 import Menu from "../../../src/components/menu";
 import { ListExperts } from "../../../src/config";
 import { useRouter } from "next/router";
-import { get_timeline_event } from "../../../src/services/api";
+import {
+  get_detal_page_tranning,
+  get_timeline_event,
+  URL,
+} from "../../../src/services/api";
 import SlideItem from "../../../src/components/common/slideitem/SlideItem";
 
 const RegularEvent = ({ data }) => {
@@ -47,64 +51,51 @@ const RegularEvent = ({ data }) => {
           <div className="address">
             <span className="address-text">
               <img src="../assets/icon/dinhvi-blue.png" className="img-icont" />
-              React Plus HQ, Cầu Giấy, Hà Nội
+              {data.data_detal_page_tranning.address}
             </span>
             <span className="address-text">
               <img src="../assets/icon/time.png" className="img-icont" />
-              06 Mar 2020 00:00 - 08 Mar 2020 00:00
+              {data.data_detal_page_tranning.start_date_string} -{" "}
+              {data.data_detal_page_tranning.to_date_string}
             </span>
           </div>
-          <h2 className="title-page">Khoá đào tạo Mầm non React</h2>
+          <h2 className="title-page">{data.data_detal_page_tranning.title}</h2>
           <img
             class="img_content"
             width="100%"
-            src="../assets/images/Khoa-Dao-Tao-React-Plus.png"
+            src={`${URL}${data.data_detal_page_tranning.cover_image.url}`}
           />
           <h3 className="title">Nội dung sự kiện</h3>
-          <div className="text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum. Duis aute
-            irure dolor in reprehenderit in voluptate velit esse cillum dolore
-            eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est
-            laborum. Duis aute irure dolor in reprehenderit in voluptate velit
-            esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit
-            amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat.
-          </div>
+          <div
+            className="text"
+            dangerouslySetInnerHTML={{
+              __html: data.data_detal_page_tranning.content,
+            }}
+          ></div>
           <h3 className="title">Diễn giả</h3>
           <div className="box-team-of-experts">
-            {ListExperts &&
-              ListExperts.map((val) => (
-                <div className="item-experts" key={val._id}>
-                  <div className="item__img">
-                    <img
-                      width="110px"
-                      height="110px"
-                      style={{ borderRadius: "50%" }}
-                      src={"../assets/images/" + val.avatar}
-                      alt={val.fullname}
-                    />
-                  </div>
-                  <div className="item__content">
-                    <h3 className="name-experts">{val.fullname}</h3>
-                    <p className="content-experts">
-                      Chuyên về React &amp; React Native <br />
-                      Sẵn sàng 24/7 <br />
-                      Đẳng cấp thế giới <br />
-                      Khả năng tăng trưởng, mở rộng nhanh <br />
-                      Phản hồi ngay lập tức <br />
-                    </p>
-                  </div>
+            {data?.data_detal_page_tranning?.members.map((val) => (
+              <div className="item-experts" key={val.id}>
+                <div className="item__img">
+                  <img
+                    width="110px"
+                    height="110px"
+                    style={{ borderRadius: "50%" }}
+                    src={`${URL}${val.image.url}`}
+                    alt={val.name}
+                  />
                 </div>
-              ))}
+                <div className="item__content">
+                  <h3 className="name-experts">{val.name}</h3>
+                  <div
+                    className="content-experts"
+                    dangerouslySetInnerHTML={{
+                      __html: val.note,
+                    }}
+                  />
+                </div>
+              </div>
+            ))}
           </div>
 
           <button className="btnJoin" onClick={handleRegistration}>
@@ -156,7 +147,7 @@ const RegularEvent = ({ data }) => {
           </div>
         </div>
       </div>
-
+      <div style={{ marginTop: "39px" }} />
       <Footer />
       <style jsx>{`
         .image-page {
@@ -232,7 +223,7 @@ const RegularEvent = ({ data }) => {
           margin: 50px auto;
         }
         .box-icont {
-          width: 150px;
+          width: 32px;
         }
         .box-content {
           width: 741px;
@@ -264,7 +255,7 @@ const RegularEvent = ({ data }) => {
           letter-spacing: -0.02em;
           color: #000000;
           padding-left: 10px;
-          margin: 10px 0;
+          margin: 32px 0 10px 0;
           border-left: 4px solid #0bbee7;
         }
         .title0 {
@@ -294,6 +285,7 @@ const RegularEvent = ({ data }) => {
         .box-team-of-experts {
           display: flex;
           flex-wrap: wrap;
+          justify-content: space-around;
           margin: 30px 0;
         }
         .title_teaching_staff {
@@ -328,6 +320,9 @@ const RegularEvent = ({ data }) => {
           text-align: center;
           letter-spacing: -0.02em;
           color: #000000;
+        }
+        .post-item {
+          width: 30%;
         }
         .content-experts {
           font-size: 13px;
@@ -449,10 +444,11 @@ const RegularEvent = ({ data }) => {
 export async function getServerSideProps() {
   const res = await get_timeline_event();
   const data_timeline_event = res.data;
-  
+  const res_detail = await get_detal_page_tranning(1);
+  const data_detal_page_tranning = res_detail.data;
   return {
     props: {
-      data: { data_timeline_event },
+      data: { data_timeline_event, data_detal_page_tranning },
     },
   };
 }

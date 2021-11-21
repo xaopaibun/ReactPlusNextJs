@@ -75,7 +75,7 @@ const UngVienTiemNang = () => {
             fullWidth
             name="name"
             id="standard-error-helper-text"
-            error={formik.errors.email && formik.touched.email ? true : false}
+            error={formik.errors.email  ? true : false}
             onChange={formik.handleChange}
             value={formik.values.name}
             helperText={formik.errors.name}
@@ -161,7 +161,7 @@ const UngVienTiemNang = () => {
                 variant="standard"
                 id="standard-error-helper-text"
                 error={
-                  formik.errors.email && formik.touched.email ? true : false
+                  formik.errors.email  ? true : false
                 }
                 onChange={formik.handleChange}
                 value={formik.values.email}
@@ -179,7 +179,7 @@ const UngVienTiemNang = () => {
                 name="phone"
                 variant="standard"
                 error={
-                  formik.errors.phone && formik.touched.phone ? true : false
+                  formik.errors.phone ? true : false
                 }
                 onChange={formik.handleChange}
                 value={formik.values.phone}
@@ -195,7 +195,7 @@ const UngVienTiemNang = () => {
             <div className="PostCV-Left">
               <h6
                 className={
-                  formik.errors.file && formik.touched.file
+                  formik.errors.file 
                     ? "CV-text text-error"
                     : "CV-test"
                 }
@@ -204,13 +204,15 @@ const UngVienTiemNang = () => {
               </h6>
               <h6
                 className={
-                  formik.errors.file && formik.touched.file
+                  formik.errors.file 
                     ? "CV-text-comment text-error"
                     : "CV-text-comment"
                 }
               >
-                {formik.values.file?.name
+               {formik.values.file?.name
                   ? formik.values.file?.name
+                  : formik.errors.file
+                  ? formik.errors.file
                   : "Format được hỗ trợ: PNG, JPG, PDF"}
               </h6>
             </div>
