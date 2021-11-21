@@ -104,13 +104,13 @@ const Footer = () => {
       </div>
       <style jsx>{`
         .footer {
-          height: 150px;
+          height: 170px;
           display: flex;
           justify-content: space-between;
           border-bottom: 1px solid #f0f0f0;
         }
         .footer_itemlogo {
-          width: 35%;
+          width: 40%;
         }
         .footer-right {
           width: 100%;
@@ -134,9 +134,15 @@ const Footer = () => {
           display: block;
           height: 30px;
           font-size: 13px;
+          margin: 7px 0;
           line-height: 20px;
           letter-spacing: -0.02em;
           color: #000000;
+        }
+        .footer_item:nth-child(4) {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
         }
 
         .footer_item a:hover {
@@ -158,6 +164,7 @@ const Footer = () => {
 
         .footer_item .connect {
           display: flex;
+          margin: 0 13px;
         }
         .copy-right {
           font-size: 11px;
@@ -181,7 +188,7 @@ const Footer = () => {
           .footer_itemlogo p br {
             display: block;
           }
-          .footer_item a{
+          .footer_item a {
             font-size: 12.23px;
           }
           .footer-right {

@@ -1,10 +1,11 @@
 import Footer from "../../src/components/footer";
 import Head from "next/head";
 import Menu from "../../src/components/menu";
-import { ListCourse, ListCourseFeatures } from "../../src/config";
+
 import { TeachingStaff } from "../../src/components/common";
-import JoinNow from "../../src/components/common/thamgiangay";
+
 import { get_training_page, URL } from "../../src/services/api";
+import JoinNowCourse from "../../src/components/common/dangkythamgia";
 
 const EventTraining = ({ data_training_page }) => {
   console.log(data_training_page);
@@ -78,7 +79,7 @@ const EventTraining = ({ data_training_page }) => {
               {data_training_page?.feature?.map((value, index) => (
                 <div className="course-item" key={value.id}>
                   <div className="course-item-image">
-                    <h1>{index + 1}</h1>
+                    <h1 className="number-text">{index + 1}</h1>
                   </div>
                   <div className="course-item-text">
                     <div
@@ -97,7 +98,7 @@ const EventTraining = ({ data_training_page }) => {
                 <div className="list-course-features-item" key={value.id}>
                   <img
                     src={`${URL}${value.image.url}`}
-                    class="course-img"
+                    className="course-img"
                     width={80}
                     height={80}
                   />
@@ -115,7 +116,8 @@ const EventTraining = ({ data_training_page }) => {
         </div>
       </div>
       <TeachingStaff data={data_training_page?.trainner} />
-      <JoinNow />
+      <JoinNowCourse />
+      <div className="mr-100" />
       <Footer />
       <style jsx>{`
         .image-page {
@@ -126,7 +128,8 @@ const EventTraining = ({ data_training_page }) => {
           height: 1121.15px;
           margin-top: 50px;
           width: 100%;
-          background-image: url("/assets/images/React1.png");
+          background: center;
+          background-image: url("/assets/images/Group2078.png");
           position: relative;
         }
         .box__company__scale {
@@ -185,8 +188,12 @@ const EventTraining = ({ data_training_page }) => {
           display: flex;
           flex-wrap: wrap;
         }
+        .number-text {
+          color: #0bbee7;
+          font-size: 3.5rem;
+        }
         .course-item {
-          width: 420px;
+          width: 44.3%;
           height: 80px;
           margin: 20px 30px;
           display: flex;
@@ -260,6 +267,9 @@ const EventTraining = ({ data_training_page }) => {
           line-height: 19px;
           text-align: center;
           letter-spacing: -0.02em;
+        }
+        .mr-100 {
+          margin-top: 110px;
         }
         @media screen and (max-width: 768px) {
           .image-page {

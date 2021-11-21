@@ -69,9 +69,10 @@ const Career = ({ data }) => {
                       <span className="tinh">
                         <img
                           src="./assets/icon/dinhvi.png"
+                          style={{ marginRight: "8px" }}
                           width={11}
                           height={15}
-                        />{" "}
+                        />
                         {val.address}
                       </span>
                       {val.type_recruitment === "full_time" ? (
@@ -134,7 +135,7 @@ const Career = ({ data }) => {
           {!isLoadMore && (
             <div className="box-loadmore">
               <button className="btnmorefull" onClick={() => setLoadMore(true)}>
-                <span>Tải thêm ...</span>
+                <span>Tải thêm...</span>
               </button>
             </div>
           )}
@@ -195,13 +196,14 @@ const Career = ({ data }) => {
         </div>
       </div>
       <JoinNow />
+      <div className="mr-110"/>
       <Footer />
       <style jsx>{`
         .header {
           height: 410px;
           width: 100%;
           position: sticky;
-          top: -350px;
+          top: -334px;
           z-index: 19999;
           background-size: cover;
           background-repeat: no-repeat;
@@ -240,6 +242,7 @@ const Career = ({ data }) => {
         .contact-phone-icon {
           width: 44px;
           height: 44px;
+          background-image: url("/assets/icon/Ellipse204.png");
           border-radius: 50%;
           margin-right: 10px;
           display: flex;
@@ -250,6 +253,7 @@ const Career = ({ data }) => {
           font-size: 14px;
           line-height: 21px;
           letter-spacing: -0.02em;
+          margin: 0;
         }
         .list-level {
           display: none;
@@ -260,6 +264,7 @@ const Career = ({ data }) => {
           line-height: 24px;
           text-align: center;
           letter-spacing: -0.02em;
+          margin: 0;
         }
         .btnRegister {
           border: 1px solid #ffffff;
@@ -284,7 +289,7 @@ const Career = ({ data }) => {
           font-weight: 600;
           font-size: 14px;
           text-align: center;
-          padding-top: 50px;
+          padding-top: 38px;
           line-height: 21px;
           letter-spacing: 0.18em;
           color: #0bbee7;
@@ -318,7 +323,7 @@ const Career = ({ data }) => {
           background: #ffffff;
           box-shadow: 0px 4px 4px 1px rgba(0, 0, 0, 0.05);
           border-radius: 8px;
-          width: 349px;
+          width: 31.3%;
           display: flex;
           flex-direction: column;
           justify-content: space-between;
@@ -433,6 +438,7 @@ const Career = ({ data }) => {
           margin-top: 20px;
           font-weight: 600;
           font-size: 16px;
+          height: 60px;
           line-height: 24px;
           text-align: center;
           letter-spacing: -0.02em;
@@ -455,7 +461,9 @@ const Career = ({ data }) => {
           text-align: center;
           color: #ffffff;
         }
-
+        .mr-110 {
+          margin-top: 110px;
+        }
         @media screen and (max-width: 768px) {
           .header {
             height: 375px;

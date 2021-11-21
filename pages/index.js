@@ -198,9 +198,9 @@ export default function Home({ data }) {
           </div>
         </div>
         <div className="container">
-          <div className="mr-30" />
+          <div className="mr-62" />
           <SlideItem TimeLineEvent={data[2]} />
-          <div className="mr-30" />
+          <div className="mr-47" />
         </div>
         <div className="box_document">
           <div className="BG" />
@@ -212,7 +212,7 @@ export default function Home({ data }) {
                 </div>
                 <div className="document__text">
                   <p className="text_blue text-left">MIỄN PHÍ</p>
-                  <p className="document__title">
+                  <p className="document__title text-left">
                     Tài liệu về khoá đào tạo React Plus Developer
                   </p>
                   <div className="document__text">
@@ -352,8 +352,8 @@ export default function Home({ data }) {
 
         /* start css box content */
         .box-content {
-          height: 420px;
-          padding: 50px 0;
+          height: auto;
+          padding: 89px 0 19px 0;
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -366,22 +366,25 @@ export default function Home({ data }) {
           line-height: 48px;
           letter-spacing: -0.02em;
           color: #25282b;
+          margin-bottom: 0;
         }
         .content__text {
           text-align: center;
-          width: 520px;
           color: #52575c;
           letter-spacing: -0.02em;
-          font-size: 14px;
-          margin: 0 auto;
           line-height: 21px;
+          width: 671px;
+          font-size: 14px;
+          margin: 19px auto 25px auto;
         }
 
         .box-item {
           display: flex;
           height: auto;
           width: 100%;
-          justify-content: space-between;
+        
+          padding: 0 20px ;
+          justify-content: space-around;
         }
         .box-item .item {
           height: auto;
@@ -401,6 +404,7 @@ export default function Home({ data }) {
           justify-content: center;
         }
         .box-item .item .item__content {
+          height: 62px;
           margin-top: 10px;
           font-size: 14px;
           line-height: 21px;
@@ -429,7 +433,7 @@ export default function Home({ data }) {
           );
         }
         .community-top {
-          padding-top: 25px;
+          padding-top: 45px;
         }
 
         .text_blue {
@@ -461,18 +465,18 @@ export default function Home({ data }) {
         }
         .community-bottom {
           display: flex;
-          margin-top: 15px;
+          margin-top: 32px;
           justify-content: space-between;
         }
         .community__item {
           padding: 18px;
-          width: 504px;
+          width: 515px;
           height: 521px;
           background: #ffffff;
           box-shadow: 0px 4px 4px 1px rgba(0, 0, 0, 0.05);
         }
         .community__item__image {
-          width: 465px;
+          width: 100%;
           height: 278px;
         }
         .community__item__image img {
@@ -480,7 +484,8 @@ export default function Home({ data }) {
           height: 100%;
         }
         .community__date {
-          margin: 10px 0;
+          margin-top: 21px;
+          margin-bottom: 10px;
           font-size: 13px;
           line-height: 19px;
           letter-spacing: -0.02em;
@@ -500,7 +505,8 @@ export default function Home({ data }) {
           line-height: 19px;
           letter-spacing: -0.02em;
           color: #25282b;
-          margin: 10px 0;
+          
+    margin-top: 12px;
         }
         .btnmore {
           width: 152px;
@@ -528,6 +534,7 @@ export default function Home({ data }) {
           border: none;
           transition: 0.5s;
         }
+        
         .btnmorefull:hover {
           background: #03a3c8;
         }
@@ -646,6 +653,7 @@ export default function Home({ data }) {
           width: 100%;
           background-image: url("/assets/icon/BGHome.png");
         }
+        
         .document {
           position: absolute;
           top: 92px;
@@ -666,7 +674,8 @@ export default function Home({ data }) {
           height: 100%;
         }
         .document__text {
-          width: 434px;
+          width: 465px;
+         
         }
         .document__title {
           font-weight: 600;
@@ -681,15 +690,18 @@ export default function Home({ data }) {
           font-size: 13px;
           line-height: 19px;
           letter-spacing: -0.02em;
-          margin-top: 10px;
+         
           color: #52575c;
         }
 
         .document__list {
           line-height: 28px;
-          padding: 20px;
+          padding: 26px;
         }
-
+        .text-left{
+          text-align: left !important;
+          width: 100% !important;
+        }
         /* end box_document */
 
         /* start css news */
@@ -700,7 +712,7 @@ export default function Home({ data }) {
           line-height: 36px;
           letter-spacing: -0.02em;
           color: #25282b;
-          margin: 20px 0;
+          margin: 34px 0;
         }
         .list_news {
           display: flex;
@@ -715,7 +727,7 @@ export default function Home({ data }) {
 
         .news__item__img {
           height: 142px;
-          width: 252px;
+          width: 240px;
         }
         .news__item a {
           margin-top: 10px;
@@ -727,15 +739,24 @@ export default function Home({ data }) {
           text-decoration: none;
           color: #25282b;
           transition: 0.5s;
+          white-space: pre-wrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            display: -webkit-box;
         }
         .news__item a:hover {
           color: #0bbee7;
           text-decoration: none;
         }
+        .news__item p{
+          margin: 12px 0 0 0;
+        }
         /* end css news */
 
         .box-inputemail {
-          margin: 50px 0 30px 0;
+          margin: 100px 0 90px 0;
           position: relative;
           height: 211px;
           width: 100%;
@@ -746,6 +767,12 @@ export default function Home({ data }) {
           padding-bottom: 20px;
           background-image: url("/assets/images/Frame45527.png");
           background-size: cover;
+        }
+        .mr-62{
+          margin-top: 62px;
+        }
+        .mr-47{
+          margin-top: 47px;
         }
         .box-inputemail .reactlogo {
           position: absolute;

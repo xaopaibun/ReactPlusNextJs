@@ -83,7 +83,7 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
         .then((err) => console.log(err));
     },
   });
-  const { setFieldValue } = formik;
+  // const { setFieldValue } = formik;
   return (
     <>
       <Head>
@@ -99,8 +99,8 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
         />
       )}
       <Menu />
-      <FormikProvider value={formik}>
-        <form onSubmit={formik.handleSubmit}>
+      <form onSubmit={formik.handleSubmit}>
+        <FormikProvider value={formik}>
           <div className="container">
             <div className="box-form">
               <h2 className="text-center title-page">
@@ -127,9 +127,7 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
                     value={formik.values.name}
                     fullWidth
                     id="standard-error-helper-text"
-                    error={
-                      formik.errors.name && formik.touched.name ? true : false
-                    }
+                    error={formik.errors.name ? true : false}
                     helperText={formik.errors.name}
                   />
                 </div>
@@ -145,9 +143,7 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
                     value={formik.values.email}
                     fullWidth
                     id="standard-error-helper-text"
-                    error={
-                      formik.errors.email && formik.touched.email ? true : false
-                    }
+                    error={formik.errors.email ? true : false}
                     helperText={formik.errors.email}
                   />
                 </div>
@@ -159,7 +155,7 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
                 </div>
                 <div className="item">
                   <select
-                    class="form-select form-select-custom"
+                    className="form-select form-select-custom"
                     defaultValue="Ngày"
                     name="day"
                     onChange={formik.handleChange}
@@ -182,7 +178,7 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
 
                 <div className="item">
                   <select
-                    class="form-select form-select-custom"
+                    className="form-select form-select-custom"
                     defaultValue="Tháng"
                     name="month"
                     onChange={formik.handleChange}
@@ -204,7 +200,7 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
                 </div>
                 <div className="item">
                   <select
-                    class="form-select form-select-custom"
+                    className="form-select form-select-custom"
                     defaultValue="Năm"
                     name="year"
                     onChange={formik.handleChange}
@@ -238,9 +234,7 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
                     value={formik.values.phone}
                     fullWidth
                     id="standard-error-helper-text"
-                    error={
-                      formik.errors.phone && formik.touched.phone ? true : false
-                    }
+                    error={formik.errors.phone ? true : false}
                     helperText={formik.errors.phone}
                   />
                 </div>
@@ -274,11 +268,7 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
                 onChange={formik.handleChange}
                 value={formik.values.where_learn}
                 id="standard-error-helper-text"
-                error={
-                  formik.errors.where_learn && formik.touched.where_learn
-                    ? true
-                    : false
-                }
+                error={formik.errors.where_learn ? true : false}
                 helperText={formik.errors.where_learn}
               />
               <div className="mr-30"></div>
@@ -310,7 +300,7 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
                     </div>
                   );
                 })}
-                {/* <div class="NN_right">
+                {/* <div className="NN_right">
                   {language.map((val, index) => {
                     return (
                       <div className="flex" key={index}>
@@ -369,16 +359,14 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
                 <div className="PostCV-Left">
                   <h6
                     className={
-                      formik.errors.file && formik.touched.file
-                        ? "CV-text text-error"
-                        : "CV-test"
+                      formik.errors.file ? "CV-text text-error" : "CV-test"
                     }
                   >
                     CV
                   </h6>
                   <h6
                     className={
-                      formik.errors.file && formik.touched.file
+                      formik.errors.file
                         ? "CV-text-comment text-error"
                         : "CV-text-comment"
                     }
@@ -397,9 +385,9 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
                       className="input_file"
                       id="file"
                       accept="application/pdf, image/*"
-                      onChange={(event) => {
-                        setFieldValue("file", event.currentTarget.files[0]);
-                      }}
+                      // onChange={(event) => {
+                      //   setFieldValue("file", event.currentTarget.files[0]);
+                      // }}
                     />
                   </button>
                 </div>
@@ -423,8 +411,8 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
               </div>
             </div>
           </div>
-        </form>
-      </FormikProvider>
+        </FormikProvider>
+      </form>
       <footer>
         <Footer />
       </footer>
@@ -739,6 +727,19 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
           }
           .birtday {
             flex-wrap: wrap;
+            width: 100%;
+          }
+          .form-select {
+            margin-left: 10px !important;
+          }
+          .icont_select {
+            position: absolute !important;
+            top: 16px !important;
+            right: 35px !important;
+            z-index: 20 !important;
+          }
+          .label-text {
+            font-size: 16px;
           }
           .flexGT {
             flex-direction: row;

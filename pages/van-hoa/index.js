@@ -226,7 +226,9 @@ const VanHoa = ({ data }) => {
           ))}
         </div>
       </div>
+      <div className="mr-70" />
       <JoinNow />
+      <div className="mr-110" />
       <Footer />
 
       <style jsx>{`
@@ -240,7 +242,7 @@ const VanHoa = ({ data }) => {
           height: 410px;
           width: 100%;
           position: sticky;
-          top: -350px;
+          top: -334px;
           z-index: 19999;
           background-image: url("/assets/images/ReactPlusAnhBia.png");
         }
@@ -269,12 +271,12 @@ const VanHoa = ({ data }) => {
         }
         .distance {
           width: 100%;
-          height: 60px;
+          height: 120px;
         }
         .village-react-top {
-          width: 620px;
+          width: 100%;
           height: auto;
-          margin: 50px auto;
+          margin: 74px auto 81px auto;
         }
         .village-title {
           font-weight: 600;
@@ -285,6 +287,9 @@ const VanHoa = ({ data }) => {
           color: #25282b;
         }
         .village-react-text {
+          width: 820px;
+          margin: 0 auto;
+          margin-top: 19px;
           font-size: 13px;
           line-height: 19px;
           text-align: center;
@@ -315,13 +320,17 @@ const VanHoa = ({ data }) => {
         .box-image {
           width: 165px;
           height: 250px;
-          margin-right: 24px;
         }
         .box-image-marginTop {
           margin-top: 40px;
           width: 165px;
           height: 250px;
-          margin-right: 24px;
+        }
+        .box-image + .box-image-marginTop {
+          margin-left: 24px;
+        }
+        .box-image-marginTop + .box-image {
+          margin-left: 24px;
         }
         .Office-Title {
           font-weight: 600;
@@ -342,8 +351,8 @@ const VanHoa = ({ data }) => {
         .Office-Images {
           display: flex;
           height: 486px;
-          width: 1080px;
-          margin: 0 auto;
+          width: unset;
+          margin: 40px auto 97px auto;
         }
         .Office-Images-Left {
           width: 72.31%;
@@ -383,12 +392,12 @@ const VanHoa = ({ data }) => {
         .Office-Content {
           height: auto;
           margin: 50px 0;
-          padding-top: 30px;
+          padding-top: 75px;
           background-image: url("/assets/images/BG-career.png");
           background-repeat: no-repeat;
         }
         .content {
-          margin-top: 70px;
+          margin-top: 129px;
           display: flex;
           justify-content: space-between;
         }
@@ -397,7 +406,7 @@ const VanHoa = ({ data }) => {
           height: 348px;
         }
         .content-right {
-          width: 528px;
+          width: 470px;
           height: 348px;
           display: flex;
           flex-direction: column;
@@ -429,6 +438,7 @@ const VanHoa = ({ data }) => {
         }
         .btnmore {
           width: 160px;
+          min-width: 140px;
           height: 36px;
           box-sizing: border-box;
           background: #ffffff;
@@ -483,13 +493,14 @@ const VanHoa = ({ data }) => {
         .header-title {
           font-weight: 600;
           font-size: 24px;
+          margin-bottom: 12px;
           line-height: 135.4%;
           color: #000000;
         }
         .award-list {
           display: flex;
           height: auto;
-          padding: 20px;
+          padding: 20px 8px;
           width: 100%;
           overflow-x: scroll;
         }
@@ -531,6 +542,12 @@ const VanHoa = ({ data }) => {
           -webkit-line-clamp: 5;
           -webkit-box-orient: vertical;
           display: -webkit-box;
+        }
+        .mr-70 {
+          margin-top: 70px;
+        }
+        .mr-110 {
+          margin-top: 110px;
         }
         @media screen and (max-width: 768px) {
           .header {

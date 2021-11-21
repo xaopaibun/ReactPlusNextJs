@@ -74,3 +74,9 @@ export const get_detal_page_tranning = (id) => instance.get(`/posts/${id}`);
 
 // danh sach tin tuc
 export const get_list_news = (page) => instance.get(`/posts/news?page=${page}`);
+
+// chi tiet job &&  job lieen quan
+export const get_job_concerning = () =>
+  instance.get("/recruitments/job_concerning");
+
+export const get_text_job = (id) => instance.get(`/recruitments/${id}`);

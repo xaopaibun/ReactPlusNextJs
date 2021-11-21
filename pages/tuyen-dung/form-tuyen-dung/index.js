@@ -186,8 +186,7 @@ const FormTuyenDung = () => {
             </div>
           </div>
 
-          <div className="mr-20" />
-          <div className="mr-20" />
+          <div className="mr-60" />
           <div className="box-PostCV">
             <div className="PostCV-Left">
               <h6
@@ -201,7 +200,7 @@ const FormTuyenDung = () => {
               </h6>
               <h6
                 className={
-                  formik.errors.file 
+                  formik.errors.file
                     ? "CV-text-comment text-error"
                     : "CV-text-comment"
                 }
@@ -229,7 +228,8 @@ const FormTuyenDung = () => {
               </button>
             </div>
           </div>
-          <div className="mr-20" />
+          <div className="mr-60" />
+
           <TextField
             label="Online Portfolio links"
             type="text"
@@ -265,6 +265,7 @@ const FormTuyenDung = () => {
           </div>
         </div>
       </form>
+      <div className="mr-20" />
       <footer>
         <Footer />
       </footer>
@@ -374,7 +375,7 @@ const FormTuyenDung = () => {
           opacity: 1;
         }
         footer {
-          padding: 30px 0;
+          padding: 38px 0 5px 0;
           background-color: #f4f6fa;
         }
         .btn-cancel {
@@ -389,6 +390,9 @@ const FormTuyenDung = () => {
         }
         .mr-20 {
           margin-top: 20px;
+        }
+        .mr-60 {
+          margin-top: 60px;
         }
         .btn-submit {
           background: #0bbee7;

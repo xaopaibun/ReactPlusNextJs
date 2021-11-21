@@ -19,8 +19,8 @@ const IntroduceReact = ({ data }) => {
             <div className="introduce__left">
               <img src="../assets/icon/Group2101.png" alt="" />
               <h1>
-                React Plus <br />
-                Công ty chuyên về React lớn nhất tại Việt nam
+                React <br />
+                Công nghệ phát triển tương lai
               </h1>
               <p>
                 React (React.js) là thư viện Javascript để xây dựng UI vượt
@@ -35,7 +35,7 @@ const IntroduceReact = ({ data }) => {
               </p>
             </div>
             <div className="introduce__right">
-              <img src="../assets/images/GioiThieu.png" alt="" />
+              <img src="/assets/images/gioithieu-react-.png" alt="" />
             </div>
           </div>
         </div>
@@ -226,7 +226,7 @@ const IntroduceReact = ({ data }) => {
         .introduce__left p {
           width: 662px;
           font-size: 14px;
-          line-height: 21px;
+          line-height: 22.2px;
           letter-spacing: -0.02em;
           color: #52575c;
         }
@@ -236,7 +236,7 @@ const IntroduceReact = ({ data }) => {
         .box-introduce-react-content {
           width: 100%;
           height: auto;
-          padding-top: 70px;
+          padding-top: 109px;
           background-repeat: no-repeat;
           background-image: url(/assets/images/BG-career.png);
         }
@@ -245,7 +245,7 @@ const IntroduceReact = ({ data }) => {
         .introduce-item-reverse-reponsive {
           height: 335px;
           width: 100%;
-          margin-bottom: 50px;
+          margin-bottom: 119px;
           display: flex;
           justify-content: space-between;
           align-items: center;
@@ -267,6 +267,8 @@ const IntroduceReact = ({ data }) => {
           line-height: 39px;
           letter-spacing: -0.02em;
           color: #25282b;
+
+          margin-bottom: 25px;
         }
         .item-content-text {
           font-size: 14px;
@@ -280,8 +282,7 @@ const IntroduceReact = ({ data }) => {
           width: 100%;
           min-height: 591px;
           height: auto;
-          background-repeat: no-repeat;
-          background-image: url(/assets/images/BG-career.png);
+          background-color: #F4F6FA;
           margin-bottom: 70px;
         }
 
@@ -294,7 +295,6 @@ const IntroduceReact = ({ data }) => {
           line-height: 39px;
           letter-spacing: -0.02em;
           color: #25282b;
-          text-align: center;
         }
         .btnmorefull {
           margin: 15px 0;
@@ -391,6 +391,7 @@ const IntroduceReact = ({ data }) => {
           .introduce-item {
             height: auto;
             display: block;
+           
           }
           .item-image {
             height: auto;

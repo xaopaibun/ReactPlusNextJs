@@ -114,7 +114,7 @@ const ViCongDong = ({ data }) => {
           width: 100%;
           overflow: hidden;
           background: linear-gradient(
-            180deg,
+            360deg,
             #f4f6fa 0%,
             rgba(244, 246, 250, 0) 83.85%
           );

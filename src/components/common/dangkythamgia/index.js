@@ -1,15 +1,16 @@
 import { useRouter } from "next/router";
 
-const JoinNow = () => {
+const JoinNowCourse = () => {
   const router = useRouter();
-  const handleDetail = () => router.push("/tuyen-dung");
+  const handleDetail = () =>
+    router.push("/cac-khoa-dao-tao/dang-ky-tham-gia-khoa-hoc");
   return (
     <div className="container">
       <div className="inputemail">
         <div className="input__content">
           <p className="input__content__title">
-            Tham gia với chúng tôi, <br />
-            đội ngũ React Plus
+            Tham gia khóa học <br />
+            của chúng tôi ngay
           </p>
           <div className="box-loadmore">
             <button className="btnmorefull" onClick={handleDetail}>
@@ -75,4 +76,4 @@ const JoinNow = () => {
   );
 };
 
-export default JoinNow;
+export default JoinNowCourse;

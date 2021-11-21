@@ -13,7 +13,7 @@ const GioiThieu = ({ data }) => {
       </Head>
       <Menu />
       <div>
-        <div className="container">
+        <div className="container backgroudReact">
           <div className="box_introduce">
             <div className="introduce__left">
               <img
@@ -23,7 +23,7 @@ const GioiThieu = ({ data }) => {
               />
               <h1>
                 React Plus <br />
-                Công ty chuyên về  React lớn nhất tại Việt nam
+                Công ty chuyên về React lớn nhất tại Việt nam
               </h1>
               <p>
                 Thành lập năm 2018, React Plus là công ty đầu tiên tại Việt Nam
@@ -145,7 +145,7 @@ const GioiThieu = ({ data }) => {
               ))}
             </div>
           </div>
-
+          <div style={{ height: "50px" }} />
           <div className="box-find-us">
             <div className="find-us-left">
               <h1 className="find-us-title">Tìm chúng tôi</h1>
@@ -174,11 +174,13 @@ const GioiThieu = ({ data }) => {
           </div>
         </div>
       </div>
+      <div style={{ height: "100px" }} />
+      <Footer />
 
-      <footer>
-        <Footer />
-      </footer>
       <style jsx>{`
+        .backgroudReact {
+          background-image: url(/assets/images/ReactPlus2.png);
+        }
         .img-icon-header {
           display: none;
         }
@@ -219,7 +221,7 @@ const GioiThieu = ({ data }) => {
           color: #25282b;
         }
         .box-organizational-structure {
-          height: 446px;
+          height: 525px;
           margin: 30px 0;
           background-color: #c4c4c4;
         }
@@ -254,7 +256,7 @@ const GioiThieu = ({ data }) => {
           box-shadow: 0px 2px 21px 3px rgba(0, 0, 0, 0.04);
         }
         .box_Pr_introduce {
-          margin: 30px 0;
+          margin: 40px 0;
           padding: 81px 0;
           justify-content: space-between;
           background: linear-gradient(
@@ -269,11 +271,17 @@ const GioiThieu = ({ data }) => {
         }
         .item {
           width: 341px;
+          border-radius: 8px;
           height: 370px;
           background: #ffffff;
           box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
         }
+        .item + .item {
+          margin-left: 27px;
+        }
         .item__img {
+          border-radius: 8px;
+          overflow: hidden;
           width: 100%;
           height: 171px;
         }
@@ -292,7 +300,9 @@ const GioiThieu = ({ data }) => {
           padding: 0 20px;
         }
         .item__content__content {
-          padding: 20px;
+          padding-left: 24px;
+          padding-top: 8px;
+          font-weight: 400;
           font-size: 14px;
           line-height: 21px;
           letter-spacing: -0.02em;
@@ -305,11 +315,15 @@ const GioiThieu = ({ data }) => {
           margin: 30px 0;
         }
         .item-experts {
-          width: 25%;
+          width: 22.63%;
           display: flex;
           flex-direction: column;
           justify-content: center;
+          margin-right: 25px;
           align-items: center;
+        }
+        .item-experts:nth-child(4n) {
+          margin-right: 0;
         }
         .box-team-of-experts .item-experts .item__img {
           width: 184px;

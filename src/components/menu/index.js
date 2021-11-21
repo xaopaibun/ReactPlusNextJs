@@ -3,24 +3,12 @@ import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { useScroll } from "../../hooks/useScroll";
-import ActiveLink from "../common/activelink";
+
 const Menu = ({ isColor }) => {
   const router = useRouter();
-  const [DropDownGioiThieu, setDropDownGioiThieu] = useState(false);
-  const [DropDownEvent, setDropDownEvent] = useState(false);
+
   const [isClose, setIsClose] = useState(false);
-  const handleClickDropDownEvent = () => {
-    if (DropDownGioiThieu === true) {
-      setDropDownGioiThieu(false);
-    }
-    setDropDownEvent(!DropDownEvent);
-  };
-  const handleClickDropDownGioiThieu = () => {
-    if (DropDownEvent === true) {
-      setDropDownEvent(false);
-    }
-    setDropDownGioiThieu(!DropDownGioiThieu);
-  };
+
   const { data } = useScroll();
   // style={{boxShadow:  data > 0 ? '0px 4px 4px rgb(0 0 0 / 7%)': 'none'}}
   return (
@@ -28,10 +16,14 @@ const Menu = ({ isColor }) => {
       <div className="box-menu">
         <div className="container">
           <div className="row">
-            <div className="col-xl-3 col-sm-3 col-3">
+            <div className="col-xl-3 col-sm-3 col-3 text-center">
               <Link href="/">
                 <a>
-                  <img src="../assets/images/LogoReactPlus.png" alt="Logo" />
+                  <img
+                    src="../assets/images/LogoReactPlus.png"
+                    alt="Logo"
+                    style={{ marginLeft: "-30px" }}
+                  />
                 </a>
               </Link>
             </div>
@@ -54,23 +46,18 @@ const Menu = ({ isColor }) => {
               <ul className="menu">
                 <li className="menu__item">
                   <Link href="/">
-                    <a className={router.pathname == "/" ? "active" : ""}>
+                    <a>
                       {" "}
                       Trang chủ
+                      <div
+                        className={router.pathname == "/" ? "active" : ""}
+                      ></div>
                     </a>
                   </Link>
                 </li>
                 <li className="menu__item">
                   {/* <Link href="/gioi-thieu"> */}
-                  <a
-                    className={
-                      router.pathname == "/gioi-thieu/gioi-thieu-cong-ty" ||
-                      router.pathname == "/gioi-thieu/gioi-thieu-react"
-                        ? "active"
-                        : ""
-                    }
-                    onClick={handleClickDropDownGioiThieu}
-                  >
+                  <a>
                     Giới thiệu
                     <img
                       src="../assets/icon/drop-down-icont.png"
@@ -80,36 +67,62 @@ const Menu = ({ isColor }) => {
                       alt=""
                     />
                   </a>
+                  <div
+                    className={
+                      router.pathname == "/gioi-thieu/gioi-thieu-cong-ty" ||
+                      router.pathname == "/gioi-thieu/gioi-thieu-react"
+                        ? "active"
+                        : ""
+                    }
+                  />
+                  <div className="drop-down">
+                    <div className="box-center">
+                      <Link href="/gioi-thieu/gioi-thieu-react">
+                        <a>Về React & React Native </a>
+                      </Link>
+                      <Link href="/gioi-thieu/gioi-thieu-cong-ty">
+                        <a> Công ty React Plus </a>
+                      </Link>
+                      <div className="triangle" />
+                    </div>
+                  </div>
                   {/* </Link> */}
                 </li>
                 <li className="menu__item">
                   <Link href="/van-hoa">
-                    <a
-                      className={router.pathname == "/van-hoa" ? "active" : ""}
-                    >
-                      Văn hóa{" "}
-                    </a>
+                    <a>Văn hóa </a>
                   </Link>
+                  <div
+                    className={router.pathname == "/van-hoa" ? "active" : ""}
+                  />
                 </li>
                 <li className="menu__item">
                   <Link href="/tuyen-dung">
-                    <a
-                      className={
-                        router.pathname == "/tuyen-dung" ||
-                        router.pathname == "/tuyen-dung/chi-tiet-tuyen-dung" ||
-                        router.pathname == "/tuyen-dung/form-tuyen-dung"
-                          ? "active"
-                          : ""
-                      }
-                    >
-                      Tuyển dụng
-                    </a>
+                    <a>Tuyển dụng</a>
                   </Link>
+                  <div
+                    className={
+                      router.pathname == "/tuyen-dung" ||
+                      router.pathname == "/tuyen-dung/chi-tiet-tuyen-dung" ||
+                      router.pathname == "/tuyen-dung/form-tuyen-dung"
+                        ? "active"
+                        : ""
+                    }
+                  />
                 </li>
                 <li className="menu__item">
                   {/* <Link href="/daotao-sukien"> */}
-                  <a
-                    onClick={handleClickDropDownEvent}
+                  <a>
+                    Đào tạo &amp; Sự kiện
+                    <img
+                      src="../assets/icon/drop-down-icont.png"
+                      width="6px"
+                      height="4.98px"
+                      style={{ marginLeft: "3px" }}
+                      alt=""
+                    />
+                  </a>
+                  <div
                     className={
                       router.pathname ==
                         "/cac-khoa-dao-tao/su-kien-thuong-ky" ||
@@ -123,70 +136,43 @@ const Menu = ({ isColor }) => {
                         ? "active"
                         : ""
                     }
-                  >
-                    Đào tạo &amp; Sự kiện
-                    <img
-                      src="../assets/icon/drop-down-icont.png"
-                      width="6px"
-                      height="4.98px"
-                      style={{ marginLeft: "3px" }}
-                      alt=""
-                    />
-                  </a>
+                  />
+                  <div className="drop-down">
+                    <div className="box-center">
+                      <Link href="/cac-khoa-dao-tao">
+                        <a>Các khoá đào tạo </a>
+                      </Link>
+                      <Link href="/cac-khoa-dao-tao/su-kien-thuong-ky">
+                        <a> Sự kiện thường kỳ </a>
+                      </Link>
+                      <div className="triangle" />
+                    </div>
+                  </div>
                   {/* </Link> */}
                 </li>
                 <li className="menu__item">
                   <Link href="/vi-cong-dong">
-                    <a
-                      className={
-                        router.pathname == "/vi-cong-dong" ? "active" : ""
-                      }
-                    >
-                      Vì cộng đồng
-                    </a>
+                    <a>Vì cộng đồng</a>
                   </Link>
+                  <div
+                    className={
+                      router.pathname == "/vi-cong-dong" ? "active" : ""
+                    }
+                  />
                 </li>
                 <li className="menu__item">
                   <Link href="/tin-tuc">
-                    <a
-                      className={router.pathname == "/tin-tuc" ? "active" : ""}
-                    >
-                      Tin tức &amp; Blog
-                    </a>
+                    <a>Tin tức &amp; Blog</a>
                   </Link>
+                  <div
+                    className={router.pathname == "/tin-tuc" ? "active" : ""}
+                  />
                 </li>
               </ul>
             </div>
           </div>
         </div>
       </div>
-
-      {(DropDownGioiThieu === true && (
-        <div className="drop-down">
-          <div className="box-center">
-            <Link href="/gioi-thieu/gioi-thieu-react">
-              <a>Về React & React Native </a>
-            </Link>
-            <Link href="/gioi-thieu/gioi-thieu-cong-ty">
-              <a> Công ty React Plus </a>
-            </Link>
-            <div className="triangle" />
-          </div>
-        </div>
-      )) ||
-        (DropDownEvent === true && (
-          <div className="drop-down">
-            <div className="box-center">
-              <Link href="/cac-khoa-dao-tao">
-                <a>Các khoá đào tạo </a>
-              </Link>
-              <Link href="/cac-khoa-dao-tao/su-kien-thuong-ky">
-                <a> Sự kiện thường kỳ </a>
-              </Link>
-              <div className="triangle" />
-            </div>
-          </div>
-        ))}
       <div className="box-menu-reponsive">
         <Link href="/">
           <a
@@ -293,7 +279,9 @@ const Menu = ({ isColor }) => {
           display: none;
         }
         .box-menu {
-          padding: 10px 0;
+          padding-top: 18px;
+          height: 76px;
+          box-sizing: border-box;
           position: sticky;
           background-color: ${isColor && data === 0
             ? "transparent"
@@ -311,21 +299,25 @@ const Menu = ({ isColor }) => {
         }
         .menu__item {
           list-style: none;
-          height: 25px;
+          height: 50px;
           width: auto;
         }
-        .drop-down {
+        .menu__item .drop-down {
+          display: none;
+        }
+        .menu__item:hover .drop-down {
           background-color: #00c6e8;
           height: 48px;
           width: 100%;
           display: flex;
           justify-content: center;
           align-items: center;
-          position: sticky;
-          top: 60px;
+          position: absolute;
+          top: 76px;
           left: 0;
           z-index: 999;
         }
+
         .box-center {
           display: flex;
           justify-content: center;
@@ -340,10 +332,13 @@ const Menu = ({ isColor }) => {
           transform: rotate(45deg);
           position: absolute;
           top: -2px;
-          left: 50px;
+          left: 80px;
         }
         .active {
-          border-bottom: 3px solid #00daff;
+          height: 3px;
+          margin: 10px auto 0 auto;
+          width: 64px;
+          background-image: url("/assets/icon/menu-active.png");
         }
         .menu__item a {
           color: ${isColor && data === 0 ? "#ffffff" : "#25282b"};
@@ -352,6 +347,7 @@ const Menu = ({ isColor }) => {
           font-size: 13px;
           font-weight: 500;
           display: block;
+          text-align: center;
           cursor: pointer;
           text-decoration: none;
           transition: 0.3s;
@@ -365,6 +361,9 @@ const Menu = ({ isColor }) => {
           color: #ffffff;
           text-decoration: none;
           margin: 20px;
+        }
+        .drop-down a:hover {
+          color: #ffffff;
         }
         .box-menu-reponsive {
           display: none;

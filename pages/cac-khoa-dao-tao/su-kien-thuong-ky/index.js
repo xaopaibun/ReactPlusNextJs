@@ -116,7 +116,7 @@ const RegularEvent = ({ data }) => {
 
       <div className="event-is-happening">
         <div className="container">
-          <h3 className="title0">Các sự kiện đang diễn ra</h3>
+          <h3 className="title0">Các sự kiện đã diễn ra</h3>
           <div className="list-posts">
             <div className="post-item">
               <img

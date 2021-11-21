@@ -81,7 +81,7 @@ const PopupDownloadDocuments = (props) => {
                   value={formik.values.name}
                   id="standard-error-helper-text"
                   error={
-                    formik.errors.name && formik.touched.name ? true : false
+                    formik.errors.name ? true : false
                   }
                   helperText={formik.errors.name}
                 />
@@ -96,7 +96,7 @@ const PopupDownloadDocuments = (props) => {
                   name="email"
                   id="standard-error-helper-text"
                   error={
-                    formik.errors.email && formik.touched.email ? true : false
+                    formik.errors.email  ? true : false
                   }
                   helperText={formik.errors.email}
                 />
@@ -111,7 +111,7 @@ const PopupDownloadDocuments = (props) => {
                   name="phone"
                   id="standard-error-helper-text"
                   error={
-                    formik.errors.phone && formik.touched.phone ? true : false
+                    formik.errors.phone  ? true : false
                   }
                   helperText={formik.errors.phone}
                 />
