@@ -155,7 +155,7 @@ const Menu = ({ isColor }) => {
                     }
                   />
                   <div className="drop-down">
-                    <div className="box-center">
+                    <div className="box-center2">
                       <Link href="/cac-khoa-dao-tao">
                         <a
                           className={
@@ -201,7 +201,13 @@ const Menu = ({ isColor }) => {
                     <a>Tin tức &amp; Blog</a>
                   </Link>
                   <div
-                    className={router.pathname == "/tin-tuc" ? "active" : ""}
+                    className={
+                      router.pathname == "/tin-tuc" ||
+                      router.pathname == "/tin-tuc/danh-sach-tin-tuc" ||
+                      router.pathname == "/tin-tuc/danh-sach-blog"
+                        ? "active"
+                        : ""
+                    }
                   />
                 </li>
               </ul>
@@ -370,6 +376,23 @@ const Menu = ({ isColor }) => {
           top: -2px;
           left: 80px;
         }
+        .box-center2 {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+        }
+        .box-center2::before {
+          content: "";
+          height: 15px;
+          width: 15px;
+          background-color: #00c6e8;
+          transform: rotate(45deg);
+          position: absolute;
+          top: -2px;
+          right: -80px;
+        }
+
         .active {
           height: 3px;
           margin: 10px auto 0 auto;

@@ -211,6 +211,8 @@ const GioiThieu = ({ data }) => {
         }
         .introduce__right {
           width: 211px;
+          display: flex;
+          align-items: center;
         }
         .organizational-structure-title {
           font-weight: 600;

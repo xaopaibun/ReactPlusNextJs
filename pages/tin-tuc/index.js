@@ -9,6 +9,7 @@ const News = ({ data_news_blog }) => {
   const router = useRouter();
   const handleDetail = () => router.push("/tuyen-dung/thong-tin-chi-tiet-form");
   const handleViewAllNews = () => router.push("/tin-tuc/danh-sach-tin-tuc");
+  const handleViewAllBlog = () => router.push("/tin-tuc/danh-sach-blog");
   return (
     <>
       <Head>
@@ -64,13 +65,13 @@ const News = ({ data_news_blog }) => {
             );
           })}
         </div>
-        <div className="margin" />
+
         <div className="header">
           <div className="header-left">
             <div className="borderblue"></div>
             <h2 className="header-title">Blog</h2>
           </div>
-          <div className="header-right">
+          <div className="header-right" onClick={handleViewAllBlog}>
             <span className="text-xemthem">Xem thêm</span>
             <img
               src="./assets/icon/arrow-sm-right-blue.png"
@@ -126,7 +127,7 @@ const News = ({ data_news_blog }) => {
         .header {
           display: flex;
           justify-content: space-between;
-          margin: 20px 0;
+          margin: 70px 0 30px 0;
         }
         .center {
           width: 997px;
@@ -136,7 +137,7 @@ const News = ({ data_news_blog }) => {
         .content-review-date {
           font-size: 13px;
           line-height: 19px;
-          margin-top: 12px;
+          margin-top: 22px;
           letter-spacing: -0.02em;
           color: #a0a4a8;
         }
@@ -176,6 +177,8 @@ const News = ({ data_news_blog }) => {
         .header-title {
           font-weight: 600;
           font-size: 24px;
+
+          margin-bottom: 0;
           line-height: 135.4%;
           color: #000000;
         }
@@ -195,7 +198,10 @@ const News = ({ data_news_blog }) => {
         }
         .img_post {
           height: 193px;
-          width: 340px;
+          width: 100%;
+        }
+        .list-posts-item {
+          width: 31.6%;
         }
         @media screen and (max-width: 768px) {
           .banner img {

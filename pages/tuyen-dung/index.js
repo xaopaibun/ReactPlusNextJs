@@ -9,7 +9,7 @@ import { useState } from "react";
 const Career = ({ data }) => {
   const router = useRouter();
   const [isLoadMore, setLoadMore] = useState(false);
-  const handleDetail = () => router.push("/tuyen-dung/chi-tiet-tuyen-dung");
+  const handleDetail = (slug) => router.push("/tuyen-dung/" + slug);
   const handleSubmit = () =>
     router.push("/cac-khoa-dao-tao/dang-ky-ung-vien-tiem-nang");
   return (
@@ -85,7 +85,7 @@ const Career = ({ data }) => {
                       {val.title}
                     </div>
                     <div className="applied-position-item-bottom">
-                      <button className="btnmore" onClick={handleDetail}>
+                      <button className="btnmore" onClick={() => handleDetail(val.url_seo)}>
                         <span>Xem chi tiết </span>
                         <img
                           className="btnmore__icon"
@@ -196,7 +196,7 @@ const Career = ({ data }) => {
         </div>
       </div>
       <JoinNow />
-      <div className="mr-110"/>
+      <div className="mr-110" />
       <Footer />
       <style jsx>{`
         .header {

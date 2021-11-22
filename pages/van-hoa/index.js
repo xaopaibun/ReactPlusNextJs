@@ -1,3 +1,5 @@
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 import Footer from "../../src/components/footer";
 import Head from "next/head";
 import Menu from "../../src/components/menu";
@@ -11,11 +13,69 @@ import {
 } from "../../src/services/api";
 import { useScroll } from "../../src/hooks/useScroll";
 const VanHoa = ({ data }) => {
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3,
+    },
+    mobile: {
+      breakpoint: { max: 768, min: 0 },
+      items: 1,
+    },
+  };
   const [isActive, setActive] = useState(0);
   const [isPosition, setPosition] = useState(false);
   const [isActiveSummer, setActiveSummer] = useState(0);
   const _dataScroll = useScroll();
+  const CustomRightArrow = ({ onClick }) => {
+    return (
+      <button
+        onClick={() => onClick()}
+        style={{
+          backgroundColor: "#FFFFFF",
+          boxShadow: "0px 1px 8px rgba(49, 53, 59, 0.2)",
+          top: "calc(100% / 2)",
+          right: "3px",
+          zIndex: 100,
+          minWidth: "32px",
+          minHeight: "32px",
+          overflow: "hidden",
+        }}
+        className="react-multiple-carousel__arrow react-multiple-carousel__arrow--right"
+      >
+        <img
+          src="/assets/images/back_right.png"
+          style={{ position: "absolute", top: 10, left: 12, zIndex: 100 }}
+          alt="a"
+        />
+      </button>
+    );
+  };
 
+  const CustomLeftArrow = ({ onClick }) => {
+    return (
+      <button
+        onClick={() => onClick()}
+        style={{
+          backgroundColor: "#FFFFFF",
+          boxShadow: "0px 1px 8px rgba(49, 53, 59, 0.2)",
+          top: "calc(100% / 2)",
+          left: "3px",
+          zIndex: 100,
+          minWidth: "32px",
+          minHeight: "32px",
+          overflow: "hidden",
+        }}
+        className="react-multiple-carousel__arrow react-multiple-carousel__arrow--left"
+      >
+        <img
+          src="/assets/images/back_left.png"
+          style={{ position: "absolute", top: 10, left: 12, zIndex: 100 }}
+          alt="a"
+        />
+      </button>
+    );
+  };
   return (
     <>
       <Head>
@@ -209,21 +269,27 @@ const VanHoa = ({ data }) => {
           </div>
         </div>
         <div className="award-list">
-          {Award.map((value) => (
-            <div className="award-item" key={value._id}>
-              <div className="award-item-img">
-                <img
-                  src={"/assets/images/" + value.image}
-                  height={"auto"}
-                  width={"auto"}
-                />
+          <Carousel
+            responsive={responsive}
+            customLeftArrow={<CustomLeftArrow />}
+            customRightArrow={<CustomRightArrow />}
+          >
+            {Award.map((value) => (
+              <div className="award-item" key={value._id}>
+                <div className="award-item-img">
+                  <img
+                    src={"/assets/images/" + value.image}
+                    height={"auto"}
+                    width={"auto"}
+                  />
+                </div>
+                <div className="award-item-content">
+                  <h2 className="award-item-content-big">{value.title}</h2>
+                  <h4 className="award-item-content-smail">{value.content}</h4>
+                </div>
               </div>
-              <div className="award-item-content">
-                <h2 className="award-item-content-big">{value.title}</h2>
-                <h4 className="award-item-content-smail">{value.content}</h4>
-              </div>
-            </div>
-          ))}
+            ))}
+          </Carousel>
         </div>
       </div>
       <div className="mr-70" />
@@ -232,6 +298,33 @@ const VanHoa = ({ data }) => {
       <Footer />
 
       <style jsx>{`
+        .react-multiple-carousel__arrow:hover {
+          background-color: unset;
+        }
+        .react-multiple-carousel__arrow1 {
+          position: absolute;
+          outline: 0;
+          -webkit-transition: all 0.5s;
+          transition: all 0.5s;
+
+          right: 10px;
+          border-radius: 35px;
+          z-index: 1000;
+          border: 0;
+          background: rgba(0, 0, 0, 0.5) !important;
+          min-width: 32px !important;
+          background: #ffffff !important;
+          box-shadow: 0px 1px 8px rgb(49 53 59 / 20%) !important;
+          min-height: 32px !important;
+          opacity: 1;
+          margin-top: -77px !important;
+          margin-right: -40px !important;
+          cursor: pointer;
+        }
+        .react-multiple-carousel__arrow--right::before {
+          content: "\e825";
+          display: none !important;
+        }
         .drop-down {
           top: 108px;
         }
@@ -391,12 +484,16 @@ const VanHoa = ({ data }) => {
         }
         .Office-Content {
           height: auto;
-          margin: 50px 0;
+          margin: 80px 0;
           padding-top: 75px;
           background-image: url("/assets/images/BG-career.png");
           background-repeat: no-repeat;
         }
         .content {
+          display: flex;
+          justify-content: space-between;
+        }
+        .content:nth-child(2) {
           margin-top: 129px;
           display: flex;
           justify-content: space-between;
@@ -498,18 +595,15 @@ const VanHoa = ({ data }) => {
           color: #000000;
         }
         .award-list {
-          display: flex;
-          height: auto;
           padding: 20px 8px;
           width: 100%;
-          overflow-x: scroll;
         }
         .award-item {
           background: #ffffff;
           box-shadow: 0px 2px 21px 3px rgba(0, 0, 0, 0.04);
           min-width: 290px;
           height: 336px;
-          margin-right: 20px;
+          margin: 20px;
         }
         .award-item-img {
           height: 50%;
@@ -524,6 +618,7 @@ const VanHoa = ({ data }) => {
         .award-item-content-big {
           font-weight: 600;
           font-size: 16px;
+          height: 48px;
           line-height: 24px;
           text-align: center;
           letter-spacing: -0.02em;

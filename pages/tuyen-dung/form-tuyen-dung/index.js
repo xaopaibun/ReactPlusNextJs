@@ -36,18 +36,35 @@ const FormTuyenDung = () => {
 
       file: Yup.mixed().required("Không được bỏ trống"),
     }),
+    validateOnChange: false,
+    validateOnBlur: false,
     onSubmit: async (values) => {
-      values.birthday = await (values.day +
-        "/" +
-        values.month +
-        "/" +
-        values.year);
-      await post_register_candidates(values)
-        .then((res) => setShow(true))
+      const formData = new FormData();
+      values.birthday = `${values.day}/${values.month}/${values.year}`;
+      for (let value in values) {
+        formData.append(value, values[value]);
+      }
+      await post_register_candidates(formData)
+        .then((res) => {
+          setShow(true);
+          console.log(res.data);
+        })
         .catch((err) => console.log(err));
     },
   });
   const { setFieldValue } = formik;
+  const handleReset = () => {
+    setFieldValue("name", "");
+    setFieldValue("email", "");
+    setFieldValue("birthday", "");
+    setFieldValue("month", "");
+    setFieldValue("year", "");
+    setFieldValue("day", "");
+    setFieldValue("phone", "");
+    setFieldValue("file", "");
+    setFieldValue("link", "");
+    setFieldValue("content", "");
+  };
   return (
     <>
       <Head>
@@ -64,7 +81,7 @@ const FormTuyenDung = () => {
       <Menu />
       <form onSubmit={formik.handleSubmit}>
         <div className="box-form">
-          <h2 className="text-center title-page">Chăm sóc khách hàng</h2>
+          <h2 className="text-center title-page">Form tuyển dụng</h2>
           <TextField
             label="Tên đầy đủ"
             type="text"
@@ -255,7 +272,7 @@ const FormTuyenDung = () => {
               <ReCAPTCHA sitekey="Your client site key" onChange={onChange} />
             </div>
             <div className="birtday-right">
-              <button className="btn-cancel" type="reset">
+              <button className="btn-cancel" type="reset" onClick={handleReset}>
                 <span className="btn-text">Hủy</span>
               </button>
               <button className="btn-submit" type="submit">

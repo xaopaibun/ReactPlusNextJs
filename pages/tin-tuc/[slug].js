@@ -28,16 +28,20 @@ const NewsBlogDetail = () => {
   return (
     <>
       <Head>
-        <title>Bài viết chi tiết</title>
+        <title>{slug}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Menu />
       <div className="container">
         <div className="header-detail">
           <div className="box-icont">
-            <button className="icont">
+            <a
+              className="icont"
+              target="_blank"
+              href={`https://www.facebook.com/sharer.php?u=http://103.237.145.33:5000/tin-tuc/${slug}`}
+            >
               <img src="../assets/icon/fb-black.png" />
-            </button>
+            </a>
             <button className="icont">
               <img src="../assets/icon/in-black.png" />
             </button>
@@ -151,8 +155,12 @@ const NewsBlogDetail = () => {
           display: flex;
           justify-content: center;
           align-items: center;
+          background-color: white;
           margin: 6px 0;
           cursor: pointer;
+        }
+        .post-item {
+          width: 30%;
         }
         .title-news-detail {
           font-weight: 600;
@@ -220,7 +228,7 @@ const NewsBlogDetail = () => {
         .event-is-happening {
           width: 100%;
           background: #f4f6fa;
-          margin: 20px 0;
+          margin-top: 72px;
           height: 424px;
           padding: 42px;
           box-sizing: border-box;

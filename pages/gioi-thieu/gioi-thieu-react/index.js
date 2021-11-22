@@ -1,11 +1,12 @@
 import Footer from "../../../src/components/footer";
 import Head from "next/head";
 import Menu from "../../../src/components/menu";
-import { ListQuestion } from "../../../src/config";
 import { useState } from "react";
 import { get_questions } from "../../../src/services/api";
+import { useRouter } from "next/router";
 
 const IntroduceReact = ({ data }) => {
+  const router = useRouter();
   return (
     <>
       <Head>
@@ -143,7 +144,10 @@ const IntroduceReact = ({ data }) => {
               <h2 className="asked-questions-left-title">
                 Những câu hỏi thường gặp về công việc React & React Native
               </h2>
-              <button className="btnmorefull">
+              <button
+                className="btnmorefull"
+                onClick={() => router.push("/cac-khoa-dao-tao")}
+              >
                 <span>Tìm hiểu khóa học React miễn phí</span>
                 <img
                   className="btnmore__icon"
@@ -232,6 +236,8 @@ const IntroduceReact = ({ data }) => {
         }
         .introduce__right {
           width: 211px;
+          display: flex;
+          align-items: center;
         }
         .box-introduce-react-content {
           width: 100%;
@@ -282,7 +288,7 @@ const IntroduceReact = ({ data }) => {
           width: 100%;
           min-height: 591px;
           height: auto;
-          background-color: #F4F6FA;
+          background-color: #f4f6fa;
           margin-bottom: 70px;
         }
 
@@ -391,7 +397,6 @@ const IntroduceReact = ({ data }) => {
           .introduce-item {
             height: auto;
             display: block;
-           
           }
           .item-image {
             height: auto;

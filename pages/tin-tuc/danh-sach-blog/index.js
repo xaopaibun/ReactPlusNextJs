@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { get_list_news, URL } from "../../../src/services/api";
 import Link from "next/link";
-const DanhSachTinTuc = () => {
+const DanhSachBlog = () => {
   const router = useRouter();
   const [isList, setList] = useState([]);
   const [ispage, setpage] = useState(1);
@@ -15,9 +15,6 @@ const DanhSachTinTuc = () => {
     await get_list_news(ispage).then((res) => {
       setList(res.data.news);
     });
-    // await get_page_news().then((res) => {
-    //   setLengthPage(res.data);
-    // });
   }, []);
 
   const handleLoadMore = async () => {
@@ -29,14 +26,14 @@ const DanhSachTinTuc = () => {
   return (
     <>
       <Head>
-        <title>Danh sách tin tức</title>
+        <title>Danh sách blog</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Menu />
 
       <div className="container">
         <div className="header">
-          <h3 className="header-title">Tin tức</h3>
+          <h3 className="header-title">Blog</h3>
           <div className="box-back">
             <div className="btn-back" onClick={handleBackListNews}>
               <img
@@ -218,4 +215,4 @@ const DanhSachTinTuc = () => {
   );
 };
 
-export default DanhSachTinTuc;
+export default DanhSachBlog;

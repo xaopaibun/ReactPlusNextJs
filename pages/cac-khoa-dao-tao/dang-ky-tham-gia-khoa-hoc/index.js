@@ -44,7 +44,6 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
       email: "",
       birthday: "",
       phone: "",
-      email: "",
       where_learn: "",
       experience: "",
       language: "",
@@ -67,23 +66,39 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
     }),
     validateOnChange: false,
     validateOnBlur: false,
-    onSubmit: async (values) => {
-      values.birthday = await (values.day +
-        "/" +
-        values.month +
-        "/" +
-        values.year);
+    onSubmit: (values) => {
+      const formData = new FormData();
+      values.birthday = `${values.day}/${values.month}/${values.year}`;
       values.program_language = values.program_language.toString();
       values.language = values.language.toString();
-      console.log(values);
-      await post_register_course(values)
+
+      for (let value in values) {
+        formData.append(value, values[value]);
+      }
+
+      post_register_course(formData)
         .then((res) => {
+          console.log(res.data);
           setShow(true);
         })
         .then((err) => console.log(err));
     },
   });
-  // const { setFieldValue } = formik;
+  const { setFieldValue } = formik;
+  const handleReset = () => {
+    setFieldValue("name", "");
+    setFieldValue("email", "");
+    setFieldValue("birthday", "");
+    setFieldValue("month", "");
+    setFieldValue("year", "");
+    setFieldValue("day", "");
+    setFieldValue("phone", "");
+    setFieldValue("file", "");
+    setFieldValue("where_learn", "");
+    setFieldValue("experience", "");
+    setFieldValue("certificate", "");
+    setFieldValue("program_language", "");
+  };
   return (
     <>
       <Head>
@@ -100,7 +115,7 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
       )}
       <Menu />
       <FormikProvider value={formik}>
-      <form onSubmit={formik.handleSubmit}>
+        <form onSubmit={formik.handleSubmit}>
           <div className="container">
             <div className="box-form">
               <h2 className="text-center title-page">
@@ -122,7 +137,6 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
                     name="name"
                     type="text"
                     variant="standard"
-                    className={classes.input}
                     onChange={formik.handleChange}
                     value={formik.values.name}
                     fullWidth
@@ -138,7 +152,6 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
                     name="email"
                     type="email"
                     variant="standard"
-                    className={classes.input}
                     onChange={formik.handleChange}
                     value={formik.values.email}
                     fullWidth
@@ -156,12 +169,14 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
                 <div className="item">
                   <select
                     className="form-select form-select-custom"
-                    defaultValue="Ngày"
                     name="day"
                     onChange={formik.handleChange}
                     value={formik.values.day}
+                    defaultValue="Ngày"
                   >
-                    <option selected>Ngày</option>
+                    <option value="Ngày" disabled>
+                      Ngày
+                    </option>
                     {Day.map((value) => (
                       <option value={value} key={value}>
                         {value}
@@ -179,12 +194,14 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
                 <div className="item">
                   <select
                     className="form-select form-select-custom"
-                    defaultValue="Tháng"
                     name="month"
+                    defaultValue="Tháng"
                     onChange={formik.handleChange}
                     value={formik.values.month}
                   >
-                    <option selected>Tháng</option>
+                    <option value="Tháng" disabled>
+                      Tháng
+                    </option>
                     {Month.map((value) => (
                       <option value={value} key={value}>
                         {value}
@@ -201,12 +218,14 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
                 <div className="item">
                   <select
                     className="form-select form-select-custom"
-                    defaultValue="Năm"
                     name="year"
+                    defaultValue="Năm"
                     onChange={formik.handleChange}
                     value={formik.values.year}
                   >
-                    <option selected>Năm</option>
+                    <option value="Năm" disabled>
+                      Năm
+                    </option>
                     {Year.map((value) => (
                       <option value={value} key={value}>
                         {value}
@@ -229,7 +248,6 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
                     name="phone"
                     type="text"
                     variant="standard"
-                    className={classes.input}
                     onChange={formik.handleChange}
                     value={formik.values.phone}
                     fullWidth
@@ -300,24 +318,6 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
                     </div>
                   );
                 })}
-                {/* <div className="NN_right">
-                  {language.map((val, index) => {
-                    return (
-                      <div className="flex" key={index}>
-                        <Field
-                          type="radio"
-                          name="language"
-                          value={val}
-                          style={{ width: "24px", height: "24px" }}
-                        />
-                         {" "}
-                        <label htmlFor="html" className="label">
-                          {val}
-                        </label>
-                      </div>
-                    );
-                  })}
-                </div> */}
               </div>
               <div className="mr-30"></div>
               <TextField
@@ -355,6 +355,7 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
                   </div>
                 </div>
               </div>
+              <div className="mr-30"></div>
               <div className="box-PostCV">
                 <div className="PostCV-Left">
                   <h6
@@ -371,8 +372,8 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
                         : "CV-text-comment"
                     }
                   >
-                    {formik.values.file.name
-                      ? formik.values.file.name
+                    {formik.values.file?.name
+                      ? formik.values.file?.name
                       : formik.errors.file
                       ? formik.errors.file
                       : "Format được hỗ trợ: PNG, JPG, PDF"}
@@ -387,9 +388,9 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
                       className="input_file"
                       id="file"
                       accept="application/pdf, image/*"
-                      // onChange={(event) => {
-                      //   setFieldValue("file", event.currentTarget.files[0]);
-                      // }}
+                      onChange={(event) => {
+                        setFieldValue("file", event.currentTarget.files[0]);
+                      }}
                     />
                   </button>
                 </div>
@@ -403,7 +404,11 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
                   />
                 </div>
                 <div className="birtday-right">
-                  <button className="btn-cancel" type="button">
+                  <button
+                    className="btn-cancel"
+                    type="button"
+                    onClick={handleReset}
+                  >
                     <span className="btn-text">Hủy</span>
                   </button>
                   <button className="btn-submit" type="submit">
@@ -413,7 +418,7 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
               </div>
             </div>
           </div>
-      </form>
+        </form>
       </FormikProvider>
       <footer>
         <Footer />
@@ -442,6 +447,7 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
         }
         .content-title {
           font-size: 14px;
+          width: 860px;
           line-height: 20px;
           display: flex;
           align-items: center;
@@ -485,7 +491,7 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
           margin: 60px auto;
         }
         .mr-30 {
-          margin-top: 30px;
+          margin-top: 50px;
         }
         .label-text {
           font-size: 14px;

@@ -26,7 +26,7 @@ const SlideItem = ({ TimeLineEvent }) => {
   //   );
   // };
 
-  function CustomRightArrow({ onClick }) {
+   const CustomRightArrow = ({ onClick }) => {
     return (
       <button
         onClick={() => onClick()}
@@ -51,7 +51,7 @@ const SlideItem = ({ TimeLineEvent }) => {
     );
   }
 
-  function CustomLeftArrow({ onClick }) {
+   const CustomLeftArrow = ({ onClick }) => {
     return (
       <button
         onClick={() => onClick()}

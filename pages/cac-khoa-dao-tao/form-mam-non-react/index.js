@@ -48,6 +48,15 @@ const Form = () => {
         .catch((err) => console.log(err));
     },
   });
+  const handleReset = () => {
+    setFieldValue("name", "");
+    setFieldValue("email", "");
+
+    setFieldValue("year", "");
+    setFieldValue("job", "");
+    setFieldValue("source", "");
+    setFieldValue("question", "");
+  };
   return (
     <>
       <Head>
@@ -145,6 +154,7 @@ const Form = () => {
                 </p>
               ) : null}
             </div>
+            <div className="mr-30"></div>
             <TextField
               label="Công việc hiện tại của bạn * "
               type="text"
@@ -193,7 +203,7 @@ const Form = () => {
                 <ReCAPTCHA sitekey="Your client site key" onChange={onChange} />
               </div>
               <div className="birtday-right">
-                <button className="btn-cancel" type="button">
+                <button className="btn-cancel" type="button" onClick={handleReset}>
                   <span className="btn-text">Hủy</span>
                 </button>
                 <button className="btn-submit" type="submit">
@@ -234,7 +244,7 @@ const Form = () => {
           margin: 60px auto;
         }
         .mr-30 {
-          margin-top: 20px;
+          margin-top: 50px;
         }
         .label-text {
           font-size: 14px;

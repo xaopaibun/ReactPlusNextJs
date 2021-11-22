@@ -3,10 +3,27 @@ import Menu from "../../../src/components/menu";
 import Footer from "../../../src/components/footer";
 import { useRouter } from "next/router";
 import { get_job_concerning, get_text_job } from "../../../src/services/api";
-const CareerDetal = ({ data }) => {
-  console.log(data);
+import { useEffect, useState } from "react";
+const CareerDetal = () => {
+  const [data, setdata] = useState([]);
   const router = useRouter();
+  const { slug } = router.query;
   const handleSubmit = () => router.push("/tuyen-dung/form-tuyen-dung");
+
+  useEffect(async () => {
+    if (slug) {
+      const [_get_text_job, _get_job_concerning] = await Promise.all([
+        get_text_job(slug),
+        get_job_concerning(),
+      ]);
+      const data_job = await Promise.all([
+        _get_text_job.data,
+        _get_job_concerning.data,
+      ]);
+      console.log(data_job);
+      setdata(data_job);
+    }
+  }, [slug]);
   return (
     <>
       <Head>
@@ -462,21 +479,21 @@ const CareerDetal = ({ data }) => {
   );
 };
 
-export async function getServerSideProps() {
-  const [_get_text_job, _get_job_concerning] = await Promise.all([
-    get_text_job(1),
-    get_job_concerning(),
-  ]);
-  const data = await Promise.all([
-    _get_text_job.data,
-    _get_job_concerning.data,
-  ]);
+// export async function getServerSideProps(slug) {
+//   const [_get_text_job, _get_job_concerning] = await Promise.all([
+//     get_text_job(slug),
+//     get_job_concerning(),
+//   ]);
+//   const data = await Promise.all([
+//     _get_text_job.data,
+//     _get_job_concerning.data,
+//   ]);
 
-  return {
-    props: {
-      data: data,
-    },
-  };
-}
+//   return {
+//     props: {
+//       data: data,
+//     },
+//   };
+// }
 
 export default CareerDetal;

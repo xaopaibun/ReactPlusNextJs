@@ -26,7 +26,9 @@ const ViCongDong = ({ data }) => {
             <div className="parameter">
               <div className="parameter-item">
                 <h5 className="text-number">
-                  {Intl.NumberFormat().format(parseInt(data.money))}
+                  {Intl.NumberFormat().format(
+                    parseInt(data.data_volunteer.money)
+                  )}
                   <span className="text-unit"> VND</span>
                 </h5>
                 <p className="text-content">Đã được chia sẻ tới cộng đồng</p>
@@ -83,7 +85,7 @@ const ViCongDong = ({ data }) => {
                   <img
                     src={`${URL}${value.cover_image.url}`}
                     height={"193px"}
-                    width={"340px"}
+                    width={"100%"}
                   />
                   <h5 className="content-review-date">
                     {value.start_date} {value.to_date}
@@ -97,6 +99,7 @@ const ViCongDong = ({ data }) => {
           </div>
         </div>
       </div>
+      <div className="mr-100" />
       <Footer />
 
       <style jsx>{`
@@ -121,7 +124,7 @@ const ViCongDong = ({ data }) => {
         }
         .text-title {
           font-weight: 600;
-          margin-top: 60px;
+          margin-top: 90px;
           font-size: 28px;
           line-height: 28px;
           color: #25282b;
@@ -186,10 +189,10 @@ const ViCongDong = ({ data }) => {
           display: flex;
           flex-wrap: wrap;
           justify-content: space-between;
-          margin-bottom: 50px;
+          margin: 70px 0;
         }
         .content-review-date {
-          margin-top: 10px;
+          margin-top: 22px;
           font-size: 13px;
           line-height: 19px;
           letter-spacing: -0.02em;
@@ -217,8 +220,11 @@ const ViCongDong = ({ data }) => {
           margin-top: 138px;
         }
         .post-item {
-          width: 30%;
+          width: 31.5%;
           margin: 20px 0;
+        }
+        .mr-100 {
+          margin-top: 100px;
         }
         @media screen and (max-width: 768px) {
           .frame-page {

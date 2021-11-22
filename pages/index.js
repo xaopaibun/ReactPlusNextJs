@@ -3,12 +3,11 @@ import Link from "next/link";
 import Menu from "../src/components/menu";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "../src/components/footer";
-import { DataTimeLine, ListNews, TrainingEvents } from "../src/config";
 import { Carousel } from "react-bootstrap";
 import SlideItem from "../src/components/common/slideitem/SlideItem";
 import Popup from "../src/components/common/popuphome";
 import { useState } from "react";
-import { useFormik, useFormikContext } from "formik";
+import { useFormik } from "formik";
 import * as Yup from "yup";
 import PopupDownloadDocuments from "../src/components/common/popupdownloaddocuments";
 import {
@@ -24,8 +23,9 @@ export default function Home({ data }) {
   const router = useRouter();
   const [isShow, setShow] = useState(false);
   const [isShow2, setShow2] = useState(false);
-  const NaviDetail = (slug) => router.push(`/tin-tuc/${slug}`);
-
+  const NaviDetailTraining = () => router.push("/cac-khoa-dao-tao");
+  const NaviDetailEvent = () =>
+    router.push("/cac-khoa-dao-tao/su-kien-thuong-ky");
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -48,7 +48,7 @@ export default function Home({ data }) {
   return (
     <>
       <Head>
-        <title>Home page React Plus</title>
+        <title>Home Page React Plus</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Menu />
@@ -156,7 +156,7 @@ export default function Home({ data }) {
                   />
                   <button
                     className="btnmore"
-                    onClick={() => NaviDetail(data[1].training.url_seo)}
+                    onClick={() => NaviDetailTraining()}
                   >
                     <span>Tìm hiểu thêm</span>
                     <img
@@ -184,7 +184,7 @@ export default function Home({ data }) {
                   />
                   <button
                     className="btnmore"
-                    onClick={() => NaviDetail(data[1].event.url_seo)}
+                    onClick={() => NaviDetailEvent()}
                   >
                     <span>Tìm hiểu thêm</span>
                     <img
@@ -347,6 +347,7 @@ export default function Home({ data }) {
         .img-slide{
           width: 100%;
           height: 430px;
+          object-fit: cover;
         }
         /* end slider */
 

@@ -11,6 +11,14 @@ const instance = axios.create({
   },
 });
 
+const instance_formdata = axios.create({
+  baseURL: `${URL}/api/v1`,
+  timeout: 60000,
+  headers: {
+    Accept: "application/json",
+    "Content-Type": "application/json, multipart/form-data",
+  },
+});
 // Home
 export const get_banners = () => instance.get("/images/banners");
 
@@ -64,13 +72,14 @@ export const post_register_event = (user) =>
 
 // dang ky tuyen dung job
 export const post_register_candidates = (user) =>
-  instance.post("/candidates", user);
+  instance_formdata.post("/candidates", user);
 
 export const get_training_page = () =>
   instance.get("/static_pages/training_detail");
 
 // su-kien-thuong-ky
-export const get_detal_page_tranning = (id) => instance.get(`/posts/${id}`);
+export const get_detal_page_tranning = () =>
+  instance.get(`/static_pages/event_detail`);
 
 // danh sach tin tuc
 export const get_list_news = (page) => instance.get(`/posts/news?page=${page}`);
@@ -79,4 +88,4 @@ export const get_list_news = (page) => instance.get(`/posts/news?page=${page}`);
 export const get_job_concerning = () =>
   instance.get("/recruitments/job_concerning");
 
-export const get_text_job = (id) => instance.get(`/recruitments/${id}`);
+export const get_text_job = (slug) => instance.get(`/articles/${slug}`);

@@ -3,7 +3,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import Menu from "../../../src/components/menu";
 import Footer from "../../../src/components/footer";
 import { TextField } from "@mui/material";
-import { Day, Month, Year } from "../../../src/config";
+import { Day, Month, phoneRegExp, Year } from "../../../src/config";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useState } from "react";
@@ -13,7 +13,15 @@ const UngVienTiemNang = () => {
   function onChange(value) {
     console.log("Captcha value:", value);
   }
+
   const [isShow, setShow] = useState(false);
+  const handleSubmit_ = (data) => {
+    const formData = new FormData();
+    for (const value in data) {
+      console.log("Abc", formData.append(value, data[value]));
+    }
+    console.log(formData);
+  };
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -33,24 +41,46 @@ const UngVienTiemNang = () => {
         .email("Sai định dạng Email")
         .required("Không được bỏ trống"),
       name: Yup.string().required("Không được bỏ trống"),
-      phone: Yup.string().required("Không được bỏ trống"),
+      phone: Yup.string()
+        .matches(phoneRegExp, "Số điện thoại không đúng định dạng")
+        .required("Không được bỏ trống"),
 
       file: Yup.mixed().required("Không được bỏ trống"),
     }),
     validateOnChange: false,
     validateOnBlur: false,
     onSubmit: async (values) => {
-      values.birthday = await (values.day +
-        "/" +
-        values.month +
-        "/" +
-        values.year);
-      await post_register_candidates(values)
-        .then((res) => setShow(true))
+      const formData = new FormData();
+      values.birthday = `${values.day}/${values.month}/${values.year}`;
+      for (let value in values) {
+        formData.append(value, values[value]);
+      }
+
+      await post_register_candidates(formData)
+        .then((res) => {
+          setShow(true);
+          console.log(res.data);
+        })
         .catch((err) => console.log(err));
     },
   });
+
   const { setFieldValue } = formik;
+
+  const handleReset = () => {
+    setFieldValue("name", "");
+    setFieldValue("email", "");
+    setFieldValue("birthday", "");
+    setFieldValue("month", "");
+    setFieldValue("year", "");
+    setFieldValue("day", "");
+    setFieldValue("phone", "");
+    setFieldValue("file", "");
+    setFieldValue("link", "");
+    setFieldValue("content", "");
+    setFieldValue("title", "");
+  };
+
   return (
     <>
       <Head>
@@ -65,9 +95,10 @@ const UngVienTiemNang = () => {
         />
       )}
       <Menu />
-      <form onSubmit={formik.handleSubmit}>
+      <form onSubmit={formik.handleSubmit} enctype="multipart/form-data">
         <div className="box-form">
           <h2 className="text-center title-page">Đăng ký ứng viên tiềm năng</h2>
+          <div className="mr-20"></div>
           <TextField
             label="Tên đầy đủ"
             type="text"
@@ -75,7 +106,7 @@ const UngVienTiemNang = () => {
             fullWidth
             name="name"
             id="standard-error-helper-text"
-            error={formik.errors.email  ? true : false}
+            error={formik.errors.email && formik.touched.email ? true : false}
             onChange={formik.handleChange}
             value={formik.values.name}
             helperText={formik.errors.name}
@@ -86,7 +117,7 @@ const UngVienTiemNang = () => {
             </div>
             <div className="item">
               <select
-                class="form-select form-select-custom"
+                className="form-select form-select-custom"
                 defaultValue="Ngày"
                 name="day"
                 onChange={formik.handleChange}
@@ -109,7 +140,7 @@ const UngVienTiemNang = () => {
 
             <div className="item">
               <select
-                class="form-select form-select-custom"
+                className="form-select form-select-custom"
                 defaultValue="Tháng"
                 name="month"
                 onChange={formik.handleChange}
@@ -131,7 +162,7 @@ const UngVienTiemNang = () => {
             </div>
             <div className="item">
               <select
-                class="form-select form-select-custom"
+                className="form-select form-select-custom"
                 defaultValue="Năm"
                 name="year"
                 onChange={formik.handleChange}
@@ -160,9 +191,7 @@ const UngVienTiemNang = () => {
                 name="email"
                 variant="standard"
                 id="standard-error-helper-text"
-                error={
-                  formik.errors.email  ? true : false
-                }
+                error={formik.errors.email ? true : false}
                 onChange={formik.handleChange}
                 value={formik.values.email}
                 fullWidth
@@ -178,9 +207,7 @@ const UngVienTiemNang = () => {
                 type="text"
                 name="phone"
                 variant="standard"
-                error={
-                  formik.errors.phone ? true : false
-                }
+                error={formik.errors.phone ? true : false}
                 onChange={formik.handleChange}
                 value={formik.values.phone}
                 fullWidth
@@ -189,27 +216,25 @@ const UngVienTiemNang = () => {
             </div>
           </div>
 
-          <div className="mr-20" />
-          <div className="mr-20" />
+          <div className="mr-60" />
+
           <div className="box-PostCV">
             <div className="PostCV-Left">
               <h6
                 className={
-                  formik.errors.file 
-                    ? "CV-text text-error"
-                    : "CV-test"
+                  formik.errors.file ? "CV-text text-error" : "CV-test"
                 }
               >
                 CV
               </h6>
               <h6
                 className={
-                  formik.errors.file 
+                  formik.errors.file
                     ? "CV-text-comment text-error"
                     : "CV-text-comment"
                 }
               >
-               {formik.values.file?.name
+                {formik.values.file?.name
                   ? formik.values.file?.name
                   : formik.errors.file
                   ? formik.errors.file
@@ -268,7 +293,7 @@ const UngVienTiemNang = () => {
               <ReCAPTCHA sitekey="Your client site key" onChange={onChange} />
             </div>
             <div className="birtday-right">
-              <button className="btn btn-cancel" type="reset">
+              <button className="btn btn-cancel" type="reset" onClick={handleReset}>
                 <span className="btn-text">Hủy</span>
               </button>
               <button className="btn btn-submit" type="submit">
@@ -407,6 +432,9 @@ const UngVienTiemNang = () => {
         }
         .mr-20 {
           margin-top: 20px;
+        }
+        .mr-60 {
+          margin-top: 60px;
         }
         .mr-20-block {
           margin-top: 0px;

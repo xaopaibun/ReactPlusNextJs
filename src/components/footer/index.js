@@ -134,7 +134,7 @@ const Footer = () => {
           display: block;
           height: 30px;
           font-size: 13px;
-          margin: 7px 0;
+          margin: 9.5px 0;
           line-height: 20px;
           letter-spacing: -0.02em;
           color: #000000;
