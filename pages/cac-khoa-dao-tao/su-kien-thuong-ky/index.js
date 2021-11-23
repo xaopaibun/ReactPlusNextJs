@@ -13,7 +13,7 @@ import SlideItem from "../../../src/components/common/slideitem/SlideItem";
 const RegularEvent = ({ data }) => {
   const router = useRouter();
   const handleRegistration = () =>
-    router.push("/cac-khoa-dao-tao/form-mam-non-react");
+    router.push("/cac-khoa-dao-tao/form-tham-gia-su-kien");
   return (
     <>
       <Head>
@@ -37,33 +37,37 @@ const RegularEvent = ({ data }) => {
 
       <div className="container center-content">
         <div className="box-icont">
+          <a
+            className="icont"
+            target="_blank"
+            href={`https://www.facebook.com/sharer.php?u=http://103.237.145.33:5000/cac-khoa-dao-tao/su-kien-thuong-ky`}
+          >
+            <img src="/assets/icon/fb-black.png" />
+          </a>
           <div className="icont">
-            <img src="../assets/icon/fb-black.png" />
+            <img src="/assets/icon/in-black.png" />
           </div>
           <div className="icont">
-            <img src="../assets/icon/in-black.png" />
-          </div>
-          <div className="icont">
-            <img src="../assets/icon/dinh-kem.png" />
+            <img src="/assets/icon/dinh-kem.png" />
           </div>
         </div>
         <div className="box-content">
           <div className="address">
             <span className="address-text">
               <img src="../assets/icon/dinhvi-blue.png" className="img-icont" />
-              {data.data_detal_page_tranning.address}
+              {data.data_detal_page_tranning?.address}
             </span>
             <span className="address-text">
               <img src="../assets/icon/time.png" className="img-icont" />
-              {data.data_detal_page_tranning.start_date_string} -{" "}
-              {data.data_detal_page_tranning.to_date_string}
+              {data.data_detal_page_tranning?.start_date_string} -{" "}
+              {data.data_detal_page_tranning?.to_date_string}
             </span>
           </div>
-          <h2 className="title-page">{data.data_detal_page_tranning.title}</h2>
+          <h2 className="title-page">{data.data_detal_page_tranning?.title}</h2>
           <img
             class="img_content"
             width="100%"
-            src={`${URL}${data.data_detal_page_tranning.cover_image.url}`}
+            src={`${URL}${data.data_detal_page_tranning?.cover_image.url}`}
           />
           <h3 className="title">Nội dung sự kiện</h3>
           <div
@@ -232,7 +236,7 @@ const RegularEvent = ({ data }) => {
         .title-page {
           font-weight: 600;
           font-size: 28px;
-          line-height: 28px;
+          line-height: 42px;
           color: #25282b;
           margin: 20px 0;
         }

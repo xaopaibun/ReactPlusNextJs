@@ -377,7 +377,10 @@ const IntroduceReact = ({ data }) => {
             width: 100%;
           }
           .introduce__right {
-            margin: auto;
+            margin: 20px auto 0 auto;
+          }
+          .box-introduce-react-content {
+            padding-top: 16px;
           }
           .flex {
             display: block;
@@ -387,7 +390,7 @@ const IntroduceReact = ({ data }) => {
             margin: 20px 0;
           }
           .btnmorefull {
-            margin: 10px auto;
+            margin: 16px auto;
             display: block;
           }
           .question-title {
@@ -397,6 +400,23 @@ const IntroduceReact = ({ data }) => {
           .introduce-item {
             height: auto;
             display: block;
+            margin-bottom: 24px;
+          }
+          .introduce-item-reverse {
+            margin-bottom: 3px;
+          }
+          .box-frequently-asked-questions {
+            padding-top: 22px;
+            background: linear-gradient(
+              180deg,
+              #f4f6fa 0%,
+              rgba(244, 246, 250, 0) 83.85%
+            );
+          }
+          .asked-questions-left-title {
+            font-size: 20px;
+            line-height: 30px;
+            text-align: center;
           }
           .item-image {
             height: auto;
@@ -409,6 +429,7 @@ const IntroduceReact = ({ data }) => {
           .item-content-title {
             font-size: 20px;
             margin-top: 20px;
+            line-height: 30px;
           }
           .asked-questions-left > img {
             margin: 0 auto;
@@ -423,6 +444,12 @@ const IntroduceReact = ({ data }) => {
           .introduce-item-reverse-reponsive {
             height: auto;
             display: block;
+            margin-bottom: 3px;
+          }
+          .introduce__left h1 {
+            font-size: 22px;
+            margin-top: 16px;
+            line-height: 33px;
           }
         }
       `}</style>

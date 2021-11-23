@@ -3,6 +3,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { Modal } from "react-bootstrap";
 import { post_document_users } from "../../../services/api";
+import { phoneRegExp } from "../../../config";
 const PopupDownloadDocuments = (props) => {
   const formik = useFormik({
     initialValues: {
@@ -15,13 +16,18 @@ const PopupDownloadDocuments = (props) => {
         .email("Sai định dạng Email")
         .required("Không được bỏ trống"),
       name: Yup.string().required("Không được bỏ trống"),
-      phone: Yup.string().required("Không được bỏ trống"),
+      phone: Yup.string()
+      .matches(phoneRegExp, "Số điện thoại không đúng định dạng")
+      .required("Không được bỏ trống"),
     }),
+    validateOnChange: false,
+    validateOnBlur: false,
     onSubmit: async (values) => {
       await post_document_users(values)
         .then((res) => {
-          window.location =
-            "https://drive.google.com/drive/folders/1BKiBKER7vLgz-CfgX_VEpNCsINp_nB5R?usp=sharing";
+          console.log(res.data);
+           window.location =
+             "https://drive.google.com/drive/folders/1BKiBKER7vLgz-CfgX_VEpNCsINp_nB5R?usp=sharing";
         })
         .catch((errors) => {
           alert("Lỗi request");
@@ -80,9 +86,7 @@ const PopupDownloadDocuments = (props) => {
                   onChange={formik.handleChange}
                   value={formik.values.name}
                   id="standard-error-helper-text"
-                  error={
-                    formik.errors.name ? true : false
-                  }
+                  error={formik.errors.name ? true : false}
                   helperText={formik.errors.name}
                 />
                 <div className="mr-20" />
@@ -95,9 +99,7 @@ const PopupDownloadDocuments = (props) => {
                   value={formik.values.email}
                   name="email"
                   id="standard-error-helper-text"
-                  error={
-                    formik.errors.email  ? true : false
-                  }
+                  error={formik.errors.email ? true : false}
                   helperText={formik.errors.email}
                 />
                 <div className="mr-20" />
@@ -110,9 +112,7 @@ const PopupDownloadDocuments = (props) => {
                   value={formik.values.phone}
                   name="phone"
                   id="standard-error-helper-text"
-                  error={
-                    formik.errors.phone  ? true : false
-                  }
+                  error={formik.errors.phone ? true : false}
                   helperText={formik.errors.phone}
                 />
                 <div className="mr-10" />

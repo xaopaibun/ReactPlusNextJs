@@ -3,17 +3,31 @@ import ReCAPTCHA from "react-google-recaptcha";
 import Menu from "../../../src/components/menu";
 import Footer from "../../../src/components/footer";
 import { TextField } from "@mui/material";
-import { Day, Month, Year } from "../../../src/config";
+import { Day, Month, phoneRegExp, Year } from "../../../src/config";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PopupThanks from "../../../src/components/common/popupthanks";
-import { post_register_candidates } from "../../../src/services/api";
+import {
+  get_text_job,
+  post_register_candidates,
+} from "../../../src/services/api";
+import { useRouter } from "next/router";
 const FormTuyenDung = () => {
   function onChange(value) {
     console.log("Captcha value:", value);
   }
+  const router = useRouter();
+  const { slug } = router.query;
   const [isShow, setShow] = useState(false);
+  const [title, settitle] = useState("");
+  useEffect(async () => {
+    if (slug) {
+      get_text_job(slug).then((res) => {
+        settitle(res.data.title);
+      });
+    }
+  }, [slug]);
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -32,7 +46,9 @@ const FormTuyenDung = () => {
         .email("Sai định dạng Email")
         .required("Không được bỏ trống"),
       name: Yup.string().required("Không được bỏ trống"),
-      phone: Yup.string().required("Không được bỏ trống"),
+      phone: Yup.string()
+        .matches(phoneRegExp, "Số điện thoại không đúng định dạng")
+        .required("Không được bỏ trống"),
 
       file: Yup.mixed().required("Không được bỏ trống"),
     }),
@@ -44,10 +60,11 @@ const FormTuyenDung = () => {
       for (let value in values) {
         formData.append(value, values[value]);
       }
+      formData.append("title", title);
       await post_register_candidates(formData)
         .then((res) => {
+          handleReset();
           setShow(true);
-          console.log(res.data);
         })
         .catch((err) => console.log(err));
     },
@@ -81,9 +98,9 @@ const FormTuyenDung = () => {
       <Menu />
       <form onSubmit={formik.handleSubmit}>
         <div className="box-form">
-          <h2 className="text-center title-page">Form tuyển dụng</h2>
+          <h2 className="text-center title-page">{title}</h2>
           <TextField
-            label="Tên đầy đủ"
+            label="Tên đầy đủ *"
             type="text"
             variant="standard"
             fullWidth
@@ -169,7 +186,7 @@ const FormTuyenDung = () => {
           <div className="birtday">
             <div className="from-email">
               <TextField
-                label="Email"
+                label="Email *"
                 type="email"
                 name="email"
                 variant="standard"
@@ -187,7 +204,7 @@ const FormTuyenDung = () => {
             <div className="mr-20"></div>
             <div className="from-email">
               <TextField
-                label="Số điện thoại"
+                label="Số điện thoại *"
                 id="standard-error-helper-text"
                 type="text"
                 name="phone"
@@ -305,6 +322,7 @@ const FormTuyenDung = () => {
           font-size: 32px;
           line-height: 28px;
           color: #25282b;
+          margin-bottom: 40px;
         }
         .txtform {
           border: none;

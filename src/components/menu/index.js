@@ -20,7 +20,7 @@ const Menu = ({ isColor }) => {
               <Link href="/">
                 <a>
                   <img
-                    src="../assets/images/LogoReactPlus.png"
+                    src="/assets/images/LogoReactPlus.png"
                     alt="Logo"
                     style={{ marginLeft: "-30px" }}
                   />
@@ -31,10 +31,10 @@ const Menu = ({ isColor }) => {
               <div className="menu-reponsive">
                 <div className="btn-menu" onClick={() => setIsClose(!isClose)}>
                   {!isClose ? (
-                    <img src="../assets/icon/menu-3.1.png" alt="Open" />
+                    <img src="/assets/icon/menu-3.1.png" alt="Open" />
                   ) : (
                     <img
-                      src="../assets/icon/X.png"
+                      src="/assets/icon/X.png"
                       width="24px"
                       height="24px"
                       alt="Close"
@@ -144,7 +144,7 @@ const Menu = ({ isColor }) => {
                       router.pathname ==
                         "/cac-khoa-dao-tao/su-kien-thuong-ky" ||
                       router.pathname ==
-                        "/cac-khoa-dao-tao/form-mam-non-react" ||
+                        "/cac-khoa-dao-tao/form-tham-gia-su-kien" ||
                       router.pathname == "/cac-khoa-dao-tao" ||
                       router.pathname ==
                         "/cac-khoa-dao-tao/dang-ky-tham-gia-khoa-hoc" ||
@@ -452,6 +452,8 @@ const Menu = ({ isColor }) => {
         @media screen and (max-width: 768px) {
           .box-menu {
             width: 100%;
+            height: 60px;
+            padding-top: 10px;
             background-color: #ffffff;
           }
 
@@ -499,6 +501,9 @@ const Menu = ({ isColor }) => {
             letter-spacing: -0.02em;
             margin: 6px 20px;
             color: #52575c;
+          }
+          .text-center {
+            text-align: right !important;
           }
         }
       `}</style>

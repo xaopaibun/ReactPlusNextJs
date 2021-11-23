@@ -9,7 +9,7 @@ import { useState } from "react";
 const Career = ({ data }) => {
   const router = useRouter();
   const [isLoadMore, setLoadMore] = useState(false);
-  const handleDetail = (slug) => router.push("/tuyen-dung/" + slug);
+  const handleDetail = (slug) => router.push("/tuyen-dung/chi-tiet-form/" + slug);
   const handleSubmit = () =>
     router.push("/cac-khoa-dao-tao/dang-ky-ung-vien-tiem-nang");
   return (
@@ -25,7 +25,7 @@ const Career = ({ data }) => {
           <div className="contact">
             <div className="contact-phone">
               <div className="contact-phone-icon">
-                <img src="./assets/icon/phone1.png" width={20} height={20} />
+                <img src="/assets/icon/phone1.png" width={20} height={20} />
               </div>
               <div className="contact-phone-hotline">
                 <p className="hotline">Hotline</p>
@@ -43,7 +43,7 @@ const Career = ({ data }) => {
             ></div>
             <div className="contact-phone">
               <div className="contact-phone-icon">
-                <img src="./assets/icon/mail1.png" width={20} height={20} />
+                <img src="/assets/icon/mail1.png" width={20} height={20} />
               </div>
               <div className="contact-phone-hotline">
                 <p className="hotline">Email</p>
@@ -85,7 +85,10 @@ const Career = ({ data }) => {
                       {val.title}
                     </div>
                     <div className="applied-position-item-bottom">
-                      <button className="btnmore" onClick={() => handleDetail(val.url_seo)}>
+                      <button
+                        className="btnmore"
+                        onClick={() => handleDetail(val.url_seo)}
+                      >
                         <span>Xem chi tiết </span>
                         <img
                           className="btnmore__icon"
@@ -119,7 +122,7 @@ const Career = ({ data }) => {
                       {val.title}
                     </div>
                     <div className="applied-position-item-bottom">
-                      <button className="btnmore" onClick={handleDetail}>
+                      <button className="btnmore" onClick={() => handleDetail(val.url_seo)}>
                         <span>Xem chi tiết </span>
                         <img
                           className="btnmore__icon"
@@ -212,7 +215,7 @@ const Career = ({ data }) => {
         .contact {
           color: #ffffff;
           display: flex;
-          width: 100%;
+          width: 78%;
           height: 46px;
           justify-content: space-around;
           align-items: center;

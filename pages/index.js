@@ -991,6 +991,9 @@ font-size: 20px;
         .item__title{
           font-size: 14px;
         }
+        .box-inputemail {
+            margin: 56px 0 15px 0;
+        }  
       `}</style>
     </>
   );

@@ -90,7 +90,7 @@ const ViCongDong = ({ data }) => {
                   <h5 className="content-review-date">
                     {value.start_date} {value.to_date}
                   </h5>
-                  <Link href="">
+                  <Link href={`/tin-tuc/${value.url_seo}`}>
                     <a className="post-title">{value.title}</a>
                   </Link>
                 </div>

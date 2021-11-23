@@ -115,6 +115,7 @@ const VanHoa = ({ data }) => {
               >
                 <img
                   src={`${URL}${val.image.url}`}
+                  style={{ objectFit: "cover" }}
                   height={"100%"}
                   width={"100%"}
                   alt="img"
@@ -134,14 +135,14 @@ const VanHoa = ({ data }) => {
               <div className="Office-Images-Left-Top">
                 <div className="Office-Images-Left-Top-IMG1">
                   <img
-                    src="./assets/images/img20.png"
+                    src="/assets/images/img20.png"
                     height={"100%"}
                     width={"100%"}
                   />
                 </div>
                 <div className="Office-Images-Left-Top-IMG2">
                   <img
-                    src="./assets/images/img21.png"
+                    src="/assets/images/img21.png"
                     height={"100%"}
                     width={"100%"}
                   />
@@ -150,14 +151,14 @@ const VanHoa = ({ data }) => {
               <div className="Office-Images-Left-Bottom">
                 <div className="Office-Images-Left-Bottom-IMG3">
                   <img
-                    src="./assets/images/img22.png"
+                    src="/assets/images/img22.png"
                     height={"100%"}
                     width={"100%"}
                   />
                 </div>
                 <div className="Office-Images-Left-Bottom-IMG4">
                   <img
-                    src="./assets/images/img23.png"
+                    src="/assets/images/img23.png"
                     height={"100%"}
                     width={"100%"}
                   />
@@ -166,7 +167,7 @@ const VanHoa = ({ data }) => {
             </div>
             <div className="Office-Images-Right">
               <img
-                src="./assets/images/img24.png"
+                src="/assets/images/img24.png"
                 height={"100%"}
                 width={"100%"}
               />
@@ -663,6 +664,7 @@ const VanHoa = ({ data }) => {
           .village-react-top {
             padding: 0 16px;
             width: 100%;
+            margin: 23px auto 34px auto;
           }
           .box-image {
             width: calc(100% / 6);
@@ -726,6 +728,7 @@ const VanHoa = ({ data }) => {
           }
           .village-react-text {
             font-size: 14px;
+            width: 100%;
           }
           .list-images {
             justify-content: space-between;
@@ -739,15 +742,31 @@ const VanHoa = ({ data }) => {
             width: auto;
             padding: 0 14px;
           }
-           {
-            /* .award-list {
+          .content:nth-child(2) {
+            margin-top: 37px;
+          }
+          .mr-110 {
+            margin-top: 0px;
+          }
+
+          .mr-70 {
+            margin-top: 0px;
+          }
+          .award-list {
+            padding: 0;
+          }
+          .Office-Content {
+            height: auto;
+            margin: 8px 0;
+            padding-top: 12px;
+          }
+          /* .award-list {
             flex-direction: column;
           }
           .award-item {
             width: 100%;
             margin: 20px 0;
           } */
-          }
         }
       `}</style>
     </>

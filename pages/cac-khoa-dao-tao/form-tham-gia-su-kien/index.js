@@ -6,10 +6,11 @@ import TextField from "@mui/material/TextField";
 import { makeStyles } from "@mui/styles";
 import { useFormik } from "formik";
 import PopupThanks from "../../../src/components/common/popupthanks";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import * as Yup from "yup";
 import { post_register_event } from "../../../src/services/api";
 import { Year } from "../../../src/config";
+import { get_detal_page_tranning } from "../../../src/services/api";
 const useStyles = makeStyles({
   input: {
     color: "#25282B",
@@ -19,6 +20,12 @@ const useStyles = makeStyles({
 const Form = () => {
   const classes = useStyles();
   const [isShow, setShow] = useState(false);
+  const [title, setTitle] = useState("");
+  useEffect(async () => {
+    const res = await get_detal_page_tranning();
+    const data = await res.data;
+    setTitle(data.title);
+  }, []);
   function onChange(value) {
     console.log("Captcha value:", value);
   }
@@ -28,7 +35,7 @@ const Form = () => {
       email: "",
       year: "",
       job: "",
-
+      title: "",
       source: "",
       question: "",
     },
@@ -43,8 +50,11 @@ const Form = () => {
     validateOnChange: false,
     validateOnBlur: false,
     onSubmit: async (values) => {
-      await post_register_event(values)
-        .then((res) => setShow(true))
+      post_register_event({ ...values, title: title })
+        .then((res) => {
+          setShow(true);
+          handleReset();
+        })
         .catch((err) => console.log(err));
     },
   });
@@ -75,9 +85,7 @@ const Form = () => {
         <form onSubmit={formik.handleSubmit}>
           <div className="box-form">
             <p className="text-center title-blue">Đăng ký tham gia sự kiện</p>
-            <h2 className="text-center title-page">
-              Khóa đào tạo mầm non React
-            </h2>
+            <h2 className="text-center title-page">{title}</h2>
             <div className="mr-30"></div>
             <div className="flex">
               <div className="width-50">
@@ -200,10 +208,14 @@ const Form = () => {
 
             <div className="flex">
               <div className="birtday-left">
-                <ReCAPTCHA sitekey="Your client site key" onChange={onChange} />
+                <ReCAPTCHA sitekey="6LeO3lIdAAAAAMc2acHqnxHYr41NB9cQK9HESnMG" onChange={onChange} />
               </div>
               <div className="birtday-right">
-                <button className="btn-cancel" type="button" onClick={handleReset}>
+                <button
+                  className="btn-cancel"
+                  type="button"
+                  onClick={handleReset}
+                >
                   <span className="btn-text">Hủy</span>
                 </button>
                 <button className="btn-submit" type="submit">
@@ -256,8 +268,8 @@ const Form = () => {
         }
         .title-page {
           font-weight: 600;
-          font-size: 32px;
-          line-height: 28px;
+          font-size: 30px;
+          line-height: 48px;
           color: #25282b;
         }
         .item {

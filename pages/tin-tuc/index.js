@@ -25,9 +25,12 @@ const News = ({ data_news_blog }) => {
         />
         <div className="content-review">
           <div className="center">
-            <h5 className="content-review-date">01/10/2021 - 28/11/2021</h5>
+            <h5 className="content-review-date">
+              {data_news_blog?.news[0]?.start_date} -{" "}
+              {data_news_blog?.news[0]?.to_date}
+            </h5>
             <h2 className="content-review-title">
-              Talkshow: Ứng dụng React trong ABC giúp cho BCD{" "}
+              {data_news_blog?.news[0]?.title}
             </h2>
           </div>
         </div>

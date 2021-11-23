@@ -6,7 +6,7 @@ const Footer = () => {
         <div className="footer">
           <div className="footer_itemlogo">
             <img
-              src="../assets/images/LogoReactPlus.png"
+              src="/assets/images/LogoReactPlus.png"
               width="89px"
               height="46px"
               alt="Logo"
@@ -45,7 +45,7 @@ const Footer = () => {
               <p className="item__title">Liên hệ</p>
               <a tel={"0349177306"}>
                 <img
-                  src="../assets/icon/phone.png"
+                  src="/assets/icon/phone.png"
                   style={{ marginRight: "5px" }}
                   width="13.33px"
                   height="13.33px"
@@ -55,7 +55,7 @@ const Footer = () => {
               </a>
               <a href="#">
                 <img
-                  src="../assets/icon/mail.png"
+                  src="/assets/icon/mail.png"
                   style={{ marginRight: "5px" }}
                   width="16px"
                   height="13.33px"
@@ -69,7 +69,7 @@ const Footer = () => {
               <div className="connect">
                 <a href="https://www.facebook.com/reactplus.jsc">
                   <img
-                    src="../assets/icon/facebook.png"
+                    src="/assets/icon/facebook.png"
                     style={{ marginRight: "5px" }}
                     width="32.24px"
                     height="32.24px"
@@ -78,7 +78,7 @@ const Footer = () => {
                 </a>
                 <a href="#">
                   <img
-                    src="../assets/icon/Instagram.png"
+                    src="/assets/icon/Instagram.png"
                     style={{ marginRight: "5px" }}
                     width="32.24px"
                     height="32.24px"
@@ -87,7 +87,7 @@ const Footer = () => {
                 </a>
                 <a href="#">
                   <img
-                    src="../assets/icon/youtube.png"
+                    src="/assets/icon/youtube.png"
                     style={{ marginRight: "5px" }}
                     width="32.24px"
                     height="32.24px"
@@ -183,13 +183,15 @@ const Footer = () => {
             width: 100%;
           }
           .footer_itemlogo p {
-            margin: 10px 0;
+            margin: 14px 0;
           }
           .footer_itemlogo p br {
             display: block;
           }
           .footer_item a {
             font-size: 12.23px;
+            line-height: 16px;
+            margin: 5px 0;
           }
           .footer-right {
             flex-wrap: wrap;
@@ -199,6 +201,13 @@ const Footer = () => {
             width: 50%;
             margin: 10px 0;
           }
+          .footer_item:nth-child(4) {
+            align-items: flex-start;
+          }
+          .footer_item .connect {
+            margin: 0;
+          }
+          
         }
       `}</style>
     </>

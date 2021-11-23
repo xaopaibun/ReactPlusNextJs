@@ -59,6 +59,7 @@ const UngVienTiemNang = () => {
       await post_register_candidates(formData)
         .then((res) => {
           setShow(true);
+          handleReset();
           console.log(res.data);
         })
         .catch((err) => console.log(err));
@@ -95,12 +96,12 @@ const UngVienTiemNang = () => {
         />
       )}
       <Menu />
-      <form onSubmit={formik.handleSubmit} enctype="multipart/form-data">
+      <form onSubmit={formik.handleSubmit} encType="multipart/form-data">
         <div className="box-form">
           <h2 className="text-center title-page">Đăng ký ứng viên tiềm năng</h2>
           <div className="mr-20"></div>
           <TextField
-            label="Tên đầy đủ"
+            label="Tên đầy đủ *"
             type="text"
             variant="standard"
             fullWidth
@@ -186,7 +187,7 @@ const UngVienTiemNang = () => {
           <div className="birtday">
             <div className="from-email">
               <TextField
-                label="Email"
+                label="Email *"
                 type="email"
                 name="email"
                 variant="standard"
@@ -202,7 +203,7 @@ const UngVienTiemNang = () => {
             <div className="mr-20"></div>
             <div className="from-email">
               <TextField
-                label="Số điện thoại"
+                label="Số điện thoại *"
                 id="standard-error-helper-text"
                 type="text"
                 name="phone"

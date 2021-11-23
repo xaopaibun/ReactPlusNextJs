@@ -5,12 +5,11 @@ import Footer from "../../../src/components/footer";
 import TextField from "@mui/material/TextField";
 import { makeStyles } from "@mui/styles";
 import * as Yup from "yup";
-import DateTimePicker from "react-datetime-picker/dist/entry.nostyle";
 import { Field, useFormik, FormikProvider } from "formik";
 import PopupThanks from "../../../src/components/common/popupthanks";
 import { useState } from "react";
 import { post_register_course } from "../../../src/services/api";
-import { Day, Month, Year } from "../../../src/config";
+import { Day, Month, phoneRegExp, Year } from "../../../src/config";
 const language = ["Tiếng Anh", "Tiếng Nhật", "Ngôn ngữ khác"];
 const sex = ["Nam", "Nữ", "Khác"];
 const programming_language = [
@@ -60,7 +59,9 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
         .required("Không được bỏ trống"),
       birthday: Yup.string().required("Không được bỏ trống"),
       name: Yup.string().required("Không được bỏ trống"),
-      phone: Yup.string().required("Không được bỏ trống"),
+      phone: Yup.string()
+        .matches(phoneRegExp, "Số điện thoại không đúng định dạng")
+        .required("Không được bỏ trống"),
       where_learn: Yup.string().required("Không được bỏ trống"),
       file: Yup.mixed().required("Không được bỏ trống"),
     }),
@@ -79,6 +80,7 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
       post_register_course(formData)
         .then((res) => {
           console.log(res.data);
+          handleReset();
           setShow(true);
         })
         .then((err) => console.log(err));
@@ -172,9 +174,9 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
                     name="day"
                     onChange={formik.handleChange}
                     value={formik.values.day}
-                    defaultValue="Ngày"
+                   
                   >
-                    <option value="Ngày" disabled>
+                    <option value="Ngày" selected>
                       Ngày
                     </option>
                     {Day.map((value) => (
@@ -195,11 +197,11 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
                   <select
                     className="form-select form-select-custom"
                     name="month"
-                    defaultValue="Tháng"
+                   
                     onChange={formik.handleChange}
                     value={formik.values.month}
                   >
-                    <option value="Tháng" disabled>
+                    <option value="Tháng" selected>
                       Tháng
                     </option>
                     {Month.map((value) => (
@@ -219,11 +221,11 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
                   <select
                     className="form-select form-select-custom"
                     name="year"
-                    defaultValue="Năm"
+                    
                     onChange={formik.handleChange}
                     value={formik.values.year}
                   >
-                    <option value="Năm" disabled>
+                    <option value="Năm" selected>
                       Năm
                     </option>
                     {Year.map((value) => (
@@ -399,7 +401,7 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
               <div className="flex">
                 <div className="birtday-left">
                   <ReCAPTCHA
-                    sitekey="Your client site key"
+                    sitekey="6LeO3lIdAAAAAKwOss9ull09gDJg3Riud3WmSpNP"
                     onChange={onChange}
                   />
                 </div>

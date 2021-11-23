@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import Menu from "../../../src/components/menu";
 import Footer from "../../../src/components/footer";
 import { useRouter } from "next/router";
@@ -8,8 +9,10 @@ const CareerDetal = () => {
   const [data, setdata] = useState([]);
   const router = useRouter();
   const { slug } = router.query;
-  const handleSubmit = () => router.push("/tuyen-dung/form-tuyen-dung");
-
+  const handleSubmit = (slug) =>
+    router.push(`/tuyen-dung/form-tuyen-dung/${slug}`);
+  const handleTiemNang = () =>
+    router.push("/cac-khoa-dao-tao/dang-ky-ung-vien-tiem-nang");
   useEffect(async () => {
     if (slug) {
       const [_get_text_job, _get_job_concerning] = await Promise.all([
@@ -38,7 +41,7 @@ const CareerDetal = () => {
           <div className="contact">
             <div className="contact-phone">
               <div className="contact-phone-icon">
-                <img src="../assets/icon/phone1.png" width={20} height={20} />
+                <img src="/assets/icon/phone1.png" width={20} height={20} />
               </div>
               <div className="contact-phone-hotline">
                 <p className="hotline">Hotline</p>
@@ -55,7 +58,7 @@ const CareerDetal = () => {
             ></div>
             <div className="contact-phone">
               <div className="contact-phone-icon">
-                <img src="../assets/icon/mail1.png" width={20} height={20} />
+                <img src="/assets/icon/mail1.png" width={20} height={20} />
               </div>
               <div className="contact-phone-hotline">
                 <p className="hotline">Email</p>
@@ -63,7 +66,7 @@ const CareerDetal = () => {
               </div>
             </div>
           </div>
-          <button className="btnRegister" onClick={handleSubmit}>
+          <button className="btnRegister" onClick={handleTiemNang}>
             Đăng ký ứng viên tiềm năng
           </button>
         </div>
@@ -73,7 +76,7 @@ const CareerDetal = () => {
         <div className="box-back">
           <div className="btn-back">
             <img
-              src="../assets/icon/arrow-sm-right4.png"
+              src="/assets/icon/arrow-sm-right4.png"
               width={24}
               height={24}
             />
@@ -85,14 +88,24 @@ const CareerDetal = () => {
           <div className="content-detail-left">
             <div className="applied-position-item-top">
               <span className="tinh">
-                <img src="../assets/icon/dinhvi.png" width={11} height={15} />{" "}
-                Hà Nội
+                <img src="/assets/icon/dinhvi.png" width={11} height={15} />{" "}
+                {data[0]?.address}
               </span>
-              <div className="full-time">Full-time</div>
+              {data[0]?.type_recruitment === "full_time" ? (
+                <div className="full-time">Full-time</div>
+              ) : (
+                <div className="part-time">Part-time</div>
+              )}
             </div>
 
-            <h1 className="title-detail">Chuyên viên chăm sóc khách hàng</h1>
-            <h3 className="list-title">Nội dung công việc</h3>
+            <h1 className="title-detail">{data[0]?.title}</h1>
+            <div
+              className="content"
+              dangerouslySetInnerHTML={{
+                __html: data[0]?.content,
+              }}
+            />
+            {/* <h3 className="list-title">Nội dung công việc</h3>
             <ul>
               <li className="list-item">
                 Lên kế hoạch truyền thông phù hợp yêu cầu xây dựng văn hóa doanh
@@ -187,42 +200,31 @@ const CareerDetal = () => {
                 Địa điểm: Tầng 7, Golden Filed Building, số 24 Nguyễn Cơ Thạch,
                 Nam Từ Liêm, Hà Nội.
               </li>
-            </ul>
-            <button className="btnJoin" onClick={handleSubmit}>
+            </ul> */}
+            <button className="btnJoin" onClick={() => handleSubmit(slug)}>
               <span>Ứng tuyển vị trí này</span>
             </button>
           </div>
 
           <div className="content-detail-right">
-            <button className="btnJoin" onClick={handleSubmit}>
+            <button className="btnJoin" onClick={() => handleSubmit(slug)}>
               <span>Ứng tuyển vị trí này</span>
             </button>
             <h3 className="list-title">Job liên quan</h3>
-            <div className="job-item">
-              <div className="border-blue " />
-              <div className="job-item-content">
-                <h4 className="job-item-text">
-                  Thực tập sinh lập trình React Native
-                </h4>
-                <h4 className="job-item-address"> Hà Nội </h4>
-              </div>
-            </div>
+            {data[1]?.map((val) => {
+              return (
+                <div className="job-item" key={val.id}>
+                  <div className="border-blue " />
+                  <div className="job-item-content">
+                    <Link href={`/tuyen-dung/chi-tiet-form/${val.url_seo}`}>
+                      <a className="job-item-text">{val.title}</a>
+                    </Link>
 
-            <div className="job-item">
-              <div className="border-blue " />
-              <div className="job-item-content">
-                <h4 className="job-item-text">Lập trình viên React</h4>
-                <h4 className="job-item-address"> Hà Nội </h4>
-              </div>
-            </div>
-
-            <div className="job-item">
-              <div className="border-blue " />
-              <div className="job-item-content">
-                <h4 className="job-item-text">Lập trình React Native</h4>
-                <h4 className="job-item-address"> Hà Nội </h4>
-              </div>
-            </div>
+                    <h4 className="job-item-address"> {val.address} </h4>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -239,7 +241,7 @@ const CareerDetal = () => {
         .contact {
           color: #ffffff;
           display: flex;
-          width: 100%;
+          width: 78%;
           height: 46px;
           justify-content: space-around;
           align-items: center;
@@ -302,6 +304,9 @@ const CareerDetal = () => {
           text-align: center;
           color: #ffffff;
         }
+        .content {
+          margin: 30px 0;
+        }
         .btnRegister:hover {
           transition: 0.3s;
           background: rgba(255, 255, 255, 0.1);
@@ -329,11 +334,13 @@ const CareerDetal = () => {
           width: 100%;
           height: auto;
           display: flex;
+          margin-top: 10px;
+          margin-bottom: 50px;
         }
         .content-detail-left {
           border-top: 1px solid #ebebeb;
-          margin: 20px 0;
-          padding: 30px 0;
+
+          padding: 33px 0;
           border-bottom: 1px solid #ebebeb;
           width: 75%;
         }
@@ -402,6 +409,7 @@ const CareerDetal = () => {
           font-size: 13px;
           line-height: 20px;
           color: #25282b;
+          text-decoration: none;
         }
         .job-item-address {
           font-size: 13px;
@@ -410,7 +418,7 @@ const CareerDetal = () => {
         }
         .applied-position-item-top {
           width: 300px;
-          margin-bottom: 15px;
+          margin-bottom: 28px;
           display: flex;
           justify-content: space-between;
           align-items: center;
@@ -426,7 +434,18 @@ const CareerDetal = () => {
           line-height: 21px;
           color: #8c97ac;
         }
-
+        .part-time {
+          background: rgba(245, 166, 35, 0.148721);
+          border-radius: 5px;
+          width: 76px;
+          height: 30px;
+          font-size: 13px;
+          line-height: 16px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: #f5a623;
+        }
         .full-time {
           background: rgba(15, 188, 73, 0.1);
           border-radius: 5px;
