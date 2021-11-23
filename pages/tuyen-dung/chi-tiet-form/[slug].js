@@ -35,7 +35,7 @@ const CareerDetal = () => {
       </Head>
 
       <div className="header">
-        <Menu isColor={true} />
+        <Menu isColor={true} slug={slug} />
         <div className="header-center">
           <h3 className="title-career">React Plus Career</h3>
           <div className="contact">

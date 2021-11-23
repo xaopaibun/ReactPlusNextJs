@@ -269,7 +269,7 @@ const ViCongDong = ({ data }) => {
           }
           .post-item {
             margin-right: 12px;
-            width: auto;
+            width: 100%;
           }
           .border-reponsive {
             display: block;

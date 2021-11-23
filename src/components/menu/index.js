@@ -120,8 +120,10 @@ const Menu = ({ isColor }) => {
                   <div
                     className={
                       router.pathname == "/tuyen-dung" ||
-                      router.pathname == "/tuyen-dung/chi-tiet-tuyen-dung" ||
-                      router.pathname == "/tuyen-dung/form-tuyen-dung"
+                      router.pathname ==
+                        "/tuyen-dung/dang-ky-ung-vien-tiem-nang" ||
+                      router.pathname === `/tuyen-dung/chi-tiet-form/[slug]` ||
+                      router.pathname === `/tuyen-dung/form-tuyen-dung/[slug]`
                         ? "active"
                         : ""
                     }
@@ -141,25 +143,23 @@ const Menu = ({ isColor }) => {
                   </a>
                   <div
                     className={
+                      router.pathname == "/dao-tao-su-kien/su-kien-thuong-ky" ||
                       router.pathname ==
-                        "/cac-khoa-dao-tao/su-kien-thuong-ky" ||
+                        "/dao-tao-su-kien/form-tham-gia-su-kien" ||
+                      router.pathname == "/dao-tao-su-kien/cac-khoa-dao-tao" ||
                       router.pathname ==
-                        "/cac-khoa-dao-tao/form-tham-gia-su-kien" ||
-                      router.pathname == "/cac-khoa-dao-tao" ||
-                      router.pathname ==
-                        "/cac-khoa-dao-tao/dang-ky-tham-gia-khoa-hoc" ||
-                      router.pathname ==
-                        "/cac-khoa-dao-tao/dang-ky-ung-vien-tiem-nang"
+                        "/dao-tao-su-kien/dang-ky-tham-gia-khoa-hoc"
                         ? "active"
                         : ""
                     }
                   />
                   <div className="drop-down">
                     <div className="box-center2">
-                      <Link href="/cac-khoa-dao-tao">
+                      <Link href="/dao-tao-su-kien/cac-khoa-dao-tao">
                         <a
                           className={
-                            router.pathname == "/cac-khoa-dao-tao"
+                            router.pathname ==
+                            "/dao-tao-su-kien/cac-khoa-dao-tao"
                               ? "active_while"
                               : ""
                           }
@@ -168,11 +168,11 @@ const Menu = ({ isColor }) => {
                         </a>
                       </Link>
 
-                      <Link href="/cac-khoa-dao-tao/su-kien-thuong-ky">
+                      <Link href="/dao-tao-su-kien/su-kien-thuong-ky">
                         <a
                           className={
                             router.pathname ==
-                            "/cac-khoa-dao-tao/su-kien-thuong-ky"
+                            "/dao-tao-su-kien/su-kien-thuong-ky"
                               ? "active_while"
                               : ""
                           }
@@ -204,7 +204,8 @@ const Menu = ({ isColor }) => {
                     className={
                       router.pathname == "/tin-tuc" ||
                       router.pathname == "/tin-tuc/danh-sach-tin-tuc" ||
-                      router.pathname == "/tin-tuc/danh-sach-blog"
+                      router.pathname == "/tin-tuc/danh-sach-blog" ||
+                      router.pathname == "/tin-tuc/[slug]"
                         ? "active"
                         : ""
                     }
@@ -257,7 +258,9 @@ const Menu = ({ isColor }) => {
           <a
             className={
               router.pathname == "/tuyen-dung" ||
-              router.pathname == "/tuyen-dung/form-tuyen-dung"
+              router.pathname == "/tuyen-dung/dang-ky-ung-vien-tiem-nang" ||
+              router.pathname === `/tuyen-dung/chi-tiet-form/[slug]` ||
+              router.pathname === `/tuyen-dung/form-tuyen-dung/[slug]`
                 ? "menu-reponsive-item menu-reponsive-item-active"
                 : "menu-reponsive-item"
             }
@@ -267,18 +270,20 @@ const Menu = ({ isColor }) => {
         </Link>
         <a
           className={
-            router.pathname == "/cac-khoa-dao-tao/su-kien-thuong-ky" ||
-            router.pathname == "/cac-khoa-dao-tao"
+            router.pathname == "/dao-tao-su-kien/su-kien-thuong-ky" ||
+            router.pathname == "/dao-tao-su-kien/form-tham-gia-su-kien" ||
+            router.pathname == "/dao-tao-su-kien/cac-khoa-dao-tao" ||
+            router.pathname == "/dao-tao-su-kien/dang-ky-tham-gia-khoa-hoc"
               ? "menu-reponsive-item menu-reponsive-item-active"
               : "menu-reponsive-item"
           }
         >
           Đào tạo & Sự kiện
         </a>
-        <Link href="/cac-khoa-dao-tao">
+        <Link href="/dao-tao-su-kien/cac-khoa-dao-tao">
           <a className="menu-reponsive-item-category">Các khoá đào tạo</a>
         </Link>
-        <Link href="/cac-khoa-dao-tao/su-kien-thuong-ky">
+        <Link href="/dao-tao-su-kien/su-kien-thuong-ky">
           <a className="menu-reponsive-item-category">Sự kiện thường kỳ</a>
         </Link>
         <Link href="/vi-cong-dong">
@@ -296,7 +301,9 @@ const Menu = ({ isColor }) => {
           <a
             className={
               router.pathname == "/tin-tuc" ||
-              router.pathname == "/tin-tuc/danh-sach-tin-tuc"
+              router.pathname == "/tin-tuc/danh-sach-tin-tuc" ||
+              router.pathname == "/tin-tuc/danh-sach-blog" ||
+              router.pathname == "/tin-tuc/[slug]"
                 ? "menu-reponsive-item menu-reponsive-item-active"
                 : "menu-reponsive-item"
             }

@@ -11,7 +11,7 @@ const Career = ({ data }) => {
   const [isLoadMore, setLoadMore] = useState(false);
   const handleDetail = (slug) => router.push("/tuyen-dung/chi-tiet-form/" + slug);
   const handleSubmit = () =>
-    router.push("/cac-khoa-dao-tao/dang-ky-ung-vien-tiem-nang");
+    router.push("/tuyen-dung/dang-ky-ung-vien-tiem-nang");
   return (
     <>
       <Head>

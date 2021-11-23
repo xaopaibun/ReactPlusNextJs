@@ -95,7 +95,7 @@ const FormTuyenDung = () => {
           content1="React Plus sẽ liên hệ với bạn khi có vị trí phù hợp"
         />
       )}
-      <Menu />
+      <Menu slug={slug} />
       <form onSubmit={formik.handleSubmit}>
         <div className="box-form">
           <h2 className="text-center title-page">{title}</h2>

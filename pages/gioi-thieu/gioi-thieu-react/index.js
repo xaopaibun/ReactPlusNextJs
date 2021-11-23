@@ -146,7 +146,7 @@ const IntroduceReact = ({ data }) => {
               </h2>
               <button
                 className="btnmorefull"
-                onClick={() => router.push("/cac-khoa-dao-tao")}
+                onClick={() => router.push("/dao-tao-su-kien/cac-khoa-dao-tao")}
               >
                 <span>Tìm hiểu khóa học React miễn phí</span>
                 <img

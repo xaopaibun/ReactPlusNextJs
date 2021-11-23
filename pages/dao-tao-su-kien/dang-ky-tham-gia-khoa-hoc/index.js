@@ -57,7 +57,9 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
       email: Yup.string()
         .email("Sai định dạng Email")
         .required("Không được bỏ trống"),
-      birthday: Yup.string().required("Không được bỏ trống"),
+      day: Yup.string().required("Day không được bỏ trống"),
+      month: Yup.string().required("Tháng không được bỏ trống"),
+      year: Yup.string().required("Năm không được bỏ trống"),
       name: Yup.string().required("Không được bỏ trống"),
       phone: Yup.string()
         .matches(phoneRegExp, "Số điện thoại không đúng định dạng")
@@ -70,23 +72,26 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
     onSubmit: (values) => {
       const formData = new FormData();
       values.birthday = `${values.day}/${values.month}/${values.year}`;
-      values.program_language = values.program_language.toString();
-      values.language = values.language.toString();
+      if (values.program_language != "") {
+        values.program_language = values.program_language?.toString();
+      }
+      if (values.language != "") {
+        values.language = values.language?.toString();
+      }
 
       for (let value in values) {
         formData.append(value, values[value]);
       }
-
+      formData.append("title", "Đăng ký tham gia khóa học");
       post_register_course(formData)
         .then((res) => {
-          console.log(res.data);
           handleReset();
           setShow(true);
         })
         .then((err) => console.log(err));
     },
   });
-  const { setFieldValue } = formik;
+  const { setFieldValue, handleSubmit } = formik;
   const handleReset = () => {
     setFieldValue("name", "");
     setFieldValue("email", "");
@@ -94,6 +99,7 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
     setFieldValue("month", "");
     setFieldValue("year", "");
     setFieldValue("day", "");
+    setFieldValue("sex", "");
     setFieldValue("phone", "");
     setFieldValue("file", "");
     setFieldValue("where_learn", "");
@@ -174,7 +180,6 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
                     name="day"
                     onChange={formik.handleChange}
                     value={formik.values.day}
-                   
                   >
                     <option value="Ngày" selected>
                       Ngày
@@ -197,7 +202,6 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
                   <select
                     className="form-select form-select-custom"
                     name="month"
-                   
                     onChange={formik.handleChange}
                     value={formik.values.month}
                   >
@@ -221,7 +225,6 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
                   <select
                     className="form-select form-select-custom"
                     name="year"
-                    
                     onChange={formik.handleChange}
                     value={formik.values.year}
                   >
@@ -242,6 +245,9 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
                   />
                 </div>
               </div>{" "}
+              <p className="text-error">
+                {formik.errors.day || formik.errors.month || formik.errors.year}
+              </p>
               <div className="mr-30"></div>
               <div className="flex">
                 <div className="width-50">
@@ -688,8 +694,12 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
         }
         .text-error {
           color: #d32f2f;
+          font-size: 13px;
         }
         @media screen and (max-width: 768px) {
+          .content-title {
+            width: 100%;
+          }
           .box-PostCV {
             width: 100%;
             padding: 12px 16px;

@@ -23,9 +23,9 @@ export default function Home({ data }) {
   const router = useRouter();
   const [isShow, setShow] = useState(false);
   const [isShow2, setShow2] = useState(false);
-  const NaviDetailTraining = () => router.push("/cac-khoa-dao-tao");
+  const NaviDetailTraining = () => router.push("/dao-tao-su-kien/cac-khoa-dao-tao");
   const NaviDetailEvent = () =>
-    router.push("/cac-khoa-dao-tao/su-kien-thuong-ky");
+    router.push("/dao-tao-su-kien/su-kien-thuong-ky");
   const formik = useFormik({
     initialValues: {
       email: "",

@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 const JoinNowCourse = () => {
   const router = useRouter();
   const handleDetail = () =>
-    router.push("/cac-khoa-dao-tao/dang-ky-tham-gia-khoa-hoc");
+    router.push("/dao-tao-su-kien/dang-ky-tham-gia-khoa-hoc");
   return (
     <div className="container">
       <div className="inputemail">

@@ -15,13 +15,7 @@ const UngVienTiemNang = () => {
   }
 
   const [isShow, setShow] = useState(false);
-  const handleSubmit_ = (data) => {
-    const formData = new FormData();
-    for (const value in data) {
-      console.log("Abc", formData.append(value, data[value]));
-    }
-    console.log(formData);
-  };
+
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -55,8 +49,8 @@ const UngVienTiemNang = () => {
       for (let value in values) {
         formData.append(value, values[value]);
       }
-
-      await post_register_candidates(formData)
+      formData.append("title", "ứng viên đăng ký tiềm năng");
+      post_register_candidates(formData)
         .then((res) => {
           setShow(true);
           handleReset();
@@ -294,7 +288,11 @@ const UngVienTiemNang = () => {
               <ReCAPTCHA sitekey="Your client site key" onChange={onChange} />
             </div>
             <div className="birtday-right">
-              <button className="btn btn-cancel" type="reset" onClick={handleReset}>
+              <button
+                className="btn btn-cancel"
+                type="reset"
+                onClick={handleReset}
+              >
                 <span className="btn-text">Hủy</span>
               </button>
               <button className="btn btn-submit" type="submit">
@@ -540,6 +538,10 @@ const UngVienTiemNang = () => {
           }
           .btn-submit {
             margin-left: 0;
+          }
+          .icont_select {
+            top: 16px !important;
+            right: 40px !important;
           }
         }
       `}</style>

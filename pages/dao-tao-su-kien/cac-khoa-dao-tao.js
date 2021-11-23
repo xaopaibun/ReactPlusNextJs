@@ -8,7 +8,7 @@ import { get_training_page, URL } from "../../src/services/api";
 import JoinNowCourse from "../../src/components/common/dangkythamgia";
 
 const EventTraining = ({ data_training_page }) => {
-  console.log(data_training_page);
+  
   return (
     <>
       <Head>
@@ -18,7 +18,7 @@ const EventTraining = ({ data_training_page }) => {
       <Menu />
       <div className="image-page">
         <img
-          src="./assets/images/Khoa-Dao-Tao-React-Plus.png"
+          src="/assets/images/Khoa-Dao-Tao-React-Plus.png"
           width={"100%"}
           height={"100%"}
         />
@@ -32,7 +32,7 @@ const EventTraining = ({ data_training_page }) => {
                 <img
                   height="43px"
                   width="43px"
-                  src="./assets/images/LogoReact1.png"
+                  src="/assets/images/LogoReact1.png"
                   alt=""
                 />
               </div>
@@ -47,7 +47,7 @@ const EventTraining = ({ data_training_page }) => {
                 <img
                   height="43px"
                   width="43px"
-                  src="./assets/images/Team.png"
+                  src="/assets/images/Team.png"
                   alt=""
                 />
               </div>
@@ -61,7 +61,7 @@ const EventTraining = ({ data_training_page }) => {
                 <img
                   height="40px"
                   width="40px"
-                  src="./assets/images/engineer.png"
+                  src="/assets/images/engineer.png"
                   alt=""
                 />
               </div>

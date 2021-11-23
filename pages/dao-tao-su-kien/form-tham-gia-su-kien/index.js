@@ -208,7 +208,10 @@ const Form = () => {
 
             <div className="flex">
               <div className="birtday-left">
-                <ReCAPTCHA sitekey="6LeO3lIdAAAAAMc2acHqnxHYr41NB9cQK9HESnMG" onChange={onChange} />
+                <ReCAPTCHA
+                  sitekey="6LeO3lIdAAAAAMc2acHqnxHYr41NB9cQK9HESnMG"
+                  onChange={onChange}
+                />
               </div>
               <div className="birtday-right">
                 <button
@@ -440,6 +443,10 @@ const Form = () => {
           }
           .btn-submit {
             margin-left: 0;
+          }
+          .icont_select {
+            top: 16px !important;
+            right: 40px !important;
           }
         }
       `}</style>

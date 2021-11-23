@@ -13,7 +13,7 @@ import SlideItem from "../../../src/components/common/slideitem/SlideItem";
 const RegularEvent = ({ data }) => {
   const router = useRouter();
   const handleRegistration = () =>
-    router.push("/cac-khoa-dao-tao/form-tham-gia-su-kien");
+    router.push("/dao-tao-su-kien/form-tham-gia-su-kien");
   return (
     <>
       <Head>
@@ -65,7 +65,7 @@ const RegularEvent = ({ data }) => {
           </div>
           <h2 className="title-page">{data.data_detal_page_tranning?.title}</h2>
           <img
-            class="img_content"
+            className="img_content"
             width="100%"
             src={`${URL}${data.data_detal_page_tranning?.cover_image.url}`}
           />
@@ -404,6 +404,18 @@ const RegularEvent = ({ data }) => {
           box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.05);
         }
         @media screen and (max-width: 768px) {
+          .box-icont {
+            position: fixed;
+            bottom: 10px;
+            right: -106px;
+            z-index: 100;
+          }
+          .box-icont .icont {
+            background: #ffffff;
+            border: 1px solid #ebebeb;
+            box-sizing: border-box;
+            box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.12);
+          }
           .box-team-of-experts {
             overflow-x: scroll;
           }
