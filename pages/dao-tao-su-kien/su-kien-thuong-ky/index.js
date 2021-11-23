@@ -445,9 +445,7 @@ const RegularEvent = ({ data }) => {
             width: 100%;
             height: 136px !important;
           }
-          .box-icont {
-            display: none;
-          }
+          
           .item-experts {
             width: 50%;
           }
