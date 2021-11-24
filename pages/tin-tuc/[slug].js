@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Menu from "../../src/components/menu";
+import Link from "next/link";
 import Footer from "../../src/components/footer";
 import { useRouter } from "next/router";
 import {
@@ -40,22 +41,32 @@ const NewsBlogDetail = () => {
               target="_blank"
               href={`https://www.facebook.com/sharer.php?u=http://103.237.145.33:5000/tin-tuc/${slug}`}
             >
-              <img src="../assets/icon/fb-black.png" />
+              <img src="/assets/icon/fb-black.png" />
             </a>
             <button className="icont">
-              <img src="../assets/icon/in-black.png" />
+              <img src="/assets/icon/in-black.png" />
             </button>
             <button className="icont">
-              <img src="../assets/icon/dinh-kem.png" />
+              <img src="/assets/icon/dinh-kem.png" />
             </button>
           </div>
           <div className="box-content">
             <h1 className="title-news-detail">{news_detail?.title}</h1>
-            <img
-              src="../assets/icon/logo-react-plus2.png"
-              width="36px"
-              height="36px"
-            />
+            <div style={{ position: "relative" }}>
+              <img src="/assets/icon/ellip.png" width="44px" height="44px" />
+              <img
+                src="/assets/icon/logo-react-plus2.png"
+                width="36px"
+                height="36px"
+                style={{
+                  position: "absolute",
+                  zIndex: 100,
+                  top: "4px",
+                  left: "4px",
+                }}
+              />
+            </div>
+
             <p className="title2-news-detail">
               React Plus Corp <br />
               {news_detail?.start_date_string}
@@ -80,7 +91,7 @@ const NewsBlogDetail = () => {
           }}
         ></div>
         <img
-          src="../assets/icon/Group2101.png"
+          src="/assets/icon/Group2101.png"
           width="63.3px"
           height="13.1px"
           className="icont-image"
@@ -95,7 +106,7 @@ const NewsBlogDetail = () => {
         />
 
         <img
-          src="../assets/icon/Group2101.png"
+          src="/assets/icon/Group2101.png"
           width="63.3px"
           height="13.1px"
           className="icont-image"
@@ -110,16 +121,16 @@ const NewsBlogDetail = () => {
               return (
                 <div className="post-item" key={val.id}>
                   <img
-                    src="../assets/images/img39.png"
+                    src={`${URL}${val.cover_image.url}`}
                     height={"193px"}
-                    width={"340px"}
+                    width={"100%"}
                   />
                   <h5 className="content-review-date">
                     {val.start_date} - {val.to_date}
                   </h5>
-                  <a href="" className="post-title">
-                    {val.title}
-                  </a>
+                  <Link href={`/tin-tuc/${val.url_seo}`}>
+                    <a className="post-title">{val.title}</a>
+                  </Link>
                 </div>
               );
             })}
@@ -144,7 +155,7 @@ const NewsBlogDetail = () => {
           justify-content: center;
         }
         .box-icont {
-          width: 150px;
+          width: 70px;
         }
         .icont {
           width: 32px;
@@ -167,6 +178,7 @@ const NewsBlogDetail = () => {
           font-size: 28px;
           line-height: 42px;
           color: #25282b;
+          text-align: center;
           margin: 20px 0;
         }
         .title2-news-detail {
@@ -269,6 +281,7 @@ const NewsBlogDetail = () => {
           }
           .post-item {
             margin-right: 10px;
+            width: 100%;
           }
           .header-detail {
             width: 100%;
@@ -307,6 +320,7 @@ const NewsBlogDetail = () => {
             height: auto;
             padding: 20px 0 20px 0;
           }
+          
         }
       `}</style>
     </>

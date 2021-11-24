@@ -1,10 +1,11 @@
 import Footer from "../../../src/components/footer";
 import Head from "next/head";
 import Menu from "../../../src/components/menu";
-import { ListExperts } from "../../../src/config";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import {
   get_detal_page_tranning,
+  get_posts_complete,
   get_timeline_event,
   URL,
 } from "../../../src/services/api";
@@ -78,7 +79,7 @@ const RegularEvent = ({ data }) => {
           ></div>
           <h3 className="title">Diễn giả</h3>
           <div className="box-team-of-experts">
-            {data?.data_detal_page_tranning?.members.map((val) => (
+            {data?.data_detal_page_tranning?.members?.map((val) => (
               <div className="item-experts" key={val.id}>
                 <div className="item__img">
                   <img
@@ -113,41 +114,24 @@ const RegularEvent = ({ data }) => {
         <div className="container">
           <h3 className="title0">Các sự kiện đã diễn ra</h3>
           <div className="list-posts">
-            <div className="post-item">
-              <img
-                src="../assets/images/img39.png"
-                height={"193px"}
-                width={"340px"}
-              />
-              <h5 className="content-review-date">01/10/2021 - 28/11/2021</h5>
-              <a href="" className="post-title">
-                Khoá đào tạo mầm non React{" "}
-              </a>
-            </div>
+            {data.data_posts_complete?.map((val) => {
+              return (
+                <div className="post-item" key={val.id}>
+                  <img
+                    src={`${URL}${val.cover_image.url}`}
+                    height={"193px"}
+                    width={"340px"}
+                  />
+                  <h5 className="content-review-date">
+                    {val.start_date} - {val.to_date}
+                  </h5>
 
-            <div className="post-item">
-              <img
-                src="../assets/images/img40.png"
-                height={"193px"}
-                width={"340px"}
-              />
-              <h5 className="content-review-date">01/10/2021 - 28/11/2021</h5>
-              <a href="" className="post-title">
-                Talkshow: Ứng dụng React trong ABC giúp cho BCD{" "}
-              </a>
-            </div>
-
-            <div className="post-item">
-              <img
-                src="../assets/images/img41.png"
-                height={"193px"}
-                width={"340px"}
-              />
-              <h5 className="content-review-date">01/10/2021 - 28/11/2021</h5>
-              <a href="" className="post-title">
-                Khoá đào tạo mầm non React{" "}
-              </a>
-            </div>
+                  <Link href={`/tin-tuc/${val.url_seo}`}>
+                    <a className="post-title">{val.title}</a>
+                  </Link>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -445,7 +429,7 @@ const RegularEvent = ({ data }) => {
             width: 100%;
             height: 136px !important;
           }
-          
+
           .item-experts {
             width: 50%;
           }
@@ -460,9 +444,15 @@ export async function getServerSideProps() {
   const data_timeline_event = res.data;
   const res_detail = await get_detal_page_tranning();
   const data_detal_page_tranning = res_detail.data;
+  const res_posts = await get_posts_complete();
+  const data_posts_complete = res_posts.data;
   return {
     props: {
-      data: { data_timeline_event, data_detal_page_tranning },
+      data: {
+        data_timeline_event,
+        data_detal_page_tranning,
+        data_posts_complete,
+      },
     },
   };
 }

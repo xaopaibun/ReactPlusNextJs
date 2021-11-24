@@ -17,7 +17,7 @@ const GioiThieu = ({ data }) => {
           <div className="box_introduce">
             <div className="introduce__left">
               <img
-                src="../assets/icon/Group2101.png"
+                src="/assets/icon/Group2101.png"
                 className="img-icon-header"
                 alt=""
               />
@@ -174,7 +174,7 @@ const GioiThieu = ({ data }) => {
           </div>
         </div>
       </div>
-      <div style={{ height: "100px" }} />
+      <div className="mr-100" />
       <Footer />
 
       <style jsx>{`
@@ -391,19 +391,28 @@ const GioiThieu = ({ data }) => {
           background: #f4f6fa;
           padding: 30px 0;
         }
+        .mr-100 {
+          margin-top: 100px;
+        }
         @media screen and (max-width: 768px) {
+          .box_Pr_introduce {
+            margin: 26px 0;
+            padding: 21px 0;
+          }
           .img-icon-header {
             display: block;
           }
           .introduce__left h1 {
             font-size: 22px;
             line-height: 33px;
+            margin: 16px 0;
           }
           .box_introduce {
             display: block;
           }
           .box-team-of-experts .box-find-us .row_introduce .item {
             width: 100%;
+
             height: auto;
           }
           .box-team-of-experts {
@@ -466,7 +475,8 @@ const GioiThieu = ({ data }) => {
           }
           .row_introduce .item {
             width: 100%;
-            margin: 12px 0;
+            height: auto;
+            margin: 20px 0;
           }
           .item-experts {
             width: 25%;
@@ -530,6 +540,9 @@ const GioiThieu = ({ data }) => {
             height: 65px !important;
           }
           .item-experts {
+          }
+          .mr-100 {
+            margin-top: 0;
           }
         }
       `}</style>

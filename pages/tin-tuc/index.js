@@ -221,6 +221,7 @@ const News = ({ data_news_blog }) => {
           }
           .list-posts-item {
             margin-right: 20px;
+            width: 100%;
           }
           .center {
             width: auto;
@@ -248,6 +249,15 @@ const News = ({ data_news_blog }) => {
           .img_post {
             width: 253px;
             height: 144px;
+          }
+          footer {
+            padding-top: 2px;
+          }
+          .margin {
+              height: 44px;
+          }
+          .header{
+            margin-top: 40px;
           }
         }
       `}</style>

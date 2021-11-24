@@ -179,8 +179,8 @@ const IntroduceReact = ({ data }) => {
                       <img
                         src={
                           isActive
-                            ? "../assets/icon/drop-down2-active.png"
-                            : "../assets/icon/drop-down2.png"
+                            ? "/assets/icon/drop-down2-active.png"
+                            : "/assets/icon/drop-down2.png"
                         }
                         width="8px"
                         height="4px"
@@ -294,6 +294,7 @@ const IntroduceReact = ({ data }) => {
 
         .asked-questions-left {
           width: 408px;
+          
         }
         .asked-questions-left-title {
           font-weight: 600;
@@ -432,11 +433,14 @@ const IntroduceReact = ({ data }) => {
             line-height: 30px;
           }
           .asked-questions-left > img {
-            margin: 0 auto;
+            margin: 28px auto;
             display: block;
+            width: 196px !important;
+            height: 152px !important;
           }
           .asked-questions-left {
             width: auto;
+            
           }
           .introduce-item-reverse {
             display: none;

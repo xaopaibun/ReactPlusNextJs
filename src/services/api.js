@@ -89,3 +89,8 @@ export const get_job_concerning = () =>
   instance.get("/recruitments/job_concerning");
 
 export const get_text_job = (slug) => instance.get(`/articles/${slug}`);
+
+
+// su kien da dien ra
+export const get_posts_complete = () =>
+  instance.get("/posts/posts_complete");

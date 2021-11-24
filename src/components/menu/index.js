@@ -16,7 +16,7 @@ const Menu = ({ isColor }) => {
       <div className="box-menu">
         <div className="container">
           <div className="row">
-            <div className="col-xl-3 col-sm-3 col-3 text-center">
+            <div className="col-xl-3 col-sm-3 col-4 text-center">
               <Link href="/">
                 <a>
                   <img
@@ -27,7 +27,7 @@ const Menu = ({ isColor }) => {
                 </a>
               </Link>
             </div>
-            <div className="col-xl-9 col-sm-9 col-9">
+            <div className="col-xl-9 col-sm-9 col-8">
               <div className="menu-reponsive">
                 <div className="btn-menu" onClick={() => setIsClose(!isClose)}>
                   {!isClose ? (
@@ -509,9 +509,7 @@ const Menu = ({ isColor }) => {
             margin: 6px 20px;
             color: #52575c;
           }
-          .text-center {
-            text-align: right !important;
-          }
+          
         }
       `}</style>
 

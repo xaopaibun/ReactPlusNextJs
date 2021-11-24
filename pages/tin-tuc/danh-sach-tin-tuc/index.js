@@ -183,6 +183,7 @@ const DanhSachTinTuc = () => {
             overflow-x: scroll;
           }
           .list-posts-item {
+            width: 100%;
             margin-right: 0;
           }
           .center {
@@ -210,7 +211,7 @@ const DanhSachTinTuc = () => {
           }
           .img_post {
             width: 100%;
-            height: 144px;
+            height: auto;
           }
         }
       `}</style>

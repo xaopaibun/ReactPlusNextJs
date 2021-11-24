@@ -760,6 +760,21 @@ const VanHoa = ({ data }) => {
             margin: 8px 0;
             padding-top: 12px;
           }
+          .box-image + .box-image-marginTop {
+            margin-left: 0;
+          }
+          .box-image-marginTop + .box-image {
+            margin-left: 0;
+          }
+          .box-image-marginTop {
+            width: 14%;
+          }
+          .box-image {
+            width: 15%;
+          }
+          .distance {
+            height: 70px;
+          }
           /* .award-list {
             flex-direction: column;
           }
