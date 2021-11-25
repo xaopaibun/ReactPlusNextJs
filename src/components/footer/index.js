@@ -6,7 +6,7 @@ const Footer = () => {
         <div className="footer">
           <div className="footer_itemlogo">
             <img
-              src="/assets/images/LogoReactPlus.png"
+              src="/assets/images/menu-footer.png"
               width="89px"
               height="46px"
               alt="Logo"
@@ -19,7 +19,7 @@ const Footer = () => {
           <div className="footer-right">
             <div className="footer_item">
               <p className="item__title">Cộng đồng</p>
-              <Link href="/cac-khoa-dao-tao">
+              <Link href="/dao-tao-su-kien/cac-khoa-dao-tao">
                 <a>Đào tạo &amp; Sự kiện</a>
               </Link>
               <Link href="/vi-cong-dong">
@@ -207,7 +207,10 @@ const Footer = () => {
           .footer_item .connect {
             margin: 0;
           }
-          
+          .footer_item:nth-child(1) a,
+          .footer_item:nth-child(2) a {
+            color: #52575c;
+          }
         }
       `}</style>
     </>

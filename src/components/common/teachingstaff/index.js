@@ -49,7 +49,7 @@ export const TeachingStaff = ({ data }) => {
           width: 25%;
           display: flex;
           flex-direction: column;
-          justify-content: center;
+
           align-items: center;
         }
         .box-team-of-experts .item-experts .item__img {
@@ -85,13 +85,14 @@ export const TeachingStaff = ({ data }) => {
             overflow-x: scroll;
             flex-wrap: unset;
           }
+          .box-team-of-experts::-webkit-scrollbar {
+            display: none;
+          }
           .item-experts {
             width: 50%;
           }
           .title_teaching_staff {
-            
             font-size: 20px;
-            margin-top: 1200px;
           }
         }
       `}</style>

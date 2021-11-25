@@ -53,7 +53,7 @@ const News = ({ data_news_blog }) => {
         <div className="list-posts">
           {data_news_blog.news?.map((val) => {
             return (
-              <div className="list-posts-item">
+              <div className="list-posts-item" key={val.id}>
                 <img
                   src={`${URL}${val.cover_image.url}`}
                   className="img_post"
@@ -86,7 +86,7 @@ const News = ({ data_news_blog }) => {
         <div className="list-posts">
           {data_news_blog.blogs?.map((val) => {
             return (
-              <div className="list-posts-item">
+              <div className="list-posts-item" key={val.id}>
                 <img
                   src={`${URL}${val.cover_image.url}`}
                   className="img_post"
@@ -254,9 +254,9 @@ const News = ({ data_news_blog }) => {
             padding-top: 2px;
           }
           .margin {
-              height: 44px;
+            height: 44px;
           }
-          .header{
+          .header {
             margin-top: 40px;
           }
         }

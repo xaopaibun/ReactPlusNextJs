@@ -241,7 +241,7 @@ const CareerDetal = () => {
         .contact {
           color: #ffffff;
           display: flex;
-          width: 78%;
+          width: 90%;
           height: 46px;
           justify-content: space-around;
           align-items: center;
@@ -491,6 +491,9 @@ const CareerDetal = () => {
           }
           .content-detail-right .btnJoin {
             display: none;
+          }
+          .contact {
+            width: 78%;
           }
         }
       `}</style>

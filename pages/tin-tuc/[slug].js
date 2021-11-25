@@ -74,15 +74,17 @@ const NewsBlogDetail = () => {
           </div>
         </div>
       </div>
+      {news_detail?.first_image.url && (
+        <div className="image-page">
+          <img
+            src={`${URL}${news_detail?.first_image.url}`}
+            width="100%"
+            height="100%"
+            alt="Error Image"
+          />
+        </div>
+      )}
 
-      <div className="image-page">
-        <img
-          src={`${URL}${news_detail?.first_image.url}`}
-          width="100%"
-          height="100%"
-          alt="Error Image"
-        />
-      </div>
       <div className="container container-content">
         <div
           className="content-1"
@@ -122,8 +124,7 @@ const NewsBlogDetail = () => {
                 <div className="post-item" key={val.id}>
                   <img
                     src={`${URL}${val.cover_image.url}`}
-                    height={"193px"}
-                    width={"100%"}
+                    className="post-item_image"
                   />
                   <h5 className="content-review-date">
                     {val.start_date} - {val.to_date}
@@ -171,7 +172,7 @@ const NewsBlogDetail = () => {
           cursor: pointer;
         }
         .post-item {
-          width: 30%;
+          width: 32%;
         }
         .title-news-detail {
           font-weight: 600;
@@ -275,7 +276,18 @@ const NewsBlogDetail = () => {
         .post-title:hover {
           color: #0bbee7;
         }
+        .post-item_image {
+          width: 100%;
+          height: 193px;
+        }
         @media screen and (max-width: 768px) {
+          .post-item_image {
+            width: 289px;
+            height: 193px;
+          }
+          .list-posts::-webkit-scrollbar {
+            display: none;
+          }
           .list-posts {
             overflow-x: scroll;
           }
@@ -290,7 +302,7 @@ const NewsBlogDetail = () => {
           .box-icont {
             position: fixed;
             bottom: 10px;
-            right: -106px;
+            right: -10px;
             z-index: 100;
           }
           .box-icont .icont {
@@ -320,7 +332,9 @@ const NewsBlogDetail = () => {
             height: auto;
             padding: 20px 0 20px 0;
           }
-          
+          .marginTop {
+            margin-top: 0;
+          }
         }
       `}</style>
     </>

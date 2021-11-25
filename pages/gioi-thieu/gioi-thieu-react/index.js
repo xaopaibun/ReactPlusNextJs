@@ -243,8 +243,11 @@ const IntroduceReact = ({ data }) => {
           width: 100%;
           height: auto;
           padding-top: 109px;
-          background-repeat: no-repeat;
-          background-image: url(/assets/images/BG-career.png);
+          background: linear-gradient(
+            180deg,
+            #f4f6fa 0%,
+            rgba(244, 246, 250, 0) 83.85%
+          );
         }
         .introduce-item,
         .introduce-item-reverse,
@@ -294,7 +297,6 @@ const IntroduceReact = ({ data }) => {
 
         .asked-questions-left {
           width: 408px;
-          
         }
         .asked-questions-left-title {
           font-weight: 600;
@@ -440,7 +442,6 @@ const IntroduceReact = ({ data }) => {
           }
           .asked-questions-left {
             width: auto;
-            
           }
           .introduce-item-reverse {
             display: none;

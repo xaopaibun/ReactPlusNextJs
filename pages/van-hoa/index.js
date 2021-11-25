@@ -34,7 +34,7 @@ const VanHoa = ({ data }) => {
         style={{
           backgroundColor: "#FFFFFF",
           boxShadow: "0px 1px 8px rgba(49, 53, 59, 0.2)",
-          top: "calc(100% / 2)",
+          top: "calc(100% / 2 - 18px)",
           right: "3px",
           zIndex: 100,
           minWidth: "32px",
@@ -59,7 +59,7 @@ const VanHoa = ({ data }) => {
         style={{
           backgroundColor: "#FFFFFF",
           boxShadow: "0px 1px 8px rgba(49, 53, 59, 0.2)",
-          top: "calc(100% / 2)",
+          top: "calc(100% / 2 - 18px)",
           left: "3px",
           zIndex: 100,
           minWidth: "32px",
@@ -487,8 +487,11 @@ const VanHoa = ({ data }) => {
           height: auto;
           margin: 80px 0;
           padding-top: 75px;
-          background-image: url("/assets/images/BG-career.png");
-          background-repeat: no-repeat;
+          background: linear-gradient(
+            180deg,
+            #f4f6fa 0%,
+            rgba(244, 246, 250, 0) 83.85%
+          );
         }
         .content {
           display: flex;
@@ -535,9 +538,7 @@ const VanHoa = ({ data }) => {
           margin-bottom: 10px;
         }
         .btnmore {
-          width: 160px;
-          min-width: 140px;
-          height: 36px;
+          padding: 8px 16px;
           box-sizing: border-box;
           background: #ffffff;
           box-shadow: 0px 2px 21px 3px rgba(0, 0, 0, 0.04);
@@ -645,6 +646,7 @@ const VanHoa = ({ data }) => {
         .mr-110 {
           margin-top: 110px;
         }
+
         @media screen and (max-width: 768px) {
           .header {
             height: 233px;
@@ -669,14 +671,12 @@ const VanHoa = ({ data }) => {
           .box-image {
             width: calc(100% / 6);
             height: 85px;
-            margin-right: 8px;
           }
 
           .box-image-marginTop {
             margin-top: 16px;
             width: 56px;
             height: 85px;
-            margin-right: 8px;
           }
           .box-image-marginTop:nth-child(3) {
             margin-right: 0;
@@ -700,6 +700,7 @@ const VanHoa = ({ data }) => {
           .Office-Images {
             width: 100%;
             height: auto;
+            margin: 24px auto 40px auto;
           }
           .Office-Images-Left {
             width: 100%;
@@ -738,9 +739,12 @@ const VanHoa = ({ data }) => {
           .village-title {
             font-size: 22px;
           }
-          .btnmore {
-            width: auto;
-            padding: 0 14px;
+          .header1 {
+            margin: 0;
+          }
+
+          .text-awards {
+            margin-top: 42px;
           }
           .content:nth-child(2) {
             margin-top: 37px;

@@ -219,7 +219,9 @@ const Career = ({ data }) => {
         .contact {
           color: #ffffff;
           display: flex;
-          width: 78%;
+
+          width: 90%;
+
           height: 46px;
           justify-content: space-around;
           align-items: center;
@@ -286,8 +288,12 @@ const Career = ({ data }) => {
           color: #ffffff;
         }
         .box-nominee {
-          background-image: url("/assets/images/BG-career.png");
-          background-repeat: no-repeat;
+          background: linear-gradient(
+            180deg,
+            #f4f6fa 0%,
+            rgba(244, 246, 250, 0) 83.85%
+          );
+
           height: auto;
           width: 100%;
           margin-bottom: 75px;
@@ -312,7 +318,6 @@ const Career = ({ data }) => {
         .list-applied-position {
           margin: 30px 0;
           display: flex;
-          justify-content: space-between;
           flex-wrap: wrap;
         }
 
@@ -330,12 +335,13 @@ const Career = ({ data }) => {
           background: #ffffff;
           box-shadow: 0px 4px 4px 1px rgba(0, 0, 0, 0.05);
           border-radius: 8px;
-          width: 31.3%;
+          width: 30.399%;
           display: flex;
           flex-direction: column;
           justify-content: space-between;
           height: 255px;
-          margin-bottom: 31px;
+          margin-right: 31px;
+          margin-bottom: 28px;
         }
 
         .btnmore {
@@ -426,8 +432,11 @@ const Career = ({ data }) => {
           height: auto;
           margin: 60px 0;
           width: 100%;
-          background-image: url("/assets/images/BG-career.png");
-          background-repeat: no-repeat;
+          background: linear-gradient(
+            180deg,
+            #f4f6fa 0%,
+            rgba(244, 246, 250, 0) 83.85%
+          );
         }
         .join-the-team {
           display: flex;
@@ -476,7 +485,6 @@ const Career = ({ data }) => {
             width: 100%;
           }
           .box-nominee2 {
-           
             margin: 0;
           }
           .header {
@@ -495,6 +503,7 @@ const Career = ({ data }) => {
           .applied-position-item {
             height: 185px;
             width: 100%;
+            margin-right: 0px;
             padding: 21px;
           }
           .box-nominee2 > img {
@@ -580,6 +589,9 @@ const Career = ({ data }) => {
           }
           .mr-110 {
             margin-top: 0;
+          }
+          .contact {
+            width: 100%;
           }
         }
       `}</style>

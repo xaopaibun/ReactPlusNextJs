@@ -84,8 +84,7 @@ const ViCongDong = ({ data }) => {
                 <div className="post-item" key={value.id}>
                   <img
                     src={`${URL}${value.cover_image.url}`}
-                    height={"193px"}
-                    width={"100%"}
+                    className="post-item_image"
                   />
                   <h5 className="content-review-date">
                     {value.start_date} {value.to_date}
@@ -226,7 +225,18 @@ const ViCongDong = ({ data }) => {
         .mr-100 {
           margin-top: 100px;
         }
+        .post-item_image {
+          width: 100%;
+          height: 193px;
+        }
+        .list-posts::-webkit-scrollbar {
+          display: none;
+        }
         @media screen and (max-width: 768px) {
+          .post-item_image {
+            width: 289px;
+            height: 193px;
+          }
           .frame-page {
             padding-top: 30px;
             height: 190px;
@@ -266,6 +276,7 @@ const ViCongDong = ({ data }) => {
           .list-posts {
             flex-wrap: nowrap;
             overflow-x: scroll;
+            margin: 0;
           }
           .post-item {
             margin-right: 12px;
@@ -288,8 +299,11 @@ const ViCongDong = ({ data }) => {
             margin-top: 200px;
           }
           .box-bg {
-            padding-top: 20px;
+            padding-top: 25px;
             background-color: #f4f6fa;
+          }
+          .mr-100 {
+            margin-top: 30px;
           }
         }
       `}</style>

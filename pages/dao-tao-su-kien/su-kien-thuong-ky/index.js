@@ -119,8 +119,7 @@ const RegularEvent = ({ data }) => {
                 <div className="post-item" key={val.id}>
                   <img
                     src={`${URL}${val.cover_image.url}`}
-                    height={"193px"}
-                    width={"340px"}
+                    className="post-item_image"
                   />
                   <h5 className="content-review-date">
                     {val.start_date} - {val.to_date}
@@ -310,7 +309,7 @@ const RegularEvent = ({ data }) => {
           color: #000000;
         }
         .post-item {
-          width: 30%;
+          width: 32%;
         }
         .content-experts {
           font-size: 13px;
@@ -387,7 +386,18 @@ const RegularEvent = ({ data }) => {
           background: #ffffff;
           box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.05);
         }
+        .post-item_image {
+          width: 100%;
+          height: 193px;
+        }
         @media screen and (max-width: 768px) {
+          .post-item_image {
+            width: 289px;
+            height: 193px;
+          }
+          .center-content {
+            margin: 28px auto;
+          }
           .box-icont {
             position: fixed;
             bottom: 10px;
@@ -405,6 +415,9 @@ const RegularEvent = ({ data }) => {
           }
           .list-posts {
             overflow-x: scroll;
+          }
+          .list-posts::-webkit-scrollbar {
+            display: none;
           }
           .list-posts-item {
             margin-right: 20px;
@@ -429,7 +442,18 @@ const RegularEvent = ({ data }) => {
             width: 100%;
             height: 136px !important;
           }
-
+          .event-is-happening {
+            margin: 20px 0;
+            padding: 20px 0px 30px 0px;
+            height: auto;
+          }
+          .title0 {
+            padding-left: 0;
+          }
+          .post-item {
+            width: 289px;
+            margin-right: 12px;
+          }
           .item-experts {
             width: 50%;
           }

@@ -52,7 +52,7 @@ const DanhSachTinTuc = () => {
         <div className="list-posts">
           {isList?.map((val) => {
             return (
-              <div className="list-posts-item">
+              <div className="list-posts-item" key={val.id}>
                 <img
                   src={`${URL}${val.cover_image?.url}`}
                   className="img_post"

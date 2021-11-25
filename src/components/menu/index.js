@@ -478,10 +478,10 @@ const Menu = ({ isColor }) => {
             position: fixed;
             top: 0px;
             right: -80%;
-            z-index: 999;
+            z-index: 999999999999999999999;
             height: 100vh;
             background-color: #f4f6fa;
-            padding: 53px 38px;
+            padding: 38px;
           }
           .menu-reponsive-item {
             font-weight: 600;
@@ -506,10 +506,9 @@ const Menu = ({ isColor }) => {
             font-size: 14px;
             line-height: 21px;
             letter-spacing: -0.02em;
-            margin: 6px 20px;
+            margin: 12px 20px;
             color: #52575c;
           }
-          
         }
       `}</style>
 

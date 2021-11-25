@@ -19,11 +19,12 @@ import {
   URL,
 } from "../src/services/api";
 import { useRouter } from "next/router";
-export default function Home({ data }) {
+const Home = ({ data }) => {
   const router = useRouter();
   const [isShow, setShow] = useState(false);
   const [isShow2, setShow2] = useState(false);
-  const NaviDetailTraining = () => router.push("/dao-tao-su-kien/cac-khoa-dao-tao");
+  const NaviDetailTraining = () =>
+    router.push("/dao-tao-su-kien/cac-khoa-dao-tao");
   const NaviDetailEvent = () =>
     router.push("/dao-tao-su-kien/su-kien-thuong-ky");
   const formik = useFormik({
@@ -60,12 +61,12 @@ export default function Home({ data }) {
           <Carousel
             prevIcon={
               <div className="btnSlider left">
-                <img src="./assets/images/back_left.png" alt="" />
+                <img src="/assets/images/back_left.png" alt="" />
               </div>
             }
             nextIcon={
               <div className="btnSlider right">
-                <img src="./assets/images/back_right.png" alt="" />
+                <img src="/assets/images/back_right.png" alt="" />
               </div>
             }
           >
@@ -96,7 +97,7 @@ export default function Home({ data }) {
             <div className="box-item">
               <div className="item">
                 <div className="item__img">
-                  <img src="./assets/images/img0.png" alt="" />
+                  <img src="/assets/images/img0.png" alt="" />
                 </div>
                 <p className="item__content">
                   Nơi làm việc của đông đảo chuyên gia và kỹ sư yêu thích React
@@ -104,7 +105,7 @@ export default function Home({ data }) {
               </div>
               <div className="item">
                 <div className="item__img">
-                  <img src="./assets/images/img01.png" alt="" />
+                  <img src="/assets/images/img01.png" alt="" />
                 </div>
                 <p className="item__content">
                   Quy mô 130 nhân sự và 100% dự án làm về React
@@ -112,7 +113,7 @@ export default function Home({ data }) {
               </div>
               <div className="item">
                 <div className="item__img">
-                  <img src="./assets/images/img00.png" alt="" />
+                  <img src="/assets/images/img00.png" alt="" />
                 </div>
                 <p className="item__content">
                   Nơi tổ chức miễn phí các khoá đào tạo, sự kiện về React với
@@ -182,14 +183,11 @@ export default function Home({ data }) {
                       __html: data[1].event?.content,
                     }}
                   />
-                  <button
-                    className="btnmore"
-                    onClick={() => NaviDetailEvent()}
-                  >
+                  <button className="btnmore" onClick={() => NaviDetailEvent()}>
                     <span>Tìm hiểu thêm</span>
                     <img
                       className="btnmore__icon"
-                      src="./assets/icon/muiten.png"
+                      src="/assets/icon/muiten.png"
                     />
                   </button>
                 </div>
@@ -208,7 +206,7 @@ export default function Home({ data }) {
             <div className="container">
               <div className="flex">
                 <div className="document__img">
-                  <img src="./assets/images/img2.png" alt="" />
+                  <img src="/assets/images/img2.png" alt="" />
                 </div>
                 <div className="document__text">
                   <p className="text_blue text-left">MIỄN PHÍ</p>
@@ -241,7 +239,7 @@ export default function Home({ data }) {
                     <span>Tải về miễn phí</span>
                     <img
                       className="btnmore__icon"
-                      src="./assets/icon/muitenwhite.png"
+                      src="/assets/icon/muitenwhite.png"
                     />
                   </button>
                 </div>
@@ -292,7 +290,7 @@ export default function Home({ data }) {
                 {formik.errors.email && formik.touched.email && (
                   <div className="box-error">
                     <img
-                      src="./assets/icon/icont-error.png"
+                      src="/assets/icon/icont-error.png"
                       width="16px"
                       height="16px"
                     />
@@ -726,9 +724,8 @@ export default function Home({ data }) {
           justify-content: space-between;
         }
         .list_news::-webkit-scrollbar { 
- 
-  display: none; 
-}
+          display: none; 
+        }
 
         .news__item {
           height: auto;
@@ -744,6 +741,7 @@ export default function Home({ data }) {
           display: block;
           font-weight: 600;
           font-size: 14px;
+          height: 40px;
           line-height: 21px;
           letter-spacing: -0.02em;
           text-decoration: none;
@@ -992,12 +990,12 @@ font-size: 20px;
           font-size: 14px;
         }
         .box-inputemail {
-            margin: 56px 0 15px 0;
+            margin: 56px 0 35px 0;
         }  
       `}</style>
     </>
   );
-}
+};
 
 export async function getServerSideProps() {
   const [_get_banners, _get_training_event, _get_timeline_event, _get_posts] =
@@ -1020,3 +1018,5 @@ export async function getServerSideProps() {
     },
   };
 }
+
+export default Home;

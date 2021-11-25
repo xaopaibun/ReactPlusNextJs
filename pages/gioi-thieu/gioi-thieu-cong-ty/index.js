@@ -118,7 +118,9 @@ const GioiThieu = ({ data }) => {
               height="100%"
             />
           </div>
-          <h2 className="organizational-structure-title">Đội ngũ chuyên gia</h2>
+          <h2 className="organizational-structure-title">
+            Đào tạo & Sự kiện về React
+          </h2>
           <div className="container2">
             <div className="box-team-of-experts">
               {data.map((val) => (
@@ -162,8 +164,9 @@ const GioiThieu = ({ data }) => {
               </div>
             </div>
             <div className="find-us-right">
+
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1861.9714712447185!2d105.76455745792299!3d21.03496889649878!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1svi!2s!4v1634295837745!5m2!1svi!2s"
+               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.9374362403164!2d105.76576981379881!3d21.03518919125538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454b93c73ca9d%3A0x210784911132ebe!2zMjQgUGjhu5EgTmd1eeG7hW4gQ8ahIFRo4bqhY2gsIE3hu7kgxJDDrG5oLCBU4burIExpw6ptLCBIw6AgTuG7mWksIFZpZXRuYW0!5e0!3m2!1sen!2s!4v1637831847073!5m2!1sen!2s"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -483,6 +486,12 @@ const GioiThieu = ({ data }) => {
             display: block;
             margin: 0;
           }
+          .item-experts p {
+            margin: 0;
+          }
+          .box-team-of-experts::-webkit-scrollbar {
+            display: none;
+          }
           .name-experts {
             font-size: 14px;
           }
@@ -493,7 +502,7 @@ const GioiThieu = ({ data }) => {
 
           .find-us-right {
             width: 100%;
-            height: 300px;
+            height: 172px;
           }
           .find-us-left {
             width: auto;
@@ -543,6 +552,12 @@ const GioiThieu = ({ data }) => {
           }
           .mr-100 {
             margin-top: 0;
+          }
+          .find-us-address{
+            margin: 15px 0;
+          }
+          .find-us-title {
+            font-size: 20px;
           }
         }
       `}</style>

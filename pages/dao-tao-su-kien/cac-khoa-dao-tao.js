@@ -8,7 +8,6 @@ import { get_training_page, URL } from "../../src/services/api";
 import JoinNowCourse from "../../src/components/common/dangkythamgia";
 
 const EventTraining = ({ data_training_page }) => {
-  
   return (
     <>
       <Head>
@@ -27,7 +26,25 @@ const EventTraining = ({ data_training_page }) => {
         <div className="container">
           <h2 className="title_page">Lợi ích đặc biệt từ khoá học</h2>
           <div className="box__company__scale">
-            <div className="company__scale__item">
+            {data_training_page?.benefit?.map((val) => (
+              <div className="company__scale__item" key={val.id}>
+                <div className="item__img">
+                  <img
+                    height="43px"
+                    width="43px"
+                    src={`${URL}${val.image.url}`}
+                    alt=""
+                  />
+                </div>
+                <div
+                  className="content"
+                  dangerouslySetInnerHTML={{
+                    __html: val.content,
+                  }}
+                />
+              </div>
+            ))}
+            {/* <div className="company__scale__item">
               <div className="item__img">
                 <img
                   height="43px"
@@ -69,7 +86,7 @@ const EventTraining = ({ data_training_page }) => {
                 Nơi làm việc của đông đảo chuyên <br />
                 gia và kỹ sư yêu thích React
               </p>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="content-course">
@@ -115,6 +132,7 @@ const EventTraining = ({ data_training_page }) => {
           </div>
         </div>
       </div>
+      <div className="mr-72" />
       <TeachingStaff data={data_training_page?.trainner} />
       <JoinNowCourse />
       <div className="mr-100" />
@@ -125,12 +143,11 @@ const EventTraining = ({ data_training_page }) => {
           width: 100%;
         }
         .Logo-ReactPlus {
-          height: 1121.15px;
+          height: auto;
           margin-top: 50px;
           width: 100%;
           background: center;
           background-image: url("/assets/images/Group2078.png");
-          position: relative;
         }
         .box__company__scale {
           margin: 20px 0;
@@ -150,6 +167,12 @@ const EventTraining = ({ data_training_page }) => {
           line-height: 21px;
           text-align: center;
           letter-spacing: -0.02em;
+          white-space: pre-wrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          display: -webkit-box;
           color: #25282b;
         }
         .company__scale__item .item__img {
@@ -176,13 +199,12 @@ const EventTraining = ({ data_training_page }) => {
         }
         .content-course {
           width: 100%;
-          background-image: url("/assets/images/BG-career.png");
-          height: 686px;
-          position: absolute;
-          top: 300px;
-          padding: 30px 0;
-          left: 0;
-          z-index: 9;
+          background-image: linear-gradient(
+            180deg,
+            #f4f6fa 0%,
+            rgba(244, 246, 250, 0) 83.85%
+          );
+          height: auto;
         }
         .list-course {
           display: flex;
@@ -271,7 +293,17 @@ const EventTraining = ({ data_training_page }) => {
         .mr-100 {
           margin-top: 110px;
         }
+        .content-course {
+          padding-top: 71px;
+        }
+        .mr-72 {
+          margin-top: 72px;
+        }
         @media screen and (max-width: 768px) {
+          .content-course {
+            padding-top: 27px;
+          }
+
           .image-page {
             height: auto;
             width: 100%;
@@ -293,9 +325,16 @@ const EventTraining = ({ data_training_page }) => {
           }
           .title_page {
             font-size: 20px;
+            margin: 10px 0;
           }
-          .title_teaching_staff {
-            margin-top: 1200px;
+          .course-item {
+            width: 100%;
+          }
+          .Logo-ReactPlus {
+            background-image: none;
+          }
+          .mr-100 {
+            margin-top: 10px;
           }
         }
       `}</style>
