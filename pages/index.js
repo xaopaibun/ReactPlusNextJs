@@ -49,8 +49,16 @@ const Home = ({ data }) => {
   return (
     <>
       <Head>
-        <title>Home Page React Plus</title>
+        <title>Trang Chủ React Plus</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/favicon.ico" />
+        <meta property="og:title" content="Trang Chủ React Plus" key="title" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta
+          property="og:image"
+          content="http://103.237.145.33:3000/uploads/image/image/19/ReactPlus-Cty.jpg"
+        />
       </Head>
       <Menu />
       {isShow2 && (

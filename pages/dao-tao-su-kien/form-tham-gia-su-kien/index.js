@@ -136,7 +136,7 @@ const Form = () => {
               /> */}
               <div className="item">
                 <select
-                  class="form-select form-select-custom"
+                  className="form-select form-select-custom"
                   defaultValue="Năm"
                   name="year"
                   onChange={formik.handleChange}
@@ -209,7 +209,7 @@ const Form = () => {
             <div className="flex">
               <div className="birtday-left">
                 <ReCAPTCHA
-                  sitekey="6LeO3lIdAAAAAMc2acHqnxHYr41NB9cQK9HESnMG"
+                  sitekey="6LeHJFsdAAAAAHpUDbJ_ua1WcY5VP8ZXSQ0Xs9uZ"
                   onChange={onChange}
                 />
               </div>
@@ -445,8 +445,10 @@ const Form = () => {
             margin-left: 0;
           }
           .icont_select {
-            top: 16px !important;
-            right: 40px !important;
+            right: -20% !important;
+          }
+          .label-text {
+            font-size: 16px;
           }
         }
       `}</style>

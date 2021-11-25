@@ -308,7 +308,7 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
                 value={formik.values.experience}
               />
               <div className="mr-30"></div>
-              <div className="flex NN">
+              <div className="flex NN_PC">
                 <span className="txtGT">Ngoại ngữ hiện có</span>
                 {language.map((val, index) => {
                   return (
@@ -326,6 +326,27 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
                     </div>
                   );
                 })}
+              </div>
+              <div className="NN-Mobile">
+                <span className="txtGT">Ngoại ngữ hiện có</span>
+                <div className="NN-Mobile__right">
+                  {language.map((val, index) => {
+                    return (
+                      <div className="flex" key={index}>
+                        <Field
+                          type="checkbox"
+                          name="language"
+                          value={val}
+                          style={{ width: "24px", height: "24px" }}
+                        />
+
+                        <label htmlFor="html" className="label">
+                          {val}
+                        </label>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
               <div className="mr-30"></div>
               <TextField
@@ -407,7 +428,7 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
               <div className="flex">
                 <div className="birtday-left">
                   <ReCAPTCHA
-                    sitekey="6LeO3lIdAAAAAKwOss9ull09gDJg3Riud3WmSpNP"
+                    sitekey="6LeHJFsdAAAAAHpUDbJ_ua1WcY5VP8ZXSQ0Xs9uZ"
                     onChange={onChange}
                   />
                 </div>
@@ -435,6 +456,11 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
         * {
           color: "#25282b";
         }
+
+        .NN-Mobile {
+          display: none;
+        }
+
         .flex {
           display: flex;
           justify-content: space-between;
@@ -697,6 +723,28 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
           font-size: 13px;
         }
         @media screen and (max-width: 768px) {
+          .NN_PC {
+            display: none;
+          }
+
+          .NN-Mobile {
+            display: flex;
+            justify-content: space-between;
+          }
+          .NN-Mobile .txtGT{
+            display: block;
+            width: 45%;
+          }
+          .NN-Mobile__right{
+            width: 45%;
+          }
+          .NN-Mobile__right .flex {
+            margin: 11px 0;
+            display: flex;
+            flex-direction: row !important;
+            align-items: flex-start;
+            justify-content: flex-start;
+          }
           .content-title {
             width: 100%;
           }
@@ -754,14 +802,10 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
           .form-select {
             margin-left: 10px !important;
           }
-          .icont_select {
-            position: absolute !important;
-            top: 16px !important;
-            right: 35px !important;
-            z-index: 20 !important;
-          }
+
           .label-text {
             font-size: 16px;
+            margin-left: 12px;
           }
           .flexGT {
             flex-direction: row;
@@ -796,6 +840,9 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
           .birtday-right {
             display: flex;
             margin-top: 20px;
+          }
+          .mr-30{
+            margin-top: 35px;
           }
         }
       `}</style>

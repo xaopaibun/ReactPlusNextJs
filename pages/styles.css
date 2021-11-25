@@ -44,6 +44,9 @@ option {
     transition: 0.5s;
     transition-delay: 3s; */
   }
+  .PostCV-Left {
+    margin-right: 10px;
+  }
   .main-page{
     width: 100%;
     overflow: hidden;
@@ -63,7 +66,7 @@ option {
   .icont_select{
    
     top: 16px;
-    right: 40px;
+    right: 20px !important;
    
     
   }

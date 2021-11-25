@@ -7,13 +7,16 @@ import { Day, Month, phoneRegExp, Year } from "../../../src/config";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useEffect, useState } from "react";
+
 import PopupThanks from "../../../src/components/common/popupthanks";
 import {
   get_text_job,
   post_register_candidates,
 } from "../../../src/services/api";
 import { useRouter } from "next/router";
+
 const FormTuyenDung = () => {
+  
   function onChange(value) {
     console.log("Captcha value:", value);
   }
@@ -286,7 +289,10 @@ const FormTuyenDung = () => {
           ></textarea>
           <div className="birtday">
             <div className="birtday-left">
-              <ReCAPTCHA sitekey="Your client site key" onChange={onChange} />
+              <ReCAPTCHA
+                sitekey="6LeHJFsdAAAAAHpUDbJ_ua1WcY5VP8ZXSQ0Xs9uZ"
+                onChange={onChange}
+              />
             </div>
             <div className="birtday-right">
               <button className="btn-cancel" type="reset" onClick={handleReset}>

@@ -539,10 +539,10 @@ const UngVienTiemNang = () => {
           .btn-submit {
             margin-left: 0;
           }
-          .icont_select {
-            top: 16px !important;
-            right: 40px !important;
+          .label-text {
+            font-size: 16px;
           }
+         
         }
       `}</style>
     </>
