@@ -109,6 +109,7 @@ const EventTraining = ({ data_training_page }) => {
                 </div>
               ))}
             </div>
+            <div className="mr-72" />
             <h2 className="title_page">Đặc điểm khóa học</h2>
             <div className="list-course-features">
               {data_training_page?.feature?.map((value) => (
@@ -300,6 +301,9 @@ const EventTraining = ({ data_training_page }) => {
           margin-top: 72px;
         }
         @media screen and (max-width: 768px) {
+          .mr-72 {
+          margin-top: 27px;
+        }
           .content-course {
             padding-top: 27px;
           }
