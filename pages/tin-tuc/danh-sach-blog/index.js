@@ -30,7 +30,7 @@ const DanhSachBlog = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Menu />
-
+      <div className="main">
       <div className="container">
         <div className="header">
           <h3 className="header-title">Blog</h3>
@@ -73,6 +73,7 @@ const DanhSachBlog = () => {
       <footer>
         <Footer />
       </footer>
+      </div>
       <style jsx>{`
         .header {
           height: auto;

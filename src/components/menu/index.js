@@ -228,7 +228,17 @@ const Menu = ({ isColor }) => {
             Trang chủ
           </a>
         </Link>
-        <a className="menu-reponsive-item">Giới thiệu</a>
+        <a
+          className="menu-reponsive-item"
+          className={
+            router.pathname == "/gioi-thieu/gioi-thieu-react" ||
+            router.pathname == "/gioi-thieu/gioi-thieu-cong-ty"
+              ? "menu-reponsive-item menu-reponsive-item-active"
+              : "menu-reponsive-item"
+          }
+        >
+          Giới thiệu
+        </a>
         <Link href="/gioi-thieu/gioi-thieu-react">
           <a
             className={
@@ -462,6 +472,7 @@ const Menu = ({ isColor }) => {
             height: 60px;
             padding-top: 10px;
             background-color: #ffffff;
+            transform: ${!isClose ? `none` : `translateX(-80%)`};
           }
 
           .menu {
@@ -476,8 +487,9 @@ const Menu = ({ isColor }) => {
             display: block;
             width: 80%;
             position: fixed;
-            top: 0px;
-            right: -80%;
+            top: 0;
+            right: ${!isClose ? `-80%` : `0`};
+
             z-index: 999999999999999999999;
             height: 100vh;
             background-color: #f4f6fa;
@@ -513,10 +525,12 @@ const Menu = ({ isColor }) => {
       `}</style>
 
       <style jsx global>{`
-        body {
+        .main {
           transform: ${!isClose ? `none` : `translateX(-80%)`};
         }
-        
+        body{
+          overflow-y: ${!isClose ? `none` : `hidden`};
+        }
        
         }
       `}</style>

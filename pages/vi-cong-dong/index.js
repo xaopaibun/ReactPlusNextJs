@@ -16,91 +16,93 @@ const ViCongDong = ({ data }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Menu />
-      <div className="frame-page">
-        <div className="container-top">
-          <h2 className="text-title">Chung tay vì cộng đồng</h2>
-        </div>
+      <div className="main">
+        <div className="frame-page">
+          <div className="container-top">
+            <h2 className="text-title">Chung tay vì cộng đồng</h2>
+          </div>
 
-        <div className="position">
-          <div className="container">
-            <div className="parameter">
-              <div className="parameter-item">
-                <h5 className="text-number">
-                  {Intl.NumberFormat().format(
-                    parseInt(data.data_volunteer.money)
-                  )}
-                  <span className="text-unit"> VND</span>
-                </h5>
-                <p className="text-content">Đã được chia sẻ tới cộng đồng</p>
-              </div>
-              <div className="border" />
-              <div className="border-reponsive" />
-              <div className="parameter-item">
-                <h5 className="text-number">
-                  {data.data_volunteer.number_members}
-                  <span className="text-unit"> Người</span>
-                </h5>
-                <p className="text-content">Đã được hỗ trợ</p>
+          <div className="position">
+            <div className="container">
+              <div className="parameter">
+                <div className="parameter-item">
+                  <h5 className="text-number">
+                    {Intl.NumberFormat().format(
+                      parseInt(data.data_volunteer.money)
+                    )}
+                    <span className="text-unit"> VND</span>
+                  </h5>
+                  <p className="text-content">Đã được chia sẻ tới cộng đồng</p>
+                </div>
+                <div className="border" />
+                <div className="border-reponsive" />
+                <div className="parameter-item">
+                  <h5 className="text-number">
+                    {data.data_volunteer.number_members}
+                    <span className="text-unit"> Người</span>
+                  </h5>
+                  <p className="text-content">Đã được hỗ trợ</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div className="mr-138" />
-      <div className="container">
-        <p className="text-content-page">
-          Chúng tôi cho rằng, không nên đợi đến lúc giàu thì mới làm thiện
-          nguyện. Bất cứ lúc nào, chúng ta cũng có thể giúp đỡ được ai đó, theo
-          một cách nào đó. Do vậy, mỗi ngày, chúng tôi đều gom góp một phần lợi
-          nhuận từ các dự án để gửi tới các quỹ thiện nguyện, các gói hỗ trợ để
-          đóng góp phần nào đó cho những người đang cần giúp đỡ. Tỷ trọng đóng
-          góp này sẽ tăng dần lên tương ứng với sự phát triển của React Plus,
-          chúng tôi mong và tin rằng nó sẽ tăng lên nhanh chóng và bền vững.
-          <br /> <br />
-          Với mỗi quỹ thiện nguyện hay trường hợp đóng góp, chúng tôi đều xác
-          minh thông tin và lên kế hoạch thực hiện rõ ràng, để những đóng góp
-          chung từ cả công ty sẽ phát huy tối đa khả năng của nó trong việc hỗ
-          trợ cộng đồng. Nếu bạn là một thành viên của React, bạn cũng sẽ tham
-          gia đóng góp cho hoạt động này mỗi ngày, bằng việc làm tốt công việc
-          của mình.
-        </p>
-      </div>
-      <div className="box-bg">
+        <div className="mr-138" />
         <div className="container">
-          <h2 className="text-title">
-            Câu chuyện thiện nguyện{" "}
-            <img
-              src="./assets/icon/trai-tim.png"
-              height={"20px"}
-              width={"27px"}
-              style={{ marginTop: "-25px" }}
-            />
-          </h2>
+          <p className="text-content-page">
+            Chúng tôi cho rằng, không nên đợi đến lúc giàu thì mới làm thiện
+            nguyện. Bất cứ lúc nào, chúng ta cũng có thể giúp đỡ được ai đó,
+            theo một cách nào đó. Do vậy, mỗi ngày, chúng tôi đều gom góp một
+            phần lợi nhuận từ các dự án để gửi tới các quỹ thiện nguyện, các gói
+            hỗ trợ để đóng góp phần nào đó cho những người đang cần giúp đỡ. Tỷ
+            trọng đóng góp này sẽ tăng dần lên tương ứng với sự phát triển của
+            React Plus, chúng tôi mong và tin rằng nó sẽ tăng lên nhanh chóng và
+            bền vững.
+            <br /> <br />
+            Với mỗi quỹ thiện nguyện hay trường hợp đóng góp, chúng tôi đều xác
+            minh thông tin và lên kế hoạch thực hiện rõ ràng, để những đóng góp
+            chung từ cả công ty sẽ phát huy tối đa khả năng của nó trong việc hỗ
+            trợ cộng đồng. Nếu bạn là một thành viên của React, bạn cũng sẽ tham
+            gia đóng góp cho hoạt động này mỗi ngày, bằng việc làm tốt công việc
+            của mình.
+          </p>
+        </div>
+        <div className="box-bg">
+          <div className="container">
+            <h2 className="text-title">
+              Câu chuyện thiện nguyện{" "}
+              <img
+                src="./assets/icon/trai-tim.png"
+                height={"20px"}
+                width={"27px"}
+                style={{ marginTop: "-25px" }}
+              />
+            </h2>
 
-          <div className="list-posts">
-            {data.data_charity_stories.map((value) => {
-              return (
-                <div className="post-item" key={value.id}>
-                  <img
-                    src={`${URL}${value.cover_image.url}`}
-                    className="post-item_image"
-                  />
-                  <h5 className="content-review-date">
-                    {value.start_date} {value.to_date}
-                  </h5>
-                  <Link href={`/tin-tuc/${value.url_seo}`}>
-                    <a className="post-title">{value.title}</a>
-                  </Link>
-                </div>
-              );
-            })}
+            <div className="list-posts">
+              {data.data_charity_stories.map((value) => {
+                return (
+                  <div className="post-item" key={value.id}>
+                    <img
+                      src={`${URL}${value.cover_image.url}`}
+                      className="post-item_image"
+                    />
+                    <h5 className="content-review-date">
+                      {value.start_date} {value.to_date}
+                    </h5>
+                    <Link href={`/tin-tuc/${value.url_seo}`}>
+                      <a className="post-title">{value.title}</a>
+                    </Link>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
+        <div className="mr-100" />
+        <Footer />
       </div>
-      <div className="mr-100" />
-      <Footer />
-
       <style jsx>{`
         .container-top {
           width: 979.65px;

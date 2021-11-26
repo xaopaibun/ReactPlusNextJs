@@ -80,7 +80,7 @@ const UngVienTiemNang = () => {
     <>
       <Head>
         <title>Điền form ứng viên đăng ký tiềm năng</title>
-        <link rel="icon" href="/favicon.ico" />
+        
       </Head>
       {isShow && (
         <PopupThanks
@@ -90,221 +90,225 @@ const UngVienTiemNang = () => {
         />
       )}
       <Menu />
-      <form onSubmit={formik.handleSubmit} encType="multipart/form-data">
-        <div className="box-form">
-          <h2 className="text-center title-page">Đăng ký ứng viên tiềm năng</h2>
-          <div className="mr-20"></div>
-          <TextField
-            label="Tên đầy đủ *"
-            type="text"
-            variant="standard"
-            fullWidth
-            name="name"
-            id="standard-error-helper-text"
-            error={formik.errors.email && formik.touched.email ? true : false}
-            onChange={formik.handleChange}
-            value={formik.values.name}
-            helperText={formik.errors.name}
-          />
-          <div className="birtday">
-            <div className="item">
-              <label className="label-text">Ngày sinh</label>
-            </div>
-            <div className="item">
-              <select
-                className="form-select form-select-custom"
-                defaultValue="Ngày"
-                name="day"
-                onChange={formik.handleChange}
-                value={formik.values.day}
-              >
-                <option selected>Ngày</option>
-                {Day.map((value) => (
-                  <option value={value} key={value}>
-                    {value}
-                  </option>
-                ))}
-              </select>
-              <img
-                className="icont_select"
-                width={"8px"}
-                height={"6.65px"}
-                src="/assets/icon/select.png"
-              />
-            </div>
-
-            <div className="item">
-              <select
-                className="form-select form-select-custom"
-                defaultValue="Tháng"
-                name="month"
-                onChange={formik.handleChange}
-                value={formik.values.month}
-              >
-                <option selected>Tháng</option>
-                {Month.map((value) => (
-                  <option value={value} key={value}>
-                    {value}
-                  </option>
-                ))}
-              </select>
-              <img
-                className="icont_select"
-                width={"8px"}
-                height={"6.65px"}
-                src="/assets/icon/select.png"
-              />
-            </div>
-            <div className="item">
-              <select
-                className="form-select form-select-custom"
-                defaultValue="Năm"
-                name="year"
-                onChange={formik.handleChange}
-                value={formik.values.year}
-              >
-                <option selected>Năm</option>
-                {Year.map((value) => (
-                  <option value={value} key={value}>
-                    {value}
-                  </option>
-                ))}
-              </select>
-              <img
-                className="icont_select"
-                width={"8px"}
-                height={"6.65px"}
-                src="/assets/icon/select.png"
-              />
-            </div>
-          </div>
-          <div className="birtday">
-            <div className="from-email">
-              <TextField
-                label="Email *"
-                type="email"
-                name="email"
-                variant="standard"
-                id="standard-error-helper-text"
-                error={formik.errors.email ? true : false}
-                onChange={formik.handleChange}
-                value={formik.values.email}
-                fullWidth
-                helperText={formik.errors.email}
-              />
-            </div>
+      <div className="main">
+        <form onSubmit={formik.handleSubmit} encType="multipart/form-data">
+          <div className="box-form">
+            <h2 className="text-center title-page">
+              Đăng ký ứng viên tiềm năng
+            </h2>
             <div className="mr-20"></div>
-            <div className="mr-20"></div>
-            <div className="from-email">
-              <TextField
-                label="Số điện thoại *"
-                id="standard-error-helper-text"
-                type="text"
-                name="phone"
-                variant="standard"
-                error={formik.errors.phone ? true : false}
-                onChange={formik.handleChange}
-                value={formik.values.phone}
-                fullWidth
-                helperText={formik.errors.phone}
-              />
-            </div>
-          </div>
-
-          <div className="mr-60" />
-
-          <div className="box-PostCV">
-            <div className="PostCV-Left">
-              <h6
-                className={
-                  formik.errors.file ? "CV-text text-error" : "CV-test"
-                }
-              >
-                CV
-              </h6>
-              <h6
-                className={
-                  formik.errors.file
-                    ? "CV-text-comment text-error"
-                    : "CV-text-comment"
-                }
-              >
-                {formik.values.file?.name
-                  ? formik.values.file?.name
-                  : formik.errors.file
-                  ? formik.errors.file
-                  : "Format được hỗ trợ: PNG, JPG, PDF"}
-              </h6>
-            </div>
-            <div className="PostCV-Right">
-              <button type="file" className="btn-outline">
-                <span className="btn-text">Tải lên</span>
-                <input
-                  type="file"
-                  name="file"
-                  className="input_file"
-                  id="file"
-                  accept=".pdf, image/png, image/jpg"
-                  onChange={(event) => {
-                    setFieldValue("file", event.currentTarget.files[0]);
-                  }}
+            <TextField
+              label="Tên đầy đủ *"
+              type="text"
+              variant="standard"
+              fullWidth
+              name="name"
+              id="standard-error-helper-text"
+              error={formik.errors.email && formik.touched.email ? true : false}
+              onChange={formik.handleChange}
+              value={formik.values.name}
+              helperText={formik.errors.name}
+            />
+            <div className="birtday">
+              <div className="item">
+                <label className="label-text">Ngày sinh</label>
+              </div>
+              <div className="item">
+                <select
+                  className="form-select form-select-custom"
+                  defaultValue="Ngày"
+                  name="day"
+                  onChange={formik.handleChange}
+                  value={formik.values.day}
+                >
+                  <option selected>Ngày</option>
+                  {Day.map((value) => (
+                    <option value={value} key={value}>
+                      {value}
+                    </option>
+                  ))}
+                </select>
+                <img
+                  className="icont_select"
+                  width={"8px"}
+                  height={"6.65px"}
+                  src="/assets/icon/select.png"
                 />
-              </button>
+              </div>
+
+              <div className="item">
+                <select
+                  className="form-select form-select-custom"
+                  defaultValue="Tháng"
+                  name="month"
+                  onChange={formik.handleChange}
+                  value={formik.values.month}
+                >
+                  <option selected>Tháng</option>
+                  {Month.map((value) => (
+                    <option value={value} key={value}>
+                      {value}
+                    </option>
+                  ))}
+                </select>
+                <img
+                  className="icont_select"
+                  width={"8px"}
+                  height={"6.65px"}
+                  src="/assets/icon/select.png"
+                />
+              </div>
+              <div className="item">
+                <select
+                  className="form-select form-select-custom"
+                  defaultValue="Năm"
+                  name="year"
+                  onChange={formik.handleChange}
+                  value={formik.values.year}
+                >
+                  <option selected>Năm</option>
+                  {Year.map((value) => (
+                    <option value={value} key={value}>
+                      {value}
+                    </option>
+                  ))}
+                </select>
+                <img
+                  className="icont_select"
+                  width={"8px"}
+                  height={"6.65px"}
+                  src="/assets/icon/select.png"
+                />
+              </div>
+            </div>
+            <div className="birtday">
+              <div className="from-email">
+                <TextField
+                  label="Email *"
+                  type="email"
+                  name="email"
+                  variant="standard"
+                  id="standard-error-helper-text"
+                  error={formik.errors.email ? true : false}
+                  onChange={formik.handleChange}
+                  value={formik.values.email}
+                  fullWidth
+                  helperText={formik.errors.email}
+                />
+              </div>
+              <div className="mr-20"></div>
+              <div className="mr-20"></div>
+              <div className="from-email">
+                <TextField
+                  label="Số điện thoại *"
+                  id="standard-error-helper-text"
+                  type="text"
+                  name="phone"
+                  variant="standard"
+                  error={formik.errors.phone ? true : false}
+                  onChange={formik.handleChange}
+                  value={formik.values.phone}
+                  fullWidth
+                  helperText={formik.errors.phone}
+                />
+              </div>
+            </div>
+
+            <div className="mr-60" />
+
+            <div className="box-PostCV">
+              <div className="PostCV-Left">
+                <h6
+                  className={
+                    formik.errors.file ? "CV-text text-error" : "CV-test"
+                  }
+                >
+                  CV
+                </h6>
+                <h6
+                  className={
+                    formik.errors.file
+                      ? "CV-text-comment text-error"
+                      : "CV-text-comment"
+                  }
+                >
+                  {formik.values.file?.name
+                    ? formik.values.file?.name
+                    : formik.errors.file
+                    ? formik.errors.file
+                    : "Format được hỗ trợ: PNG, JPG, PDF"}
+                </h6>
+              </div>
+              <div className="PostCV-Right">
+                <button type="file" className="btn-outline">
+                  <span className="btn-text">Tải lên</span>
+                  <input
+                    type="file"
+                    name="file"
+                    className="input_file"
+                    id="file"
+                    accept=".pdf, image/png, image/jpg"
+                    onChange={(event) => {
+                      setFieldValue("file", event.currentTarget.files[0]);
+                    }}
+                  />
+                </button>
+              </div>
+            </div>
+            <div className="mr-20" />
+            <TextField
+              label="Online Portfolio links"
+              type="text"
+              name="link"
+              variant="standard"
+              fullWidth
+              onChange={formik.handleChange}
+              value={formik.values.link}
+            />
+            <div className="mr-20" />
+            <div className="mr-20" />
+            <TextField
+              label="Vị trí muốn ứng tuyển"
+              name="title"
+              type="text"
+              variant="standard"
+              fullWidth
+              onChange={formik.handleChange}
+              value={formik.values.title}
+            />
+            <div className="mr-20" />
+            <textarea
+              placeholder="Một vài lời nhắn dành cho chúng tôi (Không bắt buộc)"
+              className="txtform"
+              rows="4"
+              cols="50"
+              name="content"
+              onChange={formik.handleChange}
+              value={formik.values.content}
+            ></textarea>
+            <div className="birtday">
+              <div className="birtday-left">
+                <ReCAPTCHA sitekey="Your client site key" onChange={onChange} />
+              </div>
+              <div className="birtday-right">
+                <button
+                  className="btn btn-cancel"
+                  type="reset"
+                  onClick={handleReset}
+                >
+                  <span className="btn-text">Hủy</span>
+                </button>
+                <button className="btn btn-submit" type="submit">
+                  <span className="btn-text">Gửi</span>
+                </button>
+              </div>
             </div>
           </div>
-          <div className="mr-20" />
-          <TextField
-            label="Online Portfolio links"
-            type="text"
-            name="link"
-            variant="standard"
-            fullWidth
-            onChange={formik.handleChange}
-            value={formik.values.link}
-          />
-          <div className="mr-20" />
-          <div className="mr-20" />
-          <TextField
-            label="Vị trí muốn ứng tuyển"
-            name="title"
-            type="text"
-            variant="standard"
-            fullWidth
-            onChange={formik.handleChange}
-            value={formik.values.title}
-          />
-          <div className="mr-20" />
-          <textarea
-            placeholder="Một vài lời nhắn dành cho chúng tôi (Không bắt buộc)"
-            className="txtform"
-            rows="4"
-            cols="50"
-            name="content"
-            onChange={formik.handleChange}
-            value={formik.values.content}
-          ></textarea>
-          <div className="birtday">
-            <div className="birtday-left">
-              <ReCAPTCHA sitekey="Your client site key" onChange={onChange} />
-            </div>
-            <div className="birtday-right">
-              <button
-                className="btn btn-cancel"
-                type="reset"
-                onClick={handleReset}
-              >
-                <span className="btn-text">Hủy</span>
-              </button>
-              <button className="btn btn-submit" type="submit">
-                <span className="btn-text">Gửi</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </form>
-      <footer>
-        <Footer />
-      </footer>
+        </form>
+        <footer>
+          <Footer />
+        </footer>
+      </div>
       <style jsx>{`
         .box-form {
           width: 794px;
@@ -542,7 +546,6 @@ const UngVienTiemNang = () => {
           .label-text {
             font-size: 16px;
           }
-         
         }
       `}</style>
     </>

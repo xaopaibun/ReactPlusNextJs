@@ -17,7 +17,10 @@ const Career = ({ data }) => {
     <>
       <Head>
         <title>Tuyển dụng React Plus</title>
-        <link rel="icon" href="/favicon.ico" />
+        <meta
+          property="og:image"
+          content="http://103.237.145.33:3000/uploads/image/image/19/ReactPlus-Cty.jpg"
+        />
       </Head>
       <div className="header">
         <Menu isColor={true} />
@@ -30,7 +33,9 @@ const Career = ({ data }) => {
               </div>
               <div className="contact-phone-hotline">
                 <p className="hotline">Hotline</p>
-                <p className="phone-number">034 9177 306</p>
+                <a className="phone-number" tel={"0349177306"}>
+                  034 9177 306
+                </a>
               </div>
             </div>
             <div
@@ -48,7 +53,10 @@ const Career = ({ data }) => {
               </div>
               <div className="contact-phone-hotline">
                 <p className="hotline">Email</p>
-                <p className="phone-number">huett@reactplus.com</p>
+
+                <a className="phone-number" href="mailto:huett@reactplus.com">
+                  huett@reactplus.com
+                </a>
               </div>
             </div>
           </div>
@@ -57,154 +65,160 @@ const Career = ({ data }) => {
           </button>
         </div>
       </div>
-      <div className="box-nominee">
-        <div className="container">
-          <h5 className="title">CAREER</h5>
-          <h2 className="title2">Các vị trí đang tuyển</h2>
-          <div className="list-applied-position">
-            {data.map((val, index) => {
-              if (index < 6 && !isLoadMore) {
-                return (
-                  <div className="applied-position-item" key={val.id}>
-                    <div className="applied-position-item-top">
-                      <span className="tinh">
-                        <img
-                          src="./assets/icon/dinhvi.png"
-                          style={{ marginRight: "8px" }}
-                          width={11}
-                          height={15}
-                        />
-                        {val.address}
-                      </span>
-                      {val.type_recruitment === "full_time" ? (
-                        <div className="full-time">Full-time</div>
-                      ) : (
-                        <div className="part-time">Part-time</div>
-                      )}
-                    </div>
-                    <div className="applied-position-item-center">
-                      {val.title}
-                    </div>
-                    <div className="applied-position-item-bottom">
-                      <button
-                        className="btnmore"
-                        onClick={() => handleDetail(val.url_seo)}
-                      >
-                        <span>Xem chi tiết </span>
-                        <img
-                          className="btnmore__icon"
-                          src="./assets/icon/muiten.png"
-                        />
-                      </button>
-                    </div>
-                  </div>
-                );
-              }
 
-              if (isLoadMore) {
-                return (
-                  <div className="applied-position-item" key={val.id}>
-                    <div className="applied-position-item-top">
-                      <span className="tinh">
-                        <img
-                          src="./assets/icon/dinhvi.png"
-                          width={11}
-                          height={15}
-                        />{" "}
-                        {val.address}
-                      </span>
-                      {val.type_recruitment === "full_time" ? (
-                        <div className="full-time">Full-time</div>
-                      ) : (
-                        <div className="part-time">Part-time</div>
-                      )}
-                    </div>
-                    <div className="applied-position-item-center">
-                      {val.title}
-                    </div>
-                    <div className="applied-position-item-bottom">
-                      <button
-                        className="btnmore"
-                        onClick={() => handleDetail(val.url_seo)}
-                      >
-                        <span>Xem chi tiết </span>
-                        <img
-                          className="btnmore__icon"
-                          src="./assets/icon/muiten.png"
-                        />
-                      </button>
-                    </div>
-                  </div>
-                );
-              }
-            })}
-          </div>
-          {!isLoadMore && (
-            <div className="box-loadmore">
-              <button className="btnmorefull" onClick={() => setLoadMore(true)}>
-                <span>Tải thêm...</span>
-              </button>
-            </div>
-          )}
-        </div>
-      </div>
-      <div className="box-nominee2">
-        <div className="container">
-          <h5 className="title">CAREER</h5>
-          <h2 className="title2">7 bước thành chuyên gia</h2>
-          <div className="list-level">
-            {_7Step &&
-              _7Step.map((val) => (
-                <div className="level-item" key={val._id}>
-                  <div className="level-item-left">
-                    <div className="time-line"></div>
-                    <div className="border-time-line"></div>
-                  </div>
-                  <div className="level-item-right">
-                    <h4 className="level-time">{val.time}</h4>
-                    <h4 className="level-text">{val.level}</h4>
-                    <p className="level-content">{val.text}</p>
-                  </div>
-                </div>
-              ))}
-          </div>
-
-          <img
-            src="./assets/images/7_Step.png"
-            className="img-7step"
-            alt=""
-            width={"100%"}
-            style={{ marginTop: "30px" }}
-          />
-          <div className="marginTopBottom">
+      <div className="main">
+        <div className="box-nominee">
+          <div className="container">
             <h5 className="title">CAREER</h5>
-            <h2 className="title2">3 bước vào đội ngũ</h2>
-            <div className="join-the-team">
-              <div className="join-the-team-item">
-                <img src="./assets/images/img07.png" alt="" />
-                <h4 className="join-the-team-content">
-                  Ứng viên gửi hồ sơ ứng tuyển
-                </h4>
+            <h2 className="title2">Các vị trí đang tuyển</h2>
+            <div className="list-applied-position">
+              {data.map((val, index) => {
+                if (index < 6 && !isLoadMore) {
+                  return (
+                    <div className="applied-position-item" key={val.id}>
+                      <div className="applied-position-item-top">
+                        <span className="tinh">
+                          <img
+                            src="./assets/icon/dinhvi.png"
+                            style={{ marginRight: "8px" }}
+                            width={11}
+                            height={15}
+                          />
+                          {val.address}
+                        </span>
+                        {val.type_recruitment === "full_time" ? (
+                          <div className="full-time">Full-time</div>
+                        ) : (
+                          <div className="part-time">Part-time</div>
+                        )}
+                      </div>
+                      <div className="applied-position-item-center">
+                        {val.title}
+                      </div>
+                      <div className="applied-position-item-bottom">
+                        <button
+                          className="btnmore"
+                          onClick={() => handleDetail(val.url_seo)}
+                        >
+                          <span>Xem chi tiết </span>
+                          <img
+                            className="btnmore__icon"
+                            src="./assets/icon/muiten.png"
+                          />
+                        </button>
+                      </div>
+                    </div>
+                  );
+                }
+
+                if (isLoadMore) {
+                  return (
+                    <div className="applied-position-item" key={val.id}>
+                      <div className="applied-position-item-top">
+                        <span className="tinh">
+                          <img
+                            src="./assets/icon/dinhvi.png"
+                            width={11}
+                            height={15}
+                          />{" "}
+                          {val.address}
+                        </span>
+                        {val.type_recruitment === "full_time" ? (
+                          <div className="full-time">Full-time</div>
+                        ) : (
+                          <div className="part-time">Part-time</div>
+                        )}
+                      </div>
+                      <div className="applied-position-item-center">
+                        {val.title}
+                      </div>
+                      <div className="applied-position-item-bottom">
+                        <button
+                          className="btnmore"
+                          onClick={() => handleDetail(val.url_seo)}
+                        >
+                          <span>Xem chi tiết </span>
+                          <img
+                            className="btnmore__icon"
+                            src="./assets/icon/muiten.png"
+                          />
+                        </button>
+                      </div>
+                    </div>
+                  );
+                }
+              })}
+            </div>
+            {!isLoadMore && (
+              <div className="box-loadmore">
+                <button
+                  className="btnmorefull"
+                  onClick={() => setLoadMore(true)}
+                >
+                  <span>Tải thêm...</span>
+                </button>
               </div>
-              <div className="join-the-team-item">
-                <img src="./assets/images/img08.png" alt="" />
-                <h4 className="join-the-team-content">
-                  Phỏng vấn cùng HR và Project Manager
-                </h4>
-              </div>
-              <div className="join-the-team-item">
-                <img src="./assets/images/img09.png" alt="" />
-                <h4 className="join-the-team-content">
-                  Thoả thuận hợp đồng và hoàn thiện hồ sơ
-                </h4>
+            )}
+          </div>
+        </div>
+        <div className="box-nominee2">
+          <div className="container">
+            <h5 className="title">CAREER</h5>
+            <h2 className="title2">7 bước thành chuyên gia</h2>
+            <div className="list-level">
+              {_7Step &&
+                _7Step.map((val) => (
+                  <div className="level-item" key={val._id}>
+                    <div className="level-item-left">
+                      <div className="time-line"></div>
+                      <div className="border-time-line"></div>
+                    </div>
+                    <div className="level-item-right">
+                      <h4 className="level-time">{val.time}</h4>
+                      <h4 className="level-text">{val.level}</h4>
+                      <p className="level-content">{val.text}</p>
+                    </div>
+                  </div>
+                ))}
+            </div>
+
+            <img
+              src="./assets/images/7_Step.png"
+              className="img-7step"
+              alt=""
+              width={"100%"}
+              style={{ marginTop: "30px" }}
+            />
+            <div className="marginTopBottom">
+              <h5 className="title">CAREER</h5>
+              <h2 className="title2">3 bước vào đội ngũ</h2>
+              <div className="join-the-team">
+                <div className="join-the-team-item">
+                  <img src="./assets/images/img07.png" alt="" />
+                  <h4 className="join-the-team-content">
+                    Ứng viên gửi hồ sơ ứng tuyển
+                  </h4>
+                </div>
+                <div className="join-the-team-item">
+                  <img src="./assets/images/img08.png" alt="" />
+                  <h4 className="join-the-team-content">
+                    Phỏng vấn cùng HR và Project Manager
+                  </h4>
+                </div>
+                <div className="join-the-team-item">
+                  <img src="./assets/images/img09.png" alt="" />
+                  <h4 className="join-the-team-content">
+                    Thoả thuận hợp đồng và hoàn thiện hồ sơ
+                  </h4>
+                </div>
               </div>
             </div>
           </div>
         </div>
+        <JoinNow />
+        <div className="mr-110" />
+        <Footer />
       </div>
-      <JoinNow />
-      <div className="mr-110" />
-      <Footer />
       <style jsx>{`
         .header {
           height: 410px;
@@ -274,6 +288,8 @@ const Career = ({ data }) => {
           text-align: center;
           letter-spacing: -0.02em;
           margin: 0;
+          color: #ffffff;
+          text-decoration: none;
         }
         .btnRegister {
           border: 1px solid #ffffff;

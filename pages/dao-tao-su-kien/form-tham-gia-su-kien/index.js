@@ -81,52 +81,53 @@ const Form = () => {
         />
       )}
       <Menu />
-      <div className="container">
-        <form onSubmit={formik.handleSubmit}>
-          <div className="box-form">
-            <p className="text-center title-blue">Đăng ký tham gia sự kiện</p>
-            <h2 className="text-center title-page">{title}</h2>
-            <div className="mr-30"></div>
-            <div className="flex">
-              <div className="width-50">
-                <TextField
-                  label="Họ và Tên *"
-                  name="name"
-                  type="text"
-                  variant="standard"
-                  className={classes.input}
-                  onChange={formik.handleChange}
-                  value={formik.values.name}
-                  id="standard-error-helper-text"
-                  error={
-                    formik.errors.name && formik.touched.name ? true : false
-                  }
-                  helperText={formik.errors.name}
-                  fullWidth
-                />
+      <div className="main">
+        <div className="container">
+          <form onSubmit={formik.handleSubmit}>
+            <div className="box-form">
+              <p className="text-center title-blue">Đăng ký tham gia sự kiện</p>
+              <h2 className="text-center title-page">{title}</h2>
+              <div className="mr-30"></div>
+              <div className="flex">
+                <div className="width-50">
+                  <TextField
+                    label="Họ và Tên *"
+                    name="name"
+                    type="text"
+                    variant="standard"
+                    className={classes.input}
+                    onChange={formik.handleChange}
+                    value={formik.values.name}
+                    id="standard-error-helper-text"
+                    error={
+                      formik.errors.name && formik.touched.name ? true : false
+                    }
+                    helperText={formik.errors.name}
+                    fullWidth
+                  />
+                </div>
+                <div className="mr-30-block"></div>
+                <div className="width-50">
+                  <TextField
+                    label="Email *"
+                    name="email"
+                    onChange={formik.handleChange}
+                    variant="standard"
+                    className={classes.input}
+                    value={formik.values.email}
+                    fullWidth
+                    id="standard-error-helper-text"
+                    error={
+                      formik.errors.email && formik.touched.email ? true : false
+                    }
+                    helperText={formik.errors.email}
+                  />
+                </div>
               </div>
-              <div className="mr-30-block"></div>
-              <div className="width-50">
-                <TextField
-                  label="Email *"
-                  name="email"
-                  onChange={formik.handleChange}
-                  variant="standard"
-                  className={classes.input}
-                  value={formik.values.email}
-                  fullWidth
-                  id="standard-error-helper-text"
-                  error={
-                    formik.errors.email && formik.touched.email ? true : false
-                  }
-                  helperText={formik.errors.email}
-                />
-              </div>
-            </div>
-            <div className="mr-30"></div>
-            <div className="birtday">
-              <label className="label-text">Năm sinh</label>
-              {/* <input
+              <div className="mr-30"></div>
+              <div className="birtday">
+                <label className="label-text">Năm sinh</label>
+                {/* <input
                 type="text"
                 className="form-control txtform fromdate"
                 placeholder="Năm"
@@ -134,104 +135,107 @@ const Form = () => {
                 onChange={formik.handleChange}
                 value={formik.values.year}
               /> */}
-              <div className="item">
-                <select
-                  className="form-select form-select-custom"
-                  defaultValue="Năm"
-                  name="year"
-                  onChange={formik.handleChange}
-                  value={formik.values.year}
-                >
-                  <option selected>Năm </option>
-                  {Year.map((value) => (
-                    <option value={value} key={value}>
-                      {value}
-                    </option>
-                  ))}
-                </select>
-                <img
-                  className="icont_select"
-                  width={"8px"}
-                  height={"6.65px"}
-                  src="/assets/icon/select.png"
-                />
+                <div className="item">
+                  <select
+                    className="form-select form-select-custom"
+                    defaultValue="Năm"
+                    name="year"
+                    onChange={formik.handleChange}
+                    value={formik.values.year}
+                  >
+                    <option selected>Năm </option>
+                    {Year.map((value) => (
+                      <option value={value} key={value}>
+                        {value}
+                      </option>
+                    ))}
+                  </select>
+                  <img
+                    className="icont_select"
+                    width={"8px"}
+                    height={"6.65px"}
+                    src="/assets/icon/select.png"
+                  />
+                </div>
+                {formik.errors.year && formik.touched.year ? (
+                  <p style={{ color: "#d32f2f", fontSize: "12px" }}>
+                    {formik.errors.year}
+                  </p>
+                ) : null}
               </div>
-              {formik.errors.year && formik.touched.year ? (
-                <p style={{ color: "#d32f2f", fontSize: "12px" }}>
-                  {formik.errors.year}
-                </p>
-              ) : null}
-            </div>
-            <div className="mr-30"></div>
-            <TextField
-              label="Công việc hiện tại của bạn * "
-              type="text"
-              variant="standard"
-              fullWidth
-              name="job"
-              onChange={formik.handleChange}
-              value={formik.values.job}
-              id="standard-error-helper-text"
-              error={formik.errors.job && formik.touched.job ? true : false}
-              helperText={formik.errors.job}
-            />
-            <div className="mr-30"></div>
-            <TextField
-              label="Bạn biết tới sự kiện này từ đâu"
-              type="text"
-              variant="standard"
-              fullWidth
-              name="source"
-              onChange={formik.handleChange}
-              value={formik.values.source}
-              id="standard-error-helper-text"
-              error={
-                formik.errors.source && formik.touched.source ? true : false
-              }
-              helperText={formik.errors.source}
-            />
-            <div className="mr-30"></div>
-            <textarea
-              placeholder="Bạn có câu hỏi gì muốn gửi tới diễn giả"
-              className="txtform"
-              name="question"
-              onChange={formik.handleChange}
-              value={formik.values.question}
-              id="standard-error-helper-text"
-              error={
-                formik.errors.question && formik.touched.question ? true : false
-              }
-              helperText={formik.errors.question}
-              rows="4"
-              cols="50"
-            ></textarea>
+              <div className="mr-30"></div>
+              <TextField
+                label="Công việc hiện tại của bạn * "
+                type="text"
+                variant="standard"
+                fullWidth
+                name="job"
+                onChange={formik.handleChange}
+                value={formik.values.job}
+                id="standard-error-helper-text"
+                error={formik.errors.job && formik.touched.job ? true : false}
+                helperText={formik.errors.job}
+              />
+              <div className="mr-30"></div>
+              <TextField
+                label="Bạn biết tới sự kiện này từ đâu"
+                type="text"
+                variant="standard"
+                fullWidth
+                name="source"
+                onChange={formik.handleChange}
+                value={formik.values.source}
+                id="standard-error-helper-text"
+                error={
+                  formik.errors.source && formik.touched.source ? true : false
+                }
+                helperText={formik.errors.source}
+              />
+              <div className="mr-30"></div>
+              <textarea
+                placeholder="Bạn có câu hỏi gì muốn gửi tới diễn giả"
+                className="txtform"
+                name="question"
+                onChange={formik.handleChange}
+                value={formik.values.question}
+                id="standard-error-helper-text"
+                error={
+                  formik.errors.question && formik.touched.question
+                    ? true
+                    : false
+                }
+                helperText={formik.errors.question}
+                rows="4"
+                cols="50"
+              ></textarea>
 
-            <div className="flex">
-              <div className="birtday-left">
-                <ReCAPTCHA
-                  sitekey="6LeHJFsdAAAAAHpUDbJ_ua1WcY5VP8ZXSQ0Xs9uZ"
-                  onChange={onChange}
-                />
-              </div>
-              <div className="birtday-right">
-                <button
-                  className="btn-cancel"
-                  type="button"
-                  onClick={handleReset}
-                >
-                  <span className="btn-text">Hủy</span>
-                </button>
-                <button className="btn-submit" type="submit">
-                  <span className="btn-text">Gửi</span>
-                </button>
+              <div className="flex">
+                <div className="birtday-left">
+                  <ReCAPTCHA
+                    sitekey="6LeHJFsdAAAAAHpUDbJ_ua1WcY5VP8ZXSQ0Xs9uZ"
+                    onChange={onChange}
+                  />
+                </div>
+                <div className="birtday-right">
+                  <button
+                    className="btn-cancel"
+                    type="button"
+                    onClick={handleReset}
+                  >
+                    <span className="btn-text">Hủy</span>
+                  </button>
+                  <button className="btn-submit" type="submit">
+                    <span className="btn-text">Gửi</span>
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        </form>
+          </form>
+        </div>
+        <footer>
+          <Footer />
+        </footer>
       </div>
-      <footer>
-        <Footer />
-      </footer>
       <style jsx>{`
         .flex {
           display: flex;

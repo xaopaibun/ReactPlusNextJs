@@ -12,39 +12,43 @@ const EventTraining = ({ data_training_page }) => {
     <>
       <Head>
         <title>Đào tạo && Sự kiện React Plus</title>
-        <link rel="icon" href="/favicon.ico" />
+        <meta
+          property="og:image"
+          content="http://103.237.145.33:3000/uploads/image/image/19/ReactPlus-Cty.jpg"
+        />
       </Head>
       <Menu />
-      <div className="image-page">
-        <img
-          src="/assets/images/Khoa-Dao-Tao-React-Plus.png"
-          width={"100%"}
-          height={"100%"}
-        />
-      </div>
-      <div className="Logo-ReactPlus">
-        <div className="container">
-          <h2 className="title_page">Lợi ích đặc biệt từ khoá học</h2>
-          <div className="box__company__scale">
-            {data_training_page?.benefit?.map((val) => (
-              <div className="company__scale__item" key={val.id}>
-                <div className="item__img">
-                  <img
-                    height="43px"
-                    width="43px"
-                    src={`${URL}${val.image.url}`}
-                    alt=""
+      <div className="main">
+        <div className="image-page">
+          <img
+            src="/assets/images/Khoa-Dao-Tao-React-Plus.png"
+            width={"100%"}
+            height={"100%"}
+          />
+        </div>
+        <div className="Logo-ReactPlus">
+          <div className="container">
+            <h2 className="title_page">Lợi ích đặc biệt từ khoá học</h2>
+            <div className="box__company__scale">
+              {data_training_page?.benefit?.map((val) => (
+                <div className="company__scale__item" key={val.id}>
+                  <div className="item__img">
+                    <img
+                      height="43px"
+                      width="43px"
+                      src={`${URL}${val.image.url}`}
+                      alt=""
+                    />
+                  </div>
+                  <div
+                    className="content"
+                    dangerouslySetInnerHTML={{
+                      __html: val.content,
+                    }}
                   />
                 </div>
-                <div
-                  className="content"
-                  dangerouslySetInnerHTML={{
-                    __html: val.content,
-                  }}
-                />
-              </div>
-            ))}
-            {/* <div className="company__scale__item">
+              ))}
+              {/* <div className="company__scale__item">
               <div className="item__img">
                 <img
                   height="43px"
@@ -87,57 +91,58 @@ const EventTraining = ({ data_training_page }) => {
                 gia và kỹ sư yêu thích React
               </p>
             </div> */}
+            </div>
           </div>
-        </div>
-        <div className="content-course">
-          <div className="container">
-            <h2 className="title_page">Nội dung chính khóa học</h2>
-            <div className="list-course">
-              {data_training_page?.feature?.map((value, index) => (
-                <div className="course-item" key={value.id}>
-                  <div className="course-item-image">
-                    <h1 className="number-text">{index + 1}</h1>
+          <div className="content-course">
+            <div className="container">
+              <h2 className="title_page">Nội dung chính khóa học</h2>
+              <div className="list-course">
+                {data_training_page?.feature?.map((value, index) => (
+                  <div className="course-item" key={value.id}>
+                    <div className="course-item-image">
+                      <h1 className="number-text">{index + 1}</h1>
+                    </div>
+                    <div className="course-item-text">
+                      <div
+                        className="course-text"
+                        dangerouslySetInnerHTML={{
+                          __html: value.content,
+                        }}
+                      ></div>
+                    </div>
                   </div>
-                  <div className="course-item-text">
+                ))}
+              </div>
+              <div className="mr-72" />
+              <h2 className="title_page">Đặc điểm khóa học</h2>
+              <div className="list-course-features">
+                {data_training_page?.feature?.map((value) => (
+                  <div className="list-course-features-item" key={value.id}>
+                    <img
+                      src={`${URL}${value.image.url}`}
+                      className="course-img"
+                      width={80}
+                      height={80}
+                    />
+                    <p className="course-title">{value.title}</p>
                     <div
-                      className="course-text"
+                      className="course-features-text"
                       dangerouslySetInnerHTML={{
                         __html: value.content,
                       }}
                     ></div>
                   </div>
-                </div>
-              ))}
-            </div>
-            <div className="mr-72" />
-            <h2 className="title_page">Đặc điểm khóa học</h2>
-            <div className="list-course-features">
-              {data_training_page?.feature?.map((value) => (
-                <div className="list-course-features-item" key={value.id}>
-                  <img
-                    src={`${URL}${value.image.url}`}
-                    className="course-img"
-                    width={80}
-                    height={80}
-                  />
-                  <p className="course-title">{value.title}</p>
-                  <div
-                    className="course-features-text"
-                    dangerouslySetInnerHTML={{
-                      __html: value.content,
-                    }}
-                  ></div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>
+        <div className="mr-72" />
+        <TeachingStaff data={data_training_page?.trainner} />
+        <JoinNowCourse />
+        <div className="mr-100" />
+        <Footer />
       </div>
-      <div className="mr-72" />
-      <TeachingStaff data={data_training_page?.trainner} />
-      <JoinNowCourse />
-      <div className="mr-100" />
-      <Footer />
       <style jsx>{`
         .image-page {
           height: 430px;
@@ -302,8 +307,8 @@ const EventTraining = ({ data_training_page }) => {
         }
         @media screen and (max-width: 768px) {
           .mr-72 {
-          margin-top: 27px;
-        }
+            margin-top: 27px;
+          }
           .content-course {
             padding-top: 27px;
           }

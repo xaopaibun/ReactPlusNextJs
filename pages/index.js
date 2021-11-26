@@ -60,257 +60,272 @@ const Home = ({ data }) => {
           content="http://103.237.145.33:3000/uploads/image/image/19/ReactPlus-Cty.jpg"
         />
       </Head>
-      <Menu />
-      {isShow2 && (
-        <PopupDownloadDocuments show={isShow2} onHide={() => setShow2(false)} />
-      )}
-      <div className="box-box">
-        <div className="banner">
-          <Carousel
-            prevIcon={
-              <div className="btnSlider left">
-                <img src="/assets/images/back_left.png" alt="" />
-              </div>
-            }
-            nextIcon={
-              <div className="btnSlider right">
-                <img src="/assets/images/back_right.png" alt="" />
-              </div>
-            }
-          >
-            {data[0].map((val) => (
-              <Carousel.Item interval={3500} key={val.id}>
-                <img
-                  className="d-block w-100 img-slide"
-                  src={`${URL}${val.image.url}`}
-                  alt="First slide"
-                />
-              </Carousel.Item>
-            ))}
-          </Carousel>
-        </div>
 
-        <div className="box-content">
-          <div className="container">
-            <h2 className="content__review">
-              Công ty chuyên về React đầu tiên tại Việt Nam
-            </h2>
-            <p className="content__text">
-              React Plus cung cấp các chuyên gia hàng đầu về React cho thị
-              trường quốc tế. Chúng tôi tập trung toàn bộ vào công nghệ React -
-              React Native và mang tới dịch vụ chất lượng cao nhất cho khách
-              hàng ở 4 mảng: Phát triển web, ứng dụng di động, phòng lap và hợp
-              đồng.
-            </p>
-            <div className="box-item">
-              <div className="item">
-                <div className="item__img">
-                  <img src="/assets/images/img0.png" alt="" />
-                </div>
-                <p className="item__content">
-                  Nơi làm việc của đông đảo chuyên gia và kỹ sư yêu thích React
-                </p>
-              </div>
-              <div className="item">
-                <div className="item__img">
-                  <img src="/assets/images/img01.png" alt="" />
-                </div>
-                <p className="item__content">
-                  Quy mô 130 nhân sự và 100% dự án làm về React
-                </p>
-              </div>
-              <div className="item">
-                <div className="item__img">
-                  <img src="/assets/images/img00.png" alt="" />
-                </div>
-                <p className="item__content">
-                  Nơi tổ chức miễn phí các khoá đào tạo, sự kiện về React với
-                  chuyên gia trong nước và quốc tế
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="box-community">
-          <div className="container">
-            <div className="community-top">
-              <h5 className="text_blue">CỘNG ĐỒNG</h5>
-              <h3 className="community__title">
-                Đào tạo &amp; Sự kiện về React
-              </h3>
-              <div className="community__content">
-                Với mong muốn xây dựng cộng đồng kỹ sư làm về React cùng nhau
-                phát triển tại Việt Nam, chúng tôi tổ chức các đợt đào tạo và sự
-                kiện hàng tháng để giúp các kỹ sư trên toàn quốc cùng nhau học
-                hỏi, cập nhật những thay đổi mới nhất về React. Ngoài ra, mỗi
-                năm một lần, chúng tôi sẽ tổ chức một sự kiện lớn với sự tham
-                gia của các chuyên gia React hàng đầu Việt Nam và thế giới.
-              </div>
-            </div>
-            <div className="community-bottom">
-              <div className="community__item">
-                <div className="community__item__image">
-                  <img src={URL + data[1].training?.image.url} alt="" />
-                </div>
-                <div className="community__item__content">
-                  <p className="community__date">
-                    {data[1].training?.start_date} {data[1].training?.to_date}
-                  </p>
-                  <h4 className="item__title">{data[1].training?.title}</h4>
-                  <div
-                    className="item__content"
-                    dangerouslySetInnerHTML={{
-                      __html: data[1].training?.content,
-                    }}
-                  />
-                  <button
-                    className="btnmore"
-                    onClick={() => NaviDetailTraining()}
-                  >
-                    <span>Tìm hiểu thêm</span>
-                    <img
-                      className="btnmore__icon"
-                      src="./assets/icon/muiten.png"
-                    />
-                  </button>
-                </div>
-              </div>
+      
+        <Menu />
+        <div className="main">
+        {isShow2 && (
+          <PopupDownloadDocuments
+            show={isShow2}
+            onHide={() => setShow2(false)}
+          />
+        )}
 
-              <div className="community__item">
-                <div className="community__item__image">
-                  <img src={URL + data[1].event?.cover_image.url} alt="" />
+        <div className="box-box">
+          <div className="banner">
+            <Carousel
+              prevIcon={
+                <div className="btnSlider left">
+                  <img src="/assets/images/back_left.png" alt="" />
                 </div>
-                <div className="community__item__content">
-                  <p className="community__date">
-                    {data[1].event?.start_date} {data[1].event?.to_date}
-                  </p>
-                  <h4 className="item__title">{data[1].event?.title}</h4>
-                  <div
-                    className="item__content"
-                    dangerouslySetInnerHTML={{
-                      __html: data[1].event?.content,
-                    }}
+              }
+              nextIcon={
+                <div className="btnSlider right">
+                  <img src="/assets/images/back_right.png" alt="" />
+                </div>
+              }
+            >
+              {data[0].map((val) => (
+                <Carousel.Item interval={3500} key={val.id}>
+                  <img
+                    className="d-block w-100 img-slide"
+                    src={`${URL}${val.image.url}`}
+                    alt="First slide"
                   />
-                  <button className="btnmore" onClick={() => NaviDetailEvent()}>
-                    <span>Tìm hiểu thêm</span>
-                    <img
-                      className="btnmore__icon"
-                      src="/assets/icon/muiten.png"
-                    />
-                  </button>
-                </div>
-              </div>
-            </div>
+                </Carousel.Item>
+              ))}
+            </Carousel>
           </div>
-        </div>
-        <div className="container">
-          <div className="mr-62" />
-          <SlideItem TimeLineEvent={data[2]} />
-          <div className="mr-47" />
-        </div>
-        <div className="box_document">
-          <div className="BG" />
-          <div className="document">
+
+          <div className="box-content">
             <div className="container">
-              <div className="flex">
-                <div className="document__img">
-                  <img src="/assets/images/img2.png" alt="" />
-                </div>
-                <div className="document__text">
-                  <p className="text_blue text-left">MIỄN PHÍ</p>
-                  <p className="document__title text-left">
-                    Tài liệu về khoá đào tạo React Plus Developer
+              <h2 className="content__review">
+                Công ty chuyên về React đầu tiên tại Việt Nam
+              </h2>
+              <p className="content__text">
+                React Plus cung cấp các chuyên gia hàng đầu về React cho thị
+                trường quốc tế. Chúng tôi tập trung toàn bộ vào công nghệ React
+                - React Native và mang tới dịch vụ chất lượng cao nhất cho khách
+                hàng ở 4 mảng: Phát triển web, ứng dụng di động, phòng lap và
+                hợp đồng.
+              </p>
+              <div className="box-item">
+                <div className="item">
+                  <div className="item__img">
+                    <img src="/assets/images/img0.png" alt="" />
+                  </div>
+                  <p className="item__content">
+                    Nơi làm việc của đông đảo chuyên gia và kỹ sư yêu thích
+                    React
                   </p>
-                  <div className="document__text">
-                    Trong nhiều năm làm việc chuyên sâu về ReactJs, đào tạo các
-                    nhân sự cho các dự án quy mô quốc tế, React Plus đã xây dựng
-                    một khoá học hoàn chỉnh giúp các developer trẻ hoặc sinh
-                    viên mới ra trường có cơ hội tiếp cận và có thể bước đầu làm
-                    việc với ReactJs & React Native. Đây là tài liệu giới thiệu
-                    tổng quan về khoá học.
+                </div>
+                <div className="item">
+                  <div className="item__img">
+                    <img src="/assets/images/img01.png" alt="" />
                   </div>
-                  <div className="document__text">
-                    Khoá học này phù hợp với:
+                  <p className="item__content">
+                    Quy mô 130 nhân sự và 100% dự án làm về React
+                  </p>
+                </div>
+                <div className="item">
+                  <div className="item__img">
+                    <img src="/assets/images/img00.png" alt="" />
                   </div>
-                  <ul className="document__list">
-                    <li>Các bạn sinh viên lần đầu làm quen với ReactJS</li>
-                    <li>Người mới đi làm có mong muốn làm việc với ReactJS</li>
-                    <li>
-                      Lập trình viên đã có kinh nghiệm, muốn trải nghiệm một
-                      lĩnh vực mới để thay đổi công việc
-                    </li>
-                  </ul>
-                  <button
-                    className="btnmorefull"
-                    onClick={handleDownLoadDocuments}
-                  >
-                    <span>Tải về miễn phí</span>
-                    <img
-                      className="btnmore__icon"
-                      src="/assets/icon/muitenwhite.png"
-                    />
-                  </button>
+                  <p className="item__content">
+                    Nơi tổ chức miễn phí các khoá đào tạo, sự kiện về React với
+                    chuyên gia trong nước và quốc tế
+                  </p>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <p className="title__news">Tin tức &amp; Blog</p>
-        <div className="container">
-          <div className="list_news">
-            {data[3].map((val) => (
-              <div className="news__item" key={val.id}>
-                <img
-                  src={`${URL}${val.cover_image.url}`}
-                  className="news__item__img"
-                />
-                <Link href={`/tin-tuc/${val.url_seo}`}>
-                  <a className="post-title">{val.title}</a>
-                </Link>
-                <p className="community__date">
-                  {val.start_date} - {val.to_date}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-        {isShow && <Popup show={isShow} onHide={() => setShow(false)} />}
-        <div className="box-inputemail">
-          <div className="container">
-            <form onSubmit={formik.handleSubmit}>
-              <div className="inputemail">
-                <div className="input__content">
-                  <p className="input__content__title">
-                    Nhận ngay các thông tin mới nhất về Reactjs &amp; React
-                    Native nhé.
-                  </p>
-                  <input
-                    type="email"
-                    placeholder="Nhập địa chỉ email của bạn"
-                    name="email"
-                    onChange={formik.handleChange}
-                    value={formik.values.email}
-                  />
-                  <button className="btnsubmit" type="submit">
-                    Nhận
-                  </button>
+          <div className="box-community">
+            <div className="container">
+              <div className="community-top">
+                <h5 className="text_blue">CỘNG ĐỒNG</h5>
+                <h3 className="community__title">
+                  Đào tạo &amp; Sự kiện về React
+                </h3>
+                <div className="community__content">
+                  Với mong muốn xây dựng cộng đồng kỹ sư làm về React cùng nhau
+                  phát triển tại Việt Nam, chúng tôi tổ chức các đợt đào tạo và
+                  sự kiện hàng tháng để giúp các kỹ sư trên toàn quốc cùng nhau
+                  học hỏi, cập nhật những thay đổi mới nhất về React. Ngoài ra,
+                  mỗi năm một lần, chúng tôi sẽ tổ chức một sự kiện lớn với sự
+                  tham gia của các chuyên gia React hàng đầu Việt Nam và thế
+                  giới.
                 </div>
-                {formik.errors.email && formik.touched.email && (
-                  <div className="box-error">
-                    <img
-                      src="/assets/icon/icont-error.png"
-                      width="16px"
-                      height="16px"
-                    />
-                    <span className="text-error">{formik.errors.email}</span>
-                  </div>
-                )}
               </div>
-            </form>
-          </div>
-        </div>
+              <div className="community-bottom">
+                <div className="community__item">
+                  <div className="community__item__image">
+                    <img src={URL + data[1].training?.image.url} alt="" />
+                  </div>
+                  <div className="community__item__content">
+                    <p className="community__date">
+                      {data[1].training?.start_date} {data[1].training?.to_date}
+                    </p>
+                    <h4 className="item__title">{data[1].training?.title}</h4>
+                    <div
+                      className="item__content"
+                      dangerouslySetInnerHTML={{
+                        __html: data[1].training?.content,
+                      }}
+                    />
+                    <button
+                      className="btnmore"
+                      onClick={() => NaviDetailTraining()}
+                    >
+                      <span>Tìm hiểu thêm</span>
+                      <img
+                        className="btnmore__icon"
+                        src="./assets/icon/muiten.png"
+                      />
+                    </button>
+                  </div>
+                </div>
 
-        <Footer />
+                <div className="community__item">
+                  <div className="community__item__image">
+                    <img src={URL + data[1].event?.cover_image.url} alt="" />
+                  </div>
+                  <div className="community__item__content">
+                    <p className="community__date">
+                      {data[1].event?.start_date} {data[1].event?.to_date}
+                    </p>
+                    <h4 className="item__title">{data[1].event?.title}</h4>
+                    <div
+                      className="item__content"
+                      dangerouslySetInnerHTML={{
+                        __html: data[1].event?.content,
+                      }}
+                    />
+                    <button
+                      className="btnmore"
+                      onClick={() => NaviDetailEvent()}
+                    >
+                      <span>Tìm hiểu thêm</span>
+                      <img
+                        className="btnmore__icon"
+                        src="/assets/icon/muiten.png"
+                      />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="container">
+            <div className="mr-62" />
+            <SlideItem TimeLineEvent={data[2]} />
+            <div className="mr-47" />
+          </div>
+          <div className="box_document">
+            <div className="BG" />
+            <div className="document">
+              <div className="container">
+                <div className="flex">
+                  <div className="document__img">
+                    <img src="/assets/images/img2.png" alt="" />
+                  </div>
+                  <div className="document__text">
+                    <p className="text_blue text-left">MIỄN PHÍ</p>
+                    <p className="document__title text-left">
+                      Tài liệu về khoá đào tạo React Plus Developer
+                    </p>
+                    <div className="document__text">
+                      Trong nhiều năm làm việc chuyên sâu về ReactJs, đào tạo
+                      các nhân sự cho các dự án quy mô quốc tế, React Plus đã
+                      xây dựng một khoá học hoàn chỉnh giúp các developer trẻ
+                      hoặc sinh viên mới ra trường có cơ hội tiếp cận và có thể
+                      bước đầu làm việc với ReactJs & React Native. Đây là tài
+                      liệu giới thiệu tổng quan về khoá học.
+                    </div>
+                    <div className="document__text">
+                      Khoá học này phù hợp với:
+                    </div>
+                    <ul className="document__list">
+                      <li>Các bạn sinh viên lần đầu làm quen với ReactJS</li>
+                      <li>
+                        Người mới đi làm có mong muốn làm việc với ReactJS
+                      </li>
+                      <li>
+                        Lập trình viên đã có kinh nghiệm, muốn trải nghiệm một
+                        lĩnh vực mới để thay đổi công việc
+                      </li>
+                    </ul>
+                    <button
+                      className="btnmorefull"
+                      onClick={handleDownLoadDocuments}
+                    >
+                      <span>Tải về miễn phí</span>
+                      <img
+                        className="btnmore__icon"
+                        src="/assets/icon/muitenwhite.png"
+                      />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p className="title__news">Tin tức &amp; Blog</p>
+          <div className="container">
+            <div className="list_news">
+              {data[3].map((val) => (
+                <div className="news__item" key={val.id}>
+                  <img
+                    src={`${URL}${val.cover_image.url}`}
+                    className="news__item__img"
+                  />
+                  <Link href={`/tin-tuc/${val.url_seo}`}>
+                    <a className="post-title">{val.title}</a>
+                  </Link>
+                  <p className="community__date">
+                    {val.start_date} - {val.to_date}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+          {isShow && <Popup show={isShow} onHide={() => setShow(false)} />}
+          <div className="box-inputemail">
+            <div className="container">
+              <form onSubmit={formik.handleSubmit}>
+                <div className="inputemail">
+                  <div className="input__content">
+                    <p className="input__content__title">
+                      Nhận ngay các thông tin mới nhất về Reactjs &amp; React
+                      Native nhé.
+                    </p>
+                    <input
+                      type="email"
+                      placeholder="Nhập địa chỉ email của bạn"
+                      name="email"
+                      onChange={formik.handleChange}
+                      value={formik.values.email}
+                    />
+                    <button className="btnsubmit" type="submit">
+                      Nhận
+                    </button>
+                  </div>
+                  {formik.errors.email && formik.touched.email && (
+                    <div className="box-error">
+                      <img
+                        src="/assets/icon/icont-error.png"
+                        width="16px"
+                        height="16px"
+                      />
+                      <span className="text-error">{formik.errors.email}</span>
+                    </div>
+                  )}
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <Footer />
+        </div>
       </div>
       <style jsx>{`
         /* start slider */

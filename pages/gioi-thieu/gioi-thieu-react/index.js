@@ -11,194 +11,207 @@ const IntroduceReact = ({ data }) => {
     <>
       <Head>
         <title>Giới thiệu React Plus</title>
-        <link rel="icon" href="/favicon.ico" />
+        <meta
+          property="og:image"
+          content="http://103.237.145.33:3000/uploads/image/image/19/ReactPlus-Cty.jpg"
+        />
+        
       </Head>
       <Menu />
-      <div className="main-page">
-        <div className="container backgroudReact">
-          <div className="box_introduce">
-            <div className="introduce__left">
-              <img src="../assets/icon/Group2101.png" alt="" />
-              <h1>
-                React <br />
-                Công nghệ phát triển tương lai
-              </h1>
-              <p>
-                React (React.js) là thư viện Javascript để xây dựng UI vượt
-                trội, được phát triển bởi Facebook. React Native là framework
-                xây dựng ứng dụng di động native. Với React Native, chỉ cần 1
-                ngôn ngữ Javascript duy nhất để xây dựng ứng dụng iOS và
-                Android. <br />
-                Hiện nay, React &amp; React Native đang được Facebook đầu tư
-                phát triển mạnh với những cập nhật liên tục, nó còn được hỗ trợ
-                bởi sự đóng góp từ các cá nhân và công ty trên khắp thế giới như
-                Callstack, Expo, Infinite Red, Microsoft và Software Mansion.
-              </p>
-            </div>
-            <div className="introduce__right">
-              <img src="/assets/images/gioithieu-react-.png" alt="" />
-            </div>
-          </div>
-        </div>
-        <div className="box-introduce-react-content">
-          <div className="container">
-            <div className="introduce-item">
-              <div className="item-image">
-                <img
-                  src="../assets/images/img43.png"
-                  width="100%"
-                  height="100%"
-                  alt=""
-                />
-              </div>
-              <div className="item-content">
-                <h2 className="item-content-title">Sức mạnh không giới hạn</h2>
-                <p className="item-content-text">
-                  Chỉ cần sử dụng Javascript, bạn có thể hô mưa gọi gió trên mọi
-                  mặt trận: web, desktop, server và đặc biệt là mobile. Điều này
-                  giúp một developer trở nên đa năng và độc lập, đảm bảo công
-                  việc được thống nhất và giúp dự án được rút gọn đi nhiều lần.
+      <div className="main">
+        <div className="main-page">
+          <div className="container backgroudReact">
+            <div className="box_introduce">
+              <div className="introduce__left">
+                <img src="../assets/icon/Group2101.png" alt="" />
+                <h1>
+                  React <br />
+                  Công nghệ phát triển tương lai
+                </h1>
+                <p>
+                  React (React.js) là thư viện Javascript để xây dựng UI vượt
+                  trội, được phát triển bởi Facebook. React Native là framework
+                  xây dựng ứng dụng di động native. Với React Native, chỉ cần 1
+                  ngôn ngữ Javascript duy nhất để xây dựng ứng dụng iOS và
+                  Android. <br />
+                  Hiện nay, React &amp; React Native đang được Facebook đầu tư
+                  phát triển mạnh với những cập nhật liên tục, nó còn được hỗ
+                  trợ bởi sự đóng góp từ các cá nhân và công ty trên khắp thế
+                  giới như Callstack, Expo, Infinite Red, Microsoft và Software
+                  Mansion.
                 </p>
               </div>
-            </div>
-
-            <div className="introduce-item-reverse">
-              <div className="item-content">
-                <h2 className="item-content-title">
-                  Tương lai của ứng dụng di động
-                </h2>
-                <p className="item-content-text">
-                  Với hơn 98.000 sao trên Github và số lượng contributors cao
-                  thứ 2 trên toàn thế giới (2018), React Native chính là xu
-                  hướng hàng đầu của các nhà phát triển trong tương lai.
-                  <br />
-                  Sức mạnh vượt trội và khả năng ứng dụng không giới hạn của nó
-                  đã thu hút những khách hàng lớn trong mọi lĩnh vực và khiến họ
-                  ưu tiên lựa chọn các công ty chuyên về React để thực hiện dự
-                  án.
-                </p>
-              </div>
-              <div className="item-image">
-                <img
-                  src="../assets/images/img44.png"
-                  width="100%"
-                  height="100%"
-                  alt=""
-                />
-              </div>
-            </div>
-
-            <div className="introduce-item-reverse-reponsive">
-              <div className="item-image">
-                <img
-                  src="../assets/images/img44.png"
-                  width="100%"
-                  height="100%"
-                  alt=""
-                />
-              </div>
-              <div className="item-content">
-                <h2 className="item-content-title">
-                  Tương lai của ứng dụng di động
-                </h2>
-                <p className="item-content-text">
-                  Với hơn 98.000 sao trên Github và số lượng contributors cao
-                  thứ 2 trên toàn thế giới (2018), React Native chính là xu
-                  hướng hàng đầu của các nhà phát triển trong tương lai.
-                  <br />
-                  Sức mạnh vượt trội và khả năng ứng dụng không giới hạn của nó
-                  đã thu hút những khách hàng lớn trong mọi lĩnh vực và khiến họ
-                  ưu tiên lựa chọn các công ty chuyên về React để thực hiện dự
-                  án.
-                </p>
-              </div>
-            </div>
-
-            <div className="introduce-item">
-              <div className="item-image">
-                <img
-                  src="../assets/images/img45.png"
-                  width="100%"
-                  height="100%"
-                  alt=""
-                />
-              </div>
-              <div className="item-content">
-                <h2 className="item-content-title">
-                  Lợi thế vượt trội của developer khi thành thạo React
-                </h2>
-                <p className="item-content-text">
-                  Chỉ cần sử dụng Javascript, bạn có thể hô mưa gọi gió trên mọi
-                  mặt trận: web, desktop, server và đặc biệt là mobile. Điều này
-                  giúp một developer trở nên đa năng và độc lập, đảm bảo công
-                  việc được thống nhất và giúp dự án được rút gọn đi nhiều lần.
-                </p>
+              <div className="introduce__right">
+                <img src="/assets/images/gioithieu-react-.png" alt="" />
               </div>
             </div>
           </div>
-        </div>
+          <div className="box-introduce-react-content">
+            <div className="container">
+              <div className="introduce-item">
+                <div className="item-image">
+                  <img
+                    src="../assets/images/img43.png"
+                    width="100%"
+                    height="100%"
+                    alt=""
+                  />
+                </div>
+                <div className="item-content">
+                  <h2 className="item-content-title">
+                    Sức mạnh không giới hạn
+                  </h2>
+                  <p className="item-content-text">
+                    Chỉ cần sử dụng Javascript, bạn có thể hô mưa gọi gió trên
+                    mọi mặt trận: web, desktop, server và đặc biệt là mobile.
+                    Điều này giúp một developer trở nên đa năng và độc lập, đảm
+                    bảo công việc được thống nhất và giúp dự án được rút gọn đi
+                    nhiều lần.
+                  </p>
+                </div>
+              </div>
 
-        <div className="box-frequently-asked-questions">
-          <div className="container flex">
-            <div className="asked-questions-left">
-              <h2 className="asked-questions-left-title">
-                Những câu hỏi thường gặp về công việc React & React Native
-              </h2>
-              <button
-                className="btnmorefull"
-                onClick={() => router.push("/dao-tao-su-kien/cac-khoa-dao-tao")}
-              >
-                <span>Tìm hiểu khóa học React miễn phí</span>
-                <img
-                  className="btnmore__icon"
-                  src="../assets/icon/muitenwhite.png"
-                />
-              </button>
-              <img
-                src="../assets/images/img46.png"
-                width="309px"
-                height="241px"
-                alt=""
-              />
+              <div className="introduce-item-reverse">
+                <div className="item-content">
+                  <h2 className="item-content-title">
+                    Tương lai của ứng dụng di động
+                  </h2>
+                  <p className="item-content-text">
+                    Với hơn 98.000 sao trên Github và số lượng contributors cao
+                    thứ 2 trên toàn thế giới (2018), React Native chính là xu
+                    hướng hàng đầu của các nhà phát triển trong tương lai.
+                    <br />
+                    Sức mạnh vượt trội và khả năng ứng dụng không giới hạn của
+                    nó đã thu hút những khách hàng lớn trong mọi lĩnh vực và
+                    khiến họ ưu tiên lựa chọn các công ty chuyên về React để
+                    thực hiện dự án.
+                  </p>
+                </div>
+                <div className="item-image">
+                  <img
+                    src="../assets/images/img44.png"
+                    width="100%"
+                    height="100%"
+                    alt=""
+                  />
+                </div>
+              </div>
+
+              <div className="introduce-item-reverse-reponsive">
+                <div className="item-image">
+                  <img
+                    src="../assets/images/img44.png"
+                    width="100%"
+                    height="100%"
+                    alt=""
+                  />
+                </div>
+                <div className="item-content">
+                  <h2 className="item-content-title">
+                    Tương lai của ứng dụng di động
+                  </h2>
+                  <p className="item-content-text">
+                    Với hơn 98.000 sao trên Github và số lượng contributors cao
+                    thứ 2 trên toàn thế giới (2018), React Native chính là xu
+                    hướng hàng đầu của các nhà phát triển trong tương lai.
+                    <br />
+                    Sức mạnh vượt trội và khả năng ứng dụng không giới hạn của
+                    nó đã thu hút những khách hàng lớn trong mọi lĩnh vực và
+                    khiến họ ưu tiên lựa chọn các công ty chuyên về React để
+                    thực hiện dự án.
+                  </p>
+                </div>
+              </div>
+
+              <div className="introduce-item">
+                <div className="item-image">
+                  <img
+                    src="../assets/images/img45.png"
+                    width="100%"
+                    height="100%"
+                    alt=""
+                  />
+                </div>
+                <div className="item-content">
+                  <h2 className="item-content-title">
+                    Lợi thế vượt trội của developer khi thành thạo React
+                  </h2>
+                  <p className="item-content-text">
+                    Chỉ cần sử dụng Javascript, bạn có thể hô mưa gọi gió trên
+                    mọi mặt trận: web, desktop, server và đặc biệt là mobile.
+                    Điều này giúp một developer trở nên đa năng và độc lập, đảm
+                    bảo công việc được thống nhất và giúp dự án được rút gọn đi
+                    nhiều lần.
+                  </p>
+                </div>
+              </div>
             </div>
-            <div className="asked-questions-right">
-              {data.map((value) => {
-                const [isActive, setActive] = useState(false);
-                const handleDropDown = () => setActive(!isActive);
-                return (
-                  <div className="asked-question-item" key={value.id}>
-                    <div
-                      className={
-                        isActive
-                          ? "question-title question-title-active"
-                          : "question-title"
-                      }
-                      onClick={handleDropDown}
-                    >
-                      <span>{value.title}</span>
-                      <img
-                        src={
+          </div>
+
+          <div className="box-frequently-asked-questions">
+            <div className="container flex">
+              <div className="asked-questions-left">
+                <h2 className="asked-questions-left-title">
+                  Những câu hỏi thường gặp về công việc React & React Native
+                </h2>
+                <button
+                  className="btnmorefull"
+                  onClick={() =>
+                    router.push("/dao-tao-su-kien/cac-khoa-dao-tao")
+                  }
+                >
+                  <span>Tìm hiểu khóa học React miễn phí</span>
+                  <img
+                    className="btnmore__icon"
+                    src="../assets/icon/muitenwhite.png"
+                  />
+                </button>
+                <img
+                  src="../assets/images/img46.png"
+                  width="309px"
+                  height="241px"
+                  alt=""
+                />
+              </div>
+              <div className="asked-questions-right">
+                {data.map((value) => {
+                  const [isActive, setActive] = useState(false);
+                  const handleDropDown = () => setActive(!isActive);
+                  return (
+                    <div className="asked-question-item" key={value.id}>
+                      <div
+                        className={
                           isActive
-                            ? "/assets/icon/drop-down2-active.png"
-                            : "/assets/icon/drop-down2.png"
+                            ? "question-title question-title-active"
+                            : "question-title"
                         }
-                        width="8px"
-                        height="4px"
-                        alt=""
+                        onClick={handleDropDown}
+                      >
+                        <span>{value.title}</span>
+                        <img
+                          src={
+                            isActive
+                              ? "/assets/icon/drop-down2-active.png"
+                              : "/assets/icon/drop-down2.png"
+                          }
+                          width="8px"
+                          height="4px"
+                          alt=""
+                        />
+                      </div>
+                      <div
+                        dangerouslySetInnerHTML={{ __html: value.content }}
+                        className={isActive ? "asked-text" : "asked-text-none"}
                       />
                     </div>
-                    <div
-                      dangerouslySetInnerHTML={{ __html: value.content }}
-                      className={isActive ? "asked-text" : "asked-text-none"}
-                    />
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
           </div>
-        </div>
 
-        <Footer />
+          <Footer />
+        </div>
       </div>
       <style jsx>{`
         .flex {

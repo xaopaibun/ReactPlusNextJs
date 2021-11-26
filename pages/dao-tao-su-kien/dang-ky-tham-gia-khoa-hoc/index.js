@@ -122,214 +122,198 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
         />
       )}
       <Menu />
-      <FormikProvider value={formik}>
-        <form onSubmit={formik.handleSubmit}>
-          <div className="container">
-            <div className="box-form">
-              <h2 className="text-center title-page">
-                React Plus chào bạn thân mến
-              </h2>
-              <div className="mr-30"></div>
-              <p className="content-title">
-                Cảm ơn bạn đã quan tâm tới khóa học ReactJS & React Native bên
-                mình nhé!
-                <br /> Bạn vui lòng điền các thông tin dưới đây để ReactPlus
-                hiểu hơn về bạn và có chương trình đào tạo phù hợp cho bạn nhé.
-                Hy vọng chúng mình sớm được gặp nhau để cùng phát triển nè!!!
-              </p>
-              <div className="mr-30"></div>
-              <div className="flex">
-                <div className="width-50">
-                  <TextField
-                    label="Họ và Tên *"
-                    name="name"
-                    type="text"
-                    variant="standard"
-                    onChange={formik.handleChange}
-                    value={formik.values.name}
-                    fullWidth
-                    id="standard-error-helper-text"
-                    error={formik.errors.name ? true : false}
-                    helperText={formik.errors.name}
-                  />
-                </div>
-                <div className="mr-30-mobile"></div>
-                <div className="width-50">
-                  <TextField
-                    label="Email *"
-                    name="email"
-                    type="email"
-                    variant="standard"
-                    onChange={formik.handleChange}
-                    value={formik.values.email}
-                    fullWidth
-                    id="standard-error-helper-text"
-                    error={formik.errors.email ? true : false}
-                    helperText={formik.errors.email}
-                  />
-                </div>
-              </div>
-              <div className="mr-30"></div>
-              <div className="birtday">
-                <div className="item">
-                  <label className="label-text">Ngày sinh</label>
-                </div>
-                <div className="item">
-                  <select
-                    className="form-select form-select-custom"
-                    name="day"
-                    onChange={formik.handleChange}
-                    value={formik.values.day}
-                  >
-                    <option value="Ngày" selected>
-                      Ngày
-                    </option>
-                    {Day.map((value) => (
-                      <option value={value} key={value}>
-                        {value}
-                      </option>
-                    ))}
-                  </select>
-                  <img
-                    className="icont_select"
-                    width={"8px"}
-                    height={"6.65px"}
-                    src="/assets/icon/select.png"
-                  />
-                </div>
-
-                <div className="item">
-                  <select
-                    className="form-select form-select-custom"
-                    name="month"
-                    onChange={formik.handleChange}
-                    value={formik.values.month}
-                  >
-                    <option value="Tháng" selected>
-                      Tháng
-                    </option>
-                    {Month.map((value) => (
-                      <option value={value} key={value}>
-                        {value}
-                      </option>
-                    ))}
-                  </select>
-                  <img
-                    className="icont_select"
-                    width={"8px"}
-                    height={"6.65px"}
-                    src="/assets/icon/select.png"
-                  />
-                </div>
-                <div className="item">
-                  <select
-                    className="form-select form-select-custom"
-                    name="year"
-                    onChange={formik.handleChange}
-                    value={formik.values.year}
-                  >
-                    <option value="Năm" selected>
-                      Năm
-                    </option>
-                    {Year.map((value) => (
-                      <option value={value} key={value}>
-                        {value}
-                      </option>
-                    ))}
-                  </select>
-                  <img
-                    className="icont_select"
-                    width={"8px"}
-                    height={"6.65px"}
-                    src="/assets/icon/select.png"
-                  />
-                </div>
-              </div>{" "}
-              <p className="text-error">
-                {formik.errors.day || formik.errors.month || formik.errors.year}
-              </p>
-              <div className="mr-30"></div>
-              <div className="flex">
-                <div className="width-50">
-                  <TextField
-                    label="Số điện thoại  *"
-                    name="phone"
-                    type="text"
-                    variant="standard"
-                    onChange={formik.handleChange}
-                    value={formik.values.phone}
-                    fullWidth
-                    id="standard-error-helper-text"
-                    error={formik.errors.phone ? true : false}
-                    helperText={formik.errors.phone}
-                  />
-                </div>
+      <div className="main">
+        <FormikProvider value={formik}>
+          <form onSubmit={formik.handleSubmit}>
+            <div className="container">
+              <div className="box-form">
+                <h2 className="text-center title-page">
+                  React Plus chào bạn thân mến
+                </h2>
                 <div className="mr-30"></div>
-                <div className="width-50">
-                  <div className="flex flexGT">
-                    <span className="txtGT">Giới tính</span>
-                    {sex.map((val, index) => {
-                      return (
-                        <div className="flex flexGT" key={index}>
-                          <Field
-                            type="radio"
-                            style={{ width: "24px", height: "24px" }}
-                            name="sex"
-                            value={val}
-                          />
-                          <label className="label">{val}</label>
-                        </div>
-                      );
-                    })}
+                <p className="content-title">
+                  Cảm ơn bạn đã quan tâm tới khóa học ReactJS & React Native bên
+                  mình nhé!
+                  <br /> Bạn vui lòng điền các thông tin dưới đây để ReactPlus
+                  hiểu hơn về bạn và có chương trình đào tạo phù hợp cho bạn
+                  nhé. Hy vọng chúng mình sớm được gặp nhau để cùng phát triển
+                  nè!!!
+                </p>
+                <div className="mr-30"></div>
+                <div className="flex">
+                  <div className="width-50">
+                    <TextField
+                      label="Họ và Tên *"
+                      name="name"
+                      type="text"
+                      variant="standard"
+                      onChange={formik.handleChange}
+                      value={formik.values.name}
+                      fullWidth
+                      id="standard-error-helper-text"
+                      error={formik.errors.name ? true : false}
+                      helperText={formik.errors.name}
+                    />
+                  </div>
+                  <div className="mr-30-mobile"></div>
+                  <div className="width-50">
+                    <TextField
+                      label="Email *"
+                      name="email"
+                      type="email"
+                      variant="standard"
+                      onChange={formik.handleChange}
+                      value={formik.values.email}
+                      fullWidth
+                      id="standard-error-helper-text"
+                      error={formik.errors.email ? true : false}
+                      helperText={formik.errors.email}
+                    />
                   </div>
                 </div>
-              </div>
-              <div className="mr-30"></div>
-              <TextField
-                label="Bạn đã học công nghệ thông tin ở đâu  * "
-                type="text"
-                variant="standard"
-                fullWidth
-                name="where_learn"
-                onChange={formik.handleChange}
-                value={formik.values.where_learn}
-                id="standard-error-helper-text"
-                error={formik.errors.where_learn ? true : false}
-                helperText={formik.errors.where_learn}
-              />
-              <div className="mr-30"></div>
-              <TextField
-                label="Kinh nghiệm làm việc của bạn "
-                type="text"
-                variant="standard"
-                fullWidth
-                name="experience"
-                onChange={formik.handleChange}
-                value={formik.values.experience}
-              />
-              <div className="mr-30"></div>
-              <div className="flex NN_PC">
-                <span className="txtGT">Ngoại ngữ hiện có</span>
-                {language.map((val, index) => {
-                  return (
-                    <div className="flex" key={index}>
-                      <Field
-                        type="checkbox"
-                        name="language"
-                        value={val}
-                        style={{ width: "24px", height: "24px" }}
-                      />
+                <div className="mr-30"></div>
+                <div className="birtday">
+                  <div className="item">
+                    <label className="label-text">Ngày sinh</label>
+                  </div>
+                  <div className="item">
+                    <select
+                      className="form-select form-select-custom"
+                      name="day"
+                      onChange={formik.handleChange}
+                      value={formik.values.day}
+                    >
+                      <option value="Ngày" selected>
+                        Ngày
+                      </option>
+                      {Day.map((value) => (
+                        <option value={value} key={value}>
+                          {value}
+                        </option>
+                      ))}
+                    </select>
+                    <img
+                      className="icont_select"
+                      width={"8px"}
+                      height={"6.65px"}
+                      src="/assets/icon/select.png"
+                    />
+                  </div>
 
-                      <label htmlFor="html" className="label">
-                        {val}
-                      </label>
+                  <div className="item">
+                    <select
+                      className="form-select form-select-custom"
+                      name="month"
+                      onChange={formik.handleChange}
+                      value={formik.values.month}
+                    >
+                      <option value="Tháng" selected>
+                        Tháng
+                      </option>
+                      {Month.map((value) => (
+                        <option value={value} key={value}>
+                          {value}
+                        </option>
+                      ))}
+                    </select>
+                    <img
+                      className="icont_select"
+                      width={"8px"}
+                      height={"6.65px"}
+                      src="/assets/icon/select.png"
+                    />
+                  </div>
+                  <div className="item">
+                    <select
+                      className="form-select form-select-custom"
+                      name="year"
+                      onChange={formik.handleChange}
+                      value={formik.values.year}
+                    >
+                      <option value="Năm" selected>
+                        Năm
+                      </option>
+                      {Year.map((value) => (
+                        <option value={value} key={value}>
+                          {value}
+                        </option>
+                      ))}
+                    </select>
+                    <img
+                      className="icont_select"
+                      width={"8px"}
+                      height={"6.65px"}
+                      src="/assets/icon/select.png"
+                    />
+                  </div>
+                </div>{" "}
+                <p className="text-error">
+                  {formik.errors.day ||
+                    formik.errors.month ||
+                    formik.errors.year}
+                </p>
+                <div className="mr-30"></div>
+                <div className="flex">
+                  <div className="width-50">
+                    <TextField
+                      label="Số điện thoại  *"
+                      name="phone"
+                      type="text"
+                      variant="standard"
+                      onChange={formik.handleChange}
+                      value={formik.values.phone}
+                      fullWidth
+                      id="standard-error-helper-text"
+                      error={formik.errors.phone ? true : false}
+                      helperText={formik.errors.phone}
+                    />
+                  </div>
+                  <div className="mr-30"></div>
+                  <div className="width-50">
+                    <div className="flex flexGT">
+                      <span className="txtGT">Giới tính</span>
+                      {sex.map((val, index) => {
+                        return (
+                          <div className="flex flexGT" key={index}>
+                            <Field
+                              type="radio"
+                              style={{ width: "24px", height: "24px" }}
+                              name="sex"
+                              value={val}
+                            />
+                            <label className="label">{val}</label>
+                          </div>
+                        );
+                      })}
                     </div>
-                  );
-                })}
-              </div>
-              <div className="NN-Mobile">
-                <span className="txtGT">Ngoại ngữ hiện có</span>
-                <div className="NN-Mobile__right">
+                  </div>
+                </div>
+                <div className="mr-30"></div>
+                <TextField
+                  label="Bạn đã học công nghệ thông tin ở đâu  * "
+                  type="text"
+                  variant="standard"
+                  fullWidth
+                  name="where_learn"
+                  onChange={formik.handleChange}
+                  value={formik.values.where_learn}
+                  id="standard-error-helper-text"
+                  error={formik.errors.where_learn ? true : false}
+                  helperText={formik.errors.where_learn}
+                />
+                <div className="mr-30"></div>
+                <TextField
+                  label="Kinh nghiệm làm việc của bạn "
+                  type="text"
+                  variant="standard"
+                  fullWidth
+                  name="experience"
+                  onChange={formik.handleChange}
+                  value={formik.values.experience}
+                />
+                <div className="mr-30"></div>
+                <div className="flex NN_PC">
+                  <span className="txtGT">Ngoại ngữ hiện có</span>
                   {language.map((val, index) => {
                     return (
                       <div className="flex" key={index}>
@@ -347,30 +331,15 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
                     );
                   })}
                 </div>
-              </div>
-              <div className="mr-30"></div>
-              <TextField
-                label="Hãy liệt kê những bằng cấp, chứng chỉ bạn có"
-                type="text"
-                variant="standard"
-                fullWidth
-                name="certificate"
-                onChange={formik.handleChange}
-                value={formik.values.certificate}
-              />
-              <div className="mr-30"></div>
-              <div className="flex1">
-                <div className="width-50">
-                  <p>Ngôn ngữ lập trình đã từng học hoặc làm việc</p>
-                </div>
-                <div className="width-50">
-                  <div className="row">
-                    {programming_language.map((val, index) => {
+                <div className="NN-Mobile">
+                  <span className="txtGT">Ngoại ngữ hiện có</span>
+                  <div className="NN-Mobile__right">
+                    {language.map((val, index) => {
                       return (
-                        <div key={index} className="row-item">
+                        <div className="flex" key={index}>
                           <Field
                             type="checkbox"
-                            name="program_language"
+                            name="language"
                             value={val}
                             style={{ width: "24px", height: "24px" }}
                           />
@@ -383,75 +352,111 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
                     })}
                   </div>
                 </div>
-              </div>
-              <div className="mr-30"></div>
-              <div className="box-PostCV">
-                <div className="PostCV-Left">
-                  <h6
-                    className={
-                      formik.errors.file ? "CV-text text-error" : "CV-test"
-                    }
-                  >
-                    CV
-                  </h6>
-                  <h6
-                    className={
-                      formik.errors.file
-                        ? "CV-text-comment text-error"
-                        : "CV-text-comment"
-                    }
-                  >
-                    {formik.values.file?.name
-                      ? formik.values.file?.name
-                      : formik.errors.file
-                      ? formik.errors.file
-                      : "Format được hỗ trợ: PNG, JPG, PDF"}
-                  </h6>
+                <div className="mr-30"></div>
+                <TextField
+                  label="Hãy liệt kê những bằng cấp, chứng chỉ bạn có"
+                  type="text"
+                  variant="standard"
+                  fullWidth
+                  name="certificate"
+                  onChange={formik.handleChange}
+                  value={formik.values.certificate}
+                />
+                <div className="mr-30"></div>
+                <div className="flex1">
+                  <div className="width-50">
+                    <p>Ngôn ngữ lập trình đã từng học hoặc làm việc</p>
+                  </div>
+                  <div className="width-50">
+                    <div className="row">
+                      {programming_language.map((val, index) => {
+                        return (
+                          <div key={index} className="row-item">
+                            <Field
+                              type="checkbox"
+                              name="program_language"
+                              value={val}
+                              style={{ width: "24px", height: "24px" }}
+                            />
+
+                            <label htmlFor="html" className="label">
+                              {val}
+                            </label>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
                 </div>
-                <div className="PostCV-Right">
-                  <button type="file" className="btn-outline">
-                    <span className="btn-text">Tải lên</span>
-                    <input
-                      type="file"
-                      name="file"
-                      className="input_file"
-                      id="file"
-                      accept="application/pdf, image/*"
-                      onChange={(event) => {
-                        setFieldValue("file", event.currentTarget.files[0]);
-                      }}
+                <div className="mr-30"></div>
+                <div className="box-PostCV">
+                  <div className="PostCV-Left">
+                    <h6
+                      className={
+                        formik.errors.file ? "CV-text text-error" : "CV-test"
+                      }
+                    >
+                      CV
+                    </h6>
+                    <h6
+                      className={
+                        formik.errors.file
+                          ? "CV-text-comment text-error"
+                          : "CV-text-comment"
+                      }
+                    >
+                      {formik.values.file?.name
+                        ? formik.values.file?.name
+                        : formik.errors.file
+                        ? formik.errors.file
+                        : "Format được hỗ trợ: PNG, JPG, PDF"}
+                    </h6>
+                  </div>
+                  <div className="PostCV-Right">
+                    <button type="file" className="btn-outline">
+                      <span className="btn-text">Tải lên</span>
+                      <input
+                        type="file"
+                        name="file"
+                        className="input_file"
+                        id="file"
+                        accept="application/pdf, image/*"
+                        onChange={(event) => {
+                          setFieldValue("file", event.currentTarget.files[0]);
+                        }}
+                      />
+                    </button>
+                  </div>
+                </div>
+                <div className="mr-30"></div>
+                <div className="flex">
+                  <div className="birtday-left">
+                    <ReCAPTCHA
+                      sitekey="6LeHJFsdAAAAAHpUDbJ_ua1WcY5VP8ZXSQ0Xs9uZ"
+                      onChange={onChange}
                     />
-                  </button>
-                </div>
-              </div>
-              <div className="mr-30"></div>
-              <div className="flex">
-                <div className="birtday-left">
-                  <ReCAPTCHA
-                    sitekey="6LeHJFsdAAAAAHpUDbJ_ua1WcY5VP8ZXSQ0Xs9uZ"
-                    onChange={onChange}
-                  />
-                </div>
-                <div className="birtday-right">
-                  <button
-                    className="btn-cancel"
-                    type="button"
-                    onClick={handleReset}
-                  >
-                    <span className="btn-text">Hủy</span>
-                  </button>
-                  <button className="btn-submit" type="submit">
-                    <span className="btn-text">Gửi</span>
-                  </button>
+                  </div>
+                  <div className="birtday-right">
+                    <button
+                      className="btn-cancel"
+                      type="button"
+                      onClick={handleReset}
+                    >
+                      <span className="btn-text">Hủy</span>
+                    </button>
+                    <button className="btn-submit" type="submit">
+                      <span className="btn-text">Gửi</span>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </form>
-      </FormikProvider>
-      <footer>
-        <Footer />
-      </footer>
+          </form>
+        </FormikProvider>
+        <footer>
+          <Footer />
+        </footer>
+      </div>
       <style jsx>{`
         * {
           color: "#25282b";
@@ -731,11 +736,11 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
             display: flex;
             justify-content: space-between;
           }
-          .NN-Mobile .txtGT{
+          .NN-Mobile .txtGT {
             display: block;
             width: 45%;
           }
-          .NN-Mobile__right{
+          .NN-Mobile__right {
             width: 45%;
           }
           .NN-Mobile__right .flex {
@@ -841,7 +846,7 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
             display: flex;
             margin-top: 20px;
           }
-          .mr-30{
+          .mr-30 {
             margin-top: 35px;
           }
         }

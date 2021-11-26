@@ -9,10 +9,14 @@ const GioiThieu = ({ data }) => {
     <>
       <Head>
         <title>Giới thiệu React Plus</title>
-        <link rel="icon" href="/favicon.ico" />
+       
+        <meta
+          property="og:image"
+          content="http://103.237.145.33:3000/uploads/image/image/19/ReactPlus-Cty.jpg"
+        />
       </Head>
       <Menu />
-      <div>
+      <div className="main">
         <div className="container backgroudReact">
           <div className="box_introduce">
             <div className="introduce__left">

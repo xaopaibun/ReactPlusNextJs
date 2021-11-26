@@ -45,7 +45,9 @@ const CareerDetal = () => {
               </div>
               <div className="contact-phone-hotline">
                 <p className="hotline">Hotline</p>
-                <p className="phone-number">034 9177 306</p>
+                <a className="phone-number" tel={"0349177306"}>
+                  034 9177 306
+                </a>
               </div>
             </div>
             <div
@@ -62,7 +64,9 @@ const CareerDetal = () => {
               </div>
               <div className="contact-phone-hotline">
                 <p className="hotline">Email</p>
-                <p className="phone-number">huett@reactplus.com</p>
+                <a className="phone-number" href="mailto:huett@reactplus.com">
+                  huett@reactplus.com
+                </a>
               </div>
             </div>
           </div>
@@ -72,40 +76,41 @@ const CareerDetal = () => {
         </div>
       </div>
 
-      <div className="container">
-        <div className="box-back">
-          <div className="btn-back">
-            <img
-              src="/assets/icon/arrow-sm-right4.png"
-              width={24}
-              height={24}
-            />
-          </div>
-          <p className="btn-back-text"> Quay lại</p>
-        </div>
-
-        <div className="content-detail">
-          <div className="content-detail-left">
-            <div className="applied-position-item-top">
-              <span className="tinh">
-                <img src="/assets/icon/dinhvi.png" width={11} height={15} />{" "}
-                {data[0]?.address}
-              </span>
-              {data[0]?.type_recruitment === "full_time" ? (
-                <div className="full-time">Full-time</div>
-              ) : (
-                <div className="part-time">Part-time</div>
-              )}
+      <div className="main">
+        <div className="container">
+          <div className="box-back">
+            <div className="btn-back">
+              <img
+                src="/assets/icon/arrow-sm-right4.png"
+                width={24}
+                height={24}
+              />
             </div>
+            <p className="btn-back-text"> Quay lại</p>
+          </div>
 
-            <h1 className="title-detail">{data[0]?.title}</h1>
-            <div
-              className="content"
-              dangerouslySetInnerHTML={{
-                __html: data[0]?.content,
-              }}
-            />
-            {/* <h3 className="list-title">Nội dung công việc</h3>
+          <div className="content-detail">
+            <div className="content-detail-left">
+              <div className="applied-position-item-top">
+                <span className="tinh">
+                  <img src="/assets/icon/dinhvi.png" width={11} height={15} />{" "}
+                  {data[0]?.address}
+                </span>
+                {data[0]?.type_recruitment === "full_time" ? (
+                  <div className="full-time">Full-time</div>
+                ) : (
+                  <div className="part-time">Part-time</div>
+                )}
+              </div>
+
+              <h1 className="title-detail">{data[0]?.title}</h1>
+              <div
+                className="content"
+                dangerouslySetInnerHTML={{
+                  __html: data[0]?.content,
+                }}
+              />
+              {/* <h3 className="list-title">Nội dung công việc</h3>
             <ul>
               <li className="list-item">
                 Lên kế hoạch truyền thông phù hợp yêu cầu xây dựng văn hóa doanh
@@ -201,34 +206,35 @@ const CareerDetal = () => {
                 Nam Từ Liêm, Hà Nội.
               </li>
             </ul> */}
-            <button className="btnJoin" onClick={() => handleSubmit(slug)}>
-              <span>Ứng tuyển vị trí này</span>
-            </button>
-          </div>
+              <button className="btnJoin" onClick={() => handleSubmit(slug)}>
+                <span>Ứng tuyển vị trí này</span>
+              </button>
+            </div>
 
-          <div className="content-detail-right">
-            <button className="btnJoin" onClick={() => handleSubmit(slug)}>
-              <span>Ứng tuyển vị trí này</span>
-            </button>
-            <h3 className="list-title">Job liên quan</h3>
-            {data[1]?.map((val) => {
-              return (
-                <div className="job-item" key={val.id}>
-                  <div className="border-blue " />
-                  <div className="job-item-content">
-                    <Link href={`/tuyen-dung/chi-tiet-form/${val.url_seo}`}>
-                      <a className="job-item-text">{val.title}</a>
-                    </Link>
+            <div className="content-detail-right">
+              <button className="btnJoin" onClick={() => handleSubmit(slug)}>
+                <span>Ứng tuyển vị trí này</span>
+              </button>
+              <h3 className="list-title">Job liên quan</h3>
+              {data[1]?.map((val) => {
+                return (
+                  <div className="job-item" key={val.id}>
+                    <div className="border-blue " />
+                    <div className="job-item-content">
+                      <Link href={`/tuyen-dung/chi-tiet-form/${val.url_seo}`}>
+                        <a className="job-item-text">{val.title}</a>
+                      </Link>
 
-                    <h4 className="job-item-address"> {val.address} </h4>
+                      <h4 className="job-item-address"> {val.address} </h4>
+                    </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
         </div>
+        <Footer />
       </div>
-      <Footer />
       <style jsx>{`
         .header {
           height: 410px;
@@ -291,6 +297,8 @@ const CareerDetal = () => {
           text-align: center;
           letter-spacing: -0.02em;
           margin: 0;
+          color: #ffffff;
+          text-decoration: none;
         }
         .btnRegister {
           border: 1px solid #ffffff;
@@ -459,6 +467,10 @@ const CareerDetal = () => {
           color: #0fbc49;
         }
         @media screen and (max-width: 768px) {
+          .header {
+            height: 375px;
+            top: -315px;
+          }
           .header-center {
             width: 100%;
           }
@@ -493,7 +505,7 @@ const CareerDetal = () => {
             display: none;
           }
           .contact {
-            width: 78%;
+            width: 100%;
           }
         }
       `}</style>

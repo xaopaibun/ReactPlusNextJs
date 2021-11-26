@@ -33,49 +33,50 @@ const DanhSachTinTuc = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Menu />
-
-      <div className="container">
-        <div className="header">
-          <h3 className="header-title">Tin tức</h3>
-          <div className="box-back">
-            <div className="btn-back" onClick={handleBackListNews}>
-              <img
-                src="../assets/icon/arrow-sm-right4.png"
-                width={24}
-                height={24}
-              />
-            </div>
-            <p className="btn-back-text"> Quay lại</p>
-          </div>
-        </div>
-
-        <div className="list-posts">
-          {isList?.map((val) => {
-            return (
-              <div className="list-posts-item" key={val.id}>
+      <div className="main">
+        <div className="container">
+          <div className="header">
+            <h3 className="header-title">Tin tức</h3>
+            <div className="box-back">
+              <div className="btn-back" onClick={handleBackListNews}>
                 <img
-                  src={`${URL}${val.cover_image?.url}`}
-                  className="img_post"
+                  src="../assets/icon/arrow-sm-right4.png"
+                  width={24}
+                  height={24}
                 />
-                <h5 className="content-review-date">
-                  {val?.start_date} {val?.to_date}
-                </h5>
-
-                <Link href={`/tin-tuc/${val?.url_seo}`}>
-                  <a className="post-title">{val?.title}</a>
-                </Link>
               </div>
-            );
-          })}
+              <p className="btn-back-text"> Quay lại</p>
+            </div>
+          </div>
+
+          <div className="list-posts">
+            {isList?.map((val) => {
+              return (
+                <div className="list-posts-item" key={val.id}>
+                  <img
+                    src={`${URL}${val.cover_image?.url}`}
+                    className="img_post"
+                  />
+                  <h5 className="content-review-date">
+                    {val?.start_date} {val?.to_date}
+                  </h5>
+
+                  <Link href={`/tin-tuc/${val?.url_seo}`}>
+                    <a className="post-title">{val?.title}</a>
+                  </Link>
+                </div>
+              );
+            })}
+          </div>
+          <button className="btnmorefull" onClick={handleLoadMore}>
+            <span>Tải thêm...</span>
+          </button>
         </div>
-        <button className="btnmorefull" onClick={handleLoadMore}>
-          <span>Tải thêm...</span>
-        </button>
+        <div className="margin" />
+        <footer>
+          <Footer />
+        </footer>
       </div>
-      <div className="margin" />
-      <footer>
-        <Footer />
-      </footer>
       <style jsx>{`
         .header {
           height: auto;

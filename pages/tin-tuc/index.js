@@ -17,95 +17,97 @@ const News = ({ data_news_blog }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Menu />
-      <div className="banner">
-        <img
-          src="./assets/images/React-news.png"
-          height={"100%"}
-          width={"100%"}
-        />
-        <div className="content-review">
-          <div className="center">
-            <h5 className="content-review-date">
-              {data_news_blog?.news[0]?.start_date} -{" "}
-              {data_news_blog?.news[0]?.to_date}
-            </h5>
-            <h2 className="content-review-title">
-              {data_news_blog?.news[0]?.title}
-            </h2>
+      <div className="main">
+        <div className="banner">
+          <img
+            src="./assets/images/React-news.png"
+            height={"100%"}
+            width={"100%"}
+          />
+          <div className="content-review">
+            <div className="center">
+              <h5 className="content-review-date">
+                {data_news_blog?.news[0]?.start_date} -{" "}
+                {data_news_blog?.news[0]?.to_date}
+              </h5>
+              <h2 className="content-review-title">
+                {data_news_blog?.news[0]?.title}
+              </h2>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="container">
-        <div className="header">
-          <div className="header-left">
-            <div className="borderblue"></div>
-            <h2 className="header-title">Tin tức</h2>
+        <div className="container">
+          <div className="header">
+            <div className="header-left">
+              <div className="borderblue"></div>
+              <h2 className="header-title">Tin tức</h2>
+            </div>
+            <div className="header-right" onClick={handleViewAllNews}>
+              <span className="text-xemthem">Xem thêm</span>
+              <img
+                src="./assets/icon/arrow-sm-right-blue.png"
+                height={"24px"}
+                width={"24px"}
+              />
+            </div>
           </div>
-          <div className="header-right" onClick={handleViewAllNews}>
-            <span className="text-xemthem">Xem thêm</span>
-            <img
-              src="./assets/icon/arrow-sm-right-blue.png"
-              height={"24px"}
-              width={"24px"}
-            />
+          <div className="list-posts">
+            {data_news_blog.news?.map((val) => {
+              return (
+                <div className="list-posts-item" key={val.id}>
+                  <img
+                    src={`${URL}${val.cover_image.url}`}
+                    className="img_post"
+                  />
+                  <h5 className="content-review-date">
+                    {val.start_date} - {val.to_date}
+                  </h5>
+                  <Link href={`/tin-tuc/${val.url_seo}`}>
+                    <a className="post-title">{val.title}</a>
+                  </Link>
+                </div>
+              );
+            })}
           </div>
-        </div>
-        <div className="list-posts">
-          {data_news_blog.news?.map((val) => {
-            return (
-              <div className="list-posts-item" key={val.id}>
-                <img
-                  src={`${URL}${val.cover_image.url}`}
-                  className="img_post"
-                />
-                <h5 className="content-review-date">
-                  {val.start_date} - {val.to_date}
-                </h5>
-                <Link href={`/tin-tuc/${val.url_seo}`}>
-                  <a className="post-title">{val.title}</a>
-                </Link>
-              </div>
-            );
-          })}
-        </div>
 
-        <div className="header">
-          <div className="header-left">
-            <div className="borderblue"></div>
-            <h2 className="header-title">Blog</h2>
+          <div className="header">
+            <div className="header-left">
+              <div className="borderblue"></div>
+              <h2 className="header-title">Blog</h2>
+            </div>
+            <div className="header-right" onClick={handleViewAllBlog}>
+              <span className="text-xemthem">Xem thêm</span>
+              <img
+                src="./assets/icon/arrow-sm-right-blue.png"
+                height={"24px"}
+                width={"24px"}
+              />
+            </div>
           </div>
-          <div className="header-right" onClick={handleViewAllBlog}>
-            <span className="text-xemthem">Xem thêm</span>
-            <img
-              src="./assets/icon/arrow-sm-right-blue.png"
-              height={"24px"}
-              width={"24px"}
-            />
+          <div className="list-posts">
+            {data_news_blog.blogs?.map((val) => {
+              return (
+                <div className="list-posts-item" key={val.id}>
+                  <img
+                    src={`${URL}${val.cover_image.url}`}
+                    className="img_post"
+                  />
+                  <h5 className="content-review-date">
+                    {val.start_date} - {val.to_date}
+                  </h5>
+                  <Link href={`/tin-tuc/${val.url_seo}`}>
+                    <a className="post-title">{val.title}</a>
+                  </Link>
+                </div>
+              );
+            })}
           </div>
         </div>
-        <div className="list-posts">
-          {data_news_blog.blogs?.map((val) => {
-            return (
-              <div className="list-posts-item" key={val.id}>
-                <img
-                  src={`${URL}${val.cover_image.url}`}
-                  className="img_post"
-                />
-                <h5 className="content-review-date">
-                  {val.start_date} - {val.to_date}
-                </h5>
-                <Link href={`/tin-tuc/${val.url_seo}`}>
-                  <a className="post-title">{val.title}</a>
-                </Link>
-              </div>
-            );
-          })}
-        </div>
+        <div className="margin" />
+        <footer>
+          <Footer />
+        </footer>
       </div>
-      <div className="margin" />
-      <footer>
-        <Footer />
-      </footer>
       <style jsx>{`
         footer {
           padding-top: 38px;

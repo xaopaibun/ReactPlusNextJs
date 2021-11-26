@@ -19,123 +19,133 @@ const RegularEvent = ({ data }) => {
     <>
       <Head>
         <title>Các sự kiện thường kỳ</title>
-        <link rel="icon" href="/favicon.ico" />
+        <meta
+          property="og:image"
+          content="http://103.237.145.33:3000/uploads/image/image/19/ReactPlus-Cty.jpg"
+        />
       </Head>
       <Menu />
-      <div className="image-page">
-        <img
-          src="../assets/images/Khoa-Dao-Tao-React-Plus.png"
-          width={"100%"}
-          height={"100%"}
-        />
-      </div>
-
-      <div className="container">
-        <div className="mr-30">
-          <SlideItem TimeLineEvent={data.data_timeline_event} />
-        </div>
-      </div>
-
-      <div className="container center-content">
-        <div className="box-icont">
-          <a
-            className="icont"
-            target="_blank"
-            href={`https://www.facebook.com/sharer.php?u=http://103.237.145.33:5000/cac-khoa-dao-tao/su-kien-thuong-ky`}
-          >
-            <img src="/assets/icon/fb-black.png" />
-          </a>
-          <div className="icont">
-            <img src="/assets/icon/in-black.png" />
-          </div>
-          <div className="icont">
-            <img src="/assets/icon/dinh-kem.png" />
-          </div>
-        </div>
-        <div className="box-content">
-          <div className="address">
-            <span className="address-text">
-              <img src="../assets/icon/dinhvi-blue.png" className="img-icont" />
-              {data.data_detal_page_tranning?.address}
-            </span>
-            <span className="address-text">
-              <img src="../assets/icon/time.png" className="img-icont" />
-              {data.data_detal_page_tranning?.start_date_string} -{" "}
-              {data.data_detal_page_tranning?.to_date_string}
-            </span>
-          </div>
-          <h2 className="title-page">{data.data_detal_page_tranning?.title}</h2>
+      <div className="main">
+        <div className="image-page">
           <img
-            className="img_content"
-            width="100%"
-            src={`${URL}${data.data_detal_page_tranning?.cover_image.url}`}
+            src="/assets/images/Khoa-Dao-Tao-React-Plus.png"
+            width={"100%"}
+            height={"100%"}
           />
-          <h3 className="title">Nội dung sự kiện</h3>
-          <div
-            className="text"
-            dangerouslySetInnerHTML={{
-              __html: data.data_detal_page_tranning.content,
-            }}
-          ></div>
-          <h3 className="title">Diễn giả</h3>
-          <div className="box-team-of-experts">
-            {data?.data_detal_page_tranning?.members?.map((val) => (
-              <div className="item-experts" key={val.id}>
-                <div className="item__img">
-                  <img
-                    width="110px"
-                    height="110px"
-                    style={{ borderRadius: "50%" }}
-                    src={`${URL}${val.image.url}`}
-                    alt={val.name}
-                  />
-                </div>
-                <div className="item__content">
-                  <h3 className="name-experts">{val.name}</h3>
-                  <div
-                    className="content-experts"
-                    dangerouslySetInnerHTML={{
-                      __html: val.note,
-                    }}
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <button className="btnJoin" onClick={handleRegistration}>
-            <span>Đăng ký tham gia</span>
-          </button>
         </div>
-        <div className="box-icon"></div>
-      </div>
 
-      <div className="event-is-happening">
         <div className="container">
-          <h3 className="title0">Các sự kiện đã diễn ra</h3>
-          <div className="list-posts">
-            {data.data_posts_complete?.map((val) => {
-              return (
-                <div className="post-item" key={val.id}>
-                  <img
-                    src={`${URL}${val.cover_image.url}`}
-                    className="post-item_image"
-                  />
-                  <h5 className="content-review-date">
-                    {val.start_date} - {val.to_date}
-                  </h5>
-
-                  <Link href={`/tin-tuc/${val.url_seo}`}>
-                    <a className="post-title">{val.title}</a>
-                  </Link>
-                </div>
-              );
-            })}
+          <div className="mr-30">
+            <SlideItem TimeLineEvent={data.data_timeline_event} />
           </div>
         </div>
+
+        <div className="container center-content">
+          <div className="box-icont">
+            <a
+              className="icont"
+              target="_blank"
+              href={`https://www.facebook.com/sharer.php?u=http://103.237.145.33:5000/dao-tao-su-kien/su-kien-thuong-ky`}
+            >
+              <img src="/assets/icon/fb-black.png" />
+            </a>
+            <div className="icont">
+              <img src="/assets/icon/in-black.png" />
+            </div>
+            <div className="icont">
+              <img src="/assets/icon/dinh-kem.png" />
+            </div>
+          </div>
+          <div className="box-content">
+            <div className="address">
+              <span className="address-text">
+                <img
+                  src="../assets/icon/dinhvi-blue.png"
+                  className="img-icont"
+                />
+                {data.data_detal_page_tranning?.address}
+              </span>
+              <span className="address-text">
+                <img src="../assets/icon/time.png" className="img-icont" />
+                {data.data_detal_page_tranning?.start_date_string} -{" "}
+                {data.data_detal_page_tranning?.to_date_string}
+              </span>
+            </div>
+            <h2 className="title-page">
+              {data.data_detal_page_tranning?.title}
+            </h2>
+            <img
+              className="img_content"
+              width="100%"
+              src={`${URL}${data.data_detal_page_tranning?.cover_image.url}`}
+            />
+            <h3 className="title">Nội dung sự kiện</h3>
+            <div
+              className="text"
+              dangerouslySetInnerHTML={{
+                __html: data.data_detal_page_tranning.content,
+              }}
+            ></div>
+            <h3 className="title">Diễn giả</h3>
+            <div className="box-team-of-experts">
+              {data?.data_detal_page_tranning?.members?.map((val) => (
+                <div className="item-experts" key={val.id}>
+                  <div className="item__img">
+                    <img
+                      width="110px"
+                      height="110px"
+                      style={{ borderRadius: "50%" }}
+                      src={`${URL}${val.image.url}`}
+                      alt={val.name}
+                    />
+                  </div>
+                  <div className="item__content">
+                    <h3 className="name-experts">{val.name}</h3>
+                    <div
+                      className="content-experts"
+                      dangerouslySetInnerHTML={{
+                        __html: val.note,
+                      }}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <button className="btnJoin" onClick={handleRegistration}>
+              <span>Đăng ký tham gia</span>
+            </button>
+          </div>
+          <div className="box-icon"></div>
+        </div>
+
+        <div className="event-is-happening">
+          <div className="container">
+            <h3 className="title0">Các sự kiện đã diễn ra</h3>
+            <div className="list-posts">
+              {data.data_posts_complete?.map((val) => {
+                return (
+                  <div className="post-item" key={val.id}>
+                    <img
+                      src={`${URL}${val.cover_image.url}`}
+                      className="post-item_image"
+                    />
+                    <h5 className="content-review-date">
+                      {val.start_date} - {val.to_date}
+                    </h5>
+
+                    <Link href={`/tin-tuc/${val.url_seo}`}>
+                      <a className="post-title">{val.title}</a>
+                    </Link>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+        <div style={{ marginTop: "39px" }} />
+        <Footer />
       </div>
-      <div style={{ marginTop: "39px" }} />
-      <Footer />
       <style jsx>{`
         .image-page {
           height: 430px;
@@ -401,7 +411,7 @@ const RegularEvent = ({ data }) => {
           .box-icont {
             position: fixed;
             bottom: 10px;
-            right: -106px;
+            right: 10px;
             z-index: 100;
           }
           .box-icont .icont {
