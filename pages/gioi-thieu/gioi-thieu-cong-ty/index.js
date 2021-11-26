@@ -123,7 +123,7 @@ const GioiThieu = ({ data }) => {
             />
           </div>
           <h2 className="organizational-structure-title">
-            Đào tạo & Sự kiện về React
+            Đội ngũ chuyên gia
           </h2>
           <div className="container2">
             <div className="box-team-of-experts">

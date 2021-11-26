@@ -12,7 +12,7 @@ const CareerDetal = () => {
   const handleSubmit = (slug) =>
     router.push(`/tuyen-dung/form-tuyen-dung/${slug}`);
   const handleTiemNang = () =>
-    router.push("/cac-khoa-dao-tao/dang-ky-ung-vien-tiem-nang");
+    router.push("/tuyen-dung/dang-ky-ung-vien-tiem-nang");
   useEffect(async () => {
     if (slug) {
       const [_get_text_job, _get_job_concerning] = await Promise.all([
@@ -79,7 +79,7 @@ const CareerDetal = () => {
       <div className="main">
         <div className="container">
           <div className="box-back">
-            <div className="btn-back">
+            <div className="btn-back" onClick={() => router.push("/tuyen-dung")}>
               <img
                 src="/assets/icon/arrow-sm-right4.png"
                 width={24}
@@ -247,7 +247,7 @@ const CareerDetal = () => {
         .contact {
           color: #ffffff;
           display: flex;
-          width: 90%;
+          width: 100%;
           height: 46px;
           justify-content: space-around;
           align-items: center;
@@ -255,6 +255,12 @@ const CareerDetal = () => {
         .contact-phone {
           display: flex;
           align-items: center;
+        }
+        .contact .contact-phone:nth-child(1) {
+          width: 200px;
+        }
+        .contact .contact-phone:nth-child(2) {
+          width: 230px;
         }
         .header-center {
           height: 275px;
@@ -268,7 +274,7 @@ const CareerDetal = () => {
         .title-career {
           font-weight: 600;
           text-align: center;
-          margin-top: 70px;
+          margin-top: 50px;
           font-size: 32px;
           line-height: 48px;
           letter-spacing: -0.02em;
@@ -292,7 +298,7 @@ const CareerDetal = () => {
         }
         .phone-number {
           font-weight: 600;
-          font-size: 14px;
+          font-size: 16px;
           line-height: 24px;
           text-align: center;
           letter-spacing: -0.02em;
@@ -321,6 +327,7 @@ const CareerDetal = () => {
         }
         .box-back {
           display: flex;
+          
         }
         .container {
           margin-top: 50px;
@@ -330,6 +337,7 @@ const CareerDetal = () => {
           height: 24px;
           width: 24px;
           border-radius: 50%;
+          cursor: pointer;
         }
         .btn-back-text {
           font-weight: 600;

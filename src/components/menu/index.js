@@ -60,7 +60,7 @@ const Menu = ({ isColor }) => {
                   <a>
                     Giới thiệu
                     <img
-                      src="../assets/icon/drop-down-icont.png"
+                      src="/assets/icon/drop-down-icont.png"
                       width="6px"
                       height="4.98px"
                       style={{ marginLeft: "3px" }}
@@ -134,7 +134,7 @@ const Menu = ({ isColor }) => {
                   <a>
                     Đào tạo &amp; Sự kiện
                     <img
-                      src="../assets/icon/drop-down-icont.png"
+                      src="/assets/icon/drop-down-icont.png"
                       width="6px"
                       height="4.98px"
                       style={{ marginLeft: "3px" }}

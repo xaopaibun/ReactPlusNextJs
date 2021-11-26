@@ -1,4 +1,5 @@
-export const phoneRegExp = /(84|0[3|5|7|8|9])+([0-9]{8})\b/i
+export const domain = "http://103.237.145.33:5000";
+export const phoneRegExp = /(84|0[3|5|7|8|9])+([0-9]{8})\b/i;
 export const Day = [
   "01",
   "02",

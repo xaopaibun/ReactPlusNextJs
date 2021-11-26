@@ -50,7 +50,7 @@ const Home = ({ data }) => {
     <>
       <Head>
         <title>Trang Chủ React Plus</title>
-        <meta charset="UTF-8" />
+        <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/favicon.ico" />
         <meta property="og:title" content="Trang Chủ React Plus" key="title" />
@@ -61,9 +61,8 @@ const Home = ({ data }) => {
         />
       </Head>
 
-      
-        <Menu />
-        <div className="main">
+      <Menu />
+      <div className="main">
         {isShow2 && (
           <PopupDownloadDocuments
             show={isShow2}
@@ -238,20 +237,22 @@ const Home = ({ data }) => {
                       các nhân sự cho các dự án quy mô quốc tế, React Plus đã
                       xây dựng một khoá học hoàn chỉnh giúp các developer trẻ
                       hoặc sinh viên mới ra trường có cơ hội tiếp cận và có thể
-                      bước đầu làm việc với ReactJs & React Native. Đây là tài
-                      liệu giới thiệu tổng quan về khoá học.
+                      bước đầu làm việc với ReactJs & React Native.
                     </div>
+                    <br />
                     <div className="document__text">
-                      Khoá học này phù hợp với:
+                      Đây là tài liệu giới thiệu tổng quan về khoá học. Khoá học
+                      này phù hợp với:
                     </div>
+
                     <ul className="document__list">
-                      <li>Các bạn sinh viên lần đầu làm quen với ReactJS</li>
+                      <li>Các bạn sinh viên lần đầu làm quen với ReactJS.</li>
                       <li>
-                        Người mới đi làm có mong muốn làm việc với ReactJS
+                        Người mới đi làm có mong muốn làm việc với ReactJS.
                       </li>
                       <li>
                         Lập trình viên đã có kinh nghiệm, muốn trải nghiệm một
-                        lĩnh vực mới để thay đổi công việc
+                        lĩnh vực mới để thay đổi công việc.
                       </li>
                     </ul>
                     <button
@@ -329,7 +330,7 @@ const Home = ({ data }) => {
       </div>
       <style jsx>{`
         /* start slider */
-        .mr-30{
+        .mr-30 {
           margin-top: 50px;
         }
         .banner {
@@ -365,7 +366,7 @@ const Home = ({ data }) => {
           right: 164px;
           z-index: 99;
         }
-        .img-slide{
+        .img-slide {
           width: 100%;
           height: 430px;
           object-fit: cover;
@@ -404,8 +405,8 @@ const Home = ({ data }) => {
           display: flex;
           height: auto;
           width: 100%;
-        
-          padding: 0 20px ;
+
+          padding: 0 20px;
           justify-content: space-around;
         }
         .box-item .item {
@@ -416,11 +417,11 @@ const Home = ({ data }) => {
           align-items: center;
           justify-content: center;
         }
-        .box-item .item .item__img{
-            width:100%;
-            height: 160px;
-            
-            display: flex;
+        .box-item .item .item__img {
+          width: 100%;
+          height: 160px;
+
+          display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
@@ -431,16 +432,15 @@ const Home = ({ data }) => {
           font-size: 14px;
           line-height: 21px;
           white-space: pre-wrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            display: -webkit-box;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          display: -webkit-box;
           text-align: center;
           letter-spacing: -0.02em;
           color: #25282b;
         }
-
 
         /* end css box content */
 
@@ -528,11 +528,11 @@ const Home = ({ data }) => {
           letter-spacing: -0.02em;
           color: #25282b;
           white-space: pre-wrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            -webkit-line-clamp: 4;
-            -webkit-box-orient: vertical;
-            display: -webkit-box;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          -webkit-line-clamp: 4;
+          -webkit-box-orient: vertical;
+          display: -webkit-box;
           margin-top: 12px;
         }
         .btnmore {
@@ -561,7 +561,7 @@ const Home = ({ data }) => {
           border: none;
           transition: 0.5s;
         }
-        
+
         .btnmorefull:hover {
           background: #03a3c8;
         }
@@ -680,7 +680,7 @@ const Home = ({ data }) => {
           width: 100%;
           background-image: url("/assets/icon/BGHome.png");
         }
-        
+
         .document {
           position: absolute;
           top: 92px;
@@ -702,7 +702,6 @@ const Home = ({ data }) => {
         }
         .document__text {
           width: 465px;
-         
         }
         .document__title {
           font-weight: 600;
@@ -715,9 +714,9 @@ const Home = ({ data }) => {
         }
         .document__text {
           font-size: 13px;
-          line-height: 19px;
+          line-height: 21px;
           letter-spacing: -0.02em;
-         
+
           color: #52575c;
         }
 
@@ -725,7 +724,7 @@ const Home = ({ data }) => {
           line-height: 28px;
           padding: 26px;
         }
-        .text-left{
+        .text-left {
           text-align: left !important;
           width: 100% !important;
         }
@@ -746,8 +745,8 @@ const Home = ({ data }) => {
           overflow-x: auto;
           justify-content: space-between;
         }
-        .list_news::-webkit-scrollbar { 
-          display: none; 
+        .list_news::-webkit-scrollbar {
+          display: none;
         }
 
         .news__item {
@@ -771,17 +770,17 @@ const Home = ({ data }) => {
           color: #25282b;
           transition: 0.5s;
           white-space: pre-wrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            display: -webkit-box;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          display: -webkit-box;
         }
         .news__item a:hover {
           color: #0bbee7;
           text-decoration: none;
         }
-        .news__item p{
+        .news__item p {
           margin: 12px 0 0 0;
         }
         /* end css news */
@@ -799,10 +798,10 @@ const Home = ({ data }) => {
           background-image: url("/assets/images/Frame45527.png");
           background-size: cover;
         }
-        .mr-62{
+        .mr-62 {
           margin-top: 62px;
         }
-        .mr-47{
+        .mr-47 {
           margin-top: 47px;
         }
         .box-inputemail .reactlogo {
@@ -862,8 +861,8 @@ const Home = ({ data }) => {
           transition: 0.5s;
           background-color: #03a3c8;
         }
-        .box-error{
-          background: #25282B;
+        .box-error {
+          background: #25282b;
           margin-top: -20px;
           border: 1px solid rgba(255, 255, 255, 0.2);
           box-sizing: border-box;
@@ -875,41 +874,39 @@ const Home = ({ data }) => {
           align-items: center;
           justify-content: center;
         }
-        .text-error{
+        .text-error {
           margin-left: 5px;
           font-weight: 500;
           font-size: 13px;
           line-height: 19px;
           letter-spacing: -0.02em;
-          color: #FFFFFF;
+          color: #ffffff;
         }
 
         @media screen and (max-width: 768px) {
           .box-box {
             width: 100%;
-           margin-bottom: 30px;
+            margin-bottom: 30px;
             overflow: hidden;
           }
-          .document__title{
-           
+          .document__title {
             font-size: 20px;
             width: 267px !important;
             margin: 20px auto 13px auto !important;
             text-align: center !important;
           }
-        
+
           .community__title {
-   
             font-size: 22px;
           }
           .box-content {
             padding: 0;
             height: auto;
           }
-          .img-slide{
-          width: 100%;
-          height: 113px;
-        }
+          .img-slide {
+            width: 100%;
+            height: 113px;
+          }
           .content__review {
             font-weight: 600;
             width: 267px;
@@ -933,88 +930,97 @@ const Home = ({ data }) => {
           .item__content {
             width: 238px;
           }
-          .community__item__content .item__content{
+          .community__item__content .item__content {
             width: 100% !important;
-            height: 90px;
+            height: 77px;
+            margin-bottom: 16px;
           }
-          .community__content {
-            width: auto;
+          .document__list {
+              line-height: 28px;
+              padding: 20px 0px 24px 20px;
           }
-          .community-bottom {
-            display: block;
-          }
-          .box_document {
-            width: 100%;
-            height: 950px;
-          }
-          .document__text{
-            width:  100%;
-          }
-          .btnmorefull {
- 
-            display: block;
-            margin: auto;
-          }
-          .news__item{
-            margin:0 10px;
-          }
-          .text_blue{
-            display:  none;
-          }
-          .community__item {
-            width: 100%;
-            height: auto;
-    margin: 15px 0;
-           
-          }
-          .banner{
-            height: 113px;
-            margin: 10px 0 ;
-          }
-          .btnSlider{display: none}
-          .community__item__image {
-            width: 100%;
-            height: auto;
-          }
-          .flex {
-            display: block;
-          }
-          .document__img {
-      width: 100%;
-      height: auto;
-
+        .community__content {
+          width: auto;
         }
-        .document__title {
-font-size: 20px;
+        .community-bottom {
+          display: block;
         }
-        .box-inputemail .container{
-          padding : 0;
+        .box_document {
+          width: 100%;
+          height: 950px;
         }
-        .inputemail{
-          background-image: url(/assets/images/BG1783.png);
+        .document__text {
+          width: 100%;
         }
-        .box-inputemail .reactlogo{
+        .btnmorefull {
+          display: block;
+          margin: auto;
+        }
+        .news__item {
+          margin: 0 10px;
+        }
+        .text_blue {
           display: none;
         }
-        .input__content{
-          width:auto;
+        .document__title {
+          
+          line-height: 29px;
+          
+        }
+        .community__item {
+          width: 100%;
+          height: auto;
+          margin: 15px 0;
+        }
+        .banner {
+          height: 113px;
+          margin: 10px 0;
+        }
+        .btnSlider {
+          display: none;
+        }
+        .community__item__image {
+          width: 100%;
+          height: auto;
+        }
+        .flex {
+          display: block;
+        }
+        .document__img {
+          width: 100%;
+          height: auto;
+        }
+        .document__title {
+          font-size: 20px;
+        }
+        .box-inputemail .container {
+          padding: 0;
+        }
+        .inputemail {
+          background-image: url(/assets/images/BG1783.png);
+        }
+        .box-inputemail .reactlogo {
+          display: none;
+        }
+        .input__content {
+          width: auto;
           padding: 30px 20px;
         }
-        .input__content__title{
-          padding : 0;
+        .input__content__title {
+          padding: 0;
         }
-        .inputemail input{
+        .inputemail input {
           width: calc(100% - 60px);
         }
-        .btnsubmit{
+        .btnsubmit {
           margin-right: 20px;
         }
-        .item__title{
+        .item__title {
           font-size: 14px;
         }
         .box-inputemail {
-            margin: 56px 0 35px 0;
-        }  
+          margin: 56px 0 35px 0;
+        }
       `}</style>
     </>
   );

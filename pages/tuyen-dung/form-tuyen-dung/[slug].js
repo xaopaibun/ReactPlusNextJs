@@ -120,8 +120,7 @@ const FormTuyenDung = () => {
               </div>
               <div className="item">
                 <select
-                  class="form-select form-select-custom"
-                  defaultValue="Ngày"
+                  className="form-select form-select-custom"
                   name="day"
                   onChange={formik.handleChange}
                   value={formik.values.day}
@@ -143,8 +142,7 @@ const FormTuyenDung = () => {
 
               <div className="item">
                 <select
-                  class="form-select form-select-custom"
-                  defaultValue="Tháng"
+                  className="form-select form-select-custom"
                   onChange={formik.handleChange}
                   value={formik.values.month}
                   name="month"
@@ -165,8 +163,7 @@ const FormTuyenDung = () => {
               </div>
               <div className="item">
                 <select
-                  class="form-select form-select-custom"
-                  defaultValue="Năm"
+                  className="form-select form-select-custom"
                   name="year"
                   onChange={formik.handleChange}
                   value={formik.values.year}
@@ -331,7 +328,7 @@ const FormTuyenDung = () => {
         .title-page {
           font-weight: 600;
           font-size: 32px;
-          line-height: 28px;
+          line-height: 48px;
           color: #25282b;
           margin-bottom: 40px;
         }

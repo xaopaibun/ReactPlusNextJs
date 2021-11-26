@@ -234,7 +234,7 @@ const Career = ({ data }) => {
           color: #ffffff;
           display: flex;
 
-          width: 90%;
+          width: 100%;
 
           height: 46px;
           justify-content: space-around;
@@ -256,7 +256,7 @@ const Career = ({ data }) => {
         .title-career {
           font-weight: 600;
           text-align: center;
-          margin-top: 70px;
+          margin-top: 50px;
           font-size: 32px;
           line-height: 48px;
           letter-spacing: -0.02em;
@@ -496,8 +496,14 @@ const Career = ({ data }) => {
         .mr-110 {
           margin-top: 110px;
         }
+        .contact .contact-phone:nth-child(1) {
+          width: 200px;
+        }
+        .contact .contact-phone:nth-child(2) {
+          width: 230px;
+        }
         @media screen and (max-width: 768px) {
-          .contact.jsx-2515417813 {
+          .contact {
             width: 100%;
           }
           .box-nominee2 {

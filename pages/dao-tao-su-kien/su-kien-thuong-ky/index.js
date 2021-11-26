@@ -10,8 +10,13 @@ import {
   URL,
 } from "../../../src/services/api";
 import SlideItem from "../../../src/components/common/slideitem/SlideItem";
+import { domain } from "../../../src/config";
 
 const RegularEvent = ({ data }) => {
+  const copyToClipboard = (e) => {
+    document.execCommand("copy");
+    alert("Copied link thành công!");
+  };
   const router = useRouter();
   const handleRegistration = () =>
     router.push("/dao-tao-su-kien/form-tham-gia-su-kien");
@@ -45,14 +50,23 @@ const RegularEvent = ({ data }) => {
             <a
               className="icont"
               target="_blank"
-              href={`https://www.facebook.com/sharer.php?u=http://103.237.145.33:5000/dao-tao-su-kien/su-kien-thuong-ky`}
+              href={`https://www.facebook.com/sharer.php?u=${domain}/dao-tao-su-kien/su-kien-thuong-ky`}
             >
               <img src="/assets/icon/fb-black.png" />
             </a>
-            <div className="icont">
+            <a
+              className="icont"
+              target="_blank"
+              href={`https://www.linkedin.com/sharing/share-offsite/?url=${domain}/dao-tao-su-kien/su-kien-thuong-ky`}
+            >
               <img src="/assets/icon/in-black.png" />
-            </div>
-            <div className="icont">
+            </a>
+            <div
+              className="icont"
+              onClick={() =>
+                copyToClipboard(`${domain}/dao-tao-su-kien/su-kien-thuong-ky`)
+              }
+            >
               <img src="/assets/icon/dinh-kem.png" />
             </div>
           </div>
@@ -242,7 +256,7 @@ const RegularEvent = ({ data }) => {
           display: flex;
           justify-content: center;
           align-items: center;
-          margin: 4px 0;
+          margin: 8px 0;
           cursor: pointer;
         }
         .title {

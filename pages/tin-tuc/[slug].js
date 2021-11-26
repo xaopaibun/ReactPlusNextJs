@@ -9,6 +9,7 @@ import {
   URL,
 } from "../../src/services/api";
 import { useEffect, useState } from "react";
+import { domain } from "../../src/config";
 const NewsBlogDetail = () => {
   const router = useRouter();
   const { slug } = router.query;
@@ -26,6 +27,10 @@ const NewsBlogDetail = () => {
     setPostConcernings(res_.data);
   }, []);
 
+  const copyToClipboard = (e) => {
+    document.execCommand("copy");
+    alert("Copied link thành công!");
+  };
   return (
     <>
       <Head>
@@ -40,14 +45,21 @@ const NewsBlogDetail = () => {
               <a
                 className="icont"
                 target="_blank"
-                href={`https://www.facebook.com/sharer.php?u=http://103.237.145.33:5000/tin-tuc/${slug}`}
+                href={`https://www.facebook.com/sharer.php?u=${domain}/tin-tuc/${slug}`}
               >
                 <img src="/assets/icon/fb-black.png" />
               </a>
-              <button className="icont">
+              <a
+                className="icont"
+                target="_blank"
+                href={`https://www.linkedin.com/sharing/share-offsite/?url=${domain}/tin-tuc/${slug}`}
+              >
                 <img src="/assets/icon/in-black.png" />
-              </button>
-              <button className="icont">
+              </a>
+              <button
+                className="icont"
+                onClick={() => copyToClipboard(`${domain}/tin-tuc/${slug}`)}
+              >
                 <img src="/assets/icon/dinh-kem.png" />
               </button>
             </div>
@@ -169,7 +181,7 @@ const NewsBlogDetail = () => {
           justify-content: center;
           align-items: center;
           background-color: white;
-          margin: 6px 0;
+          margin: 8px 0;
           cursor: pointer;
         }
         .post-item {
