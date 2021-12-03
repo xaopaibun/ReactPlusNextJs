@@ -34,7 +34,10 @@ option {
   z-index: 20 !important;
   
 }
-/* Optional: show position indicator in red */
+
+img{
+  object-fit: cover;
+}
 
 @media screen and (max-width: 768px) {
   body {

@@ -202,20 +202,20 @@ export const ListExperts = [
 export const ListItem = [
   {
     _id: "1",
-    image: "TamNhin.png",
+    image: "TamNhin.jpg",
     title: "Tầm nhìn",
     content: "Luôn là công ty dẫn đầu về công nghệ React",
   },
   {
     _id: "2",
-    image: "SuMenh.png",
+    image: "SuMenh.jpg",
     title: "Sứ mệnh",
     content:
       "<p>Cung cấp chuyên gia về React & React Native <br/> Làm hài lòng khách hàng với chất lượng cao <br/> Tạo ra cộng đồng về React lớn mạnh nhất tại Việt Nam</p>",
   },
   {
     _id: "3",
-    image: "GiaTriCotLoi.png",
+    image: "GiaTriCotLoi.jpg",
     title: "Giá trị cốt lõi",
     content:
       "<p>Chuyên về React & React Native <br/> Sẵn sàng 24/7 <br/>Đẳng cấp thế giới<br/> Khả năng tăng trưởng, mở rộng nhanh<br/> Phản hồi ngay lập tức</p>",

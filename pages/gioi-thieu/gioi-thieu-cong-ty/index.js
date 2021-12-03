@@ -95,6 +95,7 @@ const GioiThieu = ({ data }) => {
                       <img
                         width="100%"
                         height="100%"
+                        style={{objectFit: "cover"}}
                         src={"../assets/images/" + val.image}
                         alt=""
                       />

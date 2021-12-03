@@ -431,12 +431,7 @@ const Home = ({ data }) => {
           margin-top: 10px;
           font-size: 14px;
           line-height: 21px;
-          white-space: pre-wrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          -webkit-line-clamp: 3;
-          -webkit-box-orient: vertical;
-          display: -webkit-box;
+        
           text-align: center;
           letter-spacing: -0.02em;
           color: #25282b;

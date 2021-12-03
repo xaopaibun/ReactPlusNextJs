@@ -134,14 +134,14 @@ const VanHoa = ({ data }) => {
                 <div className="Office-Images-Left-Top">
                   <div className="Office-Images-Left-Top-IMG1">
                     <img
-                      src="/assets/images/img20.png"
+                      src="/assets/images/IMG_2614.JPG"
                       height={"100%"}
                       width={"100%"}
                     />
                   </div>
                   <div className="Office-Images-Left-Top-IMG2">
                     <img
-                      src="/assets/images/img21.png"
+                      src="/assets/images/IMG_2615.JPG"
                       height={"100%"}
                       width={"100%"}
                     />
@@ -150,14 +150,14 @@ const VanHoa = ({ data }) => {
                 <div className="Office-Images-Left-Bottom">
                   <div className="Office-Images-Left-Bottom-IMG3">
                     <img
-                      src="/assets/images/img22.png"
+                      src="/assets/images/IMG_2616.JPG"
                       height={"100%"}
                       width={"100%"}
                     />
                   </div>
                   <div className="Office-Images-Left-Bottom-IMG4">
                     <img
-                      src="/assets/images/img23.png"
+                      src="/assets/images/IMG_2617.JPG"
                       height={"100%"}
                       width={"100%"}
                     />
@@ -166,7 +166,7 @@ const VanHoa = ({ data }) => {
               </div>
               <div className="Office-Images-Right">
                 <img
-                  src="/assets/images/img24.png"
+                  src="/assets/images/IMG_2619.JPG"
                   height={"100%"}
                   width={"100%"}
                 />
