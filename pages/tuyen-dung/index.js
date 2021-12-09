@@ -29,7 +29,7 @@ const Career = ({ data }) => {
           <div className="contact">
             <div className="contact-phone">
               <div className="contact-phone-icon">
-                <img src="/assets/icon/phone1.png" width={20} height={20} />
+                <img src="/assets/icon/phone1.svg" width={20} height={20} />
               </div>
               <div className="contact-phone-hotline">
                 <p className="hotline">Hotline</p>
@@ -49,7 +49,7 @@ const Career = ({ data }) => {
             ></div>
             <div className="contact-phone">
               <div className="contact-phone-icon">
-                <img src="/assets/icon/mail1.png" width={20} height={20} />
+                <img src="/assets/icon/mail3.svg" width={20} height={20} />
               </div>
               <div className="contact-phone-hotline">
                 <p className="hotline">Email</p>
@@ -117,7 +117,7 @@ const Career = ({ data }) => {
                       <div className="applied-position-item-top">
                         <span className="tinh">
                           <img
-                            src="./assets/icon/dinhvi.png"
+                            src="/assets/icon/dinhvi.png"
                             width={11}
                             height={15}
                           />{" "}
@@ -194,19 +194,19 @@ const Career = ({ data }) => {
               <h2 className="title2">3 bước vào đội ngũ</h2>
               <div className="join-the-team">
                 <div className="join-the-team-item">
-                  <img src="./assets/images/img07.png" alt="" />
+                  <img src="/assets/images/img47.svg" alt="" />
                   <h4 className="join-the-team-content">
                     Ứng viên gửi hồ sơ ứng tuyển
                   </h4>
                 </div>
                 <div className="join-the-team-item">
-                  <img src="./assets/images/img08.png" alt="" />
+                  <img src="/assets/images/img48.svg" alt="" />
                   <h4 className="join-the-team-content">
                     Phỏng vấn cùng HR và Project Manager
                   </h4>
                 </div>
                 <div className="join-the-team-item">
-                  <img src="./assets/images/img09.png" alt="" />
+                  <img src="/assets/images/img49.svg" alt="" />
                   <h4 className="join-the-team-content">
                     Thoả thuận hợp đồng và hoàn thiện hồ sơ
                   </h4>

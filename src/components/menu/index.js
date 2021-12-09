@@ -20,7 +20,7 @@ const Menu = ({ isColor }) => {
               <Link href="/">
                 <a>
                   <img
-                    src="/assets/images/LogoReactPlus.png"
+                    src="/assets/icon/logomenu.svg"
                     alt="Logo"
                     style={{ marginLeft: "-30px" }}
                   />

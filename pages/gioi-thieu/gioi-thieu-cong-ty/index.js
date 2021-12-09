@@ -38,7 +38,7 @@ const GioiThieu = ({ data }) => {
               </p>
             </div>
             <div className="introduce__right">
-              <img src="../assets/images/GioiThieu.png" alt="" />
+              <img src="/assets/images/Sticker-ReactPlus.svg" alt="" />
             </div>
           </div>
           <div className="box__company__scale">
@@ -47,7 +47,7 @@ const GioiThieu = ({ data }) => {
                 <img
                   height="40px"
                   width="40px"
-                  src="../assets/images/member.png"
+                  src="/assets/images/member.png"
                   alt=""
                 />
               </div>
@@ -60,7 +60,7 @@ const GioiThieu = ({ data }) => {
                 <img
                   height="40px"
                   width="40px"
-                  src="../assets/images/Japan.png"
+                  src="/assets/images/Japan.png"
                   alt=""
                 />
               </div>
@@ -74,7 +74,7 @@ const GioiThieu = ({ data }) => {
                 <img
                   height="40px"
                   width="40px"
-                  src="../assets/images/edit-curves.png"
+                  src="/assets/images/edit-curves.png"
                   alt=""
                 />
               </div>
@@ -96,7 +96,7 @@ const GioiThieu = ({ data }) => {
                         width="100%"
                         height="100%"
                         style={{objectFit: "cover"}}
-                        src={"../assets/images/" + val.image}
+                        src={"/assets/images/" + val.image}
                         alt=""
                       />
                     </div>

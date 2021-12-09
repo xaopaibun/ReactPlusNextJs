@@ -6,7 +6,7 @@ const Footer = () => {
         <div className="footer">
           <div className="footer_itemlogo">
             <img
-              src="/assets/images/menu-footer.png"
+              src="/assets/images/menu-footer.svg"
               width="89px"
               height="46px"
               alt="Logo"
@@ -45,7 +45,7 @@ const Footer = () => {
               <p className="item__title">Liên hệ</p>
               <a tel={"0349177306"}>
                 <img
-                  src="/assets/icon/phone.png"
+                  src="/assets/icon/phone.svg"
                   style={{ marginRight: "5px" }}
                   width="13.33px"
                   height="13.33px"
@@ -55,7 +55,7 @@ const Footer = () => {
               </a>
               <a href="#">
                 <img
-                  src="/assets/icon/mail.png"
+                  src="/assets/icon/mail.svg"
                   style={{ marginRight: "5px" }}
                   width="16px"
                   height="13.33px"
@@ -69,7 +69,7 @@ const Footer = () => {
               <div className="connect">
                 <a href="https://www.facebook.com/reactplus.jsc">
                   <img
-                    src="/assets/icon/facebook.png"
+                    src="/assets/icon/fb.svg"
                     style={{ marginRight: "5px" }}
                     width="32.24px"
                     height="32.24px"
@@ -78,7 +78,7 @@ const Footer = () => {
                 </a>
                 <a href="#">
                   <img
-                    src="/assets/icon/Instagram.png"
+                    src="/assets/icon/in.svg"
                     style={{ marginRight: "5px" }}
                     width="32.24px"
                     height="32.24px"
@@ -87,7 +87,7 @@ const Footer = () => {
                 </a>
                 <a href="#">
                   <img
-                    src="/assets/icon/youtube.png"
+                    src="/assets/icon/youtube.svg"
                     style={{ marginRight: "5px" }}
                     width="32.24px"
                     height="32.24px"

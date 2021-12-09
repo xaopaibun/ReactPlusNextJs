@@ -1,4 +1,4 @@
-export const domain = "http://103.237.145.33:5000";
+export const domain = "https://reactplus.vn";
 export const phoneRegExp = /(84|0[3|5|7|8|9])+([0-9]{8})\b/i;
 export const Day = [
   "01",
@@ -59,28 +59,28 @@ export const Award = [
     title: "Giải thưởng anh hùng lao động nhiều hạng",
     content:
       "Cập nhật mới cho phép nhà phát triển làm gì đó đại loại vậy nhà phát triển làm gì đó đại loại vậy",
-    image: "img47.png",
+    image: "img47.svg",
   },
   {
     _id: "2",
     title: "Giải thưởng nông dân tiêu biểu của tháng",
     content:
       "Cập nhật mới cho phép nhà phát triển làm gì đó đại loại vậy nhà phát triển làm gì đó đại loại vậy",
-    image: "img48.png",
+    image: "img48.svg",
   },
   {
     _id: "3",
     title: "Giải thưởng tập thể văn hoá ",
     content:
       "Cập nhật mới cho phép nhà phát triển làm gì đó đại loại vậy nhà phát triển làm gì đó đại loại vậy",
-    image: "img49.png",
+    image: "img49.svg",
   },
   {
     _id: "4",
     title: "Giải thưởng anh hùng lao động nhiều hạng",
     content:
       "Cập nhật mới cho phép nhà phát triển làm gì đó đại loại vậy nhà phát triển làm gì đó đại loại vậy",
-    image: "img47.png",
+    image: "img47.svg",
   },
 ];
 export const ListNews = [

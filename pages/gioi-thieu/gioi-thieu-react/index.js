@@ -42,7 +42,7 @@ const IntroduceReact = ({ data }) => {
                 </p>
               </div>
               <div className="introduce__right">
-                <img src="/assets/images/gioithieu-react-.png" alt="" />
+                <img src="/assets/images/Sticker-ReactPlus1.svg" alt="" />
               </div>
             </div>
           </div>
@@ -51,7 +51,7 @@ const IntroduceReact = ({ data }) => {
               <div className="introduce-item">
                 <div className="item-image">
                   <img
-                    src="../assets/images/img43.png"
+                    src="/assets/images/img43.png"
                     width="100%"
                     height="100%"
                     alt=""
@@ -126,7 +126,7 @@ const IntroduceReact = ({ data }) => {
               <div className="introduce-item">
                 <div className="item-image">
                   <img
-                    src="../assets/images/img45.png"
+                    src="/assets/images/img45.png"
                     width="100%"
                     height="100%"
                     alt=""
@@ -167,7 +167,7 @@ const IntroduceReact = ({ data }) => {
                   />
                 </button>
                 <img
-                  src="../assets/images/img46.png"
+                  src="/assets/images/img46.svg"
                   width="309px"
                   height="241px"
                   alt=""

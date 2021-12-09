@@ -474,7 +474,7 @@ const VanHoa = ({ data }) => {
         }
         .Office-Images-Left-Top-IMG2 {
           width: 38.3%;
-          height: 100%;
+         
         }
         .Office-Images-Left-Bottom-IMG3 {
           width: 48.5%;

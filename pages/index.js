@@ -111,7 +111,7 @@ const Home = ({ data }) => {
               <div className="box-item">
                 <div className="item">
                   <div className="item__img">
-                    <img src="/assets/images/img0.png" alt="" />
+                    <img src="/assets/images/img01.svg" alt="" />
                   </div>
                   <p className="item__content">
                     Nơi làm việc của đông đảo chuyên gia và kỹ sư yêu thích
@@ -120,7 +120,7 @@ const Home = ({ data }) => {
                 </div>
                 <div className="item">
                   <div className="item__img">
-                    <img src="/assets/images/img01.png" alt="" />
+                    <img src="/assets/images/img02.svg" alt="" />
                   </div>
                   <p className="item__content">
                     Quy mô 130 nhân sự và 100% dự án làm về React
@@ -128,7 +128,7 @@ const Home = ({ data }) => {
                 </div>
                 <div className="item">
                   <div className="item__img">
-                    <img src="/assets/images/img00.png" alt="" />
+                    <img src="/assets/images/img03.svg" alt="" />
                   </div>
                   <p className="item__content">
                     Nơi tổ chức miễn phí các khoá đào tạo, sự kiện về React với

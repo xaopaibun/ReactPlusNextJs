@@ -315,7 +315,7 @@ const NewsBlogDetail = () => {
           .box-icont {
             position: fixed;
             bottom: 10px;
-            right: -10px;
+            right: -25px;
             z-index: 100;
           }
           .box-icont .icont {

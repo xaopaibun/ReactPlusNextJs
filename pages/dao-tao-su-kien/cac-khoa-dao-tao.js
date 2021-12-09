@@ -218,6 +218,7 @@ const EventTraining = ({ data_training_page }) => {
         }
         .number-text {
           color: #0bbee7;
+          width: 30px;
           font-size: 3.5rem;
         }
         .course-item {
@@ -345,6 +346,7 @@ const EventTraining = ({ data_training_page }) => {
           .mr-100 {
             margin-top: 10px;
           }
+         
         }
       `}</style>
     </>
