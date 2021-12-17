@@ -8,7 +8,8 @@ const Menu = ({ isColor }) => {
   const router = useRouter();
 
   const [isClose, setIsClose] = useState(false);
-
+  const handleJapan = () => (window.location = "https://react-plus.com/");
+  const handleVN = () => router.push("/");
   const { data } = useScroll();
   // style={{boxShadow:  data > 0 ? '0px 4px 4px rgb(0 0 0 / 7%)': 'none'}}
   return (
@@ -16,7 +17,7 @@ const Menu = ({ isColor }) => {
       <div className="box-menu">
         <div className="container">
           <div className="row">
-            <div className="col-xl-3 col-sm-3 col-4 text-center">
+            <div className="col-xl-2 col-sm-2 col-4 text-center">
               <Link href="/">
                 <a>
                   <img
@@ -27,7 +28,7 @@ const Menu = ({ isColor }) => {
                 </a>
               </Link>
             </div>
-            <div className="col-xl-9 col-sm-9 col-8">
+            <div className="col-xl-10 col-sm-10 col-8">
               <div className="menu-reponsive">
                 <div className="btn-menu" onClick={() => setIsClose(!isClose)}>
                   {!isClose ? (
@@ -211,6 +212,19 @@ const Menu = ({ isColor }) => {
                     }
                   />
                 </li>
+                <li className="menu__item">
+                  <img
+                    className="img-flag"
+                    src="/assets/images/vn.png"
+                    onClick={handleVN}
+                  />
+                  <img
+                    className="img-flag"
+                    style={{ border: "1px solid #e1e1e1" }}
+                    src="/assets/images/co-nhat.webp"
+                    onClick={handleJapan}
+                  />
+                </li>
               </ul>
             </div>
           </div>
@@ -321,6 +335,19 @@ const Menu = ({ isColor }) => {
             Tin tức & Blog
           </a>
         </Link>
+        <div style={{ display: "flex", marginTop: "30px" }}>
+          <img
+            className="img-flag"
+            src="/assets/images/vn.png"
+            onClick={handleVN}
+          />
+          <img
+            className="img-flag"
+            style={{ border: "1px solid gray" }}
+            src="/assets/images/nhat.jpg"
+            onClick={handleJapan}
+          />
+        </div>
       </div>
       <style jsx>{`
         .btn-menu {
@@ -466,6 +493,15 @@ const Menu = ({ isColor }) => {
         .menu-reponsive {
           display: none;
         }
+        .img-flag {
+          height: 18px;
+          width: 26px;
+          margin-top: -5px;
+          cursor: pointer;
+          margin-right: 8px; 
+          border-radius: 5px;
+        }
+
         @media screen and (max-width: 768px) {
           .box-menu {
             width: 100%;
@@ -520,6 +556,9 @@ const Menu = ({ isColor }) => {
             letter-spacing: -0.02em;
             margin: 12px 20px;
             color: #52575c;
+          }
+          .img-flag {
+            margin-right: 20px;
           }
         }
       `}</style>
