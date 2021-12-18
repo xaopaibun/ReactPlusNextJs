@@ -43,7 +43,7 @@ const SlideItem = ({ TimeLineEvent }) => {
         className="react-multiple-carousel__arrow react-multiple-carousel__arrow--right"
       >
         <img
-          src="/assets/images/back_right.png"
+          src="/assets/icon/back_right.svg"
           style={{ position: "absolute", top: 10, left: 12, zIndex: 100 }}
           alt="a"
         />
@@ -68,7 +68,7 @@ const SlideItem = ({ TimeLineEvent }) => {
         className="react-multiple-carousel__arrow react-multiple-carousel__arrow--left"
       >
         <img
-          src="/assets/images/back_left.png"
+          src="/assets/icon/back_left.svg"
           style={{ position: "absolute", top: 10, left: 12, zIndex: 100 }}
           alt="a"
         />

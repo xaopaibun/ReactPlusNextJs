@@ -32,10 +32,10 @@ const Menu = ({ isColor }) => {
               <div className="menu-reponsive">
                 <div className="btn-menu" onClick={() => setIsClose(!isClose)}>
                   {!isClose ? (
-                    <img src="/assets/icon/menu-3.1.png" alt="Open" />
+                    <img src="/assets/icon/e-open.svg" alt="Open" />
                   ) : (
                     <img
-                      src="/assets/icon/X.png"
+                      src="/assets/icon/e-remove.svg"
                       width="24px"
                       height="24px"
                       alt="Close"

@@ -196,7 +196,7 @@ const Home = ({ data }) => {
                     <div
                       className="item__content"
                       dangerouslySetInnerHTML={{
-                        __html: data[1].event?.content,
+                        __html: data[1].event?.introduction,
                       }}
                     />
                     <button
@@ -206,7 +206,7 @@ const Home = ({ data }) => {
                       <span>Tìm hiểu thêm</span>
                       <img
                         className="btnmore__icon"
-                        src="/assets/icon/muiten.png"
+                        src="/assets/icon/muiten.svg"
                       />
                     </button>
                   </div>
@@ -518,17 +518,18 @@ const Home = ({ data }) => {
         }
         .community__item__content .item__content {
           font-size: 13px;
-          height: 70px;
+          height: 58px;
+          margin-bottom: 8px;
           line-height: 19px;
           letter-spacing: -0.02em;
           color: #25282b;
           white-space: pre-wrap;
           overflow: hidden;
           text-overflow: ellipsis;
-          -webkit-line-clamp: 4;
+          -webkit-line-clamp: 3;
           -webkit-box-orient: vertical;
           display: -webkit-box;
-          margin-top: 12px;
+          margin-top: 10px;
         }
         .btnmore {
           width: 152px;
@@ -928,6 +929,7 @@ const Home = ({ data }) => {
           .community__item__content .item__content {
             width: 100% !important;
             height: 77px;
+            -webkit-line-clamp: 4;
             margin-bottom: 16px;
           }
           .document__list {
