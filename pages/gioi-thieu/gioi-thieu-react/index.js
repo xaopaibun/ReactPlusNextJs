@@ -23,7 +23,7 @@ const IntroduceReact = ({ data }) => {
           <div className="container backgroudReact">
             <div className="box_introduce">
               <div className="introduce__left">
-                <img src="../assets/icon/Group2101.png" alt="" />
+                <img src="/assets/icon/Group2098.svg" alt="" />
                 <h1>
                   React <br />
                   Công nghệ phát triển tương lai
@@ -100,7 +100,7 @@ const IntroduceReact = ({ data }) => {
               <div className="introduce-item-reverse-reponsive">
                 <div className="item-image">
                   <img
-                    src="../assets/images/img44.png"
+                    src="/assets/images/img44.png"
                     width="100%"
                     height="100%"
                     alt=""
@@ -163,8 +163,8 @@ const IntroduceReact = ({ data }) => {
                   <span>Tìm hiểu khóa học React miễn phí</span>
                   <img
                     className="btnmore__icon"
-                    src="../assets/icon/muitenwhite.png"
-                  />
+                    src="/assets/icon/muiten-white.svg"
+                  />;
                 </button>
                 <img
                   src="/assets/images/img46.svg"
@@ -219,7 +219,7 @@ const IntroduceReact = ({ data }) => {
           justify-content: space-between;
         }
         .backgroudReact {
-          background-image: url(/assets/images/ReactPlus2.png);
+          background-image: url(/assets/icon/Group2078.svg);
         }
         .box_introduce {
           margin: 15px 0;

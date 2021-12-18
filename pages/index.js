@@ -178,7 +178,7 @@ const Home = ({ data }) => {
                       <span>Tìm hiểu thêm</span>
                       <img
                         className="btnmore__icon"
-                        src="./assets/icon/muiten.png"
+                        src="./assets/icon/muiten.svg"
                       />
                     </button>
                   </div>
@@ -262,7 +262,7 @@ const Home = ({ data }) => {
                       <span>Tải về miễn phí</span>
                       <img
                         className="btnmore__icon"
-                        src="/assets/icon/muitenwhite.png"
+                        src="/assets/icon/muiten-white.svg"
                       />
                     </button>
                   </div>

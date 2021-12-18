@@ -9,7 +9,7 @@ const GioiThieu = ({ data }) => {
     <>
       <Head>
         <title>Giới thiệu React Plus</title>
-       
+
         <meta
           property="og:image"
           content="http://103.237.145.33:3000/uploads/image/image/19/ReactPlus-Cty.jpg"
@@ -47,7 +47,7 @@ const GioiThieu = ({ data }) => {
                 <img
                   height="40px"
                   width="40px"
-                  src="/assets/images/member.png"
+                  src="/assets/icon/quymo.svg"
                   alt=""
                 />
               </div>
@@ -60,7 +60,7 @@ const GioiThieu = ({ data }) => {
                 <img
                   height="40px"
                   width="40px"
-                  src="/assets/images/Japan.png"
+                  src="/assets/icon/Japan.svg"
                   alt=""
                 />
               </div>
@@ -74,7 +74,7 @@ const GioiThieu = ({ data }) => {
                 <img
                   height="40px"
                   width="40px"
-                  src="/assets/images/edit-curves.png"
+                  src="/assets/icon/edit-curves.svg"
                   alt=""
                 />
               </div>
@@ -95,7 +95,7 @@ const GioiThieu = ({ data }) => {
                       <img
                         width="100%"
                         height="100%"
-                        style={{objectFit: "cover"}}
+                        style={{ objectFit: "cover" }}
                         src={"/assets/images/" + val.image}
                         alt=""
                       />
@@ -123,9 +123,7 @@ const GioiThieu = ({ data }) => {
               height="100%"
             />
           </div>
-          <h2 className="organizational-structure-title">
-            Đội ngũ chuyên gia
-          </h2>
+          <h2 className="organizational-structure-title">Đội ngũ chuyên gia</h2>
           <div className="container2">
             <div className="box-team-of-experts">
               {data.map((val) => (
@@ -160,7 +158,7 @@ const GioiThieu = ({ data }) => {
                 <img
                   width="24px"
                   height="24px"
-                  src="../assets/images/icont-map.png"
+                  src="/assets/images/icont-map.png"
                 />
                 <p className="find-us-address">
                   Tầng 7, Golden Field Building, <br />
@@ -169,9 +167,8 @@ const GioiThieu = ({ data }) => {
               </div>
             </div>
             <div className="find-us-right">
-
               <iframe
-               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.9374362403164!2d105.76576981379881!3d21.03518919125538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454b93c73ca9d%3A0x210784911132ebe!2zMjQgUGjhu5EgTmd1eeG7hW4gQ8ahIFRo4bqhY2gsIE3hu7kgxJDDrG5oLCBU4burIExpw6ptLCBIw6AgTuG7mWksIFZpZXRuYW0!5e0!3m2!1sen!2s!4v1637831847073!5m2!1sen!2s"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.9374362403164!2d105.76576981379881!3d21.03518919125538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454b93c73ca9d%3A0x210784911132ebe!2zMjQgUGjhu5EgTmd1eeG7hW4gQ8ahIFRo4bqhY2gsIE3hu7kgxJDDrG5oLCBU4burIExpw6ptLCBIw6AgTuG7mWksIFZpZXRuYW0!5e0!3m2!1sen!2s!4v1637831847073!5m2!1sen!2s"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -187,7 +184,7 @@ const GioiThieu = ({ data }) => {
 
       <style jsx>{`
         .backgroudReact {
-          background-image: url(/assets/images/ReactPlus2.png);
+          background-image: url(/assets/icon/Group2078.svg);
         }
         .img-icon-header {
           display: none;
@@ -233,7 +230,6 @@ const GioiThieu = ({ data }) => {
         .box-organizational-structure {
           height: 525px;
           margin: 30px 0;
-          background-color: #c4c4c4;
         }
         .box__company__scale {
           margin: 20px 0;
@@ -454,7 +450,8 @@ const GioiThieu = ({ data }) => {
             margin: 20px 0;
           }
           .box-organizational-structure {
-            height: 325px;
+            width: 100%;
+            height: auto;
           }
           .btnmorefull {
             margin: auto;
@@ -558,11 +555,14 @@ const GioiThieu = ({ data }) => {
           .mr-100 {
             margin-top: 0;
           }
-          .find-us-address{
+          .find-us-address {
             margin: 15px 0;
           }
           .find-us-title {
             font-size: 20px;
+          }
+          .box-team-of-experts::-webkit-scrollbar {
+            display: none;
           }
         }
       `}</style>

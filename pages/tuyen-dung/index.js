@@ -79,7 +79,7 @@ const Career = ({ data }) => {
                       <div className="applied-position-item-top">
                         <span className="tinh">
                           <img
-                            src="./assets/icon/dinhvi.png"
+                            src="/assets/icon/dinhvi.svg"
                             style={{ marginRight: "8px" }}
                             width={11}
                             height={15}
@@ -103,7 +103,7 @@ const Career = ({ data }) => {
                           <span>Xem chi tiết </span>
                           <img
                             className="btnmore__icon"
-                            src="./assets/icon/muiten.png"
+                            src="/assets/icon/muiten.svg"
                           />
                         </button>
                       </div>
@@ -117,7 +117,7 @@ const Career = ({ data }) => {
                       <div className="applied-position-item-top">
                         <span className="tinh">
                           <img
-                            src="/assets/icon/dinhvi.png"
+                            src="/assets/icon/dinhvi.svg"
                             width={11}
                             height={15}
                           />{" "}
@@ -140,7 +140,7 @@ const Career = ({ data }) => {
                           <span>Xem chi tiết </span>
                           <img
                             className="btnmore__icon"
-                            src="./assets/icon/muiten.png"
+                            src="/assets/icon/muiten.svg"
                           />
                         </button>
                       </div>

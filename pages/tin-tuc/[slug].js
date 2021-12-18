@@ -106,7 +106,7 @@ const NewsBlogDetail = () => {
             }}
           ></div>
           <img
-            src="/assets/icon/Group2101.png"
+            src="/assets/icon/Group2098.svg"
             width="63.3px"
             height="13.1px"
             className="icont-image"
@@ -121,7 +121,7 @@ const NewsBlogDetail = () => {
           />
 
           <img
-            src="/assets/icon/Group2101.png"
+            src="/assets/icon/Group2098.svg"
             width="63.3px"
             height="13.1px"
             className="icont-image"
