@@ -9,8 +9,7 @@ import { useState } from "react";
 const Career = ({ data }) => {
   const router = useRouter();
   const [isLoadMore, setLoadMore] = useState(false);
-  const handleDetail = (slug) =>
-    router.push("/tuyen-dung/chi-tiet-form/" + slug);
+  const handleDetail = (slug) => router.push(`/tuyen-dung/${slug}`);
   const handleSubmit = () =>
     router.push("/tuyen-dung/dang-ky-ung-vien-tiem-nang");
   return (
@@ -80,7 +79,7 @@ const Career = ({ data }) => {
                         <span className="tinh">
                           <img
                             src="/assets/icon/dinhvi.svg"
-                            style={{ marginRight: "8px" }}
+                            style={{ marginRight: "8px", objectFit: "unset" }}
                             width={11}
                             height={15}
                           />
@@ -118,9 +117,10 @@ const Career = ({ data }) => {
                         <span className="tinh">
                           <img
                             src="/assets/icon/dinhvi.svg"
+                            style={{ marginRight: "8px", objectFit: "unset" }}
                             width={11}
                             height={15}
-                          />{" "}
+                          />
                           {val.address}
                         </span>
                         {val.type_recruitment === "full_time" ? (

@@ -1,9 +1,9 @@
 import Head from "next/head";
 import Link from "next/link";
-import Menu from "../../../src/components/menu";
-import Footer from "../../../src/components/footer";
+import Menu from "../../src/components/menu";
+import Footer from "../../src/components/footer";
 import { useRouter } from "next/router";
-import { get_job_concerning, get_text_job } from "../../../src/services/api";
+import { get_job_concerning, get_text_job } from "../../src/services/api";
 import { useEffect, useState } from "react";
 const CareerDetal = () => {
   const [data, setdata] = useState([]);
@@ -93,7 +93,7 @@ const CareerDetal = () => {
             <div className="content-detail-left">
               <div className="applied-position-item-top">
                 <span className="tinh">
-                  <img src="/assets/icon/dinhvi.png" width={11} height={15} />{" "}
+                  <img src="/assets/icon/dinhvi.png"  style={{ marginRight: "8px", objectFit: "unset" }} width={11} height={15} />{" "}
                   {data[0]?.address}
                 </span>
                 {data[0]?.type_recruitment === "full_time" ? (

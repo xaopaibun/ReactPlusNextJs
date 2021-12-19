@@ -1,4 +1,5 @@
 import Carousel from "react-multi-carousel";
+import Link from "next/link";
 import "react-multi-carousel/lib/styles.css";
 const SlideItem = ({ TimeLineEvent }) => {
   const responsive = {
@@ -11,22 +12,8 @@ const SlideItem = ({ TimeLineEvent }) => {
       items: 1,
     },
   };
-  // const CustomRightArrow = ({ onClick, ...rest }) => {
-  //   const {
-  //     onMove,
-  //     carouselState: { currentSlide, deviceType },
-  //   } = rest;
 
-  //   console.log(rest)
-  //   // onMove means if dragging or swiping in progress.
-  //   return (
-  //     <button className="btnSlider right" onClick={() => onClick()}>
-  //       <img src="/assets/images/back_right.png" alt="a" />
-  //     </button>
-  //   );
-  // };
-
-   const CustomRightArrow = ({ onClick }) => {
+  const CustomRightArrow = ({ onClick }) => {
     return (
       <button
         onClick={() => onClick()}
@@ -49,9 +36,9 @@ const SlideItem = ({ TimeLineEvent }) => {
         />
       </button>
     );
-  }
+  };
 
-   const CustomLeftArrow = ({ onClick }) => {
+  const CustomLeftArrow = ({ onClick }) => {
     return (
       <button
         onClick={() => onClick()}
@@ -74,11 +61,11 @@ const SlideItem = ({ TimeLineEvent }) => {
         />
       </button>
     );
-  }
+  };
 
   return (
     <>
-      <div style={{ position: "relative"}}>
+      <div style={{ position: "relative" }}>
         <div className="box-circle">
           <div className="border-solid"></div>
         </div>
@@ -94,17 +81,15 @@ const SlideItem = ({ TimeLineEvent }) => {
                 {val?.start_date} - {val?.to_date}
               </p>
               <div className="position-relative">
-                {/* <img
-                src="../assets/icon/BorderSolid.png"
-                width="100%"
-                height="1px"
-              /> */}
-
                 <div className="box-circle">
                   <div className="circle"></div>
                 </div>
               </div>
-              <h3 className="education__item__title">{val.title}</h3>
+              <Link href={`/tin-tuc/${val.url_seo}`}>
+                <a className="education__item__title">
+                  <h3 className="education__item__title">{val.title}</h3>
+                </a>
+              </Link>
               <div
                 className="education__item__content"
                 dangerouslySetInnerHTML={{ __html: val.introduction }}
@@ -164,15 +149,18 @@ const SlideItem = ({ TimeLineEvent }) => {
               line-height: 19px;
               text-align: center;
               width: 250px;
-
+              text-decoration: none;
               margin: 40px auto 12px auto;
 
               letter-spacing: -0.02em;
               color: #25282b;
             }
+            .education__item__title:hover{
+              color: #0bbee7;
+            }
             .education__item__content {
               font-weight: 500;
-              width: 250px;
+              width: 280px;
               margin: 0 auto;
               font-size: 13px;
               line-height: 18px;

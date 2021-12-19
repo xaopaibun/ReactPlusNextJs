@@ -293,7 +293,7 @@ const GioiThieu = ({ data }) => {
         }
         .item__content {
           width: 100%;
-          height: calc(370px - 171px);
+          height: calc(315px - 171px);
           padding: 20px 0;
         }
         .item__content__title {

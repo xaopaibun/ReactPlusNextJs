@@ -123,7 +123,7 @@ const Menu = ({ isColor }) => {
                       router.pathname == "/tuyen-dung" ||
                       router.pathname ==
                         "/tuyen-dung/dang-ky-ung-vien-tiem-nang" ||
-                      router.pathname === `/tuyen-dung/chi-tiet-form/[slug]` ||
+                      router.pathname === `/tuyen-dung/[slug]` ||
                       router.pathname === `/tuyen-dung/form-tuyen-dung/[slug]`
                         ? "active"
                         : ""
@@ -418,7 +418,7 @@ const Menu = ({ isColor }) => {
           transform: rotate(45deg);
           position: absolute;
           top: -2px;
-          left: 80px;
+          left: -15px;
         }
         .box-center2 {
           display: flex;
@@ -434,7 +434,7 @@ const Menu = ({ isColor }) => {
           transform: rotate(45deg);
           position: absolute;
           top: -2px;
-          right: -80px;
+          right: 15px;
         }
 
         .active {
@@ -498,7 +498,7 @@ const Menu = ({ isColor }) => {
           width: 26px;
           margin-top: -5px;
           cursor: pointer;
-          margin-right: 8px; 
+          margin-right: 8px;
           border-radius: 5px;
         }
 

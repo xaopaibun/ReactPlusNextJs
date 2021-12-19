@@ -21,7 +21,7 @@ const EventTraining = ({ data_training_page }) => {
       <div className="main">
         <div className="image-page">
           <img
-            src="/assets/images/Khoa-Dao-Tao-React-Plus.png"
+            src="/assets/images/BannerDaotao.jpg"
             width={"100%"}
             height={"100%"}
           />
@@ -48,56 +48,13 @@ const EventTraining = ({ data_training_page }) => {
                   />
                 </div>
               ))}
-              {/* <div className="company__scale__item">
-              <div className="item__img">
-                <img
-                  height="43px"
-                  width="43px"
-                  src="/assets/images/LogoReact1.png"
-                  alt=""
-                />
-              </div>
-              <p className="content">
-                Nơi làm việc của đông đảo chuyên
-                <br />
-                gia và kỹ sư yêu thích React
-              </p>
-            </div>
-            <div className="company__scale__item">
-              <div className="item__img">
-                <img
-                  height="43px"
-                  width="43px"
-                  src="/assets/images/Team.png"
-                  alt=""
-                />
-              </div>
-              <p className="content">
-                Nơi làm việc của đông đảo chuyên <br />
-                gia và kỹ sư yêu thích React
-              </p>
-            </div>
-            <div className="company__scale__item">
-              <div className="item__img">
-                <img
-                  height="40px"
-                  width="40px"
-                  src="/assets/images/engineer.png"
-                  alt=""
-                />
-              </div>
-              <p className="content">
-                Nơi làm việc của đông đảo chuyên <br />
-                gia và kỹ sư yêu thích React
-              </p>
-            </div> */}
             </div>
           </div>
           <div className="content-course">
             <div className="container">
-              <h2 className="title_page">Nội dung chính khóa học</h2>
+              <h2 className="title_page">Nội dung chính của khóa học</h2>
               <div className="list-course">
-                {data_training_page?.feature?.map((value, index) => (
+                {data_training_page?.content?.map((value, index) => (
                   <div className="course-item" key={value.id}>
                     <div className="course-item-image">
                       <h1 className="number-text">{index + 1}</h1>

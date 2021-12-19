@@ -17,17 +17,19 @@ const PopupDownloadDocuments = (props) => {
         .required("Không được bỏ trống"),
       name: Yup.string().required("Không được bỏ trống"),
       phone: Yup.string()
-      .matches(phoneRegExp, "Số điện thoại không đúng định dạng")
-      .required("Không được bỏ trống"),
+        .matches(phoneRegExp, "Số điện thoại không đúng định dạng")
+        .required("Không được bỏ trống"),
     }),
     validateOnChange: false,
     validateOnBlur: false,
     onSubmit: async (values) => {
       await post_document_users(values)
         .then((res) => {
-          console.log(res.data);
-           window.location =
-             "https://drive.google.com/drive/folders/1BKiBKER7vLgz-CfgX_VEpNCsINp_nB5R?usp=sharing";
+          window.open(
+            "https://drive.google.com/drive/folders/1BKiBKER7vLgz-CfgX_VEpNCsINp_nB5R?usp=sharing",
+            "_blank"
+          );
+          props.onHide();
         })
         .catch((errors) => {
           alert("Lỗi request");

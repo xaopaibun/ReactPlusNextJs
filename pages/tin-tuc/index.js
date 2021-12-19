@@ -20,11 +20,11 @@ const News = ({ data_news_blog }) => {
       <div className="main">
         <div className="banner">
           <img
-            src="./assets/images/React-news.png"
+            src="/assets/images/Bannertintuc.jpg"
             height={"100%"}
             width={"100%"}
           />
-          <div className="content-review">
+          {/* <div className="content-review">
             <div className="center">
               <h5 className="content-review-date">
                 {data_news_blog?.news[0]?.start_date} -{" "}
@@ -34,7 +34,7 @@ const News = ({ data_news_blog }) => {
                 {data_news_blog?.news[0]?.title}
               </h2>
             </div>
-          </div>
+          </div> */}
         </div>
         <div className="container">
           <div className="header">

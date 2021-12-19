@@ -8,11 +8,12 @@ import Link from "next/link";
 const DanhSachTinTuc = () => {
   const router = useRouter();
   const [isList, setList] = useState([]);
+  const [pages, setPages] = useState(1);
   const [ispage, setpage] = useState(1);
-  const handleDetail = () => router.push("/tuyen-dung/thong-tin-chi-tiet-form");
   const handleBackListNews = () => router.push("/tin-tuc");
   useEffect(async () => {
     await get_list_news(ispage).then((res) => {
+      setPages(res.data.pagy.pages);
       setList(res.data.news);
     });
     // await get_page_news().then((res) => {
@@ -40,7 +41,7 @@ const DanhSachTinTuc = () => {
             <div className="box-back">
               <div className="btn-back" onClick={handleBackListNews}>
                 <img
-                  src="../assets/icon/arrow-sm-right4.png"
+                  src="/assets/icon/arrow-sm-right4.png"
                   width={24}
                   height={24}
                 />
@@ -68,9 +69,13 @@ const DanhSachTinTuc = () => {
               );
             })}
           </div>
-          <button className="btnmorefull" onClick={handleLoadMore}>
-            <span>Tải thêm...</span>
-          </button>
+          {pages > 1 && ispage <= pages ? (
+            <button className="btnmorefull" onClick={handleLoadMore}>
+              <span>Tải thêm...</span>
+            </button>
+          ) : (
+            ""
+          )}
         </div>
         <div className="margin" />
         <footer>

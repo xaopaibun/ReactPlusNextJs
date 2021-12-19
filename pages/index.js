@@ -225,7 +225,7 @@ const Home = ({ data }) => {
               <div className="container">
                 <div className="flex">
                   <div className="document__img">
-                    <img src="/assets/images/img2.png" alt="" />
+                    <img src="/assets/images/anhtailieu.jpg" alt="" />
                   </div>
                   <div className="document__text">
                     <p className="text_blue text-left">MIỄN PHÍ</p>

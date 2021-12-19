@@ -33,7 +33,7 @@ const RegularEvent = ({ data }) => {
       <div className="main">
         <div className="image-page">
           <img
-            src="/assets/images/Khoa-Dao-Tao-React-Plus.png"
+            src="http://103.237.145.33:3000/uploads/image/image/20/ta%CC%82%CC%80m_nhi%CC%80n.jpg"
             width={"100%"}
             height={"100%"}
           />

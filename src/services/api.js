@@ -84,7 +84,10 @@ export const get_detal_page_tranning = () =>
 // danh sach tin tuc
 export const get_list_news = (page) => instance.get(`/posts/news?page=${page}`);
 
-// chi tiet job &&  job lieen quan
+// danh sach blog
+export const get_list_blog = (page) => instance.get(`/posts/blogs?page=${page}`);
+
+// chi tiet job &&  job liên quan
 export const get_job_concerning = () =>
   instance.get("/recruitments/job_concerning");
 

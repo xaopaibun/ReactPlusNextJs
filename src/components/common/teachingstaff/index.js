@@ -1,4 +1,4 @@
-import { ListExperts } from "../../../config";
+
 import { URL } from "../../../services/api";
 
 export const TeachingStaff = ({ data }) => {
@@ -34,6 +34,7 @@ export const TeachingStaff = ({ data }) => {
       <style jsx>{`
         .box-team-of-experts {
           display: flex;
+          justify-content: space-between;
           flex-wrap: wrap;
           margin: 20px 0;
         }
@@ -46,7 +47,7 @@ export const TeachingStaff = ({ data }) => {
           font-size: 32px;
         }
         .item-experts {
-          width: 25%;
+          width: 23%;
           display: flex;
           flex-direction: column;
 

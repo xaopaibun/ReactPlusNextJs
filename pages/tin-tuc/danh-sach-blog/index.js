@@ -3,24 +3,25 @@ import Head from "next/head";
 import Menu from "../../../src/components/menu";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { get_list_news, URL } from "../../../src/services/api";
+import { get_list_blog, URL } from "../../../src/services/api";
 import Link from "next/link";
 const DanhSachBlog = () => {
   const router = useRouter();
   const [isList, setList] = useState([]);
   const [ispage, setpage] = useState(1);
-  const handleDetail = () => router.push("/tuyen-dung/thong-tin-chi-tiet-form");
+  const [pages, setpages] = useState(1);
   const handleBackListNews = () => router.push("/tin-tuc");
   useEffect(async () => {
-    await get_list_news(ispage).then((res) => {
-      setList(res.data.news);
+    await get_list_blog(ispage).then((res) => {
+      setpages(res.data.pagy.pages);
+      setList(res.data.blogs);
     });
   }, []);
 
   const handleLoadMore = async () => {
     setpage(ispage + 1);
-    await get_list_news(ispage + 1).then((res) => {
-      setList([...isList, res.data.news]);
+    await get_list_blog(ispage + 1).then((res) => {
+      setList([...isList, res.data.blogs]);
     });
   };
   return (
@@ -31,48 +32,52 @@ const DanhSachBlog = () => {
       </Head>
       <Menu />
       <div className="main">
-      <div className="container">
-        <div className="header">
-          <h3 className="header-title">Blog</h3>
-          <div className="box-back">
-            <div className="btn-back" onClick={handleBackListNews}>
-              <img
-                src="../assets/icon/arrow-sm-right4.png"
-                width={24}
-                height={24}
-              />
-            </div>
-            <p className="btn-back-text"> Quay lại</p>
-          </div>
-        </div>
-
-        <div className="list-posts">
-          {isList?.map((val) => {
-            return (
-              <div className="list-posts-item" key={val.id}>
+        <div className="container">
+          <div className="header">
+            <h3 className="header-title">Blog</h3>
+            <div className="box-back">
+              <div className="btn-back" onClick={handleBackListNews}>
                 <img
-                  src={`${URL}${val.cover_image?.url}`}
-                  className="img_post"
+                  src="../assets/icon/arrow-sm-right4.png"
+                  width={24}
+                  height={24}
                 />
-                <h5 className="content-review-date">
-                  {val?.start_date} {val?.to_date}
-                </h5>
-
-                <Link href={`/tin-tuc/${val?.url_seo}`}>
-                  <a className="post-title">{val?.title}</a>
-                </Link>
               </div>
-            );
-          })}
+              <p className="btn-back-text"> Quay lại</p>
+            </div>
+          </div>
+
+          <div className="list-posts">
+            {isList?.map((val) => {
+              return (
+                <div className="list-posts-item" key={val.id}>
+                  <img
+                    src={`${URL}${val.cover_image?.url}`}
+                    className="img_post"
+                  />
+                  <h5 className="content-review-date">
+                    {val?.start_date} {val?.to_date}
+                  </h5>
+
+                  <Link href={`/tin-tuc/${val?.url_seo}`}>
+                    <a className="post-title">{val?.title}</a>
+                  </Link>
+                </div>
+              );
+            })}
+          </div>
+          {pages > 1 && ispage <= pages ? (
+            <button className="btnmorefull" onClick={handleLoadMore}>
+              <span>Tải thêm...</span>
+            </button>
+          ) : (
+            ""
+          )}
         </div>
-        <button className="btnmorefull" onClick={handleLoadMore}>
-          <span>Tải thêm...</span>
-        </button>
-      </div>
-      <div className="margin" />
-      <footer>
-        <Footer />
-      </footer>
+        <div className="margin" />
+        <footer>
+          <Footer />
+        </footer>
       </div>
       <style jsx>{`
         .header {
