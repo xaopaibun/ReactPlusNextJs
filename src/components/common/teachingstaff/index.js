@@ -91,6 +91,7 @@ export const TeachingStaff = ({ data }) => {
           }
           .item-experts {
             width: 50%;
+            margin-right: 20px;
           }
           .title_teaching_staff {
             font-size: 20px;

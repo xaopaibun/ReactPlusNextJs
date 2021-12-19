@@ -180,8 +180,8 @@ const EventTraining = ({ data_training_page }) => {
         }
         .course-item {
           width: 44.3%;
-          height: 80px;
-          margin: 20px 30px;
+          height: auto;
+          margin: 12px 30px;
           display: flex;
           align-items: center;
         }
@@ -282,7 +282,7 @@ const EventTraining = ({ data_training_page }) => {
             position: unset;
           }
           .company__scale__item {
-            margin: 0 auto;
+            margin: 12px auto;
           }
           .list-course-features-item {
             margin: 0 auto;
@@ -303,7 +303,6 @@ const EventTraining = ({ data_training_page }) => {
           .mr-100 {
             margin-top: 10px;
           }
-         
         }
       `}</style>
     </>

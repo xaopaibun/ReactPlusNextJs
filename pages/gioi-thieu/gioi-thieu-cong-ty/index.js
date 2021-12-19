@@ -484,9 +484,10 @@ const GioiThieu = ({ data }) => {
             margin: 20px 0;
           }
           .item-experts {
-            width: 25%;
+            width: 21%;
             display: block;
             margin: 0;
+            margin-right: 30px;
           }
           .item-experts p {
             margin: 0;
