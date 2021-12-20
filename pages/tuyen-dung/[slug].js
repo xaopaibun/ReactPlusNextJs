@@ -79,7 +79,10 @@ const CareerDetal = () => {
       <div className="main">
         <div className="container">
           <div className="box-back">
-            <div className="btn-back" onClick={() => router.push("/tuyen-dung")}>
+            <div
+              className="btn-back"
+              onClick={() => router.push("/tuyen-dung")}
+            >
               <img
                 src="/assets/icon/arrow-sm-right4.png"
                 width={24}
@@ -93,7 +96,12 @@ const CareerDetal = () => {
             <div className="content-detail-left">
               <div className="applied-position-item-top">
                 <span className="tinh">
-                  <img src="/assets/icon/dinhvi.png"  style={{ marginRight: "8px", objectFit: "unset" }} width={11} height={15} />{" "}
+                  <img
+                    src="/assets/icon/dinhvi.png"
+                    style={{ marginRight: "8px", objectFit: "unset" }}
+                    width={11}
+                    height={15}
+                  />{" "}
                   {data[0]?.address}
                 </span>
                 {data[0]?.type_recruitment === "full_time" ? (
@@ -110,102 +118,6 @@ const CareerDetal = () => {
                   __html: data[0]?.content,
                 }}
               />
-              {/* <h3 className="list-title">Nội dung công việc</h3>
-            <ul>
-              <li className="list-item">
-                Lên kế hoạch truyền thông phù hợp yêu cầu xây dựng văn hóa doanh
-                nghiệp và định hướng chiến lược về hình ảnh doanh nghiệp với
-                cộng đồng bên ngoài.
-              </li>
-              <li className="list-item">
-                Quản lý hình ảnh và thông tin Doanh nghiệp.
-              </li>
-              <li className="list-item">
-                Phụ trách các kênh truyền thông của công ty: website, Fanpage,
-                bảng tin nội bộ
-              </li>
-              <li className="list-item">
-                Phụ trách biên tập các ấn phẩm nội bộ, các tài liệu, hướng dẫn
-                truyền thông nhằm gia tăng tinh thần gắn kết của nhân viên công
-                ty, nâng cao kiến thức về nhận diện, phát triển thương hiệu cho
-                CBNV.
-              </li>
-              <li className="list-item">
-                Lên ý tưởng xây dựng, tổ chức các event nội bộ, các hoạt động
-                tập thể nhằm tạo sự gắn kết trong cán bộ nhân viên.
-              </li>
-              <li className="list-item">
-                Thu thập và duy trì cơ sở dữ liệu bài viết, hình ảnh, âm thanh,
-                ấn phẩm liên quan phục vụ công tác lưu trữ lịch sử.
-              </li>
-              <li className="list-item">
-                Thực hiện các công việc khác do TP Nhân sự giao.{" "}
-              </li>
-            </ul>
-
-            <h3 className="list-title">Yêu cầu với ứng viên</h3>
-            <ul>
-              <li className="list-item">
-                Tốt nghiệp Đại học chuyên ngành báo chí, truyền thông, quan hệ
-                công chúng hoặc các chuyên ngành có liên quan.{" "}
-              </li>
-              <li className="list-item">
-                Có ít nhất 1 năm kinh nghiệm làm truyền thông – Pr, tổ chức sự
-                kiện, (1-2 năm làm truyền thông nội bộ).
-              </li>
-              <li className="list-item">
-                Khả năng viết tốt, có thể sử dụng các phần mềm thiết kế dàn
-                trang, các phần mềm xử lý Video, phần mềm xử lý ảnh đơn giản.
-              </li>
-              <li className="list-item">
-                Có khả năng kết nối, cổ động mọi người, chủ động trong việc điều
-                phối, triển khai công việc (có khả năng thuyết trình, làm MC là
-                một lợi thế).{" "}
-              </li>
-              <li className="list-item">
-                Hình thức thân thiện, dễ mến, yêu thích các hoạt động xã hội,
-                hoạt động tập thể.
-              </li>
-              <li className="list-item">
-                Năng động, sáng tạo, nhiều ý tưởng tổ chức các chương trình sự
-                kiện.
-              </li>
-            </ul>
-
-            <h3 className="list-title">Chế độ đãi ngộ</h3>
-            <ul>
-              <li className="list-item">Mức lương: ~ 15 Triệu VND/tháng </li>
-              <li className="list-item">
-                Thưởng tháng 13. Thưởng cuối năm. Review lương 2 lần /năm.
-              </li>
-              <li className="list-item">
-                Nhận quà hoặc tiền mặt vào ngày lễ tết.
-              </li>
-              <li className="list-item">Đóng BHXH theo quy định luật LĐVN.</li>
-              <li className="list-item">Khám sk định kỳ 1 năm/lần. </li>
-              <li className="list-item">Lộ trình thăng tiến rõ ràng. </li>
-              <li className="list-item">
-                Được làm việc với công ty khách hàng là tập đoàn lớn bên Nhật.{" "}
-              </li>
-              <li className="list-item">
-                Được đào tạo về ngôn ngữ, kỹ năng mềm.
-              </li>
-              <li className="list-item">
-                Tham gia các hoạt động tea break hàng ngày, event sôi động, open
-                talk hàng tháng, teambuilding, du lịch hàng năm.{" "}
-              </li>
-            </ul>
-
-            <h3 className="list-title">Thời gian và địa điểm làm việc</h3>
-            <ul>
-              <li className="list-item">
-                Thời gian: 9h – 16h , từ thứ 2 đến thứ 6 hàng tuần.
-              </li>
-              <li className="list-item">
-                Địa điểm: Tầng 7, Golden Filed Building, số 24 Nguyễn Cơ Thạch,
-                Nam Từ Liêm, Hà Nội.
-              </li>
-            </ul> */}
               <button className="btnJoin" onClick={() => handleSubmit(slug)}>
                 <span>Ứng tuyển vị trí này</span>
               </button>
@@ -327,7 +239,6 @@ const CareerDetal = () => {
         }
         .box-back {
           display: flex;
-          
         }
         .container {
           margin-top: 50px;

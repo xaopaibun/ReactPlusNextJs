@@ -1,5 +1,6 @@
 export const domain = "https://reactplus.vn";
 export const phoneRegExp = /(84|0[3|5|7|8|9])+([0-9]{8})\b/i;
+export const KEY_CAPTCHA = "6Lf_crYdAAAAAGJ739oT5OCQAV9TZWOr_EahliHg";
 export const Day = [
   "01",
   "02",

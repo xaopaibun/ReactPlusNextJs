@@ -9,7 +9,7 @@ import { Field, useFormik, FormikProvider } from "formik";
 import PopupThanks from "../../../src/components/common/popupthanks";
 import { useState } from "react";
 import { post_register_course } from "../../../src/services/api";
-import { Day, Month, phoneRegExp, Year } from "../../../src/config";
+import { Day, KEY_CAPTCHA, Month, phoneRegExp, Year } from "../../../src/config";
 const language = ["Tiếng Anh", "Tiếng Nhật", "Ngôn ngữ khác"];
 const sex = ["Nam", "Nữ", "Khác"];
 const programming_language = [
@@ -432,7 +432,7 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
                 <div className="flex">
                   <div className="birtday-left">
                     <ReCAPTCHA
-                      sitekey="6LeHJFsdAAAAAHpUDbJ_ua1WcY5VP8ZXSQ0Xs9uZ"
+                      sitekey= {KEY_CAPTCHA}
                       onChange={onChange}
                     />
                   </div>

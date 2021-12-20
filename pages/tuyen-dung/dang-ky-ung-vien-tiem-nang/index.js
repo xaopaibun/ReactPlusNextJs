@@ -3,7 +3,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import Menu from "../../../src/components/menu";
 import Footer from "../../../src/components/footer";
 import { TextField } from "@mui/material";
-import { Day, Month, phoneRegExp, Year } from "../../../src/config";
+import { Day, KEY_CAPTCHA, Month, phoneRegExp, Year } from "../../../src/config";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useState } from "react";
@@ -288,7 +288,7 @@ const UngVienTiemNang = () => {
             ></textarea>
             <div className="birtday">
               <div className="birtday-left">
-                <ReCAPTCHA sitekey="Your client site key" onChange={onChange} />
+                <ReCAPTCHA sitekey= {KEY_CAPTCHA} onChange={onChange} />
               </div>
               <div className="birtday-right">
                 <button

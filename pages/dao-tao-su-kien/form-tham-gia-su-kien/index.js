@@ -9,7 +9,7 @@ import PopupThanks from "../../../src/components/common/popupthanks";
 import { useState, useEffect } from "react";
 import * as Yup from "yup";
 import { post_register_event } from "../../../src/services/api";
-import { Year } from "../../../src/config";
+import { KEY_CAPTCHA, Year } from "../../../src/config";
 import { get_detal_page_tranning } from "../../../src/services/api";
 const useStyles = makeStyles({
   input: {
@@ -138,7 +138,7 @@ const Form = () => {
                 <div className="item">
                   <select
                     className="form-select form-select-custom"
-                    defaultValue="Năm"
+                   
                     name="year"
                     onChange={formik.handleChange}
                     value={formik.values.year}
@@ -212,8 +212,9 @@ const Form = () => {
               <div className="flex">
                 <div className="birtday-left">
                   <ReCAPTCHA
-                    sitekey="6LeHJFsdAAAAAHpUDbJ_ua1WcY5VP8ZXSQ0Xs9uZ"
+                    sitekey= {KEY_CAPTCHA}
                     onChange={onChange}
+                  
                   />
                 </div>
                 <div className="birtday-right">

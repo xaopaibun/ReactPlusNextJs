@@ -3,7 +3,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import Menu from "../../../src/components/menu";
 import Footer from "../../../src/components/footer";
 import { TextField } from "@mui/material";
-import { Day, Month, phoneRegExp, Year } from "../../../src/config";
+import { Day, KEY_CAPTCHA, Month, phoneRegExp, Year } from "../../../src/config";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useEffect, useState } from "react";
@@ -287,7 +287,7 @@ const FormTuyenDung = () => {
             <div className="birtday">
               <div className="birtday-left">
                 <ReCAPTCHA
-                  sitekey="6LeHJFsdAAAAAHpUDbJ_ua1WcY5VP8ZXSQ0Xs9uZ"
+                  sitekey= {KEY_CAPTCHA}
                   onChange={onChange}
                 />
               </div>

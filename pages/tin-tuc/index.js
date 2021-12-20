@@ -7,7 +7,6 @@ import { get_news_blog, URL } from "../../src/services/api";
 
 const News = ({ data_news_blog }) => {
   const router = useRouter();
-  const handleDetail = () => router.push("/tuyen-dung/thong-tin-chi-tiet-form");
   const handleViewAllNews = () => router.push("/tin-tuc/danh-sach-tin-tuc");
   const handleViewAllBlog = () => router.push("/tin-tuc/danh-sach-blog");
   return (
@@ -24,7 +23,7 @@ const News = ({ data_news_blog }) => {
             height={"100%"}
             width={"100%"}
           />
-          {/* <div className="content-review">
+          <div className="content-review">
             <div className="center">
               <h5 className="content-review-date">
                 {data_news_blog?.news[0]?.start_date} -{" "}
@@ -34,7 +33,7 @@ const News = ({ data_news_blog }) => {
                 {data_news_blog?.news[0]?.title}
               </h2>
             </div>
-          </div> */}
+          </div>
         </div>
         <div className="container">
           <div className="header">
@@ -142,7 +141,7 @@ const News = ({ data_news_blog }) => {
         .content-review-date {
           font-size: 13px;
           line-height: 19px;
-          margin-top: 22px;
+          margin-top: 15px;
           letter-spacing: -0.02em;
           color: #a0a4a8;
         }
@@ -208,9 +207,12 @@ const News = ({ data_news_blog }) => {
         .list-posts-item {
           width: 31.6%;
         }
+        .content-review {
+          display: none;
+        }
         @media screen and (max-width: 768px) {
           .banner img {
-            height: 110px !important;
+            height: 150px !important;
           }
           .list-posts {
             overflow-x: scroll;
@@ -223,20 +225,18 @@ const News = ({ data_news_blog }) => {
           }
           .list-posts-item {
             margin-right: 20px;
-            width: 100%;
+            width: 252px;
           }
           .center {
             width: auto;
           }
-          .banner img {
-            height: auto !important;
-          }
+
           .banner {
             height: auto;
           }
           .content-review {
             position: unset;
-            padding: 19px;
+            padding: 0px 14px 7px 19px;
             background: linear-gradient(
               360deg,
               #f4f6fa 0%,
@@ -260,6 +260,9 @@ const News = ({ data_news_blog }) => {
           }
           .header {
             margin-top: 40px;
+          }
+          .content-review {
+            display: block;
           }
         }
       `}</style>

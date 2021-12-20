@@ -68,38 +68,42 @@ const ViCongDong = ({ data }) => {
             của mình.
           </p>
         </div>
-        <div className="box-bg">
-          <div className="container">
-            <h2 className="text-title">
-              Câu chuyện thiện nguyện{" "}
-              <img
-                src="./assets/icon/trai-tim.png"
-                height={"20px"}
-                width={"27px"}
-                style={{ marginTop: "-25px" }}
-              />
-            </h2>
+        {data.data_charity_stories.length > 0 ? (
+          <div className="box-bg">
+            <div className="container">
+              <h2 className="text-title">
+                Câu chuyện thiện nguyện{" "}
+                <img
+                  src="./assets/icon/trai-tim.png"
+                  height={"20px"}
+                  width={"27px"}
+                  style={{ marginTop: "-25px" }}
+                />
+              </h2>
 
-            <div className="list-posts">
-              {data.data_charity_stories.map((value) => {
-                return (
-                  <div className="post-item" key={value.id}>
-                    <img
-                      src={`${URL}${value.cover_image.url}`}
-                      className="post-item_image"
-                    />
-                    <h5 className="content-review-date">
-                      {value.start_date} {value.to_date}
-                    </h5>
-                    <Link href={`/tin-tuc/${value.url_seo}`}>
-                      <a className="post-title">{value.title}</a>
-                    </Link>
-                  </div>
-                );
-              })}
+              <div className="list-posts">
+                {data.data_charity_stories.map((value) => {
+                  return (
+                    <div className="post-item" key={value.id}>
+                      <img
+                        src={`${URL}${value.cover_image.url}`}
+                        className="post-item_image"
+                      />
+                      <h5 className="content-review-date">
+                        {value.start_date} {value.to_date}
+                      </h5>
+                      <Link href={`/tin-tuc/${value.url_seo}`}>
+                        <a className="post-title">{value.title}</a>
+                      </Link>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
-        </div>
+        ) : (
+          <div />
+        )}
         <div className="mr-100" />
         <Footer />
       </div>
