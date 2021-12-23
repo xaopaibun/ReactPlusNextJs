@@ -8,8 +8,8 @@ const GioiThieu = ({ data }) => {
   return (
     <>
       <Head>
-        <title>Giới thiệu React Plus</title>
-
+        <title>Giới thiệu công ty React Plus</title>
+        <link rel="icon" href="/assets/icon/icon_tab.png" />
         <meta
           property="og:image"
           content="http://103.237.145.33:3000/uploads/image/image/19/ReactPlus-Cty.jpg"
@@ -52,7 +52,7 @@ const GioiThieu = ({ data }) => {
                 />
               </div>
               <p className="content">
-                Quy mô 130 nhân sự. <br />
+                Quy mô 151 nhân sự. <br />
               </p>
             </div>
             <div className="company__scale__item">
@@ -278,7 +278,7 @@ const GioiThieu = ({ data }) => {
         .item {
           width: 341px;
           border-radius: 8px;
-          height: 370px;
+          height: 385px;
           background: #ffffff;
           box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
         }
@@ -306,7 +306,7 @@ const GioiThieu = ({ data }) => {
           padding: 0 20px;
         }
         .item__content__content {
-          padding-left: 24px;
+          padding: 0 24px;
           padding-top: 8px;
           font-weight: 400;
           font-size: 14px;

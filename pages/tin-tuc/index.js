@@ -13,7 +13,7 @@ const News = ({ data_news_blog }) => {
     <>
       <Head>
         <title>Tin tức & blog</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/assets/icon/icon_tab.png" />
       </Head>
       <Menu />
       <div className="main">

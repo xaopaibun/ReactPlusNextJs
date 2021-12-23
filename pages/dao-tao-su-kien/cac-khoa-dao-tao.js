@@ -12,6 +12,7 @@ const EventTraining = ({ data_training_page }) => {
     <>
       <Head>
         <title>Đào tạo && Sự kiện React Plus</title>
+        <link rel="icon" href="/assets/icon/icon_tab.png" />
         <meta
           property="og:image"
           content="http://103.237.145.33:3000/uploads/image/image/19/ReactPlus-Cty.jpg"

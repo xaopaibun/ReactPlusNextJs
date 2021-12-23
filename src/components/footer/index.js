@@ -43,7 +43,7 @@ const Footer = () => {
             </div>
             <div className="footer_item">
               <p className="item__title">Liên hệ</p>
-              <a tel={"0349177306"}>
+              <a tel={"02462997777"}>
                 <img
                   src="/assets/icon/phone.svg"
                   style={{ marginRight: "5px" }}
@@ -51,7 +51,7 @@ const Footer = () => {
                   height="13.33px"
                   alt="phone"
                 />
-                0349177306
+                024 6299 7777
               </a>
               <a href="#">
                 <img
@@ -61,7 +61,7 @@ const Footer = () => {
                   height="13.33px"
                   alt="mail"
                 />
-                contact@reactplus.jp
+                huett@reactplus.com
               </a>
             </div>
             <div className="footer_item">

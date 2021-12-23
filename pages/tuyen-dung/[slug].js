@@ -31,7 +31,7 @@ const CareerDetal = () => {
     <>
       <Head>
         <title>Chi Tiết Tuyển dụng React Plus</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/assets/icon/icon_tab.png" />
       </Head>
 
       <div className="header">
@@ -45,8 +45,8 @@ const CareerDetal = () => {
               </div>
               <div className="contact-phone-hotline">
                 <p className="hotline">Hotline</p>
-                <a className="phone-number" tel={"0349177306"}>
-                  034 9177 306
+                <a className="phone-number" tel={"0986262305"}>
+                  098 6262 305
                 </a>
               </div>
             </div>

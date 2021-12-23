@@ -205,21 +205,21 @@ export const ListItem = [
     _id: "1",
     image: "TamNhin.jpg",
     title: "Tầm nhìn",
-    content: "Luôn là công ty dẫn đầu về công nghệ React",
+    content: "Khẳng định vị trí tiên phong với vai trò là công ty đầu tiên và lớn nhất chuyên về React trên thị trường.",
   },
   {
     _id: "2",
     image: "SuMenh.jpg",
     title: "Sứ mệnh",
     content:
-      "<p>Cung cấp chuyên gia về React & React Native <br/> Làm hài lòng khách hàng với chất lượng cao <br/> Tạo ra cộng đồng về React lớn mạnh nhất tại Việt Nam</p>",
+      "<p>Cung cấp chuyên gia về React & React Native <br/> Thoả mãn khách hàng với chất lượng cao nhất. <br/> Tạo dựng cộng đồng kỹ sư React lớn nhất tại Việt Nam.</p>",
   },
   {
     _id: "3",
     image: "GiaTriCotLoi.jpg",
     title: "Giá trị cốt lõi",
     content:
-      "<p>Chuyên về React & React Native <br/> Sẵn sàng 24/7 <br/>Đẳng cấp thế giới<br/> Khả năng tăng trưởng, mở rộng nhanh<br/> Phản hồi ngay lập tức</p>",
+      "<p>Chuyên biệt về React <br/> Khả năng tăng trưởng nhanh <br/>Chuyên gia thực sự <br/>Phải hồi ngay tức thì</p>",
   },
 ];
 

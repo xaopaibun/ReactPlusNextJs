@@ -52,7 +52,7 @@ const Home = ({ data }) => {
         <title>Trang Chủ React Plus</title>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/assets/icon/icon_tab.png" />
         <meta property="og:title" content="Trang Chủ React Plus" key="title" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta
@@ -105,8 +105,7 @@ const Home = ({ data }) => {
                 React Plus cung cấp các chuyên gia hàng đầu về React cho thị
                 trường quốc tế. Chúng tôi tập trung toàn bộ vào công nghệ React
                 - React Native và mang tới dịch vụ chất lượng cao nhất cho khách
-                hàng ở 4 mảng: Phát triển web, ứng dụng di động, phòng lap và
-                hợp đồng.
+                hàng ở 2 mảng: Phát triển web và ứng dụng di động.
               </p>
               <div className="box-item">
                 <div className="item">
@@ -123,7 +122,7 @@ const Home = ({ data }) => {
                     <img src="/assets/images/img02.svg" alt="" />
                   </div>
                   <p className="item__content">
-                    Quy mô 130 nhân sự và 100% dự án làm về React
+                    Quy mô 151 nhân sự và 100% dự án làm về React
                   </p>
                 </div>
                 <div className="item">

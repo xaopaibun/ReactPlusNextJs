@@ -13,7 +13,7 @@ const ViCongDong = ({ data }) => {
     <div>
       <Head>
         <title>Vì cộng đồng</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/assets/icon/icon_tab.png" />
       </Head>
       <Menu />
       <div className="main">

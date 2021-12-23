@@ -80,7 +80,7 @@ const UngVienTiemNang = () => {
     <>
       <Head>
         <title>Điền form ứng viên đăng ký tiềm năng</title>
-        
+        <link rel="icon" href="/assets/icon/icon_tab.png" />
       </Head>
       {isShow && (
         <PopupThanks

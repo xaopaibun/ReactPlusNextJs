@@ -16,6 +16,7 @@ const Career = ({ data }) => {
     <>
       <Head>
         <title>Tuyển dụng React Plus</title>
+        <link rel="icon" href="/assets/icon/icon_tab.png" />
         <meta
           property="og:image"
           content="http://103.237.145.33:3000/uploads/image/image/19/ReactPlus-Cty.jpg"
@@ -32,8 +33,8 @@ const Career = ({ data }) => {
               </div>
               <div className="contact-phone-hotline">
                 <p className="hotline">Hotline</p>
-                <a className="phone-number" tel={"0349177306"}>
-                  034 9177 306
+                <a className="phone-number" tel={"0986262305"}>
+                  098 6262 305
                 </a>
               </div>
             </div>

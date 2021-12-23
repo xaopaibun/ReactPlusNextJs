@@ -111,7 +111,7 @@ const Form_Tham_Gia_Khoa_Hoc = () => {
     <>
       <Head>
         <title>Form đăng ký tham gia khóa học</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/assets/icon/icon_tab.png" />
       </Head>
       {isShow && (
         <PopupThanks

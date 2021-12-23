@@ -88,7 +88,7 @@ const FormTuyenDung = () => {
     <>
       <Head>
         <title>Điền form</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/assets/icon/icon_tab.png" />
       </Head>
       {isShow && (
         <PopupThanks

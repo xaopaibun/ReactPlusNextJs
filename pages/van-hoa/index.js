@@ -80,7 +80,7 @@ const VanHoa = ({ data }) => {
     <>
       <Head>
         <title>Văn Hóa</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/assets/icon/icon_tab.png" />
       </Head>
       <div className={"header"}>
         <Menu isColor={true} />
