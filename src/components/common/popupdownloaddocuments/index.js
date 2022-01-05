@@ -26,7 +26,7 @@ const PopupDownloadDocuments = (props) => {
       await post_document_users(values)
         .then((res) => {
           window.open(
-            "https://drive.google.com/drive/folders/1BKiBKER7vLgz-CfgX_VEpNCsINp_nB5R?usp=sharing",
+            "https://drive.google.com/drive/u/0/folders/1e8UBXV_gTm3I9ahSfD0AMyuqhlMNR6V7",
             "_blank"
           );
           props.onHide();
@@ -48,7 +48,7 @@ const PopupDownloadDocuments = (props) => {
             <div className="pop-popup">
               <button className="btn-close-modal" onClick={props.onHide}>
                 <img
-                  src="../../assets/icon/X.png"
+                  src="/assets/icon/X.png"
                   width="20px"
                   height="20px"
                   alt=""
@@ -57,13 +57,13 @@ const PopupDownloadDocuments = (props) => {
               <div className="pop-popup-header">
                 <div className="icont-popup">
                   <img
-                    src="../../assets/icon/tailieu.png"
+                    src="/assets/icon/tailieu.png"
                     width={"85px"}
                     height={"85px"}
                     alt=""
                   />
                   <img
-                    src="../../assets/icon/download.png"
+                    src="/assets/icon/download.png"
                     width={"24px"}
                     height={"24px"}
                     className="img-position"

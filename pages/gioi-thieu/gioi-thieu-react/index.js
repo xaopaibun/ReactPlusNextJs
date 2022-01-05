@@ -165,7 +165,7 @@ const IntroduceReact = ({ data }) => {
                   <img
                     className="btnmore__icon"
                     src="/assets/icon/muiten-white.svg"
-                  />;
+                  />
                 </button>
                 <img
                   src="/assets/images/img46.svg"
