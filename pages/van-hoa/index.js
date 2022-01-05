@@ -279,8 +279,8 @@ const VanHoa = ({ data }) => {
                   <div className="award-item-img">
                     <img
                       src={"/assets/images/" + value.image}
-                      height={"auto"}
-                      width={"auto"}
+                      height={"125px"}
+                      width={"125px"}
                     />
                   </div>
                   <div className="award-item-content">

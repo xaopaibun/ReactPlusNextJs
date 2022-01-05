@@ -57,31 +57,57 @@ export const Year = [
 export const Award = [
   {
     _id: "1",
-    title: "Giải thưởng anh hùng lao động nhiều hạng",
-    content:
-      "Cập nhật mới cho phép nhà phát triển làm gì đó đại loại vậy nhà phát triển làm gì đó đại loại vậy",
-    image: "img47.svg",
+    title: "Giải Nhân viên suất sắc nhất",
+    content: "Cá nhân nam và nữ có thành tích xuất sắc nhất trong năm",
+    image: "1.jpg",
   },
   {
     _id: "2",
-    title: "Giải thưởng nông dân tiêu biểu của tháng",
-    content:
-      "Cập nhật mới cho phép nhà phát triển làm gì đó đại loại vậy nhà phát triển làm gì đó đại loại vậy",
-    image: "img48.svg",
+    title: "Giải PM xuất sắc nhất",
+    content: "Cá nhân thể hiện tốt nhất trong các dự án",
+    image: "2.jpg",
   },
   {
     _id: "3",
-    title: "Giải thưởng tập thể văn hoá ",
-    content:
-      "Cập nhật mới cho phép nhà phát triển làm gì đó đại loại vậy nhà phát triển làm gì đó đại loại vậy",
-    image: "img49.svg",
+    title: "Giải Wonder Kid",
+    content: "Nhân viên trẻ phát triển nhanh nhất trong năm",
+    image: "3.jpg",
   },
   {
     _id: "4",
-    title: "Giải thưởng anh hùng lao động nhiều hạng",
-    content:
-      "Cập nhật mới cho phép nhà phát triển làm gì đó đại loại vậy nhà phát triển làm gì đó đại loại vậy",
-    image: "img47.svg",
+    title: "Giải Hiệp sĩ môi trường",
+    content: "Cô lao công luôn là người được nhận",
+    image: "4.jpg",
+  },
+  {
+    _id: "5",
+    title: "Giải Division xuất sắc nhất ",
+    content: "Division có nhiều đóng góp nhất cho công ty",
+    image: "5.jpg",
+  },
+  {
+    _id: "6",
+    title: "Giải Team dự án xuất sắc nhất",
+    content: "Team vận hành dự án trọng điểm thành công nhất",
+    image: "6.jpg",
+  },
+  {
+    _id: "7",
+    title: "Giải Team phát triển nhanh nhất",
+    content: "Division phát triển chất lượng nhân sự nhanh nhất",
+    image: "7.jpg",
+  },
+  {
+    _id: "8",
+    title: "Giải Team triển vọng",
+    content: "Division có tiềm năng phát triển mạnh mẽ nhất",
+    image: "8.jpg",
+  },
+  {
+    _id: "9",
+    title: "Giải Cá nhân cống hiến",
+    content: "Cá nhân có cống hiến quan trọng cho sự phát triển của công ty",
+    image: "9.jpg",
   },
 ];
 export const ListNews = [
@@ -205,7 +231,8 @@ export const ListItem = [
     _id: "1",
     image: "TamNhin.jpg",
     title: "Tầm nhìn",
-    content: "Khẳng định vị trí tiên phong với vai trò là công ty đầu tiên và lớn nhất chuyên về React trên thị trường.",
+    content:
+      "Khẳng định vị trí tiên phong với vai trò là công ty đầu tiên và lớn nhất chuyên về React trên thị trường.",
   },
   {
     _id: "2",

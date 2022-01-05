@@ -312,7 +312,6 @@ const RegularEvent = ({ data }) => {
           width: 25%;
           display: flex;
           flex-direction: column;
-          justify-content: center;
           align-items: center;
         }
         .box-team-of-experts .item-experts .item__img {
