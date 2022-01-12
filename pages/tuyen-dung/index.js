@@ -1,6 +1,6 @@
 import Menu from "../../src/components/menu";
 import Head from "next/head";
-import { ListAppliedPosition, _7Step } from "../../src/config";
+import { IMAGE_META, ListAppliedPosition, _7Step } from "../../src/config";
 import { useRouter } from "next/router";
 import Footer from "../../src/components/footer";
 import JoinNow from "../../src/components/common/thamgiangay";
@@ -19,7 +19,7 @@ const Career = ({ data }) => {
         <link rel="icon" href="/assets/icon/icon_tab.png" />
         <meta
           property="og:image"
-          content="http://103.237.145.33:3000/uploads/image/image/19/ReactPlus-Cty.jpg"
+          content={IMAGE_META}
         />
       </Head>
       <div className="header">

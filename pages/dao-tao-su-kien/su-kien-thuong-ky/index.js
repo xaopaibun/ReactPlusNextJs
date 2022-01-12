@@ -25,16 +25,12 @@ const RegularEvent = ({ data }) => {
       <Head>
         <title>Các sự kiện thường kỳ</title>
         <link rel="icon" href="/assets/icon/icon_tab.png" />
-        <meta
-          property="og:image"
-          content="http://103.237.145.33:3000/uploads/image/image/19/ReactPlus-Cty.jpg"
-        />
       </Head>
       <Menu />
       <div className="main">
         <div className="image-page">
           <img
-            src="http://103.237.145.33:3000/uploads/image/image/20/ta%CC%82%CC%80m_nhi%CC%80n.jpg"
+            src="https://reactplus.vn/uploads/image/image/20/ta%CC%82%CC%80m_nhi%CC%80n.jpg"
             width={"100%"}
             height={"100%"}
           />

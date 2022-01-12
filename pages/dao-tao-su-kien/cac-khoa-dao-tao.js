@@ -6,6 +6,7 @@ import { TeachingStaff } from "../../src/components/common";
 
 import { get_training_page, URL } from "../../src/services/api";
 import JoinNowCourse from "../../src/components/common/dangkythamgia";
+import { IMAGE_META } from "../../src/config";
 
 const EventTraining = ({ data_training_page }) => {
   return (
@@ -15,7 +16,7 @@ const EventTraining = ({ data_training_page }) => {
         <link rel="icon" href="/assets/icon/icon_tab.png" />
         <meta
           property="og:image"
-          content="http://103.237.145.33:3000/uploads/image/image/19/ReactPlus-Cty.jpg"
+          content={IMAGE_META}
         />
       </Head>
       <Menu />
