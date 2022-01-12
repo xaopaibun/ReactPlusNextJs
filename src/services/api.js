@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const URL = `http://103.237.145.33:3000`;
+export const URL = `https://reactplus.vn`;
 
 const instance = axios.create({
   baseURL: `${URL}/api/v1`,

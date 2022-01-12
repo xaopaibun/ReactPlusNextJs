@@ -19,6 +19,7 @@ import {
   URL,
 } from "../src/services/api";
 import { useRouter } from "next/router";
+import { IMAGE_META } from "../src/config";
 const Home = ({ data }) => {
   const router = useRouter();
   const [isShow, setShow] = useState(false);
@@ -41,7 +42,6 @@ const Home = ({ data }) => {
         // setFieldValue(values.email, "");
         setShow(true);
         values.email = "";
-        console.log(values.email);
       });
     },
   });
@@ -57,7 +57,7 @@ const Home = ({ data }) => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta
           property="og:image"
-          content="http://103.237.145.33:3000/uploads/image/image/19/ReactPlus-Cty.jpg"
+          content={IMAGE_META}
         />
       </Head>
 

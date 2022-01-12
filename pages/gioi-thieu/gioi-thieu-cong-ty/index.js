@@ -1,7 +1,7 @@
 import Footer from "../../../src/components/footer";
 import Head from "next/head";
 import Menu from "../../../src/components/menu";
-import { ListItem } from "../../../src/config/index";
+import { IMAGE_META, ListItem } from "../../../src/config/index";
 import { get_members, URL } from "../../../src/services/api";
 
 const GioiThieu = ({ data }) => {
@@ -12,7 +12,7 @@ const GioiThieu = ({ data }) => {
         <link rel="icon" href="/assets/icon/icon_tab.png" />
         <meta
           property="og:image"
-          content="http://103.237.145.33:3000/uploads/image/image/19/ReactPlus-Cty.jpg"
+          content={IMAGE_META}
         />
       </Head>
       <Menu />
