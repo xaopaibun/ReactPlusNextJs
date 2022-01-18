@@ -34,7 +34,7 @@ const NewsBlogDetail = () => {
   return (
     <>
       <Head>
-        <title>{slug}</title>
+        <title>{news_detail?.title}</title>
         <link rel="icon" href="/assets/icon/icon_tab.png" />
       </Head>
       <Menu />
@@ -212,7 +212,7 @@ const NewsBlogDetail = () => {
           margin-top: 70px;
         }
         .container-content {
-          width: 600px;
+          width: 800px;
           margin: 0 auto;
         }
         .content-1 {
@@ -298,6 +298,12 @@ const NewsBlogDetail = () => {
             width: 289px;
             height: 193px;
           }
+
+          .content-1 p img,
+          .text-content p img {
+            width: 50% !important;
+          }
+          
           .list-posts::-webkit-scrollbar {
             display: none;
           }
@@ -338,6 +344,7 @@ const NewsBlogDetail = () => {
           .container-content {
             width: 100%;
           }
+
           .event-is-happening .container {
             margin: 0;
           }
@@ -347,6 +354,10 @@ const NewsBlogDetail = () => {
           }
           .marginTop {
             margin-top: 0;
+          }
+          .conatainer img {
+            width: 100% !important;
+            height: auto !important;
           }
         }
       `}</style>
