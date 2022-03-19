@@ -352,7 +352,7 @@ const Career = ({ data }) => {
           background: #ffffff;
           box-shadow: 0px 4px 4px 1px rgba(0, 0, 0, 0.05);
           border-radius: 8px;
-          width: 30.399%;
+          width: 30.396%;
           display: flex;
           flex-direction: column;
           justify-content: space-between;

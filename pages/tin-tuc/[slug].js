@@ -10,23 +10,8 @@ import {
 } from "../../src/services/api";
 import { useEffect, useState } from "react";
 import { domain } from "../../src/config";
-const NewsBlogDetail = () => {
-  const router = useRouter();
-  const { slug } = router.query;
-  const [news_detail, setNews_Detail] = useState();
-  const [postConcernings, setPostConcernings] = useState();
-  useEffect(async () => {
-    if (slug) {
-      const res = await get_news_detail(slug);
-      setNews_Detail(res.data);
-    }
-  }, [slug]);
-
-  useEffect(async () => {
-    const res_ = await get_post_concernings();
-    setPostConcernings(res_.data);
-  }, []);
-
+const NewsBlogDetail = ({ newsDetail, postConcernings }) => {
+  const { slug } = useRouter();
   const copyToClipboard = (e) => {
     document.execCommand("copy");
     alert("Copied link thành công!");
@@ -34,7 +19,7 @@ const NewsBlogDetail = () => {
   return (
     <>
       <Head>
-        <title>{news_detail?.title}</title>
+        <title>{newsDetail?.title}</title>
         <link rel="icon" href="/assets/icon/icon_tab.png" />
       </Head>
       <Menu />
@@ -64,7 +49,7 @@ const NewsBlogDetail = () => {
               </button>
             </div>
             <div className="box-content">
-              <h1 className="title-news-detail">{news_detail?.title}</h1>
+              <h1 className="title-news-detail">{newsDetail?.title}</h1>
               <div style={{ position: "relative" }}>
                 <img src="/assets/icon/ellip.png" width="44px" height="44px" />
                 <img
@@ -82,15 +67,15 @@ const NewsBlogDetail = () => {
 
               <p className="title2-news-detail">
                 React Plus Corp <br />
-                {news_detail?.start_date_string}
+                {newsDetail?.start_date_string}
               </p>
             </div>
           </div>
         </div>
-        {news_detail?.first_image.url && (
+        {newsDetail?.first_image.url && (
           <div className="image-page">
             <img
-              src={`${URL}${news_detail?.first_image.url}`}
+              src={`${URL}${newsDetail?.first_image.url}`}
               width="100%"
               height="100%"
               alt="Error Image"
@@ -102,7 +87,7 @@ const NewsBlogDetail = () => {
           <div
             className="content-1"
             dangerouslySetInnerHTML={{
-              __html: news_detail?.introduction,
+              __html: newsDetail?.introduction,
             }}
           ></div>
           <img
@@ -116,7 +101,7 @@ const NewsBlogDetail = () => {
           <div
             className="text-content"
             dangerouslySetInnerHTML={{
-              __html: news_detail?.content,
+              __html: newsDetail?.content,
             }}
           />
 
@@ -303,7 +288,7 @@ const NewsBlogDetail = () => {
           .text-content p img {
             width: 50% !important;
           }
-          
+
           .list-posts::-webkit-scrollbar {
             display: none;
           }
@@ -364,5 +349,19 @@ const NewsBlogDetail = () => {
     </>
   );
 };
+
+export async function getServerSideProps({ params }) {
+  const { slug } = params;
+  try {
+    const res = await get_news_detail(slug);
+    const res_ = await get_post_concernings();
+    return res && res_
+      ? { props: { newsDetail: res.data, postConcernings: res_.data } }
+      : { notFound: true };
+  } catch (error) {
+    console.error(error);
+    return { notFound: true };
+  }
+}
 
 export default NewsBlogDetail;

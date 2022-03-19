@@ -74,7 +74,7 @@ const SlideItem = ({ TimeLineEvent }) => {
           customLeftArrow={<CustomLeftArrow />}
           customRightArrow={<CustomRightArrow />}
         >
-          {TimeLineEvent.map((val) => (
+          {TimeLineEvent.reverse().map((val) => (
             <div className="education__item" key={val.id}>
               <p className="education__item__time">
                 {" "}

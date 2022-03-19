@@ -5,28 +5,13 @@ import Footer from "../../src/components/footer";
 import { useRouter } from "next/router";
 import { get_job_concerning, get_text_job } from "../../src/services/api";
 import { useEffect, useState } from "react";
-const CareerDetal = () => {
-  const [data, setdata] = useState([]);
+const CareerDetal = ({ data }) => {
   const router = useRouter();
   const { slug } = router.query;
   const handleSubmit = (slug) =>
     router.push(`/tuyen-dung/form-tuyen-dung/${slug}`);
   const handleTiemNang = () =>
     router.push("/tuyen-dung/dang-ky-ung-vien-tiem-nang");
-  useEffect(async () => {
-    if (slug) {
-      const [_get_text_job, _get_job_concerning] = await Promise.all([
-        get_text_job(slug),
-        get_job_concerning(),
-      ]);
-      const data_job = await Promise.all([
-        _get_text_job.data,
-        _get_job_concerning.data,
-      ]);
-      console.log(data_job);
-      setdata(data_job);
-    }
-  }, [slug]);
   return (
     <>
       <Head>
@@ -133,7 +118,7 @@ const CareerDetal = () => {
                   <div className="job-item" key={val.id}>
                     <div className="border-blue " />
                     <div className="job-item-content">
-                      <Link href={`/tuyen-dung/chi-tiet-form/${val.url_seo}`}>
+                      <Link href={`/tuyen-dung/${val.url_seo}`}>
                         <a className="job-item-text">{val.title}</a>
                       </Link>
 
@@ -432,21 +417,22 @@ const CareerDetal = () => {
   );
 };
 
-// export async function getServerSideProps(slug) {
-//   const [_get_text_job, _get_job_concerning] = await Promise.all([
-//     get_text_job(slug),
-//     get_job_concerning(),
-//   ]);
-//   const data = await Promise.all([
-//     _get_text_job.data,
-//     _get_job_concerning.data,
-//   ]);
-
-//   return {
-//     props: {
-//       data: data,
-//     },
-//   };
-// }
+export async function getServerSideProps({ params }) {
+  const { slug } = params;
+  try {
+    const [_get_text_job, _get_job_concerning] = await Promise.all([
+      get_text_job(slug),
+      get_job_concerning(),
+    ]);
+    const data = await Promise.all([
+      _get_text_job.data,
+      _get_job_concerning.data,
+    ]);
+    return data ? { props: { data } } : { notFound: true };
+  } catch (error) {
+    console.error(error);
+    return { notFound: true };
+  }
+}
 
 export default CareerDetal;

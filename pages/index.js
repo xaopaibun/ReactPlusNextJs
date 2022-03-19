@@ -55,9 +55,13 @@ const Home = ({ data }) => {
         <link rel="icon" href="/assets/icon/icon_tab.png" />
         <meta property="og:title" content="Trang Chủ React Plus" key="title" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta property="og:image" content={IMAGE_META} />
         <meta
-          property="og:image"
-          content={IMAGE_META}
+          name="description"
+          content="React Plus cung cấp các chuyên gia hàng đầu về React cho thị
+          trường quốc tế. Chúng tôi tập trung toàn bộ vào công nghệ React
+          - React Native và mang tới dịch vụ chất lượng cao nhất cho khách
+          hàng ở 2 mảng: Phát triển web và ứng dụng di động."
         />
       </Head>
 
@@ -170,10 +174,7 @@ const Home = ({ data }) => {
                         __html: data[1].training?.content,
                       }}
                     />
-                    <button
-                      className="btnmore"
-                      onClick={() => NaviDetailTraining()}
-                    >
+                    <button className="btnmore" onClick={NaviDetailTraining}>
                       <span>Tìm hiểu thêm</span>
                       <img
                         className="btnmore__icon"
@@ -198,10 +199,7 @@ const Home = ({ data }) => {
                         __html: data[1].event?.introduction,
                       }}
                     />
-                    <button
-                      className="btnmore"
-                      onClick={() => NaviDetailEvent()}
-                    >
+                    <button className="btnmore" onClick={NaviDetailEvent}>
                       <span>Tìm hiểu thêm</span>
                       <img
                         className="btnmore__icon"

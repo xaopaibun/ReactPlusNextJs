@@ -3,33 +3,27 @@ import ReCAPTCHA from "react-google-recaptcha";
 import Menu from "../../../src/components/menu";
 import Footer from "../../../src/components/footer";
 import { TextField } from "@mui/material";
-import { Day, KEY_CAPTCHA, Month, phoneRegExp, Year } from "../../../src/config";
+import {
+  Day,
+  KEY_CAPTCHA,
+  Month,
+  phoneRegExp,
+  Year,
+} from "../../../src/config";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { useEffect, useState } from "react";
-
+import { useState } from "react";
 import PopupThanks from "../../../src/components/common/popupthanks";
 import {
   get_text_job,
   post_register_candidates,
 } from "../../../src/services/api";
-import { useRouter } from "next/router";
 
-const FormTuyenDung = () => {
+const FormTuyenDung = ({ title }) => {
   function onChange(value) {
     console.log("Captcha value:", value);
   }
-  const router = useRouter();
-  const { slug } = router.query;
   const [isShow, setShow] = useState(false);
-  const [title, settitle] = useState("");
-  useEffect(async () => {
-    if (slug) {
-      get_text_job(slug).then((res) => {
-        settitle(res.data.title);
-      });
-    }
-  }, [slug]);
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -286,10 +280,7 @@ const FormTuyenDung = () => {
             ></textarea>
             <div className="birtday">
               <div className="birtday-left">
-                <ReCAPTCHA
-                  sitekey= {KEY_CAPTCHA}
-                  onChange={onChange}
-                />
+                <ReCAPTCHA sitekey={KEY_CAPTCHA} onChange={onChange} />
               </div>
               <div className="birtday-right">
                 <button
@@ -550,5 +541,17 @@ const FormTuyenDung = () => {
     </>
   );
 };
+
+export async function getServerSideProps({ params }) {
+  const { slug } = params;
+  try {
+    const res = await get_text_job(slug);
+    const { data } = res;
+    return data ? { props: { title: data.title } } : { notFound: true };
+  } catch (error) {
+    console.error(error);
+    return { notFound: true };
+  }
+}
 
 export default FormTuyenDung;
