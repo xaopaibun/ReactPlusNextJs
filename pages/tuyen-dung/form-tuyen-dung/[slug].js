@@ -83,6 +83,9 @@ const FormTuyenDung = ({ title }) => {
       <Head>
         <title>Điền form</title>
         <link rel="icon" href="/assets/icon/icon_tab.png" />
+        <meta name="description" content={title} />
+        <meta itemprop="name" content={title} />
+        <meta itemprop="description" content={title} />
       </Head>
       {isShow && (
         <PopupThanks

@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { useEffect } from "react";
 import Menu from "../../src/components/menu";
 import Link from "next/link";
 import Footer from "../../src/components/footer";
@@ -8,19 +9,28 @@ import {
   get_post_concernings,
   URL,
 } from "../../src/services/api";
-import { useEffect, useState } from "react";
 import { domain } from "../../src/config";
 const NewsBlogDetail = ({ newsDetail, postConcernings }) => {
-  const { slug } = useRouter();
+  const router = useRouter();
+  const { slug } = router.query;
+
   const copyToClipboard = (e) => {
     document.execCommand("copy");
     alert("Copied link thành công!");
   };
+
   return (
     <>
       <Head>
-        <title>{newsDetail?.title}</title>
+        <title>{newsDetail.title}</title>
         <link rel="icon" href="/assets/icon/icon_tab.png" />
+        <meta name="description" content={newsDetail.title} />
+        <meta itemprop="name" content={newsDetail.title} />
+        <meta itemprop="description" content={newsDetail.title} />
+        <meta
+          itemprop="image"
+          content={`${URL}${newsDetail.first_image.url}`}
+        />
       </Head>
       <Menu />
       <div className="main">
@@ -49,7 +59,7 @@ const NewsBlogDetail = ({ newsDetail, postConcernings }) => {
               </button>
             </div>
             <div className="box-content">
-              <h1 className="title-news-detail">{newsDetail?.title}</h1>
+              <h1 className="title-news-detail">{newsDetail.title}</h1>
               <div style={{ position: "relative" }}>
                 <img src="/assets/icon/ellip.png" width="44px" height="44px" />
                 <img
@@ -67,15 +77,15 @@ const NewsBlogDetail = ({ newsDetail, postConcernings }) => {
 
               <p className="title2-news-detail">
                 React Plus Corp <br />
-                {newsDetail?.start_date_string}
+                {newsDetail.start_date_string}
               </p>
             </div>
           </div>
         </div>
-        {newsDetail?.first_image.url && (
+        {newsDetail.first_image.url && (
           <div className="image-page">
             <img
-              src={`${URL}${newsDetail?.first_image.url}`}
+              src={`${URL}${newsDetail.first_image.url}`}
               width="100%"
               height="100%"
               alt="Error Image"
@@ -87,7 +97,7 @@ const NewsBlogDetail = ({ newsDetail, postConcernings }) => {
           <div
             className="content-1"
             dangerouslySetInnerHTML={{
-              __html: newsDetail?.introduction,
+              __html: newsDetail.introduction,
             }}
           ></div>
           <img
@@ -101,7 +111,7 @@ const NewsBlogDetail = ({ newsDetail, postConcernings }) => {
           <div
             className="text-content"
             dangerouslySetInnerHTML={{
-              __html: newsDetail?.content,
+              __html: newsDetail.content,
             }}
           />
 

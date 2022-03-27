@@ -4,7 +4,6 @@ import Menu from "../../src/components/menu";
 import Footer from "../../src/components/footer";
 import { useRouter } from "next/router";
 import { get_job_concerning, get_text_job } from "../../src/services/api";
-import { useEffect, useState } from "react";
 const CareerDetal = ({ data }) => {
   const router = useRouter();
   const { slug } = router.query;
@@ -17,6 +16,9 @@ const CareerDetal = ({ data }) => {
       <Head>
         <title>Chi Tiết Tuyển dụng React Plus</title>
         <link rel="icon" href="/assets/icon/icon_tab.png" />
+        <meta name="description" content={data[0].title} />
+        <meta itemprop="name" content={data[0].title} />
+        <meta itemprop="description" content={data[0].title} />
       </Head>
 
       <div className="header">

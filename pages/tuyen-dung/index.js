@@ -17,10 +17,7 @@ const Career = ({ data }) => {
       <Head>
         <title>Tuyển dụng React Plus</title>
         <link rel="icon" href="/assets/icon/icon_tab.png" />
-        <meta
-          property="og:image"
-          content={IMAGE_META}
-        />
+        <meta property="og:image" content={IMAGE_META} />
       </Head>
       <div className="header">
         <Menu isColor={true} />
