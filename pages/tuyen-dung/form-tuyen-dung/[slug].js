@@ -12,7 +12,7 @@ import {
 } from "../../../src/config";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { useState } from "react";
+import { createRef, useState } from "react";
 import PopupThanks from "../../../src/components/common/popupthanks";
 import {
   get_text_job,
@@ -20,9 +20,13 @@ import {
 } from "../../../src/services/api";
 
 const FormTuyenDung = ({ title }) => {
-  function onChange(value) {
+  const recaptchaRef = createRef();
+
+  async function onChange(value) {
     console.log("Captcha value:", value);
+    //console.log(await recaptchaRef.current.execute());
   }
+
   const [isShow, setShow] = useState(false);
   const formik = useFormik({
     initialValues: {
@@ -57,12 +61,16 @@ const FormTuyenDung = ({ title }) => {
         formData.append(value, values[value]);
       }
       formData.append("title", title);
-      await post_register_candidates(formData)
-        .then((res) => {
-          handleReset();
-          setShow(true);
-        })
-        .catch((err) => console.log(err));
+
+      const token = await recaptchaRef.current.executeAsync();
+      if (token) {
+        await post_register_candidates(formData)
+          .then((res) => {
+            handleReset();
+            setShow(true);
+          })
+          .catch((err) => console.log(err));
+      }
     },
   });
   const { setFieldValue } = formik;
@@ -283,7 +291,11 @@ const FormTuyenDung = ({ title }) => {
             ></textarea>
             <div className="birtday">
               <div className="birtday-left">
-                <ReCAPTCHA sitekey={KEY_CAPTCHA} onChange={onChange} />
+                <ReCAPTCHA
+                  sitekey={KEY_CAPTCHA}
+                  ref={recaptchaRef}
+                  onChange={onChange}
+                />
               </div>
               <div className="birtday-right">
                 <button
